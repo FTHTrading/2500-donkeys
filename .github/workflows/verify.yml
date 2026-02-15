@@ -6,10 +6,9 @@
 # only public Polygon RPC endpoints.
 #
 # IMPORTANT: Genesis roots were computed on Windows (CRLF line
-# endings). To reproduce identical SHA-256 hashes in CI (Ubuntu),
-# we set core.autocrlf=true so checkout converts LF→CRLF,
-# matching the byte-for-byte content used to compute the
-# original Merkle roots anchored on-chain.
+# endings). .gitattributes forces manuscript/*.md and artifacts/*.md
+# to use eol=crlf on checkout, ensuring identical SHA-256 hashes
+# across platforms for provenance verification.
 #
 # Pipeline: build (compile+merkle+hash+manifest) → hardhat test → verify
 # ──────────────────────────────────────────────────────────────
@@ -30,11 +29,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-
-      - name: Convert line endings to CRLF (match Windows genesis)
-        run: |
-          git config core.autocrlf true
-          git checkout -- .
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -59,11 +53,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-
-      - name: Convert line endings to CRLF (match Windows genesis)
-        run: |
-          git config core.autocrlf true
-          git checkout -- .
 
       - name: Setup Node.js
         uses: actions/setup-node@v4

@@ -1,0 +1,36 @@
+# ──────────────────────────────────────────────────────────────
+# Line Endings — Provenance Hash Consistency
+#
+# Genesis Merkle roots were computed from files with CRLF line
+# endings (Windows). These roots are anchored on-chain (Polygon).
+# To ensure identical SHA-256 hashes across platforms, hashed
+# text files MUST use eol=crlf on checkout.
+# ──────────────────────────────────────────────────────────────
+
+# Standard text normalization (LF everywhere by default)
+*.js text eol=lf
+*.json text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.html text eol=lf
+*.css text eol=lf
+*.sol text eol=lf
+*.py text eol=lf
+*.sh text eol=lf
+*.md text eol=lf
+*.txt text eol=lf
+
+# OVERRIDE: Hashed text files — MUST be CRLF for provenance verification
+# These patterns come LAST so they win over *.md above (.gitattributes = last-match-wins)
+manuscript/*.md text eol=crlf
+artifacts/*.md text eol=crlf
+
+# Binary files — never transform
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.svg binary
+*.mp3 binary
+*.pdf binary
+*.epub binary
+*.ots binary
