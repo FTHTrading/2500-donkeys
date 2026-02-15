@@ -10,7 +10,7 @@
 **Position:** Founder-Architect & Chief Systems Engineer
 **Location:** Norcross, Georgia, United States
 **Email:** kevan.burns@fthtrading.com
-**ORCID:** *(register at https://orcid.org/register — takes 2 minutes)*
+**ORCID:** [0009-0008-8425-939X](https://orcid.org/0009-0008-8425-939X)
 
 ---
 

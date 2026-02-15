@@ -3,8 +3,10 @@
 ## Profile Setup
 
 **Name:** Kevan Burns
-**Affiliation:** Independent Researcher, FTH Trading, Norcross, GA
+**Affiliation:** FTH Trading, Norcross, Georgia, United States
+**Position:** Founder-Architect & Chief Systems Engineer
 **Email:** kevan.burns@fthtrading.com
+**ORCID:** [0009-0008-8425-939X](https://orcid.org/0009-0008-8425-939X)
 **Institution (if needed):** FTH Trading (select "Other" or "Independent")
 **Disciplines:** Information Systems, Digital Publishing, Cryptography, Software Engineering
 

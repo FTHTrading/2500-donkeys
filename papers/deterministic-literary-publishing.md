@@ -12,9 +12,11 @@ license: "CC-BY-4.0"
 Independent Researcher
 FTH Trading, Norcross, GA
 kevan.burns@fthtrading.com
+ORCID: [0009-0008-8425-939X](https://orcid.org/0009-0008-8425-939X)
 
 **Version:** 1.0 — February 15, 2026
 **DOI:** [10.5281/zenodo.18646886](https://doi.org/10.5281/zenodo.18646886)
+**ORCID:** [0009-0008-8425-939X](https://orcid.org/0009-0008-8425-939X)
 **Repository:** https://github.com/FTHTrading/2500-donkeys
 **License:** Creative Commons Attribution 4.0 International (CC BY 4.0)
 
@@ -633,4 +635,5 @@ K. Burns, "Deterministic Literary Publishing: A Multi-Layer Provenance Model for
 
 *Version 1.0 — February 15, 2026*
 *Kevan Burns — Independent Researcher — FTH Trading, Norcross, GA*
+*ORCID: [0009-0008-8425-939X](https://orcid.org/0009-0008-8425-939X)*
 *All on-chain artifacts verified on Polygonscan. Source code: github.com/FTHTrading/2500-donkeys*

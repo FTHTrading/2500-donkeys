@@ -94,16 +94,14 @@ https://xxxiii.io
 
 ---
 
-## ORCID Setup (2 minutes)
+## ORCID
 
-1. Go to https://orcid.org/register
-2. Use name: **Kevan Burns**
-3. Use email: **kevan.burns@fthtrading.com**
-4. Affiliation: **FTH Trading**
-5. After registration, copy your ORCID iD (format: 0000-XXXX-XXXX-XXXX)
-6. Add it to your SSRN profile
-7. Add it to your ResearchGate profile
-8. Come back and update CITATION.cff in the repo
+**ORCID iD:** [0009-0008-8425-939X](https://orcid.org/0009-0008-8425-939X)
+
+**Status:** ✅ Registered and verified (February 15, 2026)
+
+**Add to SSRN:** Author Profile → ORCID field → paste `0009-0008-8425-939X`
+**Add to ResearchGate:** Profile Settings → ORCID → paste `0009-0008-8425-939X`
 
 ORCID signals to indexers and editors that you are building a permanent
 research identity. Google Scholar, Scopus, and Web of Science all use it.

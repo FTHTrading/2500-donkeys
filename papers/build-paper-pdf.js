@@ -204,7 +204,18 @@ body {
   font-size: 9pt;
   color: var(--muted);
   font-family: var(--mono);
+  margin-bottom: 0.04in;
+}
+
+.title-block .orcid {
+  font-size: 8.5pt;
+  color: var(--muted);
   margin-bottom: 0.08in;
+}
+
+.title-block .orcid a {
+  color: var(--link);
+  text-decoration: none;
 }
 
 .title-block .meta-line {
@@ -521,6 +532,7 @@ em {
   <div class="author">Kevan Burns</div>
   <div class="affiliation">Independent Researcher &middot; FTH Trading, Norcross, GA</div>
   <div class="email">kevan.burns@fthtrading.com</div>
+  <div class="orcid">ORCID: <a href="https://orcid.org/0009-0008-8425-939X">0009-0008-8425-939X</a></div>
   <div class="meta-line">
     Version ${meta.version || "1.0"} &mdash; ${meta.date || "2026"}
     &nbsp;|&nbsp;
