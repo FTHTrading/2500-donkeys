@@ -17,7 +17,7 @@
 
 **Date:** February 2026
 
-**DOI:** (add after Zenodo mints it)
+**DOI:** 10.5281/zenodo.18646886
 
 ---
 
@@ -38,7 +38,7 @@ Full paper, source code, and smart contract verification links available in the 
 - **Repository:** https://github.com/FTHTrading/2500-donkeys
 - **Project Site:** https://xxxiii.io
 - **Smart Contract (Primary):** https://polygonscan.com/address/0xca9F6604A9b498DB31d113836E2957c0a9aAE037#code
-- **DOI:** (pending — add after Zenodo)
+- **DOI:** https://doi.org/10.5281/zenodo.18646886
 
 ---
 

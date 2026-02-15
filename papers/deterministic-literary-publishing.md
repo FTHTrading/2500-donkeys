@@ -2,7 +2,7 @@
 title: "Deterministic Literary Publishing: A Multi-Layer Provenance Model for Verifiable Manuscripts"
 version: "1.0"
 date: "February 15, 2026"
-doi: "pending"
+doi: "10.5281/zenodo.18646886"
 license: "CC-BY-4.0"
 ---
 
@@ -12,9 +12,9 @@ license: "CC-BY-4.0"
 Independent Researcher
 FTH Trading, London
 kevan@unykorn.org
-ORCID: *pending*
 
 **Version:** 1.0 — February 15, 2026
+**DOI:** [10.5281/zenodo.18646886](https://doi.org/10.5281/zenodo.18646886)
 **Repository:** https://github.com/FTHTrading/2500-donkeys
 **License:** Creative Commons Attribution 4.0 International (CC BY 4.0)
 
@@ -609,7 +609,8 @@ All artifacts referenced in this paper can be verified using the following publi
   year      = {2026},
   month     = {February},
   version   = {1.0},
-  url       = {https://github.com/FTHTrading/2500-donkeys/tree/master/papers},
+  doi       = {10.5281/zenodo.18646886},
+  url       = {https://doi.org/10.5281/zenodo.18646886},
   note      = {Independent research. Reference implementation deployed on
                Polygon mainnet. All claims verifiable against public
                on-chain state.}
@@ -618,15 +619,15 @@ All artifacts referenced in this paper can be verified using the following publi
 
 ### APA (7th Edition)
 
-Burns, K. (2026). *Deterministic literary publishing: A multi-layer provenance model for verifiable manuscripts* (Version 1.0). Independent research. https://github.com/FTHTrading/2500-donkeys/tree/master/papers
+Burns, K. (2026). *Deterministic literary publishing: A multi-layer provenance model for verifiable manuscripts* (Version 1.0). Independent research. https://doi.org/10.5281/zenodo.18646886
 
 ### Chicago
 
-Burns, Kevan. "Deterministic Literary Publishing: A Multi-Layer Provenance Model for Verifiable Manuscripts." Version 1.0. Independent research, February 2026. https://github.com/FTHTrading/2500-donkeys/tree/master/papers.
+Burns, Kevan. "Deterministic Literary Publishing: A Multi-Layer Provenance Model for Verifiable Manuscripts." Version 1.0. Independent research, February 2026. https://doi.org/10.5281/zenodo.18646886.
 
 ### IEEE
 
-K. Burns, "Deterministic Literary Publishing: A Multi-Layer Provenance Model for Verifiable Manuscripts," Independent research, v1.0, Feb. 2026. [Online]. Available: https://github.com/FTHTrading/2500-donkeys/tree/master/papers
+K. Burns, "Deterministic Literary Publishing: A Multi-Layer Provenance Model for Verifiable Manuscripts," Independent research, v1.0, Feb. 2026. DOI: 10.5281/zenodo.18646886. [Online]. Available: https://doi.org/10.5281/zenodo.18646886
 
 ---
 

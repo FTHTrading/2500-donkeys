@@ -4,6 +4,7 @@
   <img src="https://img.shields.io/badge/IPFS-PINNED-65c2cb?style=for-the-badge&logo=ipfs&logoColor=white" />
   <img src="https://img.shields.io/badge/SOLIDITY-0.8.19-363636?style=for-the-badge&logo=solidity&logoColor=white" />
   <img src="https://img.shields.io/badge/LICENSE-MIT%20%2B%20©-yellow?style=for-the-badge" />
+  <a href="https://doi.org/10.5281/zenodo.18646886"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.18646886.svg" alt="DOI" /></a>
 </p>
 
 <h1 align="center">The 2,500 Donkeys</h1>

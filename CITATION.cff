@@ -34,3 +34,8 @@ keywords:
 license: CC-BY-4.0
 version: "1.0"
 date-released: "2026-02-15"
+doi: 10.5281/zenodo.18646886
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.18646886
+    description: Zenodo archive of v1.0 release

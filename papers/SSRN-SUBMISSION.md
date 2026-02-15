@@ -64,9 +64,20 @@ digital provenance, deterministic publishing, Merkle trees, content integrity, r
 
 ---
 
+## DOI
+
+**DOI:** [10.5281/zenodo.18646886](https://doi.org/10.5281/zenodo.18646886)
+
+Include this DOI in:
+- SSRN abstract (final paragraph)
+- SSRN "Related Links" field
+- Paper PDF front matter
+
+---
+
 ## Post-Submission Updates
 
-Once DOI is minted via Zenodo:
-- Update SSRN abstract to include DOI
-- Add DOI to "Related Links" field
-- Update paper PDF with DOI in front matter
+~~Once DOI is minted via Zenodo:~~ **DONE — DOI minted.**
+- ~~Update SSRN abstract to include DOI~~ ✅
+- Add DOI to "Related Links" field on SSRN
+- ~~Update paper PDF with DOI in front matter~~ ✅
