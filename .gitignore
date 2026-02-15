@@ -7,6 +7,11 @@ Thumbs.db
 # Build outputs
 dist/
 
+# Generated images (large PNGs — tracked via prompts, not binary)
+images/chapters/*.png
+images/cover/*.png
+images/generation-log.json
+
 # Hardhat
 web3/cache/
 web3/artifacts/

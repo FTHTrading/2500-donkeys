@@ -254,12 +254,16 @@ async function buildCover() {
       "The deal expanded in inverse proportion to its certainty."
     </div>
     <div class="blurb" style="font-style: normal; font-size: 10pt;">
-      A satirical novel about belief, brokerage, and 2,500 donkeys
-      purchased for a gold deal that never existed.
-      Reconstructed from a recovered blockchain archive.
+      A satirical novel about phantom gold deals, WhatsApp broker chains,
+      and 2,500 donkeys walking across the Sahel — reconstructed from
+      a cryptographic archive hashed before the deal closed.
     </div>
-    <div class="tagline">
-      Belief travels faster than verification
+    <div class="blurb" style="font-style: normal; font-size: 9pt; color: #999; margin-top: 0.5em;">
+      Every word SHA-256 hashed. Pinned to IPFS. Anchored on Polygon.
+      The first novel whose proof-of-origin is part of the narrative.
+    </div>
+    <div class="tagline" style="margin-top: 1.2em;">
+      Verify at xxxiii.io
     </div>
     <div class="barcode-area">
       [ISBN BARCODE]

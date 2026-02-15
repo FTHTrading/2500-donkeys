@@ -24,7 +24,7 @@
       <p class="hero-sub">Hashed before the deal closed. Anchored on Polygon. Pinned to IPFS.</p>
       <div class="hero-actions">
         <a href="#read" class="btn btn-primary">Read the Opening</a>
-        <a href="#proof" class="btn btn-ghost">Verify the Proof</a>
+        <a href="#verify" class="btn btn-ghost">Verify the Proof</a>
       </div>
     </div>
   </header>
@@ -182,6 +182,145 @@
     </div>
   </section>
 
+  <!-- ═══════ VERIFY ═══════ -->
+  <section id="verify" class="section section-dark">
+    <div class="container narrow">
+      <h2>Verify It Yourself</h2>
+      <p>This novel is the first literary work whose authenticity can be independently verified by anyone. No trust required. No intermediary. Just math.</p>
+
+      <!-- Verify: Hash Check -->
+      <div class="verify-card">
+        <div class="verify-header">
+          <span class="verify-num">01</span>
+          <h4>Hash the Manuscript</h4>
+        </div>
+        <p class="verify-desc">Drop the compiled manuscript file below or paste its contents. Your browser computes a SHA-256 hash locally &mdash; nothing is uploaded anywhere.</p>
+        <div class="verify-dropzone" id="dropzone">
+          <div class="dropzone-content">
+            <svg class="dropzone-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+            <span>Drop <code>compiled-manuscript.md</code> here</span>
+            <span class="dropzone-or">or</span>
+            <label class="btn btn-ghost btn-sm" for="fileInput">Choose File</label>
+            <input type="file" id="fileInput" style="display:none" accept=".md,.txt">
+          </div>
+        </div>
+        <div class="verify-result" id="hashResult" style="display:none">
+          <div class="verify-status" id="hashStatus">
+            <span class="status-icon" id="hashIcon"></span>
+            <span class="status-text" id="hashText"></span>
+          </div>
+          <div class="hash-compare">
+            <div class="hash-row">
+              <span class="hash-label">Your file</span>
+              <code class="hash-value" id="userHash">—</code>
+            </div>
+            <div class="hash-row">
+              <span class="hash-label">Canonical</span>
+              <code class="hash-value canonical">9d062421b52d35aa23b73bfc8f66574db78bad9726e45c43a12d0109cdd57d84</code>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Verify: IPFS -->
+      <div class="verify-card">
+        <div class="verify-header">
+          <span class="verify-num">02</span>
+          <h4>Retrieve from IPFS</h4>
+        </div>
+        <p class="verify-desc">The manuscript is pinned to IPFS. The CID <em>is</em> the content &mdash; if even one byte changes, the CID changes. Click below to fetch it from any public gateway.</p>
+        <div class="verify-links">
+          <a href="https://ipfs.io/ipfs/QmPXtEsRwiWuaKmKNA569XAqFNVySN8pwTdGQrvcdpgtMa" target="_blank" rel="noopener" class="verify-link">
+            <span class="link-gateway">ipfs.io</span>
+            <span class="link-arrow">&rarr;</span>
+          </a>
+          <a href="https://gateway.pinata.cloud/ipfs/QmPXtEsRwiWuaKmKNA569XAqFNVySN8pwTdGQrvcdpgtMa" target="_blank" rel="noopener" class="verify-link">
+            <span class="link-gateway">pinata.cloud</span>
+            <span class="link-arrow">&rarr;</span>
+          </a>
+          <a href="https://cloudflare-ipfs.com/ipfs/QmPXtEsRwiWuaKmKNA569XAqFNVySN8pwTdGQrvcdpgtMa" target="_blank" rel="noopener" class="verify-link">
+            <span class="link-gateway">cloudflare</span>
+            <span class="link-arrow">&rarr;</span>
+          </a>
+          <a href="https://dweb.link/ipfs/QmPXtEsRwiWuaKmKNA569XAqFNVySN8pwTdGQrvcdpgtMa" target="_blank" rel="noopener" class="verify-link">
+            <span class="link-gateway">dweb.link</span>
+            <span class="link-arrow">&rarr;</span>
+          </a>
+        </div>
+        <div class="verify-cid">
+          <span class="cid-label">Edition 2 CID</span>
+          <code class="cid-value" id="cidValue">QmPXtEsRwiWuaKmKNA569XAqFNVySN8pwTdGQrvcdpgtMa</code>
+          <button class="btn-copy" id="copyCid" title="Copy CID">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="16" height="16"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Verify: On-Chain -->
+      <div class="verify-card">
+        <div class="verify-header">
+          <span class="verify-num">03</span>
+          <h4>Read the Smart Contract</h4>
+        </div>
+        <p class="verify-desc">The <code>LiteraryAnchor</code> contract on Polygon stores every edition&rsquo;s IPFS CID and SHA-256 hash. It was deployed at block 83,002,198 and is verified on Polygonscan. Anyone can read it.</p>
+        <div class="verify-contract">
+          <div class="contract-row">
+            <span class="contract-label">Contract</span>
+            <a href="https://polygonscan.com/address/0x97f456300817eaE3B40E235857b856dfFE8bba90" target="_blank" rel="noopener" class="contract-value">0x97f456300817eaE3B40E235857b856dfFE8bba90</a>
+          </div>
+          <div class="contract-row">
+            <span class="contract-label">Network</span>
+            <span class="contract-value">Polygon Mainnet (Chain ID: 137)</span>
+          </div>
+          <div class="contract-row">
+            <span class="contract-label">Deploy Block</span>
+            <a href="https://polygonscan.com/block/83002198" target="_blank" rel="noopener" class="contract-value">83,002,198</a>
+          </div>
+          <div class="contract-row">
+            <span class="contract-label">Author Wallet</span>
+            <a href="https://polygonscan.com/address/0xC91668184736BF75C4ecE37473D694efb2A43978" target="_blank" rel="noopener" class="contract-value">0xC916...3978</a>
+          </div>
+        </div>
+        <div class="verify-actions">
+          <a href="https://polygonscan.com/address/0x97f456300817eaE3B40E235857b856dfFE8bba90#readContract" target="_blank" rel="noopener" class="btn btn-primary btn-sm">Read Contract on Polygonscan</a>
+          <a href="https://github.com/FTHTrading/2500-donkeys/blob/master/web3/contracts/LiteraryAnchor.sol" target="_blank" rel="noopener" class="btn btn-ghost btn-sm">View Source Code</a>
+        </div>
+      </div>
+
+      <!-- Verify: DIY -->
+      <div class="verify-card verify-card-terminal">
+        <div class="verify-header">
+          <span class="verify-num">04</span>
+          <h4>Command Line Verification</h4>
+        </div>
+        <p class="verify-desc">Don&rsquo;t trust this page. Run it yourself.</p>
+        <div class="terminal-block">
+          <div class="terminal-bar">
+            <span class="terminal-dot"></span><span class="terminal-dot"></span><span class="terminal-dot"></span>
+            <span class="terminal-title">terminal</span>
+          </div>
+          <pre class="terminal-code"><code><span class="t-comment"># 1. Clone the repository</span>
+<span class="t-cmd">git clone</span> https://github.com/FTHTrading/2500-donkeys.git
+<span class="t-cmd">cd</span> 2500-donkeys
+
+<span class="t-comment"># 2. Compile the manuscript</span>
+<span class="t-cmd">npm run</span> compile
+
+<span class="t-comment"># 3. Hash it — should match the on-chain hash</span>
+<span class="t-cmd">shasum -a 256</span> dist/compiled-manuscript.md
+<span class="t-output"># → 9d062421b52d35aa23b73bfc8f66574db78bad9726e45c43a12d0109cdd57d84</span>
+
+<span class="t-comment"># 4. Verify against the Polygon contract</span>
+<span class="t-cmd">npm run</span> audit:chain
+<span class="t-output"># → ✓ On-chain hash matches compiled manuscript</span>
+<span class="t-output"># → ✓ IPFS CID matches on-chain record</span>
+<span class="t-output"># → ✓ Author wallet confirmed</span></code></pre>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
   <!-- ═══════ CLOSING ═══════ -->
   <section id="closing" class="section section-dark">
     <div class="container narrow">
@@ -206,8 +345,110 @@
         <a href="https://ipfs.io/ipfs/QmPXtEsRwiWuaKmKNA569XAqFNVySN8pwTdGQrvcdpgtMa" target="_blank" rel="noopener">IPFS</a>
       </div>
       <p class="footer-copy">&copy; 2026 Kidd James. All literary content rights reserved. Infrastructure MIT licensed.</p>
+      <p class="footer-hash">Canonical Hash: <code>9d0624...7d84</code></p>
     </div>
   </footer>
+
+  <!-- ═══════ VERIFY SCRIPT ═══════ -->
+  <script>
+  (function() {
+    'use strict';
+
+    const CANONICAL_HASH = '9d062421b52d35aa23b73bfc8f66574db78bad9726e45c43a12d0109cdd57d84';
+    const CID = 'QmPXtEsRwiWuaKmKNA569XAqFNVySN8pwTdGQrvcdpgtMa';
+
+    // ── SHA-256 Hash ──────────────────────────────────────────
+    async function sha256(buffer) {
+      const hashBuffer = await crypto.subtle.digest('SHA-256', buffer);
+      const hashArray = Array.from(new Uint8Array(hashBuffer));
+      return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+    }
+
+    function showResult(hash) {
+      const result = document.getElementById('hashResult');
+      const userHash = document.getElementById('userHash');
+      const hashIcon = document.getElementById('hashIcon');
+      const hashText = document.getElementById('hashText');
+      const status = document.getElementById('hashStatus');
+
+      result.style.display = 'block';
+      userHash.textContent = hash;
+
+      if (hash === CANONICAL_HASH) {
+        status.className = 'verify-status status-pass';
+        hashIcon.textContent = '✓';
+        hashText.textContent = 'HASH MATCH — This manuscript is authentic.';
+      } else {
+        status.className = 'verify-status status-fail';
+        hashIcon.textContent = '✗';
+        hashText.textContent = 'HASH MISMATCH — This file does not match the canonical manuscript.';
+      }
+    }
+
+    // ── File Drop Zone ────────────────────────────────────────
+    const dropzone = document.getElementById('dropzone');
+    const fileInput = document.getElementById('fileInput');
+
+    if (dropzone) {
+      dropzone.addEventListener('dragover', function(e) {
+        e.preventDefault();
+        dropzone.classList.add('dragover');
+      });
+
+      dropzone.addEventListener('dragleave', function() {
+        dropzone.classList.remove('dragover');
+      });
+
+      dropzone.addEventListener('drop', async function(e) {
+        e.preventDefault();
+        dropzone.classList.remove('dragover');
+        dropzone.classList.add('processing');
+
+        const file = e.dataTransfer.files[0];
+        if (file) {
+          const buffer = await file.arrayBuffer();
+          const hash = await sha256(buffer);
+          dropzone.classList.remove('processing');
+          showResult(hash);
+        }
+      });
+
+      fileInput.addEventListener('change', async function(e) {
+        const file = e.target.files[0];
+        if (file) {
+          dropzone.classList.add('processing');
+          const buffer = await file.arrayBuffer();
+          const hash = await sha256(buffer);
+          dropzone.classList.remove('processing');
+          showResult(hash);
+        }
+      });
+    }
+
+    // ── Copy CID ──────────────────────────────────────────────
+    const copyCid = document.getElementById('copyCid');
+    if (copyCid) {
+      copyCid.addEventListener('click', function() {
+        navigator.clipboard.writeText(CID).then(function() {
+          copyCid.classList.add('copied');
+          setTimeout(function() { copyCid.classList.remove('copied'); }, 2000);
+        });
+      });
+    }
+
+    // ── Smooth Scroll ─────────────────────────────────────────
+    document.querySelectorAll('a[href^="#"]').forEach(function(link) {
+      link.addEventListener('click', function(e) {
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+  })();
+  </script>
 
 </body>
 </html>
