@@ -1,428 +1,238 @@
 {
   "version": "IAPL-1",
-  "generatedAt": "2026-02-15T13:43:57.001Z",
-  "edition": "edition-2",
-  "title": "The 2,500 Donkeys",
-  "voice": {
-    "id": "JBFqnCBsd6RMkjVDRZzb",
-    "name": "George",
-    "model": "eleven_multilingual_v2"
-  },
-  "audioRoot": "e57bb9474d10f3b2ac70d11c602a32cd3b0fd84ebb5946cfbdd5a93680f430fa",
+  "title": "The 2,500 Donkeys — Audio Edition",
+  "author": "Kidd James",
+  "narrator": "George (Kokoro)",
+  "voiceModel": "hexgrad/Kokoro-82M",
+  "engine": "Kokoro TTS v0.9.4",
+  "format": "mp3_24000_192",
+  "generatedAt": "2026-02-15T16:02:39.968Z",
   "editionRoot": "6719ed7f9e142a39a4a7db533895562bdf5379cf7f9816ed7cbe045ca359594e",
-  "audioEditionRoot": "514c2db5b9cd914b96a0a8b50d9dd6981a454c74cab7d717dc38f5fe9fa0501e",
+  "audioRoot": "3295ee6c54447cac8062fc8ac822a677b061f9d7aa88a24e0267efdad9b4bca0",
+  "audioEditionRoot": "6daf95a029668335c53b192425d47ab4b776946bcdff3e92db37c28fc13bd519",
   "blocks": [
     {
       "id": "block-00",
-      "file": "block-00-genesis.mp3",
-      "sourceBlock": "block-00-genesis.md",
       "title": "Genesis Hash",
-      "sha256": "7b2984e14122875d7b56afb37ecbee6ef7e1bd0742eef3d6545c198c55cd1e53",
-      "sizeBytes": 1666029
+      "file": "block-00-genesis.mp3",
+      "sha256": "4393135a57487805b7a1b3e2b4585dbc069bd103ccf63b1b1425a30c3a6efb5d",
+      "sizeBytes": 2589164
     },
     {
       "id": "block-01",
-      "file": "block-01-parking-lots.mp3",
-      "sourceBlock": "block-01-parking-lots.md",
       "title": "The Parking Lots",
-      "sha256": "fa7c9a7005b338d4b6463e11ab06261184546506b2c09c6d08eed509478a2572",
-      "sizeBytes": 3014783
+      "file": "block-01-parking-lots.mp3",
+      "sha256": "9987f2b05c72ea5f07f211e7836b6cdfe1d14964e1378cacc1661c80741b2381",
+      "sizeBytes": 4613804
     },
     {
       "id": "block-01a",
-      "file": "block-01a-raymonds-deal.mp3",
-      "sourceBlock": "block-01a-raymonds-deal.md",
       "title": "Raymond's First Deal",
-      "sha256": "2201d5a61a783a6416e2067ad316017ab368a69828d73aac3da759949b91c430",
-      "sizeBytes": 8027368
+      "file": "block-01a-raymonds-deal.mp3",
+      "sha256": "4d5a5e66ea8fd3e088cc3ea13a98742c2efad05f8d5522ab8dde3bcac4ceb8cb",
+      "sizeBytes": 11728844
     },
     {
       "id": "block-01b",
-      "file": "block-01b-geralds-lot.mp3",
-      "sourceBlock": "block-01b-geralds-lot.md",
       "title": "Gerald's Lot",
-      "sha256": "05daa7d29b7cf375f4de0bf844a1cfc8f2c80e0ff199f6f9cd69812ca336ca25",
-      "sizeBytes": 10733653
+      "file": "block-01b-geralds-lot.mp3",
+      "sha256": "ac7584575648484899e3c62d8467e7e96078134576ae797c909a57c5260deacf",
+      "sizeBytes": 15216524
     },
     {
       "id": "block-01c",
-      "file": "block-01c-marcus-connection.mp3",
-      "sourceBlock": "block-01c-marcus-connection.md",
       "title": "The Connection",
-      "sha256": "7e6285c54bf1371e048142a92fef6391de9fd460ed53327cc9643c0e42af9a29",
-      "sizeBytes": 10221653
+      "file": "block-01c-marcus-connection.mp3",
+      "sha256": "1754721a73a97acd569183379fb169aa0a12e9544a84ca2a1b76f66c5fd8e895",
+      "sizeBytes": 15007244
     },
     {
       "id": "block-02",
-      "file": "block-02-paper.mp3",
-      "sourceBlock": "block-02-paper.md",
       "title": "The Paper",
-      "sha256": "0e70054b9da94c9b3dda51683ce24ad8dc93ea50a7545d578b23223eb60b0e4f",
-      "sizeBytes": 3197013
+      "file": "block-02-paper.mp3",
+      "sha256": "bda2ca50bf3de353ff1666aed32edb1ce1e32117307a117ab4e57de09baf6e13",
+      "sizeBytes": 4791404
     },
     {
       "id": "block-02a",
-      "file": "block-02a-seven-families.mp3",
-      "sourceBlock": "block-02a-seven-families.md",
       "title": "The Seven Families",
-      "sha256": "625df19a7e19d33b5d1536ea4f75b8fbe14fdeeef481829a6d5822c5d6a91c0b",
-      "sizeBytes": 9404125
+      "file": "block-02a-seven-families.mp3",
+      "sha256": "6848070f11180295092eab4c4750d1170337ce6e6bbc3e508cfcc568bca5214a",
+      "sizeBytes": 13674764
     },
     {
       "id": "block-03",
-      "file": "block-03-whatsapp.mp3",
-      "sourceBlock": "block-03-whatsapp.md",
       "title": "The WhatsApp Mutation",
-      "sha256": "9bca7c156b88360c7dda0ba89bc3088d3476f43daa0ce6a0ef35f4333d547111",
-      "sizeBytes": 3814339
+      "file": "block-03-whatsapp.mp3",
+      "sha256": "1246cf3fafbc2591533192f6e69dc0131eb7d063c70eb97d74fb65d4a7f30d00",
+      "sizeBytes": 6809324
     },
     {
       "id": "block-03a",
-      "file": "block-03a-mutation-lagos.mp3",
-      "sourceBlock": "block-03a-mutation-lagos.md",
       "title": "The Lagos Variant",
-      "sha256": "6f760218763cc866c83a40e34c4e188d708f5c713e6d6e2884b80c11614933a9",
-      "sizeBytes": 9550411
+      "file": "block-03a-mutation-lagos.mp3",
+      "sha256": "8034eb250702cd04b88af8be18fe05865d1019cb8f2bb58642dc12a6b979ab58",
+      "sizeBytes": 13961324
     },
     {
       "id": "block-03b",
-      "file": "block-03b-mutation-dubai.mp3",
-      "sourceBlock": "block-03b-mutation-dubai.md",
       "title": "The Dubai Variant",
-      "sha256": "6f52111f8df2d44d51671f0989f63fee2a3ee3f2b0de1b85c5ac6d6bc2f65723",
-      "sizeBytes": 10540974
+      "file": "block-03b-mutation-dubai.mp3",
+      "sha256": "1562f6e060b352f503ea54ded3ae5c6f16d5991bac9aad4a273b8f08d9a16ad6",
+      "sizeBytes": 15547244
     },
     {
       "id": "block-03c",
-      "file": "block-03c-mutation-zurich.mp3",
-      "sourceBlock": "block-03c-mutation-zurich.md",
       "title": "The Zurich Variant",
-      "sha256": "e4f824a1a424a3379a7059971f14666a9085a1e85d23bd4f2a388e4af686245a",
-      "sizeBytes": 4299696
+      "file": "block-03c-mutation-zurich.mp3",
+      "sha256": "507b86fef1c983123a312c33b4408adba6c6d767944b2f5bff7b577823ab4a1d",
+      "sizeBytes": 14486924
     },
     {
       "id": "block-03d",
-      "file": "block-03d-mutation-ngo.mp3",
-      "sourceBlock": "block-03d-mutation-ngo.md",
       "title": "The Aid Wash",
-      "sha256": "d76babf5de95ef78572794ac802069b30bae46d0832c111a4236cc0d3d7f5cf0",
-      "sizeBytes": 4448448
+      "file": "block-03d-mutation-ngo.mp3",
+      "sha256": "7f3f458854a66c95f470eb679dddb67ea80377ab8b17c64d4d615883c1befe29",
+      "sizeBytes": 15332684
     },
     {
       "id": "block-03e",
-      "file": "block-03e-mutation-carbon.mp3",
-      "sourceBlock": "block-03e-mutation-carbon.md",
       "title": "The Conference",
-      "sha256": "04a4bcc08e6ef9d6888db59cd62cb3c5c0bf1fb9116b6c3fa5ba951064ca1500",
-      "sizeBytes": 5145408
+      "file": "block-03e-mutation-carbon.mp3",
+      "sha256": "04ed19813336c5eab32cb31c810c5f32e183e0a00be8485917bf6d517eb32ea5",
+      "sizeBytes": 17265644
     },
     {
       "id": "block-04",
-      "file": "block-04-donkeys.mp3",
-      "sourceBlock": "block-04-donkeys.md",
       "title": "The Donkeys",
-      "sha256": "ba376533ece14b41e7cc03dc902ca86e23c2777385bf1e4c304aa47ee8676d60",
-      "sizeBytes": 1753344
+      "file": "block-04-donkeys.mp3",
+      "sha256": "7875111b7ef237b9402fb96f99c1bac22ecf84308658dc5b5236c418d73f37d4",
+      "sizeBytes": 5902604
     },
     {
       "id": "block-04a",
-      "file": "block-04a-storyteller-origin.mp3",
-      "sourceBlock": "block-04a-storyteller-origin.md",
       "title": "The Vault",
-      "sha256": "3988b70b7c5ae7b18ff86809f1a804b7b41a8b3891b14bf84386b23d935a2110",
-      "sizeBytes": 4418784
+      "file": "block-04a-storyteller-origin.mp3",
+      "sha256": "a0fa3a211b7dc3317eeac1907a33c075f9b7718e58b37c4de244afec5c6451eb",
+      "sizeBytes": 14599724
     },
     {
       "id": "block-05",
-      "file": "block-05-procession.mp3",
-      "sourceBlock": "block-05-procession.md",
       "title": "The Procession",
-      "sha256": "204eedb9871cc34f5a1cdaea74885341d4fbcde60ad0b42a928722b351b25fd6",
-      "sizeBytes": 1917648
+      "file": "block-05-procession.mp3",
+      "sha256": "37431ba1d610612d461853bb9b59047796797e7fd6606f6a8ba5ae5e8d6e32e8",
+      "sizeBytes": 6437804
     },
     {
       "id": "block-05a",
-      "file": "block-05a-philippe-geneva.mp3",
-      "sourceBlock": "block-05a-philippe-geneva.md",
       "title": "The WeWork",
-      "sha256": "b2955bfe8f2a9a15d6cddc14de12b3ce1f96b9b0f18cc74bf83e0578451c990e",
-      "sizeBytes": 4973760
+      "file": "block-05a-philippe-geneva.mp3",
+      "sha256": "e8b9451d29e3af9855c0bdcc5eb078219d7c6027fdd2489e67a6cc83433a5724",
+      "sizeBytes": 16958444
     },
     {
       "id": "block-05b",
-      "file": "block-05b-departure.mp3",
-      "sourceBlock": "block-05b-departure.md",
       "title": "The Departure",
-      "sha256": "48cccc345233c43368e07f1d6f3da23c824e7215d6f74e5fa4fd50c8b1e04f5d",
-      "sizeBytes": 4564512
+      "file": "block-05b-departure.mp3",
+      "sha256": "1987c2c3fca7d32ab107ba7ffab58c32f838667fbfaa6fcd5e10cbbd18fb9349",
+      "sizeBytes": 15492044
     },
     {
       "id": "block-05c",
-      "file": "block-05c-attrition.mp3",
-      "sourceBlock": "block-05c-attrition.md",
       "title": "Attrition",
-      "sha256": "4af95e5228b6bd903d253309731b104947cd2c4d8e261c077dd0e19d497aba1a",
-      "sizeBytes": 5126832
+      "file": "block-05c-attrition.mp3",
+      "sha256": "831c5ef22c1b0acae321486094d535e5e277a5f99c72abc124cf3ab6a01a6bbb",
+      "sizeBytes": 16818284
     },
     {
       "id": "block-05d",
-      "file": "block-05d-bandit-corridor.mp3",
-      "sourceBlock": "block-05d-bandit-corridor.md",
       "title": "The Bandit Corridor",
-      "sha256": "84ddf66c8d053f6c22898f4ba6d915dc136d81a374e642ef94eb45919bcac763",
-      "sizeBytes": 4729392
+      "file": "block-05d-bandit-corridor.mp3",
+      "sha256": "67b6f2cca34c3a2d890fe2c99e2816d59d5efca7aa014819b1711db821b62fdf",
+      "sizeBytes": 15900044
     },
     {
       "id": "block-05e",
-      "file": "block-05e-green-zone.mp3",
-      "sourceBlock": "block-05e-green-zone.md",
       "title": "The Green Zone",
-      "sha256": "e87b35fa7802e148bd1af26d1f51971a499dc9c115d603befbcbfa006c411abe",
-      "sizeBytes": 5103504
+      "file": "block-05e-green-zone.mp3",
+      "sha256": "12c949801cdb191948669830129e471bc8e2c0a0674b7e7f31095577b1055e51",
+      "sizeBytes": 17492684
     },
     {
       "id": "block-05f",
-      "file": "block-05f-collapse.mp3",
-      "sourceBlock": "block-05f-collapse.md",
       "title": "Collapse",
-      "sha256": "20d7e99cde4ac9a3af260d71f48f7b9f6c5d27a6910ae91694261e1104501bb1",
-      "sizeBytes": 5836752
+      "file": "block-05f-collapse.mp3",
+      "sha256": "a2ce6da209dc7e3baca1e49b30c31d3f18f206331f7f656d3b4440f490438e09",
+      "sizeBytes": 19248524
     },
     {
       "id": "block-05g",
-      "file": "block-05g-arrival.mp3",
-      "sourceBlock": "block-05g-arrival.md",
       "title": "The Arrival",
-      "sha256": "7e50de894c46374e1f8cd51862bf2efb40fc0dbca61c9ba12e4c072c80bdca5f",
-      "sizeBytes": 4391136
+      "file": "block-05g-arrival.mp3",
+      "sha256": "4fe9dfcf2bb2ce0fb3b2c96bf0a23ed6266d2f47a32faa98f34fba380c5af1a7",
+      "sizeBytes": 14838764
     },
     {
       "id": "block-06",
-      "file": "block-06-humanitarian.mp3",
-      "sourceBlock": "block-06-humanitarian.md",
       "title": "The Humanitarian Settlement",
-      "sha256": "748f505e7441608860afc0ee4fe085122b1c1b27aa9630d17f6fac44387e1db5",
-      "sizeBytes": 1868832
+      "file": "block-06-humanitarian.mp3",
+      "sha256": "435e2e079440ddfcb967e0167e903c393d7ab3c7a68dd4c086368f15bbc8514d",
+      "sizeBytes": 6529484
     },
     {
       "id": "block-06a",
-      "file": "block-06a-processing.mp3",
-      "sourceBlock": "block-06a-processing.md",
       "title": "Processing",
-      "sha256": "8b03efdeeaf0526382278964d3947c3ecc0a7fbdc823623d1a218ef6a257773f",
-      "sizeBytes": 435600
+      "file": "block-06a-processing.mp3",
+      "sha256": "e00aa1e785eee2b5f3811ad125f2e8314a7c5d996f15ecabc5f8a50db004412c",
+      "sizeBytes": 18627884
     },
     {
       "id": "block-07",
-      "file": "block-07-silence.mp3",
-      "sourceBlock": "block-07-silence.md",
       "title": "The Silence",
-      "sha256": "64c9a119da3dc71412b8517bc66f44f8d8d1343a77787b8167a2b60ac5ebf7bf",
-      "sizeBytes": 1766448
+      "file": "block-07-silence.mp3",
+      "sha256": "324e7657953a66234aa84e1bb5dd6f6ee575f93547e6ad695fafab6a437cd1fe",
+      "sizeBytes": 5767724
     },
     {
       "id": "block-07a",
-      "file": "block-07a-raymond-home.mp3",
-      "sourceBlock": "block-07a-raymond-home.md",
       "title": "The Woodlands",
-      "sha256": "42a23813bb605337bf69247714685ea9bed0cb9deda757084ca98f156eb7c741",
-      "sizeBytes": 5112576
+      "file": "block-07a-raymond-home.mp3",
+      "sha256": "a74e5010b08bf6ef166d0774ec6ee7d9a91de661f08307dd4bb8dfc5585b8000",
+      "sizeBytes": 16557164
     },
     {
       "id": "block-07b",
-      "file": "block-07b-groups-dying.mp3",
-      "sourceBlock": "block-07b-groups-dying.md",
       "title": "The Groups Dying",
-      "sha256": "56b06c30de2f93cdb3ee3807872b700cfa47782b5198b3dd6e9f2a36afedaf29",
-      "sizeBytes": 4852080
+      "file": "block-07b-groups-dying.mp3",
+      "sha256": "70fd9eebb392e7164e7a168f050f54d8320e93b5cc5192385ecb5ba084fbea4b",
+      "sizeBytes": 15634124
     },
     {
       "id": "block-07c",
-      "file": "block-07c-storyteller-summit.mp3",
-      "sourceBlock": "block-07c-storyteller-summit.md",
       "title": "The Summit",
-      "sha256": "8cb74dc321f50032e7f087dbab3dcbb9fe53b49c8eadfde6b99f30da99bcb4c1",
-      "sizeBytes": 6011856
+      "file": "block-07c-storyteller-summit.mp3",
+      "sha256": "73d5a4d1ca5231739a9548824abd01b38d7e3f0a3757328a7d2a7629fef4f970",
+      "sizeBytes": 19420364
     },
     {
       "id": "block-07d",
-      "file": "block-07d-resurrection.mp3",
-      "sourceBlock": "block-07d-resurrection.md",
       "title": "Resurrection",
-      "sha256": "156628b36b0b7f0a3d1cb4d0643e794c8dae1a9ea795cc22d3faf25c2446e2c0",
-      "sizeBytes": 5657328
+      "file": "block-07d-resurrection.mp3",
+      "sha256": "c520501216b413dc804a971a5b964cbf543a763a92ad83a6064370dcea41790c",
+      "sizeBytes": 18276524
     },
     {
       "id": "epilogue",
-      "file": "epilogue.mp3",
-      "sourceBlock": "epilogue.md",
       "title": "The Genesis Remains",
-      "sha256": "a5169e068288d038c4d22e2d79e82831592d46a6215d452fec051fd9ca697406",
-      "sizeBytes": 1217808
+      "file": "epilogue.mp3",
+      "sha256": "b3a3499ad6255f4c334c8f27dceb6d46a6201854b66a889d7a28109d501d138d",
+      "sizeBytes": 4550924
     }
   ],
-  "tree": {
-    "root": "e57bb9474d10f3b2ac70d11c602a32cd3b0fd84ebb5946cfbdd5a93680f430fa",
-    "leafCount": 31,
-    "leaves": [
-      {
-        "id": "block-00",
-        "file": "block-00-genesis.mp3",
-        "hash": "7b2984e14122875d7b56afb37ecbee6ef7e1bd0742eef3d6545c198c55cd1e53"
-      },
-      {
-        "id": "block-01",
-        "file": "block-01-parking-lots.mp3",
-        "hash": "fa7c9a7005b338d4b6463e11ab06261184546506b2c09c6d08eed509478a2572"
-      },
-      {
-        "id": "block-01a",
-        "file": "block-01a-raymonds-deal.mp3",
-        "hash": "2201d5a61a783a6416e2067ad316017ab368a69828d73aac3da759949b91c430"
-      },
-      {
-        "id": "block-01b",
-        "file": "block-01b-geralds-lot.mp3",
-        "hash": "05daa7d29b7cf375f4de0bf844a1cfc8f2c80e0ff199f6f9cd69812ca336ca25"
-      },
-      {
-        "id": "block-01c",
-        "file": "block-01c-marcus-connection.mp3",
-        "hash": "7e6285c54bf1371e048142a92fef6391de9fd460ed53327cc9643c0e42af9a29"
-      },
-      {
-        "id": "block-02",
-        "file": "block-02-paper.mp3",
-        "hash": "0e70054b9da94c9b3dda51683ce24ad8dc93ea50a7545d578b23223eb60b0e4f"
-      },
-      {
-        "id": "block-02a",
-        "file": "block-02a-seven-families.mp3",
-        "hash": "625df19a7e19d33b5d1536ea4f75b8fbe14fdeeef481829a6d5822c5d6a91c0b"
-      },
-      {
-        "id": "block-03",
-        "file": "block-03-whatsapp.mp3",
-        "hash": "9bca7c156b88360c7dda0ba89bc3088d3476f43daa0ce6a0ef35f4333d547111"
-      },
-      {
-        "id": "block-03a",
-        "file": "block-03a-mutation-lagos.mp3",
-        "hash": "6f760218763cc866c83a40e34c4e188d708f5c713e6d6e2884b80c11614933a9"
-      },
-      {
-        "id": "block-03b",
-        "file": "block-03b-mutation-dubai.mp3",
-        "hash": "6f52111f8df2d44d51671f0989f63fee2a3ee3f2b0de1b85c5ac6d6bc2f65723"
-      },
-      {
-        "id": "block-03c",
-        "file": "block-03c-mutation-zurich.mp3",
-        "hash": "e4f824a1a424a3379a7059971f14666a9085a1e85d23bd4f2a388e4af686245a"
-      },
-      {
-        "id": "block-03d",
-        "file": "block-03d-mutation-ngo.mp3",
-        "hash": "d76babf5de95ef78572794ac802069b30bae46d0832c111a4236cc0d3d7f5cf0"
-      },
-      {
-        "id": "block-03e",
-        "file": "block-03e-mutation-carbon.mp3",
-        "hash": "04a4bcc08e6ef9d6888db59cd62cb3c5c0bf1fb9116b6c3fa5ba951064ca1500"
-      },
-      {
-        "id": "block-04",
-        "file": "block-04-donkeys.mp3",
-        "hash": "ba376533ece14b41e7cc03dc902ca86e23c2777385bf1e4c304aa47ee8676d60"
-      },
-      {
-        "id": "block-04a",
-        "file": "block-04a-storyteller-origin.mp3",
-        "hash": "3988b70b7c5ae7b18ff86809f1a804b7b41a8b3891b14bf84386b23d935a2110"
-      },
-      {
-        "id": "block-05",
-        "file": "block-05-procession.mp3",
-        "hash": "204eedb9871cc34f5a1cdaea74885341d4fbcde60ad0b42a928722b351b25fd6"
-      },
-      {
-        "id": "block-05a",
-        "file": "block-05a-philippe-geneva.mp3",
-        "hash": "b2955bfe8f2a9a15d6cddc14de12b3ce1f96b9b0f18cc74bf83e0578451c990e"
-      },
-      {
-        "id": "block-05b",
-        "file": "block-05b-departure.mp3",
-        "hash": "48cccc345233c43368e07f1d6f3da23c824e7215d6f74e5fa4fd50c8b1e04f5d"
-      },
-      {
-        "id": "block-05c",
-        "file": "block-05c-attrition.mp3",
-        "hash": "4af95e5228b6bd903d253309731b104947cd2c4d8e261c077dd0e19d497aba1a"
-      },
-      {
-        "id": "block-05d",
-        "file": "block-05d-bandit-corridor.mp3",
-        "hash": "84ddf66c8d053f6c22898f4ba6d915dc136d81a374e642ef94eb45919bcac763"
-      },
-      {
-        "id": "block-05e",
-        "file": "block-05e-green-zone.mp3",
-        "hash": "e87b35fa7802e148bd1af26d1f51971a499dc9c115d603befbcbfa006c411abe"
-      },
-      {
-        "id": "block-05f",
-        "file": "block-05f-collapse.mp3",
-        "hash": "20d7e99cde4ac9a3af260d71f48f7b9f6c5d27a6910ae91694261e1104501bb1"
-      },
-      {
-        "id": "block-05g",
-        "file": "block-05g-arrival.mp3",
-        "hash": "7e50de894c46374e1f8cd51862bf2efb40fc0dbca61c9ba12e4c072c80bdca5f"
-      },
-      {
-        "id": "block-06",
-        "file": "block-06-humanitarian.mp3",
-        "hash": "748f505e7441608860afc0ee4fe085122b1c1b27aa9630d17f6fac44387e1db5"
-      },
-      {
-        "id": "block-06a",
-        "file": "block-06a-processing.mp3",
-        "hash": "8b03efdeeaf0526382278964d3947c3ecc0a7fbdc823623d1a218ef6a257773f"
-      },
-      {
-        "id": "block-07",
-        "file": "block-07-silence.mp3",
-        "hash": "64c9a119da3dc71412b8517bc66f44f8d8d1343a77787b8167a2b60ac5ebf7bf"
-      },
-      {
-        "id": "block-07a",
-        "file": "block-07a-raymond-home.mp3",
-        "hash": "42a23813bb605337bf69247714685ea9bed0cb9deda757084ca98f156eb7c741"
-      },
-      {
-        "id": "block-07b",
-        "file": "block-07b-groups-dying.mp3",
-        "hash": "56b06c30de2f93cdb3ee3807872b700cfa47782b5198b3dd6e9f2a36afedaf29"
-      },
-      {
-        "id": "block-07c",
-        "file": "block-07c-storyteller-summit.mp3",
-        "hash": "8cb74dc321f50032e7f087dbab3dcbb9fe53b49c8eadfde6b99f30da99bcb4c1"
-      },
-      {
-        "id": "block-07d",
-        "file": "block-07d-resurrection.mp3",
-        "hash": "156628b36b0b7f0a3d1cb4d0643e794c8dae1a9ea795cc22d3faf25c2446e2c0"
-      },
-      {
-        "id": "epilogue",
-        "file": "epilogue.mp3",
-        "hash": "a5169e068288d038c4d22e2d79e82831592d46a6215d452fec051fd9ca697406"
-      }
-    ],
-    "algorithm": "sha256",
-    "merkleScheme": "ordered-concatenation",
-    "oddLeafRule": "duplicate-last"
+  "stats": {
+    "totalBlocks": 31,
+    "rendered": 31,
+    "missing": 0,
+    "totalSizeBytes": 400078004
   }
 }

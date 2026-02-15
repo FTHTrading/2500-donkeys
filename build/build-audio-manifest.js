@@ -26,23 +26,25 @@ function sha256File(filePath) {
 }
 
 function buildMerkleTree(leaves) {
-  if (leaves.length === 0) return { root: sha256(''), layers: [[]] };
-  let layer = leaves.map(h => h);
-  const layers = [layer.slice()];
-  while (layer.length > 1) {
-    const next = [];
-    for (let i = 0; i < layer.length; i += 2) {
-      if (i + 1 < layer.length) {
-        const pair = [layer[i], layer[i + 1]].sort();
-        next.push(sha256(pair[0] + pair[1]));
-      } else {
-        next.push(layer[i]);
-      }
-    }
-    layer = next;
-    layers.push(layer.slice());
+  if (leaves.length === 0) {
+    return { root: sha256('empty'), leaves: [], layers: [[sha256('empty')]] };
   }
-  return { root: layer[0], layers };
+
+  const layers = [leaves.slice()];
+  let current = leaves.slice();
+
+  while (current.length > 1) {
+    const next = [];
+    for (let i = 0; i < current.length; i += 2) {
+      const left = current[i];
+      const right = current[i + 1] || left; // duplicate last if odd
+      next.push(sha256(left + right));
+    }
+    layers.push(next);
+    current = next;
+  }
+
+  return { root: current[0], leaves, layers };
 }
 
 // ── Load order.json ──
@@ -137,9 +139,10 @@ const manifest = {
   version: "IAPL-1",
   title: "The 2,500 Donkeys — Audio Edition",
   author: "Kidd James",
-  narrator: "George (ElevenLabs)",
-  voiceModel: "eleven_multilingual_v2",
-  format: "mp3_44100_128",
+  narrator: audioConfig.voice.name,
+  voiceModel: audioConfig.voice.model,
+  engine: audioConfig.voice.engine || "Kokoro TTS",
+  format: audioConfig.format,
   generatedAt: new Date().toISOString(),
   editionRoot,
   audioRoot,

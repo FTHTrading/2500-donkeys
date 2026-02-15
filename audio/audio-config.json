@@ -1,17 +1,23 @@
 {
   "version": "IAPL-1",
   "voice": {
-    "id": "JBFqnCBsd6RMkjVDRZzb",
-    "name": "George",
-    "model": "eleven_multilingual_v2",
+    "id": "bm_george",
+    "name": "George (Kokoro)",
+    "model": "hexgrad/Kokoro-82M",
+    "engine": "Kokoro TTS v0.9.4",
     "settings": {
-      "stability": 0.65,
-      "similarity_boost": 0.75,
-      "style": 0.35,
-      "use_speaker_boost": true
+      "speed": 0.92,
+      "lang_code": "b",
+      "sample_rate": 24000
     }
   },
-  "format": "mp3_44100_128",
+  "documentVoice": {
+    "id": "bm_daniel",
+    "name": "Daniel (Kokoro)",
+    "speed": 1.0,
+    "lang_code": "b"
+  },
+  "format": "mp3_24000_192",
   "outputDir": "audio/rendered",
   "blockSource": "build/order.json",
   "textPreprocessing": {
