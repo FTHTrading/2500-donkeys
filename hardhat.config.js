@@ -30,8 +30,8 @@ module.exports = {
       url: process.env.POLYGON_RPC || "https://polygon-bor-rpc.publicnode.com",
       chainId: 137,
       accounts: process.env.PRIVATE_KEY ? [`0x${process.env.PRIVATE_KEY}`] : [],
-      gas: 2000000,           // 2M gas limit (contract needs ~800k)
-      gasPrice: 50000000000,  // 50 gwei
+      gas: 5000000,           // 5M gas limit (PublishingKernel + viaIR)
+      gasPrice: "auto",       // auto-detect gas price
     },
 
     // Polygon Amoy Testnet (for dry-run before mainnet)

@@ -1,0 +1,33 @@
+{
+  "version": "1.0",
+  "digest": "6719ed7f9e142a39a4a7db533895562bdf5379cf7f9816ed7cbe045ca359594e",
+  "algorithm": "sha256",
+  "submitted_at": "2026-02-15T07:04:57.959Z",
+  "status": "pending",
+  "calendars": [
+    {
+      "calendar": "Alice",
+      "url": "https://a.pool.opentimestamps.org",
+      "status": "submitted",
+      "timestamp": "2026-02-15T07:04:56.660Z",
+      "proof": "8AjutF7ryKGz3gjxINebkxqZnviCsxgJfVuuiaRKr0Oae01XMt1Jxxa22ZRfCPAQUxBxYaEgzEjjnumjXzNV1AjxII8kbtVMbB9G5uVB8vqyUFHMV/6GoMdWqSw3MVgAX0ZOCPEEaZFwGPAIskiQMVQigC8Ag9/jDS75DI4uLWh0dHBzOi8vYWxpY2UuYnRjLmNhbGVuZGFyLm9wZW50aW1lc3RhbXBzLm9yZw=="
+    },
+    {
+      "calendar": "Bob",
+      "url": "https://b.pool.opentimestamps.org",
+      "status": "submitted",
+      "timestamp": "2026-02-15T07:04:56.948Z",
+      "proof": "8Aiyv4PHEiLxJwjwEGlmp3aGx+ZpssVaDTJKqMoI8QRpkXAY8AgNyeEdMKldeQCD3+MNLvkMjiwraHR0cHM6Ly9ib2IuYnRjLmNhbGVuZGFyLm9wZW50aW1lc3RhbXBzLm9yZw=="
+    },
+    {
+      "calendar": "Finney",
+      "url": "https://finney.calendar.eternitywall.com",
+      "status": "submitted",
+      "timestamp": "2026-02-15T07:04:57.959Z",
+      "proof": "8BBR6U51sC1meCN59eiPU4koCPAgeQWzXQDZRwcjUEPM8ZTWcX7NIwF20N5P6+cz8VXErTAI8QRpkXAZ8AiqOmFqw3HQAwCD3+MNLvkMjikoaHR0cHM6Ly9maW5uZXkuY2FsZW5kYXIuZXRlcm5pdHl3YWxsLmNvbQ=="
+    }
+  ],
+  "edition_root": "sha256:6719ed7f9e142a39a4a7db533895562bdf5379cf7f9816ed7cbe045ca359594e",
+  "title": "The 2,500 Donkeys",
+  "note": "Proof pending. Bitcoin block inclusion takes ~1-2 hours. Run --verify to check."
+}

@@ -1,0 +1,59 @@
+{
+  "title": "The 2,500 Donkeys",
+  "author": "Kevan Burnzy",
+  "edition": "edition-2",
+  "compiled_at": "2026-02-15T06:19:30.616Z",
+  "manuscript_root": "sha256:dd95d1216b8e2cb8008c8993dffc54d66b550018a47401dd5df001ff487467d3",
+  "artifact_root": "sha256:9c653a2e453e895f294375818bb872d47d4c90b15859587ba2c5238024202c56",
+  "image_root": "sha256:0e45331c0b80738ff3f491e63b47a5454f162cfe5a1d367e90b709c96c56c638",
+  "prompt_root": "sha256:32bed9e54ed6dc5f4ee8082dce928bd86fb76c36b92d9f949ba12c046674f32c",
+  "edition_root": "sha256:6719ed7f9e142a39a4a7db533895562bdf5379cf7f9816ed7cbe045ca359594e",
+  "sha256": "d1b9a57f618f0445dc7a5d30d5bf4e707bb4d0cd8d83ceb277f9628d5f68363c",
+  "size_bytes": 293550,
+  "ipfs_cid": "QmVQ79NM3qxAsBpftTG4YhD4KV9sUEmM3WwFrc5vs5g8vK",
+  "anchors": {
+    "polygon": {
+      "network": "polygon-mainnet",
+      "chain_id": 137,
+      "contract": "0x97f456300817eaE3B40E235857b856dfFE8bba90",
+      "kernel_contract": "0x511c653fC0F450ba41C42A89A3125CcBf2eFE8ae",
+      "tx_hash": "0x9c036d1d8e946e0d9c8c520d4818e3d211c137478f7a704b733fbea500f28ec6",
+      "kernel_tx_hash": "0xfdd3854c4ca2ae46b61ef64df3edce60d423b1cf64e9df57c6cc7c05dd89a6d2",
+      "block": 83008833,
+      "deployer": "0xC91668184736BF75C4ecE37473D694efb2A43978"
+    },
+    "ethereum": {
+      "network": "ethereum-mainnet",
+      "chain_id": 1,
+      "tx_hash": null,
+      "block": null,
+      "method": "calldata",
+      "cost_estimate": "~$0.50–$2.00"
+    },
+    "bitcoin": {
+      "network": "bitcoin-mainnet",
+      "op_return_tx": null,
+      "ots_proof": "dist/edition.ots.json",
+      "method": "opentimestamps",
+      "cost_estimate": "free",
+      "ots_submitted_at": "2026-02-15T07:04:57.970Z",
+      "status": "pending",
+      "digest": "6719ed7f9e142a39a4a7db533895562bdf5379cf7f9816ed7cbe045ca359594e",
+      "calendars_submitted": 3
+    }
+  },
+  "schema": "literary-protocol-standard",
+  "schema_version": "1.0.0",
+  "build": {
+    "pipeline": "compile → merkle → hash → manifest → edition",
+    "merkle_scheme": "sorted-pair-concatenation",
+    "odd_leaf_rule": "duplicate-last",
+    "algorithm": "sha256",
+    "leaf_counts": {
+      "manuscript": 31,
+      "artifact": 5,
+      "image": 10,
+      "prompt": 10
+    }
+  }
+}

@@ -121,6 +121,17 @@ async function main() {
   fs.writeFileSync(genesisPath, JSON.stringify(genesis, null, 2), "utf-8");
   console.log(`\n  ✅ genesis.json updated with kernel address`);
 
+  // ── Update edition.json ────────────────────────────────────────────
+  const editionPath = path.resolve(__dirname, "..", "..", "dist", "edition.json");
+  if (fs.existsSync(editionPath)) {
+    const edition = JSON.parse(fs.readFileSync(editionPath, "utf-8"));
+    edition.anchors.polygon.kernel_contract = address;
+    edition.anchors.polygon.kernel_tx_hash = tx.hash;
+    edition.anchors.polygon.block = receipt.blockNumber;
+    fs.writeFileSync(editionPath, JSON.stringify(edition, null, 2), "utf-8");
+    console.log(`  ✅ edition.json updated with kernel address`);
+  }
+
   console.log("\n══════════════════════════════════════════════════");
   console.log("  PublishingKernel deployment complete.");
   console.log("  The protocol is live.");

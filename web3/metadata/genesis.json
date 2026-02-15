@@ -5,9 +5,9 @@
   "schema": "literary-protocol-standard",
   "schemaVersion": "1.0.0",
   "build": {
-    "timestamp": "2026-02-15T06:07:54.864Z",
-    "sha256": "1c4b4907412768dcb999f18bda57a359f9d1ba4f425075e57efe1f641339d85e",
-    "md5": "24a0115a14253b64402e0333c4835c61",
+    "timestamp": "2026-02-15T06:19:30.353Z",
+    "sha256": "d1b9a57f618f0445dc7a5d30d5bf4e707bb4d0cd8d83ceb277f9628d5f68363c",
+    "md5": "7747268d76611976266db81611bc215d",
     "sizeBytes": 293550,
     "source": "dist/final-manuscript.md"
   },
@@ -28,6 +28,11 @@
     "network": "polygon-mainnet",
     "contract": "0x97f456300817eaE3B40E235857b856dfFE8bba90",
     "txHash": "0x9c036d1d8e946e0d9c8c520d4818e3d211c137478f7a704b733fbea500f28ec6",
-    "authorWallet": "0xC91668184736BF75C4ecE37473D694efb2A43978"
+    "authorWallet": "0xC91668184736BF75C4ecE37473D694efb2A43978",
+    "kernelAddress": "0x511c653fC0F450ba41C42A89A3125CcBf2eFE8ae",
+    "kernelDeployTx": "0xfdd3854c4ca2ae46b61ef64df3edce60d423b1cf64e9df57c6cc7c05dd89a6d2",
+    "kernelDeployBlock": 83008833,
+    "kernelDeployedBy": "0xC91668184736BF75C4ecE37473D694efb2A43978",
+    "kernelDeployedAt": "2026-02-15T06:41:29.000Z"
   }
 }
