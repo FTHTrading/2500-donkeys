@@ -84,5 +84,30 @@
       "pct": "5.0%",
       "wallet": "0xC91668184736BF75C4ecE37473D694efb2A43978"
     }
-  ]
+  ],
+  "license": {
+    "id": 0,
+    "template": "LPS1-SOVEREIGN",
+    "territory": "GLOBAL",
+    "term": "perpetual",
+    "fields_of_use": "all",
+    "grant_tx": "0xf1ae786994e1a60cdbafa64cc280d3de9535c34a629b54aba6c2f53dd7bce2fe",
+    "grant_block": 83010027,
+    "royalty_router": "0x44169829489d70aaecbf845870652871C65fC461"
+  },
+  "pipeline": {
+    "edition": 0,
+    "license": 0,
+    "router": "0x44169829489d70aaecbf845870652871C65fC461",
+    "kernel": "0x511c653fC0F450ba41C42A89A3125CcBf2eFE8ae",
+    "status": "WIRED"
+  },
+  "revenue_test": {
+    "tx": "0x4d0d1e04c589a56b7f70f377802b79d8903d559c5bbd53a352bf54d87bf98662",
+    "block": 83009932,
+    "amount": "0.01 POL",
+    "split_accuracy": "0 wei dust",
+    "withdraw_tx": "0x1b7de1f68af52210bd52dd958f7a9733f992a95d28f127abc6196401cd063794",
+    "result": "PASS"
+  }
 }
