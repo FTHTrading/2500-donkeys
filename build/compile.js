@@ -15,6 +15,8 @@ const ARTIFACTS_DIR = path.join(ROOT, "artifacts");
 const DIST_DIR = path.join(ROOT, "dist");
 const ORDER_FILE = path.join(__dirname, "order.json");
 
+const DETERMINISTIC = process.argv.includes("--deterministic");
+
 function compile() {
   // Ensure dist exists
   if (!fs.existsSync(DIST_DIR)) {
@@ -29,7 +31,7 @@ function compile() {
   parts.push(`# ${order.title}\n`);
   parts.push(`## ${order.subtitle}\n`);
   parts.push(`**Edition:** ${order.version}\n`);
-  parts.push(`**Compiled:** ${new Date().toISOString()}\n`);
+  parts.push(`**Compiled:** ${DETERMINISTIC ? 'DETERMINISTIC' : new Date().toISOString()}\n`);
   parts.push("---\n\n");
 
   // Table of contents
@@ -76,7 +78,7 @@ function compile() {
   parts.push("The canonical order is defined in `build/order.json`.\n");
   parts.push("The Genesis CID anchors this build to the InterPlanetary File System.\n\n");
   parts.push(`Blocks compiled: ${order.blocks.length}\n`);
-  parts.push(`Build timestamp: ${new Date().toISOString()}\n`);
+  parts.push(`Build timestamp: ${DETERMINISTIC ? 'DETERMINISTIC' : new Date().toISOString()}\n`);
 
   // Write output
   const output = parts.join("\n");
@@ -88,6 +90,9 @@ function compile() {
   console.log(`[COMPILE]    Blocks: ${order.blocks.length}`);
   console.log(`[COMPILE]    Size: ${stats.size} bytes`);
   console.log(`[COMPILE]    Output: ${outputPath}`);
+  if (DETERMINISTIC) {
+    console.log(`[COMPILE]    Mode: DETERMINISTIC (timestamp stripped)`);
+  }
 }
 
 compile();

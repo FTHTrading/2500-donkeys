@@ -10,6 +10,7 @@
     "hash": "node build/hash.js",
     "manifest": "node build/manifest.js",
     "build": "node build/compile.js && node build/hash.js && node build/manifest.js",
+    "build:deterministic": "node build/compile.js --deterministic && node build/hash.js && node build/manifest.js",
     "genesis": "npm run build",
     "hh:compile": "npx hardhat compile",
     "hh:test": "npx hardhat test",

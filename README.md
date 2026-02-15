@@ -3,6 +3,7 @@
   <img src="https://img.shields.io/badge/POLYGON-MAINNET-7b3fe4?style=for-the-badge&logo=polygon&logoColor=white" />
   <img src="https://img.shields.io/badge/IPFS-PINNED-65c2cb?style=for-the-badge&logo=ipfs&logoColor=white" />
   <img src="https://img.shields.io/badge/TESTS-146%20PASSING-27ae60?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/VERIFY-51%20CHECKS-00c853?style=for-the-badge" />
   <img src="https://img.shields.io/badge/CONTRACTS-5%20VERIFIED-7b3fe4?style=for-the-badge&logo=solidity&logoColor=white" />
   <img src="https://img.shields.io/badge/LICENSE-MIT%20%2B%20©-yellow?style=for-the-badge" />
 </p>
@@ -16,6 +17,7 @@
   <a href="https://orcid.org/0009-0008-8425-939X"><img src="https://img.shields.io/badge/ORCID-0009--0008--8425--939X-a6ce39?style=flat-square&logo=orcid&logoColor=white" alt="ORCID" /></a>
   <a href="https://xxxiii.io"><img src="https://img.shields.io/badge/SITE-xxxiii.io-c9a84c?style=flat-square" alt="Site" /></a>
   <a href="https://polygonscan.com/address/0xca9F6604A9b498DB31d113836E2957c0a9aAE037#code"><img src="https://img.shields.io/badge/KERNEL-VERIFIED-00c853?style=flat-square&logo=ethereum&logoColor=white" alt="Kernel" /></a>
+  <a href="https://github.com/FTHTrading/2500-donkeys/actions/workflows/verify.yml"><img src="https://github.com/FTHTrading/2500-donkeys/actions/workflows/verify.yml/badge.svg" alt="LPS Verify" /></a>
 </p>
 
 ---
@@ -366,6 +368,7 @@ Any single-byte change to any chapter, artifact, or image invalidates the corres
 │   └── .zenodo.json                   Zenodo/DOI metadata
 │
 └── 📦 CONFIGURATION
+    ├── .github/workflows/verify.yml   CI provenance check (every push)
     ├── hardhat.config.js              Polygon + Amoy config
     ├── package.json                   Scripts and dependencies
     ├── .env                           Keys (gitignored)
@@ -458,7 +461,8 @@ flowchart LR
 ### Build Commands
 
 ```bash
-npm run build              # Full deterministic build (compile → hash → merkle → manifest)
+npm run build              # Full build (compile → hash → merkle → manifest)
+npm run build:deterministic # Same, but strips timestamp → byte-stable output
 npm run compile            # Step 1: Concatenate → dist/final-manuscript.md
 npm run hash               # Step 2: SHA-256 → web3/metadata/genesis.json
 npm run manifest           # Step 3: Per-file → dist/manifest.json
