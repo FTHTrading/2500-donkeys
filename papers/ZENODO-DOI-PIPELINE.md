@@ -1,6 +1,24 @@
 # Zenodo → DOI Pipeline
 
-## Step-by-Step: GitHub → Zenodo → DOI
+## Status: ✅ COMPLETE
+
+| Step | Status | Date |
+|------|--------|------|
+| 1. Connect GitHub to Zenodo | ✅ Done | Feb 15, 2026 |
+| 2. Create GitHub Release | ✅ v1.0-paper + v1.1-paper | Feb 15, 2026 |
+| 3. Zenodo Archive | ✅ Archived | Feb 15, 2026 |
+| 4. DOI Minted | ✅ 10.5281/zenodo.18646886 | Feb 15, 2026 |
+| 5. Update all files with DOI | ✅ Paper, CITATION.cff, README, SSRN, ResearchGate | Feb 15, 2026 |
+| 6. Verify Indexing | ⏳ Check in 1-2 weeks | — |
+
+**DOI:** [10.5281/zenodo.18646886](https://doi.org/10.5281/zenodo.18646886)
+**Zenodo Record:** https://zenodo.org/records/18646886
+**v1.0-paper Release:** https://github.com/FTHTrading/2500-donkeys/releases/tag/v1.0-paper
+**v1.1-paper Release:** https://github.com/FTHTrading/2500-donkeys/releases/tag/v1.1-paper
+
+---
+
+## Reference: Step-by-Step
 
 ### Prerequisites
 - GitHub account (FTHTrading)
@@ -76,16 +94,17 @@ After publishing the release:
 
 ---
 
-### Step 5: Update Everything with DOI
+### Step 5: Update Everything with DOI ✅
 
-Once you have the DOI, update:
+All files updated with DOI `10.5281/zenodo.18646886`:
 
-1. **Paper front matter** — Replace `doi: "pending"` with actual DOI
-2. **CITATION.cff** — Add `doi:` field
-3. **BibTeX in paper** — Add `doi = {10.5281/zenodo.XXXXXXX}`
-4. **SSRN submission** — Include DOI in abstract and related links
-5. **ResearchGate** — Add DOI to publication entry
-6. **xxxiii.io** — Add "Cite This Work" section with DOI
+1. ✅ **Paper front matter** — `doi: "10.5281/zenodo.18646886"`
+2. ✅ **CITATION.cff** — `doi:` field + `identifiers:` block
+3. ✅ **BibTeX in paper** — `doi = {10.5281/zenodo.18646886}`
+4. ✅ **SSRN submission** — DOI in abstract and related links section
+5. ✅ **ResearchGate** — DOI in publication entry and links
+6. ✅ **xxxiii.io** — "Cite This Work" section with DOI, BibTeX, APA
+7. ✅ **README.md** — Zenodo DOI badge
 
 Then commit + push + create `v1.0.1-paper` release with DOI in place.
 
