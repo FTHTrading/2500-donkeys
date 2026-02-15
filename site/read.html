@@ -477,6 +477,29 @@ body {
 
 .toc-close:hover { background: rgba(201,168,76,0.1); }
 
+/* ── Home button ── */
+.home-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border: 1px solid rgba(201,168,76,0.3);
+  color: var(--accent);
+  background: transparent;
+  cursor: pointer;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-family: var(--font-ui);
+  text-decoration: none;
+  border-radius: 3px;
+  transition: all 0.2s;
+}
+
+.home-btn:hover {
+  background: rgba(201,168,76,0.1);
+}
+
 /* ── Mobile ── */
 @media (max-width: 640px) {
   html { font-size: 16px; }
@@ -491,6 +514,7 @@ body {
 
 <!-- Top bar -->
 <div class="topbar">
+  <a href="/" class="home-btn" title="Back to Home">&#8962; Home</a>
   <span class="topbar-title">The 2,500 Donkeys</span>
   <span class="topbar-progress" id="progress-text">Cover</span>
 </div>
@@ -1542,6 +1566,7 @@ body {
 
   <div class="page" data-page="9">
     <div class="page-inner">
+      <img class="chapter-image" src="images/chapters/p09-whatsapp-chain.png" alt="WhatsApp Forward Chain">
       
       <span class="artifact-badge">Documentary Artifact</span>
       
@@ -2904,6 +2929,7 @@ body {
 
   <div class="page" data-page="18">
     <div class="page-inner">
+      <img class="chapter-image" src="images/chapters/p18-commission.png" alt="Commission Waterfall">
       
       <span class="artifact-badge">Documentary Artifact</span>
       
@@ -2967,6 +2993,7 @@ body {
 
   <div class="page" data-page="19">
     <div class="page-inner">
+      <img class="chapter-image" src="images/chapters/p19-esg-deck.png" alt="ESG Deck Excerpt">
       
       <span class="artifact-badge">Documentary Artifact</span>
       
@@ -4538,6 +4565,7 @@ body {
 
   <div class="page" data-page="28">
     <div class="page-inner">
+      <img class="chapter-image" src="images/chapters/p28-carbon-registry.png" alt="Carbon Registry">
       
       <span class="artifact-badge">Documentary Artifact</span>
       
@@ -5819,6 +5847,7 @@ body {
 
   <div class="page" data-page="36">
     <div class="page-inner">
+      <img class="chapter-image" src="images/chapters/p36-imfpa.png" alt="IMFPA Document">
       
       <span class="artifact-badge">Documentary Artifact</span>
       
@@ -5912,6 +5941,7 @@ body {
   <!-- Colophon -->
   <div class="page colophon" data-page="37">
     <div class="page-inner">
+      <img class="chapter-image" src="images/chapters/p37-colophon.png" alt="Colophon" style="max-width:300px">
       <h2>Colophon</h2>
       <p><strong style="color:#c9a84c">The 2,500 Donkeys</strong></p>
       <p>by Kidd James (Kevan Burns)</p>
@@ -5980,6 +6010,7 @@ body {
 <!-- Bottom nav -->
 <div class="bottombar">
   <button class="nav-btn" id="prev-btn" onclick="prev()" disabled>&larr; Prev</button>
+  <a href="/" class="toc-btn" style="text-decoration:none">&#8962; Home</a>
   <button class="toc-btn" onclick="openToc()">Contents</button>
   <button class="nav-btn" id="next-btn" onclick="next()">Next &rarr;</button>
 </div>
