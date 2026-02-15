@@ -35,7 +35,7 @@
 
 | Channel | Status | Asset | Best Timing |
 |---------|--------|-------|-------------|
-| Medium | ⏳ Ready | [MEDIUM-DRAFT.md](MEDIUM-DRAFT.md) | Any time |
+| Medium | ✅ Published | [medium.com/@kevanbtc](https://medium.com/@kevanbtc/a-deterministic-publishing-experiment-and-the-infrastructure-paper-it-produced-8a4d7b6e9288) | Feb 15, 2026 |
 | LinkedIn | ⏳ Ready | [LINKEDIN-POST.md](LINKEDIN-POST.md) | Tue–Thu 8–10 AM ET |
 | Hacker News | ⏳ Ready | [HACKERNEWS-SUBMISSION.md](HACKERNEWS-SUBMISSION.md) | Tue–Wed 9 AM ET |
 | Press Release | ⏳ Ready | [PRESS-RELEASE.md](PRESS-RELEASE.md) | After SSRN indexes |
@@ -67,7 +67,7 @@
 4. ✅ ~~ResearchGate upload~~
 
 ### This week
-5. ☐ Medium article publish
+5. ✅ ~~Medium article published~~
 6. ☐ LinkedIn post
 7. ☐ Check SSRN indexing status
 

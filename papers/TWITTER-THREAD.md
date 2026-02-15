@@ -101,6 +101,7 @@ Everything is open:
 🔗 Site: xxxiii.io
 💻 Source: github.com/FTHTrading/2500-donkeys
 🆔 ORCID: orcid.org/0009-0008-8425-939X
+✍️ Deep dive: medium.com/@kevanbtc/a-deterministic-publishing-experiment-and-the-infrastructure-paper-it-produced-8a4d7b6e9288
 
 146 tests. 5 verified contracts. Full source.
 If you work on provenance, publishing, or document authentication — the paper is for you.
@@ -121,7 +122,7 @@ That's coming soon too.
 
 - **Best time:** Tue–Thu, 9–11 AM ET
 - **Post Tweet 1, then reply-chain the rest** — do NOT use a thread-unrolling tool
-- **Add the Medium article link** to Tweet 8 once it's published
+- ~~**Add the Medium article link** to Tweet 8~~ ✅ Done
 - **Pin Tweet 1** to your profile after posting
 - **Hashtags (Tweet 1 only):** none — threads perform better without them
 - **Images:** Consider a screenshot of the Polygonscan verification or the Merkle tree diagram

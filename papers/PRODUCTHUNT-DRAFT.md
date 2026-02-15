@@ -83,7 +83,7 @@ I'm here to answer any questions about the protocol, the threat model, or why I 
 - [ ] Have 5+ hunter friends ready to upvote at launch
 - [ ] Maker comment drafted (above)
 - [ ] Gallery images prepared (4 screenshots)
-- [ ] Medium article published (link in listing)
+- [x] Medium article published: [link](https://medium.com/@kevanbtc/a-deterministic-publishing-experiment-and-the-infrastructure-paper-it-produced-8a4d7b6e9288)
 - [ ] Twitter thread posted (cross-promote)
 - [ ] Reply to every comment within first 3 hours
 
