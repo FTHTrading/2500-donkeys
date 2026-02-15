@@ -114,8 +114,18 @@ function sha256(data) {
   return crypto.createHash("sha256").update(data).digest("hex");
 }
 
+/**
+ * Hash a file with cross-platform line-ending normalization.
+ * Text files (.md) are normalized to CRLF before hashing so that
+ * SHA-256 values match the genesis Merkle roots computed on Windows.
+ */
 function sha256File(filePath) {
   const content = fs.readFileSync(filePath);
+  if (/\.md$/i.test(filePath)) {
+    const text = content.toString('utf-8');
+    const crlf = text.replace(/\r\n/g, '\n').replace(/\n/g, '\r\n');
+    return sha256(Buffer.from(crlf, 'utf-8'));
+  }
   return sha256(content);
 }
 
@@ -304,8 +314,10 @@ function verifyCompilationHash(order) {
   // Now compare against the stored dist/final-manuscript.md
   const distPath = path.join(DIST_DIR, "final-manuscript.md");
   if (fs.existsSync(distPath)) {
-    const distContent = fs.readFileSync(distPath);
-    const distHash = sha256(distContent);
+    // Normalize to CRLF for consistent cross-platform hashing
+    const distRaw = fs.readFileSync(distPath, 'utf-8');
+    const distCrlf = distRaw.replace(/\r\n/g, '\n').replace(/\n/g, '\r\n');
+    const distHash = sha256(Buffer.from(distCrlf, 'utf-8'));
 
     // Note: We can't compare compiledHash to distHash because the timestamp differs.
     // Instead, we hash the dist file and compare to genesis.json's recorded hash.

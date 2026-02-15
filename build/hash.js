@@ -29,8 +29,9 @@ function generateHash() {
     fs.mkdirSync(METADATA_DIR, { recursive: true });
   }
 
-  // Read manuscript
-  const content = fs.readFileSync(MANUSCRIPT_PATH, "utf-8");
+  // Read manuscript and normalize line endings to CRLF for cross-platform consistency
+  const raw = fs.readFileSync(MANUSCRIPT_PATH, "utf-8");
+  const content = raw.replace(/\r\n/g, '\n').replace(/\n/g, '\r\n');
 
   // Generate SHA-256
   const sha256 = crypto.createHash("sha256").update(content, "utf-8").digest("hex");
@@ -38,7 +39,7 @@ function generateHash() {
   // Generate MD5 (secondary reference)
   const md5 = crypto.createHash("md5").update(content, "utf-8").digest("hex");
 
-  // Build stats
+  // Build stats — use actual file size on disk
   const stats = fs.statSync(MANUSCRIPT_PATH);
 
   // Load Merkle tree data if available

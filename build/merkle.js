@@ -22,8 +22,18 @@ function sha256(data) {
   return crypto.createHash('sha256').update(data).digest('hex');
 }
 
+/**
+ * Hash a file with cross-platform line-ending normalization.
+ * Text files (.md) are normalized to CRLF before hashing so that
+ * SHA-256 values match the genesis Merkle roots computed on Windows.
+ */
 function sha256File(filePath) {
   const data = fs.readFileSync(filePath);
+  if (/\.md$/i.test(filePath)) {
+    const text = data.toString('utf-8');
+    const crlf = text.replace(/\r\n/g, '\n').replace(/\n/g, '\r\n');
+    return sha256(Buffer.from(crlf, 'utf-8'));
+  }
   return sha256(data);
 }
 

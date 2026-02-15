@@ -81,8 +81,11 @@ function compile() {
   parts.push(`Blocks compiled: ${order.blocks.length}\n`);
   parts.push(`Build timestamp: ${DETERMINISTIC ? 'DETERMINISTIC' : new Date().toISOString()}\n`);
 
-  // Write output
-  const output = parts.join("\n");
+  // Write output — normalize line endings to CRLF for cross-platform consistency.
+  // Genesis SHA-256 was computed on Windows (CRLF); this ensures identical
+  // output regardless of platform.
+  const raw = parts.join("\n");
+  const output = raw.replace(/\r\n/g, '\n').replace(/\n/g, '\r\n');
   const outputPath = path.join(DIST_DIR, "final-manuscript.md");
   fs.writeFileSync(outputPath, output, "utf-8");
 
