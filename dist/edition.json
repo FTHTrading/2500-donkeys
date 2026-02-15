@@ -135,9 +135,7 @@
     "organization": "FTH Trading",
     "domain": "unykorn.org",
     "amazon_author_url": "https://www.amazon.com/stores/author/B0DQ5FN1GP",
-    "works_registered": 7,
-    "contracts_linked": 0,
-    "status": "PARTIAL — 5 works + 4 links pending",
-    "verified_on_polygonscan": true
+    "works_registered": 12,
+    "contracts_linked": 4
   }
 }

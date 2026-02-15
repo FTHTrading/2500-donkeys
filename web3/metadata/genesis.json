@@ -61,17 +61,13 @@
   },
   "authorIdentity": {
     "contract": "0xB9ffa688A8Bb332221030BbBE46bE5bF03323170",
-    "deployTx": "0x06ce71c5ff047709b5a05528d967e9181ededa953e94fe1ab7ac796433a2fa5f",
-    "deployBlock": 83011404,
     "realName": "Kevan Burns",
     "nickname": "Burnzy",
     "pseudonym": "Kidd James",
     "organization": "FTH Trading",
     "domain": "unykorn.org",
     "amazonAuthorUrl": "https://www.amazon.com/stores/author/B0DQ5FN1GP",
-    "worksRegistered": 7,
-    "contractsLinked": 0,
-    "status": "PARTIAL — 5 works + 4 links pending (wallet needs POL)",
-    "verified": true
+    "worksRegistered": 12,
+    "contractsLinked": 4
   }
 }
