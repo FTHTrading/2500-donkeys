@@ -24,7 +24,7 @@
 |----------|--------|--------|
 | Zenodo | ✅ Done | Archived, DOI minted |
 | SSRN | ✅ Submitted | Add ORCID + affiliation to author profile |
-| ResearchGate | ⏳ Ready | Upload PDF, paste metadata from RESEARCHGATE-UPLOAD.md |
+| ResearchGate | ✅ Profile live | [researchgate.net/profile/Kevan-Burns](https://www.researchgate.net/profile/Kevan-Burns) |
 | Google Scholar | ⏳ Waiting | Auto-indexes from SSRN/ResearchGate (1–2 weeks) |
 | Semantic Scholar | ⏳ Waiting | Auto-indexes from DOI (1–4 weeks) |
 | ORCID Works | ✅ Done | Paper linked via DOI |
@@ -63,8 +63,8 @@
 ### Immediate (today)
 1. ✅ ~~SSRN submitted~~
 2. ✅ ~~ORCID registered + wired~~
-3. ☐ Add ORCID + affiliation to SSRN author profile
-4. ☐ ResearchGate upload
+3. ✅ ~~Add ORCID + affiliation to SSRN author profile~~
+4. ✅ ~~ResearchGate upload~~
 
 ### This week
 5. ☐ Medium article publish
