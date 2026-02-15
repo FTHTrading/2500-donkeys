@@ -321,6 +321,90 @@
     </div>
   </section>
 
+  <!-- ═══════ CITE THIS WORK ═══════ -->
+  <section id="cite" class="section">
+    <div class="container narrow">
+      <h2>Cite This Work</h2>
+      <p>This project has been archived with Zenodo and assigned a Digital Object Identifier. The academic paper, source code, and on-chain artifacts are all independently referenceable.</p>
+
+      <!-- DOI -->
+      <div class="cite-card">
+        <div class="cite-header">
+          <span class="cite-label">DOI</span>
+        </div>
+        <div class="cite-doi">
+          <a href="https://doi.org/10.5281/zenodo.18646886" target="_blank" rel="noopener">10.5281/zenodo.18646886</a>
+          <button class="btn-copy" id="copyDoi" title="Copy DOI">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="16" height="16"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- BibTeX -->
+      <div class="cite-card">
+        <div class="cite-header">
+          <span class="cite-label">BibTeX</span>
+          <button class="btn-copy cite-copy" id="copyBibtex" title="Copy BibTeX">Copy</button>
+        </div>
+        <pre class="cite-code" id="bibtexBlock"><code>@techreport{burns2026deterministic,
+  title     = {Deterministic Literary Publishing: A Multi-Layer
+               Provenance Model for Verifiable Manuscripts},
+  author    = {Burns, Kevan},
+  year      = {2026},
+  month     = {February},
+  version   = {1.0},
+  doi       = {10.5281/zenodo.18646886},
+  url       = {https://doi.org/10.5281/zenodo.18646886},
+  note      = {Independent research. Reference implementation
+               deployed on Polygon mainnet.}
+}</code></pre>
+      </div>
+
+      <!-- APA -->
+      <div class="cite-card">
+        <div class="cite-header">
+          <span class="cite-label">APA (7th Edition)</span>
+          <button class="btn-copy cite-copy" id="copyApa" title="Copy APA">Copy</button>
+        </div>
+        <p class="cite-text" id="apaBlock">Burns, K. (2026). <em>Deterministic literary publishing: A multi-layer provenance model for verifiable manuscripts</em> (Version 1.0). Independent research. https://doi.org/10.5281/zenodo.18646886</p>
+      </div>
+
+      <!-- Verification Links -->
+      <div class="cite-card cite-card-links">
+        <div class="cite-header">
+          <span class="cite-label">Verification &amp; Source</span>
+        </div>
+        <div class="cite-links">
+          <div class="cite-link-row">
+            <span class="cite-link-label">Paper (Zenodo)</span>
+            <a href="https://doi.org/10.5281/zenodo.18646886" target="_blank" rel="noopener">doi.org/10.5281/zenodo.18646886</a>
+          </div>
+          <div class="cite-link-row">
+            <span class="cite-link-label">Source Code</span>
+            <a href="https://github.com/FTHTrading/2500-donkeys" target="_blank" rel="noopener">github.com/FTHTrading/2500-donkeys</a>
+          </div>
+          <div class="cite-link-row">
+            <span class="cite-link-label">PublishingKernelV2</span>
+            <a href="https://polygonscan.com/address/0xca9F6604A9b498DB31d113836E2957c0a9aAE037#code" target="_blank" rel="noopener">0xca9F...C037</a>
+          </div>
+          <div class="cite-link-row">
+            <span class="cite-link-label">AuthorIdentity</span>
+            <a href="https://polygonscan.com/address/0xB9ffa688A8Bb332221030BbBE46bE5bF03323170#code" target="_blank" rel="noopener">0xB9ff...3170</a>
+          </div>
+          <div class="cite-link-row">
+            <span class="cite-link-label">LiteraryAnchor</span>
+            <a href="https://polygonscan.com/address/0x97f456300817eaE3B40E235857b856dfFE8bba90#code" target="_blank" rel="noopener">0x97f4...b890</a>
+          </div>
+          <div class="cite-link-row">
+            <span class="cite-link-label">IPFS</span>
+            <a href="https://ipfs.io/ipfs/QmVQ79NM3qxAsBpftTG4YhD4KV9sUEmM3WwFrc5vs5g8vK" target="_blank" rel="noopener">QmVQ79...g8vK</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
   <!-- ═══════ CLOSING ═══════ -->
   <section id="closing" class="section section-dark">
     <div class="container narrow">
@@ -340,9 +424,11 @@
       <p class="footer-title">The 2,500 Donkeys</p>
       <p class="footer-sub">A Literary Protocol by Kidd James</p>
       <div class="footer-links">
+        <a href="https://doi.org/10.5281/zenodo.18646886" target="_blank" rel="noopener">DOI</a>
         <a href="https://github.com/FTHTrading/2500-donkeys" target="_blank" rel="noopener">GitHub</a>
         <a href="https://polygonscan.com/address/0x97f456300817eaE3B40E235857b856dfFE8bba90" target="_blank" rel="noopener">Polygonscan</a>
         <a href="https://ipfs.io/ipfs/QmPXtEsRwiWuaKmKNA569XAqFNVySN8pwTdGQrvcdpgtMa" target="_blank" rel="noopener">IPFS</a>
+        <a href="#cite">Cite This Work</a>
       </div>
       <p class="footer-copy">&copy; 2026 Kidd James. All literary content rights reserved. Infrastructure MIT licensed.</p>
       <p class="footer-hash">Canonical Hash: <code>9d0624...7d84</code></p>
@@ -432,6 +518,41 @@
         navigator.clipboard.writeText(CID).then(function() {
           copyCid.classList.add('copied');
           setTimeout(function() { copyCid.classList.remove('copied'); }, 2000);
+        });
+      });
+    }
+
+    // ── Copy DOI ──────────────────────────────────────────────
+    const copyDoi = document.getElementById('copyDoi');
+    if (copyDoi) {
+      copyDoi.addEventListener('click', function() {
+        navigator.clipboard.writeText('10.5281/zenodo.18646886').then(function() {
+          copyDoi.classList.add('copied');
+          setTimeout(function() { copyDoi.classList.remove('copied'); }, 2000);
+        });
+      });
+    }
+
+    // ── Copy BibTeX ───────────────────────────────────────────
+    const copyBibtex = document.getElementById('copyBibtex');
+    if (copyBibtex) {
+      copyBibtex.addEventListener('click', function() {
+        var text = document.getElementById('bibtexBlock').textContent;
+        navigator.clipboard.writeText(text).then(function() {
+          copyBibtex.textContent = 'Copied!';
+          setTimeout(function() { copyBibtex.textContent = 'Copy'; }, 2000);
+        });
+      });
+    }
+
+    // ── Copy APA ──────────────────────────────────────────────
+    const copyApa = document.getElementById('copyApa');
+    if (copyApa) {
+      copyApa.addEventListener('click', function() {
+        var text = document.getElementById('apaBlock').textContent;
+        navigator.clipboard.writeText(text).then(function() {
+          copyApa.textContent = 'Copied!';
+          setTimeout(function() { copyApa.textContent = 'Copy'; }, 2000);
         });
       });
     }

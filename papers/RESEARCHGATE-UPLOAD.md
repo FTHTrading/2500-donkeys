@@ -3,7 +3,8 @@
 ## Profile Setup
 
 **Name:** Kevan Burns
-**Affiliation:** Independent Researcher
+**Affiliation:** Independent Researcher, FTH Trading, Norcross, GA
+**Email:** kevan.burns@fthtrading.com
 **Institution (if needed):** FTH Trading (select "Other" or "Independent")
 **Disciplines:** Information Systems, Digital Publishing, Cryptography, Software Engineering
 

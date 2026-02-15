@@ -6,9 +6,9 @@
 
 **Author:** Kevan Burns
 
-**Affiliation:** Independent Researcher, FTH Trading, London
+**Affiliation:** Independent Researcher, FTH Trading, Norcross, GA
 
-**Email:** kevan@unykorn.org
+**Email:** kevan.burns@fthtrading.com
 
 ---
 

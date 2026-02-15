@@ -10,8 +10,8 @@ license: "CC-BY-4.0"
 
 **Kevan Burns**
 Independent Researcher
-FTH Trading, London
-kevan@unykorn.org
+FTH Trading, Norcross, GA
+kevan.burns@fthtrading.com
 
 **Version:** 1.0 — February 15, 2026
 **DOI:** [10.5281/zenodo.18646886](https://doi.org/10.5281/zenodo.18646886)
@@ -632,5 +632,5 @@ K. Burns, "Deterministic Literary Publishing: A Multi-Layer Provenance Model for
 ---
 
 *Version 1.0 — February 15, 2026*
-*Kevan Burns — Independent Researcher — FTH Trading*
+*Kevan Burns — Independent Researcher — FTH Trading, Norcross, GA*
 *All on-chain artifacts verified on Polygonscan. Source code: github.com/FTHTrading/2500-donkeys*
