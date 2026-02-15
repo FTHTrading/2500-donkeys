@@ -15,6 +15,8 @@ const ORDER = require(path.join(ROOT, 'build', 'order.json'));
 const MANUSCRIPT_DIR = path.join(ROOT, 'manuscript');
 const ARTIFACT_DIR = path.join(ROOT, 'artifacts');
 const IMAGES_DIR = path.join(ROOT, 'images');
+const AUDIO_DIR = path.join(ROOT, 'audio', 'rendered');
+const SITE_AUDIO_DIR = path.join(ROOT, 'site', 'audio');
 const OUTPUT = path.join(ROOT, 'site', 'read.html');
 
 // Map chapter images to block prefixes
@@ -143,7 +145,8 @@ for (const block of ORDER.blocks) {
     html,
     chapterGroup,
     image,
-    isArtifact: false
+    isArtifact: false,
+    audioFile: null // filled in below
   });
 
   // Insert artifacts that come after this block
@@ -164,8 +167,27 @@ for (const block of ORDER.blocks) {
         html: artHtml,
         chapterGroup,
         image: null,
-        isArtifact: true
+        isArtifact: true,
+        audioFile: null
       });
+    }
+  }
+}
+
+// Detect rendered audio files and copy to site/audio/
+let audioCount = 0;
+if (fs.existsSync(AUDIO_DIR)) {
+  if (!fs.existsSync(SITE_AUDIO_DIR)) {
+    fs.mkdirSync(SITE_AUDIO_DIR, { recursive: true });
+  }
+  for (const block of blocks) {
+    const mp3Name = block.filename.replace(/\.md$/, '.mp3');
+    const mp3Path = path.join(AUDIO_DIR, mp3Name);
+    if (fs.existsSync(mp3Path)) {
+      block.audioFile = `audio/${mp3Name}`;
+      // Copy to site/audio/
+      fs.copyFileSync(mp3Path, path.join(SITE_AUDIO_DIR, mp3Name));
+      audioCount++;
     }
   }
 }
@@ -181,7 +203,8 @@ if (fs.existsSync(coverPath)) {
 // Build chapter navigation data
 const chaptersJson = JSON.stringify(blocks.map(b => ({
   title: b.title,
-  artifact: b.isArtifact
+  artifact: b.isArtifact,
+  audio: b.audioFile || null
 })));
 
 // Count pages: cover + blocks + colophon
@@ -189,6 +212,7 @@ const totalPages = blocks.length + 2;
 
 console.log(`  ${blocks.length} blocks loaded`);
 console.log(`  ${Object.keys(CHAPTER_IMAGES).length} chapter images found`);
+console.log(`  ${audioCount} audio files found`);
 console.log(`  Cover: ${coverDataUri ? 'yes' : 'no'}`);
 
 // ── Generate HTML ──
@@ -433,6 +457,69 @@ body {
   margin-bottom: 16px;
 }
 
+/* ── Audio player ── */
+.audio-player {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(201,168,76,0.08);
+  border: 1px solid rgba(201,168,76,0.2);
+  border-radius: 8px;
+  padding: 10px 16px;
+  margin-bottom: 24px;
+  font-family: var(--font-ui);
+}
+
+.audio-player .play-btn {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--accent);
+  background: transparent;
+  color: var(--accent);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+
+.audio-player .play-btn:hover {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+.audio-player .audio-label {
+  color: var(--text-dim);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.audio-player .audio-time {
+  color: var(--text-dim);
+  font-size: 0.7rem;
+  font-variant-numeric: tabular-nums;
+  margin-left: auto;
+}
+
+.audio-player .audio-bar {
+  flex: 1;
+  height: 4px;
+  background: rgba(201,168,76,0.15);
+  border-radius: 2px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.audio-player .audio-bar-fill {
+  height: 100%;
+  background: var(--accent);
+  width: 0%;
+  transition: width 0.1s linear;
+}
+
 /* ── Colophon page ── */
 .colophon {
   justify-content: center;
@@ -644,10 +731,18 @@ ${blocks.map((block, i) => {
   const pageNum = i + 1;
   const imgTag = block.image ? `<img class="chapter-image" src="${block.image}" alt="${block.title}">` : '';
   const artifactBadge = block.isArtifact ? '<span class="artifact-badge">Documentary Artifact</span>' : '';
+  const audioWidget = block.audioFile ? `
+      <div class="audio-player" data-src="${block.audioFile}">
+        <button class="play-btn" onclick="toggleAudio(this)" title="Listen">&#9654;</button>
+        <span class="audio-label">Listen</span>
+        <div class="audio-bar" onclick="seekAudio(event, this)"><div class="audio-bar-fill"></div></div>
+        <span class="audio-time">--:--</span>
+      </div>` : '';
   return `  <div class="page" data-page="${pageNum}">
     <div class="page-inner">
       ${imgTag}
       ${artifactBadge}
+      ${audioWidget}
       ${block.html}
     </div>
   </div>`;
@@ -790,6 +885,89 @@ document.addEventListener('touchend', e => {
 });
 
 updateUI();
+
+// ── Audio Player ──
+let currentAudio = null;
+let currentBtn = null;
+
+function fmtTime(s) {
+  if (!s || isNaN(s)) return '--:--';
+  const m = Math.floor(s / 60);
+  const sec = Math.floor(s % 60);
+  return m + ':' + (sec < 10 ? '0' : '') + sec;
+}
+
+function toggleAudio(btn) {
+  const player = btn.closest('.audio-player');
+  const src = player.dataset.src;
+
+  // If same audio is playing, pause it
+  if (currentAudio && currentBtn === btn) {
+    if (currentAudio.paused) {
+      currentAudio.play();
+      btn.innerHTML = '&#9646;&#9646;';
+    } else {
+      currentAudio.pause();
+      btn.innerHTML = '&#9654;';
+    }
+    return;
+  }
+
+  // Stop any currently playing audio
+  if (currentAudio) {
+    currentAudio.pause();
+    currentAudio.currentTime = 0;
+    if (currentBtn) currentBtn.innerHTML = '&#9654;';
+  }
+
+  // Create new audio
+  currentAudio = new Audio(src);
+  currentBtn = btn;
+  const timeEl = player.querySelector('.audio-time');
+  const fillEl = player.querySelector('.audio-bar-fill');
+
+  currentAudio.addEventListener('loadedmetadata', () => {
+    timeEl.textContent = fmtTime(currentAudio.duration);
+  });
+
+  currentAudio.addEventListener('timeupdate', () => {
+    const pct = (currentAudio.currentTime / currentAudio.duration) * 100;
+    fillEl.style.width = pct + '%';
+    timeEl.textContent = fmtTime(currentAudio.currentTime) + ' / ' + fmtTime(currentAudio.duration);
+  });
+
+  currentAudio.addEventListener('ended', () => {
+    btn.innerHTML = '&#9654;';
+    fillEl.style.width = '0%';
+    currentAudio = null;
+    currentBtn = null;
+  });
+
+  currentAudio.play();
+  btn.innerHTML = '&#9646;&#9646;';
+}
+
+function seekAudio(e, bar) {
+  if (!currentAudio) return;
+  const rect = bar.getBoundingClientRect();
+  const pct = (e.clientX - rect.left) / rect.width;
+  currentAudio.currentTime = pct * currentAudio.duration;
+}
+
+// Stop audio when navigating away
+const origGoTo = goTo;
+goTo = function(n) {
+  if (currentAudio) {
+    currentAudio.pause();
+    currentAudio.currentTime = 0;
+    if (currentBtn) currentBtn.innerHTML = '&#9654;';
+    const oldFill = currentBtn?.closest('.audio-player')?.querySelector('.audio-bar-fill');
+    if (oldFill) oldFill.style.width = '0%';
+    currentAudio = null;
+    currentBtn = null;
+  }
+  origGoTo(n);
+};
 </script>
 
 </body>
@@ -798,4 +976,5 @@ updateUI();
 fs.writeFileSync(OUTPUT, html, 'utf-8');
 console.log(`\\n  ✔ Reader written to site/read.html`);
 console.log(`  ✔ ${totalPages} total pages (cover + ${blocks.length} blocks + colophon)`);
+console.log(`  ✔ ${audioCount} audio tracks linked`);
 console.log(`  ✔ Self-contained — all images embedded as data URIs`);

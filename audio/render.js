@@ -26,7 +26,7 @@
 const fs = require('fs');
 const path = require('path');
 const https = require('https');
-require('dotenv').config();
+require('dotenv').config({ override: true });
 
 // ── Paths ─────────────────────────────────────────────────────
 const ROOT = path.resolve(__dirname, '..');
