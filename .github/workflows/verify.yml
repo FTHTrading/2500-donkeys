@@ -28,11 +28,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Configure line endings (match Windows genesis)
-        run: git config --global core.autocrlf true
-
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Convert line endings to CRLF (match Windows genesis)
+        run: |
+          git config core.autocrlf true
+          git checkout -- .
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -55,11 +57,13 @@ jobs:
     needs: build-and-test
 
     steps:
-      - name: Configure line endings (match Windows genesis)
-        run: git config --global core.autocrlf true
-
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Convert line endings to CRLF (match Windows genesis)
+        run: |
+          git config core.autocrlf true
+          git checkout -- .
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
