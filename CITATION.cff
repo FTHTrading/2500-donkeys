@@ -9,8 +9,11 @@ type: software
 authors:
   - given-names: Kevan
     family-names: Burns
-    email: kevan@unykorn.org
-    affiliation: Independent Researcher / FTH Trading
+    email: kevan.burns@fthtrading.com
+    affiliation: FTH Trading
+    city: Norcross
+    country: US
+    # orcid: https://orcid.org/XXXX-XXXX-XXXX-XXXX  # TODO: add after registration
 repository-code: https://github.com/FTHTrading/2500-donkeys
 url: https://xxxiii.io
 abstract: >-

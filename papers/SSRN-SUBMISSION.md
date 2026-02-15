@@ -6,9 +6,25 @@
 
 **Author:** Kevan Burns
 
-**Affiliation:** Independent Researcher, FTH Trading, Norcross, GA
-
+**Affiliation:** FTH Trading
+**Position:** Founder-Architect & Chief Systems Engineer
+**Location:** Norcross, Georgia, United States
 **Email:** kevan.burns@fthtrading.com
+**ORCID:** *(register at https://orcid.org/register — takes 2 minutes)*
+
+---
+
+## Post-Submission: Fix Affiliation on SSRN
+
+SSRN stores affiliation in your **author profile**, not in the paper.
+
+1. Go to https://hq.ssrn.com → click your name in sidebar
+2. Find "Affiliation" / "Institutional Information"
+3. Enter:
+   - **Affiliation:** FTH Trading
+   - **Position:** Founder-Architect & Chief Systems Engineer
+   - **Location:** Norcross, GA, USA
+4. Save — SSRN applies it retroactively to your submission
 
 ---
 
@@ -81,3 +97,9 @@ Include this DOI in:
 - ~~Update SSRN abstract to include DOI~~ ✅
 - Add DOI to "Related Links" field on SSRN
 - ~~Update paper PDF with DOI in front matter~~ ✅
+
+**SSRN Submission Status:** ✅ SUBMITTED (February 15, 2026)
+- Paper uploaded and accepted by SSRN
+- Affiliation: needs post-submission profile update (see instructions above)
+- ORCID: register and add to SSRN author profile
+- Review timeline: 24–72 hours for indexing
