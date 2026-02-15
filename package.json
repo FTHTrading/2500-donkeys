@@ -1,0 +1,27 @@
+{
+  "name": "2500-donkeys",
+  "version": "1.0.0",
+  "description": "The 2,500 Donkeys — A Web3 Literary Protocol by Kidd James",
+  "author": "Kidd James",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "compile": "node build/compile.js",
+    "hash": "node build/hash.js",
+    "manifest": "node build/manifest.js",
+    "build": "node build/compile.js && node build/hash.js && node build/manifest.js",
+    "genesis": "npm run build"
+  },
+  "keywords": [
+    "literary-protocol",
+    "web3-publishing",
+    "ipfs",
+    "satire",
+    "finance",
+    "gold-trade",
+    "esg",
+    "carbon-credits",
+    "blockchain",
+    "polygon"
+  ]
+}

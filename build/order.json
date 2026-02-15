@@ -1,0 +1,74 @@
+{
+  "title": "The 2,500 Donkeys",
+  "subtitle": "A Literary Protocol by Kidd James",
+  "version": "genesis",
+  "blocks": [
+    {
+      "id": "block-00",
+      "file": "block-00-genesis.md",
+      "title": "Genesis Hash",
+      "type": "prose"
+    },
+    {
+      "id": "block-01",
+      "file": "block-01-parking-lots.md",
+      "title": "The Parking Lots",
+      "type": "prose"
+    },
+    {
+      "id": "block-02",
+      "file": "block-02-paper.md",
+      "title": "The Paper",
+      "type": "prose"
+    },
+    {
+      "id": "block-03",
+      "file": "block-03-whatsapp.md",
+      "title": "The WhatsApp Mutation",
+      "type": "prose",
+      "artifactInserts": [
+        { "after": true, "artifact": "whatsapp-forward-17.md" }
+      ]
+    },
+    {
+      "id": "block-04",
+      "file": "block-04-donkeys.md",
+      "title": "The Donkeys",
+      "type": "prose"
+    },
+    {
+      "id": "block-05",
+      "file": "block-05-procession.md",
+      "title": "The Procession",
+      "type": "prose",
+      "artifactInserts": [
+        { "after": true, "artifact": "commission-waterfall.md" },
+        { "after": true, "artifact": "esg-deck-excerpt.md" }
+      ]
+    },
+    {
+      "id": "block-06",
+      "file": "block-06-humanitarian.md",
+      "title": "The Humanitarian Settlement",
+      "type": "prose",
+      "artifactInserts": [
+        { "after": true, "artifact": "carbon-registry-summary.md" }
+      ]
+    },
+    {
+      "id": "block-07",
+      "file": "block-07-silence.md",
+      "title": "The Silence",
+      "type": "prose"
+    },
+    {
+      "id": "epilogue",
+      "file": "epilogue.md",
+      "title": "The Genesis Remains",
+      "type": "prose",
+      "artifactInserts": [
+        { "after": true, "artifact": "imfpa-redline-v3.md" }
+      ]
+    }
+  ]
+}

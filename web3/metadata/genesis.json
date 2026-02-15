@@ -1,0 +1,23 @@
+{
+  "title": "The 2,500 Donkeys",
+  "author": "Kidd James",
+  "edition": "genesis",
+  "build": {
+    "timestamp": "2026-02-15T02:11:53.773Z",
+    "sha256": "e3f9386fad1cc277c7a6841fdee6ca236a557cc832a3adbfadf2e56ed969d034",
+    "md5": "88e31a94f44740b0fdb61f8fcd49e242",
+    "sizeBytes": 49224,
+    "source": "dist/final-manuscript.md"
+  },
+  "ipfs": {
+    "cid": null,
+    "pinnedAt": null,
+    "gateway": null
+  },
+  "chain": {
+    "network": "polygon",
+    "contract": null,
+    "txHash": null,
+    "authorWallet": null
+  }
+}
