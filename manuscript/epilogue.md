@@ -54,11 +54,12 @@ The chain does not forget.
 
 ---
 
-*Genesis CID: [FINAL — PENDING IPFS PIN]*
-*SHA-256: [FINAL — PENDING BUILD]*
-*Author wallet: [PENDING DEPLOYMENT]*
-*Anchor contract: [PENDING POLYGON]*
-*Block timestamp: [PENDING MINT]*
+*Genesis CID: QmVQ79NM3qxAsBpftTG4YhD4KV9sUEmM3WwFrc5vs5g8vK*
+*Edition 2 CID: QmPXtEsRwiWuaKmKNA569XAqFNVySN8pwTdGQrvcdpgtMa*
+*SHA-256: 9d062421b52d35aa23b73bfc8f66574db78bad9726e45c43a12d0109cdd57d84*
+*Author wallet: 0xC91668184736BF75C4ecE37473D694efb2A43978*
+*Anchor contract: 0x97f456300817eaE3B40E235857b856dfFE8bba90*
+*Block timestamp: 83,004,469 (Polygon)*
 
 ---
 
@@ -72,4 +73,4 @@ The chain does not forget.
 
 **The 2,500 Donkeys**
 *A Literary Protocol by Kidd James*
-*First Edition — Genesis Build*
+*Edition 2 — 31 Blocks, ~75,000 Words*

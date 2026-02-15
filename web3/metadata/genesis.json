@@ -3,10 +3,10 @@
   "author": "Kidd James",
   "edition": "genesis",
   "build": {
-    "timestamp": "2026-02-15T03:57:27.693Z",
-    "sha256": "9d062421b52d35aa23b73bfc8f66574db78bad9726e45c43a12d0109cdd57d84",
-    "md5": "04c622804c2d75f6e5fff6740af1d00f",
-    "sizeBytes": 293368,
+    "timestamp": "2026-02-15T04:25:01.172Z",
+    "sha256": "030dbc10619e6bf64a4a64a6ad885cb4968e5a061e6d7cb9724eea591dcb3237",
+    "md5": "d31f5e3824c85947cffaa06df0727631",
+    "sizeBytes": 293550,
     "source": "dist/final-manuscript.md"
   },
   "ipfs": {
