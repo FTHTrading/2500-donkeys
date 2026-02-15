@@ -3,16 +3,18 @@
   "author": "Kidd James",
   "edition": "genesis",
   "build": {
-    "timestamp": "2026-02-15T02:11:53.773Z",
-    "sha256": "e3f9386fad1cc277c7a6841fdee6ca236a557cc832a3adbfadf2e56ed969d034",
-    "md5": "88e31a94f44740b0fdb61f8fcd49e242",
+    "timestamp": "2026-02-15T02:14:13.322Z",
+    "sha256": "cdef74d157437eeeb20d474fa7fcb590c83f87668aa109c036c76ac21e578364",
+    "md5": "15ec4f352795ee7afdb5fe1e5d562510",
     "sizeBytes": 49224,
     "source": "dist/final-manuscript.md"
   },
   "ipfs": {
-    "cid": null,
-    "pinnedAt": null,
-    "gateway": null
+    "cid": "QmVQ79NM3qxAsBpftTG4YhD4KV9sUEmM3WwFrc5vs5g8vK",
+    "manuscriptCid": "QmdK3k8Npw8nE14JVRf2mv2QThkcXjmDLw7nFj2h69upNh",
+    "pinnedAt": "2026-02-15T02:15:00.000Z",
+    "gateway": "http://127.0.0.1:8080/ipfs/QmVQ79NM3qxAsBpftTG4YhD4KV9sUEmM3WwFrc5vs5g8vK",
+    "peerID": "12D3KooWS2kwSctr6Lbxw2BZrEpAKQEwpaX1KnwDUSTxC3EKZd6E"
   },
   "chain": {
     "network": "polygon",
