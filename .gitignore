@@ -7,9 +7,9 @@ Thumbs.db
 # Build outputs
 dist/
 
-# Generated images (large PNGs — tracked via prompts, not binary)
-images/chapters/*.png
-images/cover/*.png
+# Generated images — PNGs tracked in git because their SHA-256
+# hashes are part of the on-chain Merkle tree (Polygon).
+# Only generation-log.json is ignored.
 images/generation-log.json
 
 # Generated audio (large MP3s — tracked via IAPL-1 manifest, not binary)
