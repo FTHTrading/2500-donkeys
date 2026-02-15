@@ -1,0 +1,36 @@
+cff-version: 1.2.0
+title: >-
+  Deterministic Literary Publishing: A Multi-Layer Provenance
+  Model for Verifiable Manuscripts
+message: >-
+  If you use this software or reference this research, please
+  cite it using the metadata from this file.
+type: software
+authors:
+  - given-names: Kevan
+    family-names: Burns
+    email: kevan@unykorn.org
+    affiliation: Independent Researcher / FTH Trading
+repository-code: https://github.com/FTHTrading/2500-donkeys
+url: https://xxxiii.io
+abstract: >-
+  A multi-layer provenance architecture for literary publishing
+  that replaces institutional trust with cryptographic verification.
+  The system combines Merkle tree hashing across four content
+  categories, content-addressed storage (IPFS), deterministic build
+  pipelines, and append-only blockchain records to produce a
+  five-layer verification stack. Formalized as the Literary Protocol
+  Standard (LPS-1) and validated through a complete deployment
+  accompanying a 75,000-word literary work across five smart
+  contracts on Polygon mainnet.
+keywords:
+  - digital provenance
+  - deterministic publishing
+  - merkle trees
+  - content integrity
+  - reproducible pipelines
+  - literary technology
+  - on-chain anchoring
+license: CC-BY-4.0
+version: "1.0"
+date-released: "2026-02-15"

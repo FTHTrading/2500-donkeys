@@ -1,10 +1,22 @@
+---
+title: "Deterministic Literary Publishing: A Multi-Layer Provenance Model for Verifiable Manuscripts"
+version: "1.0"
+date: "February 15, 2026"
+doi: "pending"
+license: "CC-BY-4.0"
+---
+
 # Deterministic Literary Publishing: A Multi-Layer Provenance Model for Verifiable Manuscripts
 
 **Kevan Burns**
-FTH Trading
+Independent Researcher
+FTH Trading, London
 kevan@unykorn.org
+ORCID: *pending*
 
-**Date:** February 2026
+**Version:** 1.0 — February 15, 2026
+**Repository:** https://github.com/FTHTrading/2500-donkeys
+**License:** Creative Commons Attribution 4.0 International (CC BY 4.0)
 
 ---
 
@@ -582,3 +594,42 @@ All artifacts referenced in this paper can be verified using the following publi
 | Pull Pattern | Withdrawal design where recipients claim funds rather than receiving pushes |
 | Timelock | Mandatory delay between proposing and executing a destructive operation |
 | Freeze | Permanent, irreversible seal on an edition; no further modifications possible |
+
+---
+
+## Appendix C: How to Cite This Work
+
+### BibTeX
+
+```bibtex
+@techreport{burns2026deterministic,
+  title     = {Deterministic Literary Publishing: A Multi-Layer Provenance
+               Model for Verifiable Manuscripts},
+  author    = {Burns, Kevan},
+  year      = {2026},
+  month     = {February},
+  version   = {1.0},
+  url       = {https://github.com/FTHTrading/2500-donkeys/tree/master/papers},
+  note      = {Independent research. Reference implementation deployed on
+               Polygon mainnet. All claims verifiable against public
+               on-chain state.}
+}
+```
+
+### APA (7th Edition)
+
+Burns, K. (2026). *Deterministic literary publishing: A multi-layer provenance model for verifiable manuscripts* (Version 1.0). Independent research. https://github.com/FTHTrading/2500-donkeys/tree/master/papers
+
+### Chicago
+
+Burns, Kevan. "Deterministic Literary Publishing: A Multi-Layer Provenance Model for Verifiable Manuscripts." Version 1.0. Independent research, February 2026. https://github.com/FTHTrading/2500-donkeys/tree/master/papers.
+
+### IEEE
+
+K. Burns, "Deterministic Literary Publishing: A Multi-Layer Provenance Model for Verifiable Manuscripts," Independent research, v1.0, Feb. 2026. [Online]. Available: https://github.com/FTHTrading/2500-donkeys/tree/master/papers
+
+---
+
+*Version 1.0 — February 15, 2026*
+*Kevan Burns — Independent Researcher — FTH Trading*
+*All on-chain artifacts verified on Polygonscan. Source code: github.com/FTHTrading/2500-donkeys*

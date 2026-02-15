@@ -1,0 +1,57 @@
+{
+  "title": "Deterministic Literary Publishing: A Multi-Layer Provenance Model for Verifiable Manuscripts",
+  "description": "A multi-layer provenance architecture for literary publishing that replaces institutional trust with cryptographic verification. Combines Merkle tree hashing, content-addressed storage, deterministic build pipelines, and append-only blockchain records into a five-layer verification stack. Formalized as the Literary Protocol Standard (LPS-1) and validated through a complete deployment accompanying a 75,000-word literary work.",
+  "upload_type": "publication",
+  "publication_type": "workingpaper",
+  "creators": [
+    {
+      "name": "Burns, Kevan",
+      "affiliation": "Independent Researcher / FTH Trading"
+    }
+  ],
+  "keywords": [
+    "digital provenance",
+    "deterministic publishing",
+    "Merkle trees",
+    "content integrity",
+    "reproducible pipelines",
+    "literary technology",
+    "on-chain anchoring",
+    "IPFS",
+    "smart contracts",
+    "cryptographic verification"
+  ],
+  "license": "cc-by-4.0",
+  "access_right": "open",
+  "language": "eng",
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/FTHTrading/2500-donkeys",
+      "relation": "isSupplementTo",
+      "scheme": "url"
+    },
+    {
+      "identifier": "https://polygonscan.com/address/0xca9F6604A9b498DB31d113836E2957c0a9aAE037",
+      "relation": "isDocumentedBy",
+      "scheme": "url"
+    },
+    {
+      "identifier": "https://xxxiii.io",
+      "relation": "isPartOf",
+      "scheme": "url"
+    }
+  ],
+  "subjects": [
+    {
+      "term": "Digital publishing",
+      "scheme": "url",
+      "identifier": "https://id.loc.gov/authorities/subjects/sh2002000569"
+    },
+    {
+      "term": "Cryptography",
+      "scheme": "url",
+      "identifier": "https://id.loc.gov/authorities/subjects/sh85034453"
+    }
+  ],
+  "version": "1.0"
+}
