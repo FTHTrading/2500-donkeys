@@ -11,6 +11,8 @@
  *
  * Usage:
  *   node verify/lps-verify.js
+ *   node verify/lps-verify.js --json           # Machine-readable JSON only
+ *   node verify/lps-verify.js --proof block-12  # Merkle proof for block 12
  *   npm run lps:verify
  *
  * Exit codes:
@@ -19,12 +21,31 @@
  *
  * @author  Kevan Burns (Kidd James) / FTH Trading
  * @license MIT
- * @version 1.0.0
+ * @version 1.1.0
  */
 
 const fs = require("fs");
 const path = require("path");
 const crypto = require("crypto");
+
+// ══════════════════════════════════════════════════════════════════════════════
+//  CLI FLAGS
+// ══════════════════════════════════════════════════════════════════════════════
+
+const args = process.argv.slice(2);
+const JSON_MODE = args.includes("--json");
+const PROOF_MODE = args.includes("--proof");
+const PROOF_ARG = PROOF_MODE
+  ? args[args.indexOf("--proof") + 1]
+  : null;
+
+// In --json mode, suppress all console output; we write JSON to stdout at the end.
+const _log = console.log.bind(console);
+const _err = console.error.bind(console);
+if (JSON_MODE) {
+  console.log = () => {};
+  console.error = () => {};
+}
 
 // ══════════════════════════════════════════════════════════════════════════════
 //  CONFIGURATION — All addresses and RPC are public, no secrets needed
@@ -810,10 +831,98 @@ function verifyAudio(order, merkleResults) {
 }
 
 // ══════════════════════════════════════════════════════════════════════════════
+//  PROOF MODE — Merkle inclusion proof for a single block
+// ══════════════════════════════════════════════════════════════════════════════
+
+function generateBlockProof(blockArg) {
+  // Parse block identifier: "block-12", "12", "block-01"
+  const match = blockArg && blockArg.match(/(?:block-?)?(\d+)/i);
+  if (!match) {
+    _err(`\n  ✗ Invalid block identifier: "${blockArg}"`);
+    _err(`    Usage: --proof block-12  or  --proof 12\n`);
+    process.exit(1);
+  }
+  const blockNum = parseInt(match[1], 10);
+
+  // Load order.json
+  const order = JSON.parse(fs.readFileSync(ORDER_PATH, "utf8"));
+  const blockIndex = blockNum - 1; // 1-based → 0-based
+
+  if (blockIndex < 0 || blockIndex >= order.blocks.length) {
+    _err(`\n  ✗ Block ${blockNum} out of range (1-${order.blocks.length})\n`);
+    process.exit(1);
+  }
+
+  const block = order.blocks[blockIndex];
+  const filePath = path.join(MANUSCRIPT_DIR, block.file);
+
+  // ── Text proof ──
+  const manuscriptLeaves = order.blocks.map(b =>
+    sha256File(path.join(MANUSCRIPT_DIR, b.file))
+  );
+  const manuscriptTree = buildMerkleTree(manuscriptLeaves);
+  const textProof = getMerkleProof(manuscriptTree.layers, blockIndex);
+  const textValid = verifyMerkleProof(manuscriptLeaves[blockIndex], textProof, manuscriptTree.root);
+
+  const result = {
+    verifier: "lps-verify",
+    version: "1.1.0",
+    mode: "proof",
+    timestamp: new Date().toISOString(),
+    block: {
+      number: blockNum,
+      file: block.file,
+      title: block.title,
+      type: block.type,
+    },
+    text: {
+      leafHash: manuscriptLeaves[blockIndex],
+      manuscriptRoot: manuscriptTree.root,
+      proof: textProof,
+      valid: textValid,
+      leafCount: manuscriptLeaves.length,
+    },
+  };
+
+  // ── Audio proof (if available) ──
+  const audioManifestPath = path.join(DIST_DIR, "audio-manifest.json");
+  if (fs.existsSync(audioManifestPath)) {
+    const audioManifest = JSON.parse(fs.readFileSync(audioManifestPath, "utf8"));
+    if (audioManifest.blocks && audioManifest.blocks[blockIndex]) {
+      const audioBlock = audioManifest.blocks[blockIndex];
+      const audioLeaves = audioManifest.blocks.map(b => b.sha256);
+      const audioTree = buildMerkleTree(audioLeaves);
+      const audioProof = getMerkleProof(audioTree.layers, blockIndex);
+      const audioValid = verifyMerkleProof(audioLeaves[blockIndex], audioProof, audioTree.root);
+
+      result.audio = {
+        file: audioBlock.file,
+        leafHash: audioBlock.sha256,
+        audioRoot: audioTree.root,
+        audioEditionRoot: audioManifest.audioEditionRoot,
+        proof: audioProof,
+        valid: audioValid,
+        leafCount: audioLeaves.length,
+      };
+    }
+  }
+
+  return result;
+}
+
+// ══════════════════════════════════════════════════════════════════════════════
 //  MAIN
 // ══════════════════════════════════════════════════════════════════════════════
 
 async function main() {
+
+  // ── --proof mode: emit proof and exit ──
+  if (PROOF_MODE) {
+    const proof = generateBlockProof(PROOF_ARG);
+    _log(JSON.stringify(proof, null, 2));
+    process.exit(proof.text.valid ? 0 : 1);
+  }
+
   console.log("\n╔══════════════════════════════════════════════════════════════╗");
   console.log("║     LPS-VERIFY — Literary Protocol Provenance Verifier     ║");
   console.log("║     Independent verification · No secrets required         ║");
@@ -873,7 +982,7 @@ async function main() {
   const reportPath = path.join(ROOT, "dist", "verification-report.json");
   const report = {
     verifier: "lps-verify",
-    version: "1.0.0",
+    version: "1.1.0",
     timestamp: new Date().toISOString(),
     elapsed: `${elapsed}s`,
     summary: {
@@ -891,10 +1000,15 @@ async function main() {
   fs.writeFileSync(reportPath, JSON.stringify(report, null, 2));
   console.log(`  Report written: dist/verification-report.json\n`);
 
+  // In --json mode, emit the report to stdout
+  if (JSON_MODE) {
+    _log(JSON.stringify(report, null, 2));
+  }
+
   process.exit(failCount > 0 ? 1 : 0);
 }
 
 main().catch((err) => {
-  console.error("\n  ✗ FATAL ERROR:", err.message);
+  _err("\n  ✗ FATAL ERROR:", err.message);
   process.exit(1);
 });

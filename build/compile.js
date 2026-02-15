@@ -15,7 +15,8 @@ const ARTIFACTS_DIR = path.join(ROOT, "artifacts");
 const DIST_DIR = path.join(ROOT, "dist");
 const ORDER_FILE = path.join(__dirname, "order.json");
 
-const DETERMINISTIC = process.argv.includes("--deterministic");
+const DETERMINISTIC = process.argv.includes("--deterministic") || process.argv.includes("--reproducible");
+const REPRODUCIBLE = process.argv.includes("--reproducible");
 
 function compile() {
   // Ensure dist exists
@@ -91,7 +92,7 @@ function compile() {
   console.log(`[COMPILE]    Size: ${stats.size} bytes`);
   console.log(`[COMPILE]    Output: ${outputPath}`);
   if (DETERMINISTIC) {
-    console.log(`[COMPILE]    Mode: DETERMINISTIC (timestamp stripped)`);
+    console.log(`[COMPILE]    Mode: ${REPRODUCIBLE ? 'REPRODUCIBLE' : 'DETERMINISTIC'} (timestamp stripped)`);
   }
 }
 

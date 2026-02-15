@@ -5,9 +5,9 @@
   "schema": "literary-protocol-standard",
   "schemaVersion": "1.0.0",
   "build": {
-    "timestamp": "2026-02-15T11:10:08.651Z",
-    "sha256": "5228bd3be9417a20466edbd9bab90efd46c550e69b4a018eeaba5a7de2685b8b",
-    "md5": "5d8685b5a00932271206a74b80647bb7",
+    "timestamp": "2026-02-15T11:19:30.845Z",
+    "sha256": "6668da69c87720cd4c5d4ea86162719c511efdd4393d6693a18f98855e4646b3",
+    "md5": "33f812ae2073347020da021c71bf3312",
     "sizeBytes": 293550,
     "source": "dist/final-manuscript.md"
   },

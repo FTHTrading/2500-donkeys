@@ -470,12 +470,21 @@ flowchart LR
 ### Build Commands
 
 ```bash
-npm run build              # Full build (compile → hash → merkle → manifest)
-npm run build:deterministic # Same, but strips timestamp → byte-stable output
-npm run compile            # Step 1: Concatenate → dist/final-manuscript.md
-npm run hash               # Step 2: SHA-256 → web3/metadata/genesis.json
-npm run manifest           # Step 3: Per-file → dist/manifest.json
+npm run build               # Full build (compile → hash → merkle → manifest)
+npm run build:deterministic  # Strips timestamp → byte-stable manuscript output
+npm run build:reproducible   # Deterministic + frozen genesis timestamp → fully byte-stable pipeline
+npm run compile             # Step 1: Concatenate → dist/final-manuscript.md
+npm run hash                # Step 2: SHA-256 → web3/metadata/genesis.json
+npm run manifest            # Step 3: Per-file → dist/manifest.json
 ```
+
+**Build Modes:**
+
+| Mode | Flag | Guarantee |
+|------|------|-----------|
+| Normal | *(none)* | Live timestamps, standard build |
+| Deterministic | `--deterministic` | Identical source → identical `dist/final-manuscript.md` |
+| Reproducible | `--reproducible` | Identical source → identical `genesis.json` (byte-for-byte) |
 
 #### Audio Pipeline (IAPL-1)
 
@@ -493,10 +502,20 @@ npm run audio:all          # render + hash in sequence
 Any third party can clone this repo and independently verify the entire provenance chain — from local source files through Merkle trees to on-chain Polygon state — with a single command:
 
 ```bash
-npm run lps:verify         # 51 checks across 5 phases, ~1 second
+npm run lps:verify              # 51 checks across 5 phases, ~1 second
+npm run lps:verify:json          # Machine-readable JSON output (stdout)
+npm run lps:proof -- block-12    # Merkle inclusion proof for a specific block
 ```
 
 **No `.env` file or API keys required.** The verifier uses only public Polygon RPC endpoints for read-only queries.
+
+#### Verification Modes
+
+| Mode | Command | Output |
+|------|---------|--------|
+| Human | `npm run lps:verify` | Formatted console with ✔/✖ indicators |
+| JSON | `npm run lps:verify:json` | Structured JSON to stdout (all console suppressed) |
+| Proof | `npm run lps:proof -- block-N` | Merkle inclusion proof for block N (text + audio) |
 
 #### What It Verifies
 
@@ -703,7 +722,7 @@ Each edition progresses through this linear sequence. No state can be skipped or
 | I-2 | Identity | Signature is ECDSA-recoverable to author address |
 | S-1 | Supply | Each NFT edition has a fixed, immutable supply cap |
 
-Full specification: [`LPS-1.md`](LPS-1.md) · [`INVARIANTS.md`](INVARIANTS.md) · [`LITERARY_PROTOCOL.md`](LITERARY_PROTOCOL.md)
+Full specification: [`VPS-1.md`](VPS-1.md) (Unified Standard) · [`LPS-1.md`](LPS-1.md) · [`IAPL-1.md`](IAPL-1.md) · [`INVARIANTS.md`](INVARIANTS.md) · [`LITERARY_PROTOCOL.md`](LITERARY_PROTOCOL.md)
 
 ---
 
@@ -738,6 +757,12 @@ AMOY_RPC=https://rpc-amoy.polygon.technology
 | `npm run deploy:polygon` | Deploy to Polygon mainnet |
 | `npm run verify` | Verify source on Polygonscan |
 | `npm run audit:chain` | Audit on-chain state vs local |
+| `npm run build:deterministic` | Deterministic build (strips timestamps from manuscript) |
+| `npm run build:reproducible` | Fully reproducible build (frozen genesis timestamp) |
+| `npm run lps:verify` | Independent provenance verification (51 checks) |
+| `npm run lps:verify:json` | Machine-readable JSON verification output |
+| `npm run lps:proof -- block-N` | Merkle inclusion proof for block N |
+| `npm run audio:all` | Full audio pipeline (render + hash) |
 | `npm run publish` | Full publish pipeline (build → EPUB → PDF → Cover) |
 | `npm run pub:epub` | Generate EPUB3 |
 | `npm run pub:pdf` | Generate print PDF |

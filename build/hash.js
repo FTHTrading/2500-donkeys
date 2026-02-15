@@ -16,6 +16,7 @@ const METADATA_DIR = path.join(ROOT, "web3", "metadata");
 const MANUSCRIPT_PATH = path.join(DIST_DIR, "final-manuscript.md");
 const GENESIS_PATH = path.join(METADATA_DIR, "genesis.json");
 const MERKLE_PATH = path.join(DIST_DIR, "merkle.json");
+const REPRODUCIBLE = process.argv.includes("--reproducible");
 
 function generateHash() {
   if (!fs.existsSync(MANUSCRIPT_PATH)) {
@@ -68,7 +69,7 @@ function generateHash() {
     schema: "literary-protocol-standard",
     schemaVersion: "1.0.0",
     build: {
-      timestamp: new Date().toISOString(),
+      timestamp: REPRODUCIBLE ? "REPRODUCIBLE" : new Date().toISOString(),
       sha256: sha256,
       md5: md5,
       sizeBytes: stats.size,
@@ -111,6 +112,9 @@ function generateHash() {
     console.log(`[HASH]    Edition Root: ${merkleData.editionRoot}`);
   }
   console.log(`[HASH]    Stored:       ${GENESIS_PATH}`);
+  if (REPRODUCIBLE) {
+    console.log(`[HASH]    Mode:         REPRODUCIBLE (timestamp frozen)`);
+  }
 }
 
 generateHash();
