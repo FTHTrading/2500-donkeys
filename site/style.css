@@ -1,0 +1,455 @@
+/* ═══════════════════════════════════════════════════════════
+   THE 2,500 DONKEYS — Site Styles
+   Minimal. Literary. No frameworks. No build tools.
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── Reset ─────────────────────────────────────────────────── */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ── Variables ─────────────────────────────────────────────── */
+:root {
+  --bg: #0a0a0a;
+  --bg-raised: #111111;
+  --bg-card: #161616;
+  --text: #d4d4d4;
+  --text-dim: #888888;
+  --text-bright: #f5f5f5;
+  --accent: #c9a84c;
+  --accent-dim: #a68832;
+  --border: #222222;
+  --mono: 'SF Mono', 'Fira Code', 'Cascadia Code', 'Consolas', monospace;
+  --serif: 'Georgia', 'Palatino Linotype', 'Book Antiqua', serif;
+  --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', sans-serif;
+  --max-w: 680px;
+}
+
+/* ── Base ──────────────────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+  font-size: 17px;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--serif);
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+a:hover {
+  color: var(--text-bright);
+}
+
+/* ── Layout ────────────────────────────────────────────────── */
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.narrow {
+  max-width: var(--max-w);
+}
+
+.section {
+  padding: 96px 24px;
+}
+.section-dark {
+  background: var(--bg-raised);
+}
+
+/* ── Hero ──────────────────────────────────────────────────── */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 48px 24px;
+  background: 
+    radial-gradient(ellipse at 50% 0%, rgba(201,168,76,0.06) 0%, transparent 60%),
+    var(--bg);
+}
+
+.hero-pre {
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-bottom: 16px;
+}
+
+.hero h1 {
+  font-family: var(--serif);
+  font-size: clamp(2.4rem, 6vw, 4.2rem);
+  font-weight: 400;
+  color: var(--text-bright);
+  line-height: 1.15;
+  margin-bottom: 12px;
+  letter-spacing: -0.02em;
+}
+
+.hero-author {
+  font-family: var(--sans);
+  font-size: 1.1rem;
+  color: var(--accent);
+  margin-bottom: 24px;
+  letter-spacing: 0.08em;
+}
+
+.hero-sub {
+  font-size: 0.95rem;
+  color: var(--text-dim);
+  max-width: 480px;
+  margin: 0 auto 40px;
+  line-height: 1.6;
+}
+
+/* ── Buttons ───────────────────────────────────────────────── */
+.hero-actions {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn {
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  padding: 12px 28px;
+  border-radius: 4px;
+  transition: all 0.25s;
+  text-transform: uppercase;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: var(--bg);
+}
+.btn-primary:hover {
+  background: var(--text-bright);
+  color: var(--bg);
+}
+
+.btn-ghost {
+  border: 1px solid var(--border);
+  color: var(--text-dim);
+}
+.btn-ghost:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* ── Typography ────────────────────────────────────────────── */
+h2 {
+  font-family: var(--serif);
+  font-size: 1.8rem;
+  font-weight: 400;
+  color: var(--text-bright);
+  margin-bottom: 24px;
+  letter-spacing: -0.01em;
+}
+
+h3 {
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 16px;
+}
+
+h4 {
+  font-family: var(--sans);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-bright);
+  margin-bottom: 8px;
+}
+
+p {
+  margin-bottom: 16px;
+}
+p:last-child {
+  margin-bottom: 0;
+}
+
+.section-note {
+  font-style: italic;
+  color: var(--accent);
+  margin-top: 24px;
+}
+
+/* ── Pull Quote ────────────────────────────────────────────── */
+.pull-quote {
+  font-size: 1.3rem;
+  font-style: italic;
+  color: var(--accent);
+  border-left: 2px solid var(--accent-dim);
+  padding-left: 24px;
+  margin: 0 0 32px 0;
+  line-height: 1.6;
+}
+
+/* ── Stats Grid ────────────────────────────────────────────── */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-top: 40px;
+  text-align: center;
+}
+
+.stat-num {
+  display: block;
+  font-family: var(--mono);
+  font-size: 2rem;
+  color: var(--accent);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.stat-label {
+  display: block;
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+
+/* ── Manuscript Block ──────────────────────────────────────── */
+.manuscript {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 40px 36px;
+}
+
+.ms-divider {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 16px 0 24px;
+}
+
+.ms-closing {
+  font-style: italic;
+  color: var(--text-dim);
+}
+
+/* ── Layers ────────────────────────────────────────────────── */
+.layers {
+  display: grid;
+  gap: 24px;
+  margin-top: 32px;
+}
+
+.layer {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 24px 28px;
+}
+
+.layer h4 {
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+
+.layer p {
+  font-size: 0.92rem;
+  color: var(--text-dim);
+}
+
+/* ── Proof Chain ───────────────────────────────────────────── */
+.proof-chain {
+  margin: 40px 0;
+}
+
+.proof-step {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.proof-icon {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--bg);
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.proof-content {
+  flex: 1;
+  padding-bottom: 8px;
+}
+
+.proof-content p {
+  font-size: 0.9rem;
+  color: var(--text-dim);
+  margin-bottom: 8px;
+}
+
+.proof-connector {
+  width: 2px;
+  height: 24px;
+  background: var(--border);
+  margin-left: 17px;
+}
+
+.proof-value {
+  display: block;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: var(--text);
+  background: var(--bg);
+  padding: 8px 12px;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+  word-break: break-all;
+  line-height: 1.5;
+}
+
+.proof-value a {
+  color: var(--accent);
+}
+
+/* ── Proof Table ───────────────────────────────────────────── */
+.proof-editions {
+  margin-top: 48px;
+}
+
+.proof-editions h4 {
+  margin-bottom: 16px;
+}
+
+.proof-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--sans);
+  font-size: 0.85rem;
+}
+
+.proof-table th {
+  text-align: left;
+  font-weight: 600;
+  color: var(--text-dim);
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.proof-table td {
+  padding: 12px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text);
+}
+
+.badge {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  padding: 3px 10px;
+  border-radius: 3px;
+  background: var(--bg);
+  color: var(--text-dim);
+  border: 1px solid var(--border);
+}
+
+.badge-active {
+  background: rgba(201,168,76,0.12);
+  color: var(--accent);
+  border-color: var(--accent-dim);
+}
+
+/* ── Footer ────────────────────────────────────────────────── */
+.footer {
+  padding: 64px 24px;
+  text-align: center;
+  border-top: 1px solid var(--border);
+}
+
+.footer-title {
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  color: var(--text-bright);
+  margin-bottom: 4px;
+}
+
+.footer-sub {
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  color: var(--text-dim);
+  margin-bottom: 24px;
+}
+
+.footer-links {
+  display: flex;
+  gap: 32px;
+  justify-content: center;
+  margin-bottom: 32px;
+}
+
+.footer-links a {
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+.footer-links a:hover {
+  color: var(--accent);
+}
+
+.footer-copy {
+  font-family: var(--sans);
+  font-size: 0.7rem;
+  color: #555;
+}
+
+/* ── Responsive ────────────────────────────────────────────── */
+@media (max-width: 600px) {
+  html { font-size: 16px; }
+  
+  .hero h1 { font-size: 2.2rem; }
+  
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  
+  .manuscript {
+    padding: 24px 20px;
+  }
+  
+  .proof-value {
+    font-size: 0.65rem;
+  }
+  
+  .footer-links {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
