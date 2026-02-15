@@ -1,8 +1,8 @@
 {
   "version": "IAPL-1",
   "voice": {
-    "id": "",
-    "name": "",
+    "id": "JBFqnCBsd6RMkjVDRZzb",
+    "name": "George",
     "model": "eleven_multilingual_v2",
     "settings": {
       "stability": 0.65,
