@@ -81,6 +81,23 @@ async function main() {
     console.log(`\n  ✅ genesis.json updated with router address`);
   }
 
+  // ── Update edition.json ────────────────────────────────────────────
+  const editionPath = path.resolve(__dirname, "..", "..", "dist", "edition.json");
+  if (fs.existsSync(editionPath)) {
+    const edition = JSON.parse(fs.readFileSync(editionPath, "utf-8"));
+    edition.anchors.polygon.royalty_router = address;
+    edition.anchors.polygon.royalty_router_tx = tx.hash;
+    edition.anchors.polygon.royalty_router_block = receipt.blockNumber;
+    edition.royalty_splits = PAYEES.map(p => ({
+      role: p.role,
+      bps: p.bps,
+      pct: `${(p.bps / 100).toFixed(1)}%`,
+      wallet: p.wallet,
+    }));
+    fs.writeFileSync(editionPath, JSON.stringify(edition, null, 2), "utf-8");
+    console.log(`  ✅ edition.json updated with router address`);
+  }
+
   console.log("\n══════════════════════════════════════════════════");
   console.log("  RoyaltyRouter deployment complete.");
   console.log("  Revenue routing is live.");

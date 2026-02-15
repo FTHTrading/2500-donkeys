@@ -20,7 +20,10 @@
       "tx_hash": "0x9c036d1d8e946e0d9c8c520d4818e3d211c137478f7a704b733fbea500f28ec6",
       "kernel_tx_hash": "0xfdd3854c4ca2ae46b61ef64df3edce60d423b1cf64e9df57c6cc7c05dd89a6d2",
       "block": 83008833,
-      "deployer": "0xC91668184736BF75C4ecE37473D694efb2A43978"
+      "deployer": "0xC91668184736BF75C4ecE37473D694efb2A43978",
+      "royalty_router": "0x44169829489d70aaecbf845870652871C65fC461",
+      "royalty_router_tx": "0xed7445619f58d9517b000e6e35f2323457efea475b4eca4bd3251039626cfc6a",
+      "royalty_router_block": 83009717
     },
     "ethereum": {
       "network": "ethereum-mainnet",
@@ -55,5 +58,31 @@
       "image": 10,
       "prompt": 10
     }
-  }
+  },
+  "royalty_splits": [
+    {
+      "role": "author",
+      "bps": 7000,
+      "pct": "70.0%",
+      "wallet": "0xC91668184736BF75C4ecE37473D694efb2A43978"
+    },
+    {
+      "role": "illustrator",
+      "bps": 1500,
+      "pct": "15.0%",
+      "wallet": "0xC91668184736BF75C4ecE37473D694efb2A43978"
+    },
+    {
+      "role": "editor",
+      "bps": 1000,
+      "pct": "10.0%",
+      "wallet": "0xC91668184736BF75C4ecE37473D694efb2A43978"
+    },
+    {
+      "role": "treasury",
+      "bps": 500,
+      "pct": "5.0%",
+      "wallet": "0xC91668184736BF75C4ecE37473D694efb2A43978"
+    }
+  ]
 }

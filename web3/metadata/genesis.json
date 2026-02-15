@@ -33,6 +33,9 @@
     "kernelDeployTx": "0xfdd3854c4ca2ae46b61ef64df3edce60d423b1cf64e9df57c6cc7c05dd89a6d2",
     "kernelDeployBlock": 83008833,
     "kernelDeployedBy": "0xC91668184736BF75C4ecE37473D694efb2A43978",
-    "kernelDeployedAt": "2026-02-15T06:41:29.000Z"
+    "kernelDeployedAt": "2026-02-15T06:41:29.000Z",
+    "royaltyRouterAddress": "0x44169829489d70aaecbf845870652871C65fC461",
+    "royaltyRouterDeployTx": "0xed7445619f58d9517b000e6e35f2323457efea475b4eca4bd3251039626cfc6a",
+    "royaltyRouterDeployedAt": "2026-02-15T07:10:58.324Z"
   }
 }
