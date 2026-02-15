@@ -1,0 +1,21 @@
+{
+  "network": "polygon-mainnet",
+  "chainId": 137,
+  "contract": "0x97f456300817eaE3B40E235857b856dfFE8bba90",
+  "txHash": "0x9c036d1d8e946e0d9c8c520d4818e3d211c137478f7a704b733fbea500f28ec6",
+  "blockNumber": 83002198,
+  "gasUsed": "1116006",
+  "gasPrice": "794.947434867 gwei",
+  "cost": "0.887166106996181202 POL",
+  "deployer": "0xC91668184736BF75C4ecE37473D694efb2A43978",
+  "constructorArgs": [
+    "The 2,500 Donkeys",
+    "QmVQ79NM3qxAsBpftTG4YhD4KV9sUEmM3WwFrc5vs5g8vK",
+    "cdef74d157437eeeb20d474fa7fcb590c83f87668aa109c036c76ac21e578364"
+  ],
+  "deployedAt": "2026-02-15T03:00:22.153Z",
+  "explorer": {
+    "contract": "https://polygonscan.com/address/0x97f456300817eaE3B40E235857b856dfFE8bba90",
+    "tx": "https://polygonscan.com/tx/0x9c036d1d8e946e0d9c8c520d4818e3d211c137478f7a704b733fbea500f28ec6"
+  }
+}

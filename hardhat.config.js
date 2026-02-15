@@ -26,10 +26,11 @@ module.exports = {
 
     // Polygon Mainnet
     polygon: {
-      url: process.env.POLYGON_RPC || "https://polygon-rpc.com",
+      url: process.env.POLYGON_RPC || "https://polygon-bor-rpc.publicnode.com",
       chainId: 137,
       accounts: process.env.PRIVATE_KEY ? [`0x${process.env.PRIVATE_KEY}`] : [],
-      gasPrice: "auto",
+      gas: 2000000,           // 2M gas limit (contract needs ~800k)
+      gasPrice: 50000000000,  // 50 gwei
     },
 
     // Polygon Amoy Testnet (for dry-run before mainnet)

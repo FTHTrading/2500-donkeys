@@ -17,9 +17,15 @@
     "peerID": "12D3KooWS2kwSctr6Lbxw2BZrEpAKQEwpaX1KnwDUSTxC3EKZd6E"
   },
   "chain": {
-    "network": "polygon",
-    "contract": null,
-    "txHash": null,
-    "authorWallet": null
+    "network": "polygon-mainnet",
+    "chainId": 137,
+    "contract": "0x97f456300817eaE3B40E235857b856dfFE8bba90",
+    "txHash": "0x9c036d1d8e946e0d9c8c520d4818e3d211c137478f7a704b733fbea500f28ec6",
+    "blockNumber": 83002198,
+    "gasUsed": "1116006",
+    "deploymentCost": "0.887166106996181202 POL",
+    "authorWallet": "0xC91668184736BF75C4ecE37473D694efb2A43978",
+    "deployedAt": "2026-02-15T03:00:22.149Z",
+    "explorer": "https://polygonscan.com/address/0x97f456300817eaE3B40E235857b856dfFE8bba90"
   }
 }

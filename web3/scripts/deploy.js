@@ -4,7 +4,7 @@ const path = require("path");
 
 async function main() {
   // ── Load genesis metadata ──────────────────────────────────────
-  const genesisPath = path.join(__dirname, "..", "web3", "metadata", "genesis.json");
+  const genesisPath = path.join(__dirname, "..", "metadata", "genesis.json");
   const genesis = JSON.parse(fs.readFileSync(genesisPath, "utf8"));
 
   const title = genesis.title;               // "The 2,500 Donkeys"
@@ -76,7 +76,7 @@ async function main() {
   console.log("  ✓ genesis.json updated with contract details");
 
   // ── Save deployment receipt ────────────────────────────────────
-  const receiptPath = path.join(__dirname, "..", "web3", "metadata", "deployment-receipt.json");
+  const receiptPath = path.join(__dirname, "..", "metadata", "deployment-receipt.json");
   const receiptData = {
     network: hre.network.name,
     chainId: hre.network.config.chainId,
