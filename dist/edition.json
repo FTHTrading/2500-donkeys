@@ -23,7 +23,11 @@
       "deployer": "0xC91668184736BF75C4ecE37473D694efb2A43978",
       "royalty_router": "0x44169829489d70aaecbf845870652871C65fC461",
       "royalty_router_tx": "0xed7445619f58d9517b000e6e35f2323457efea475b4eca4bd3251039626cfc6a",
-      "royalty_router_block": 83009717
+      "royalty_router_block": 83009717,
+      "kernel_v2_contract": "0xca9F6604A9b498DB31d113836E2957c0a9aAE037",
+      "kernel_v2_tx_hash": "0x89c34617867efa8592cca2cb17abc20e958f9fe5257a008e3c4e51ef872b661a",
+      "kernel_v2_block": 83010944,
+      "kernel_v2_gas_used": "4804013"
     },
     "ethereum": {
       "network": "ethereum-mainnet",
@@ -46,7 +50,7 @@
     }
   },
   "schema": "literary-protocol-standard",
-  "schema_version": "1.0.0",
+  "schema_version": "2.0.0",
   "build": {
     "pipeline": "compile → merkle → hash → manifest → edition",
     "merkle_scheme": "sorted-pair-concatenation",
@@ -100,7 +104,11 @@
     "license": 0,
     "router": "0x44169829489d70aaecbf845870652871C65fC461",
     "kernel": "0x511c653fC0F450ba41C42A89A3125CcBf2eFE8ae",
-    "status": "WIRED"
+    "status": "WIRED",
+    "v2_kernel": "0xca9F6604A9b498DB31d113836E2957c0a9aAE037",
+    "v2_license": 0,
+    "v2_frozen": true,
+    "v2_status": "WIRED+FROZEN"
   },
   "revenue_test": {
     "tx": "0x4d0d1e04c589a56b7f70f377802b79d8903d559c5bbd53a352bf54d87bf98662",
@@ -109,5 +117,14 @@
     "split_accuracy": "0 wei dust",
     "withdraw_tx": "0x1b7de1f68af52210bd52dd958f7a9733f992a95d28f127abc6196401cd063794",
     "result": "PASS"
+  },
+  "v2_license": {
+    "id": 0,
+    "template": "LPS2-SOVEREIGN",
+    "territory": "GLOBAL",
+    "term": "perpetual",
+    "fields_of_use": "all",
+    "royalty_router": "0x44169829489d70aaecbf845870652871C65fC461",
+    "edition_frozen": true
   }
 }

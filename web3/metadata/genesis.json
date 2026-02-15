@@ -45,6 +45,18 @@
     "revenueTestTx": "0x4d0d1e04c589a56b7f70f377802b79d8903d559c5bbd53a352bf54d87bf98662",
     "revenueTestBlock": 83009932,
     "revenueTestAmount": "0.01 POL",
-    "revenueTestResult": "PASS — 0 wei dust, full withdraw, router drained"
+    "revenueTestResult": "PASS — 0 wei dust, full withdraw, router drained",
+    "kernelV2Address": "0xca9F6604A9b498DB31d113836E2957c0a9aAE037",
+    "kernelV2DeployTx": "0x89c34617867efa8592cca2cb17abc20e958f9fe5257a008e3c4e51ef872b661a",
+    "kernelV2DeployBlock": 83010944,
+    "kernelV2DeployedBy": "0xC91668184736BF75C4ecE37473D694efb2A43978",
+    "kernelV2DeployedAt": "2026-02-15T07:51:56.980Z",
+    "kernelV2GasUsed": "4804013",
+    "kernelV2Version": 2,
+    "kernelV2LicenseId": 0,
+    "kernelV2LicenseTemplate": "LPS2-SOVEREIGN",
+    "kernelV2EditionFrozen": true,
+    "kernelV2WiredAt": "2026-02-15T07:54:00.487Z",
+    "kernelV2Pipeline": "Edition #0 (FROZEN) → License #0 → Router 0x44169829489d70aaecbf845870652871C65fC461"
   }
 }
