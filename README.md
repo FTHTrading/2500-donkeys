@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://img.shields.io/badge/STATUS-GENESIS%20LOCKED-00c853?style=for-the-badge&labelColor=1a1a2e" />
+  <img src="https://img.shields.io/badge/STATUS-EDITION%202%20ANCHORED-00c853?style=for-the-badge&labelColor=1a1a2e" />
   <img src="https://img.shields.io/badge/POLYGON-MAINNET-7b3fe4?style=for-the-badge&logo=polygon&logoColor=white" />
   <img src="https://img.shields.io/badge/IPFS-PINNED-65c2cb?style=for-the-badge&logo=ipfs&logoColor=white" />
   <img src="https://img.shields.io/badge/SOLIDITY-0.8.19-363636?style=for-the-badge&logo=solidity&logoColor=white" />
@@ -17,6 +17,9 @@
   <a href="https://polygonscan.com/tx/0x9c036d1d8e946e0d9c8c520d4818e3d211c137478f7a704b733fbea500f28ec6">
     <img src="https://img.shields.io/badge/GENESIS%20TX-Block%2083%2C002%2C198-7b3fe4?style=flat-square" />
   </a>
+  <a href="https://xxxiii.io">
+    <img src="https://img.shields.io/badge/SITE-xxxiii.io-c9a84c?style=flat-square" />
+  </a>
 </p>
 
 ---
@@ -33,12 +36,13 @@
 | **VI** | [Provenance Stack](#vi-provenance-stack) | Five-layer integrity chain |
 | **VII** | [Smart Contract](#vii-smart-contract--literaryanchorsol) | LiteraryAnchor.sol — on-chain anchor |
 | **VIII** | [Polygon Deployment](#viii-polygon-deployment) | Mainnet deployment details and verification |
-| **IX** | [Asset Architecture](#ix-asset-architecture) | Five-layer asset ecosystem map |
-| **X** | [Ecosystem Roadmap](#x-ecosystem-roadmap) | NFTs, ERC-6551, Audio, Visual, Platform |
-| **XI** | [Agentic Quality Gates](#xi-agentic-quality-gates) | Automated editorial and build enforcement |
-| **XII** | [Developer Quick Start](#xii-developer-quick-start) | Setup, build, test, deploy commands |
-| **XIII** | [Intellectual Property](#xiii-intellectual-property) | Ownership, rights, and legal clarity |
-| **XIV** | [License](#xiv-license) | Dual license structure |
+| **IX** | [Protocol Specification](#ix-protocol-specification) | State machine, invariants, deployment registry |
+| **X** | [Asset Architecture](#x-asset-architecture) | Five-layer asset ecosystem map |
+| **XI** | [Ecosystem Roadmap](#xi-ecosystem-roadmap) | NFTs, ERC-6551, Audio, Visual, Platform |
+| **XII** | [Agentic Quality Gates](#xii-agentic-quality-gates) | Automated editorial and build enforcement |
+| **XIII** | [Developer Quick Start](#xiii-developer-quick-start) | Setup, build, test, deploy commands |
+| **XIV** | [Intellectual Property](#xiv-intellectual-property) | Ownership, rights, and legal clarity |
+| **XV** | [License](#xv-license) | Dual license structure |
 
 ---
 
@@ -70,7 +74,7 @@ The infrastructure proves that authors can publish immutably, control rights, an
 ```mermaid
 flowchart TD
     subgraph AUTHORING ["🟣 Authoring Layer"]
-        M[/"manuscript/\n9 narrative blocks"/]
+        M[/"manuscript/\n31 narrative blocks"/]
         A[/"artifacts/\n5 exhibits"/]
     end
 
@@ -98,11 +102,11 @@ flowchart TD
 
     M --> C
     A --> C
-    C -->|"dist/final-manuscript.md\n49,224 bytes"| H
-    H -->|"SHA-256: cdef74d1..."| MF
+    C -->|"dist/final-manuscript.md\n293,550 bytes"| H
+    H -->|"SHA-256: 9d062421..."| MF
     MF --> IPFS
     MF --> GIT
-    IPFS -->|"CID: QmVQ79NM3..."| SC
+    IPFS -->|"CID: QmPXtEsR..."| SC
     H -->|"SHA-256"| SC
     SC --> PS
     IPFS --> KDP
@@ -116,9 +120,9 @@ flowchart TD
 flowchart LR
     FS["📁 Filesystem\nLocal timestamps"]
     FS -->|"committed"| GIT["🔀 Git\nCommit history"]
-    GIT -->|"hashed"| SHA["🔒 SHA-256\ncdef74d1..."]
-    SHA -->|"pinned"| IPFS["📌 IPFS\nQmVQ79NM3..."]
-    IPFS -->|"anchored"| POLY["⛓️ Polygon\nBlock 83,002,198"]
+    GIT -->|"hashed"| SHA["🔒 SHA-256\n9d062421..."]
+    SHA -->|"pinned"| IPFS["📌 IPFS\nQmPXtEsR..."]
+    IPFS -->|"anchored"| POLY["⛓️ Polygon\nBlock 83,004,469"]
 
     style FS fill:#2d2d2d,stroke:#666,color:#fff
     style GIT fill:#f05032,stroke:#c44029,color:#fff
@@ -159,15 +163,25 @@ classDiagram
 2500-donkeys/
 │
 ├── 🟣 NARRATIVE
-│   ├── manuscript/                    Canonical prose — 9 files
+│   ├── manuscript/                    Canonical prose — 31 blocks
 │   │   ├── block-00-genesis.md        The origin. The parking lot epiphany.
 │   │   ├── block-01-parking-lots.md   Where all gold deals begin.
+│   │   ├── block-01a-raymonds-deal.md Raymond's first deal. [Layer A]
+│   │   ├── block-01b-geralds-lot.md   Gerald's parking lot. [Layer A]
+│   │   ├── block-01c-marcus-connection.md The connection. [Layer A]
 │   │   ├── block-02-paper.md          The document ecosystem.
+│   │   ├── block-02a-seven-families.md The families who control nothing. [Layer A]
 │   │   ├── block-03-whatsapp.md       The broadcast layer.
+│   │   ├── block-03a–e (5 blocks)     WhatsApp mutations: Lagos, Dubai, Zurich, NGO, Carbon. [Layer B]
 │   │   ├── block-04-donkeys.md        2,500 donkeys. Tangier corridor.
+│   │   ├── block-04a-storyteller-origin.md The Storyteller's vault. [Layer A]
 │   │   ├── block-05-procession.md     The logistics of belief.
+│   │   ├── block-05a-philippe-geneva.md Philippe's Geneva WeWork. [Layer A]
+│   │   ├── block-05b–g (6 blocks)     The Procession: departure → arrival. [Layer C]
 │   │   ├── block-06-humanitarian.md   ESG theater meets carbon opacity.
+│   │   ├── block-06a-processing.md    Processing at the settlement. [Layer C]
 │   │   ├── block-07-silence.md        When the music stops.
+│   │   ├── block-07a–d (4 blocks)     Aftermath: home, dying groups, summit, resurrection. [Layer D]
 │   │   └── epilogue.md               The deal that never closes.
 │   │
 │   └── artifacts/                     In-book exhibits — 5 files
@@ -184,7 +198,7 @@ classDiagram
 │   │   ├── manifest.js                Per-file hash manifest
 │   │   └── order.json                 Canonical build order
 │   └── dist/                          ⟨generated — not committed⟩
-│       ├── final-manuscript.md        Compiled output (49,224 bytes)
+│       ├── final-manuscript.md        Compiled output (293,550 bytes)
 │       └── manifest.json              File-level integrity map
 │
 ├── 🟢 WEB3 INFRASTRUCTURE
@@ -196,7 +210,8 @@ classDiagram
 │       │   ├── deploy-raw.js          Raw transaction deployment (mainnet)
 │       │   ├── deploy-direct.js       Standalone ethers.js deployment
 │       │   ├── verify.js              Polygonscan source verification
-│       │   └── audit.js               On-chain integrity audit
+│       │   ├── audit.js               On-chain integrity audit
+│       │   └── anchor-edition2.js     Edition 2 anchor script
 │       ├── test/
 │       │   └── LiteraryAnchor.test.js 11 tests — full coverage
 │       ├── metadata/
@@ -209,12 +224,20 @@ classDiagram
 │
 ├── 📋 PROJECT FILES
 │   ├── AGENT.md                       Agentic quality gate definitions
+│   ├── LITERARY_PROTOCOL.md           Protocol spec — state machine + roles
+│   ├── INVARIANTS.md                  System invariants and guarantees
+│   ├── DEPLOYMENTS.md                 Canonical deployment registry
 │   ├── glossary.md                    In-universe terminology (94 terms)
 │   ├── style-guide.md                 Voice, tone, and prose rules
 │   ├── hardhat.config.js              Polygon + Amoy network config
 │   ├── package.json                   Scripts and dependencies
 │   ├── LICENSE                        MIT (tooling) + © (literary content)
 │   └── README.md                      ← You are here
+│
+├── 🌐 SITE
+│   └── site/                          Cloudflare Pages — xxxiii.io
+│       ├── index.html                 Literary landing page
+│       └── style.css                  Dark theme, serif typography
 │
 └── 🔒 PRIVATE (gitignored)
     ├── .env                           Keys, RPC, wallet config
@@ -227,17 +250,39 @@ classDiagram
 
 ### Narrative Blocks
 
-| # | Block | Title | Focus |
-|:-:|-------|-------|-------|
-| 0 | `block-00-genesis.md` | Genesis | The parking lot. The phone call. The first deal. |
-| 1 | `block-01-parking-lots.md` | Parking Lots | Where all gold deals begin and most die. |
-| 2 | `block-02-paper.md` | Paper | IMFPA, BCL, CIS — the document ecosystem. |
-| 3 | `block-03-whatsapp.md` | WhatsApp | The broadcast layer. Forward #17. |
-| 4 | `block-04-donkeys.md` | Donkeys | 2,500 donkeys. Tangier corridor. Logistics of belief. |
-| 5 | `block-05-procession.md` | Procession | The caravan that may or may not exist. |
-| 6 | `block-06-humanitarian.md` | Humanitarian | ESG theater, carbon credits, moral ballast. |
-| 7 | `block-07-silence.md` | Silence | When the music stops. The call that doesn't come. |
-| E | `epilogue.md` | Epilogue | The deal that never closes. |
+| # | Block | Title | Layer | Focus |
+|:-:|-------|-------|:-----:|-------|
+| 0 | `block-00-genesis` | Genesis | — | The parking lot. The phone call. The first deal. |
+| 1 | `block-01-parking-lots` | Parking Lots | — | Where all gold deals begin and most die. |
+| 1a | `block-01a-raymonds-deal` | Raymond's First Deal | A | The first commission. The first lie. |
+| 1b | `block-01b-geralds-lot` | Gerald's Lot | A | The parking lot where deals come to breathe. |
+| 1c | `block-01c-marcus-connection` | The Connection | A | The man who connects everyone to no one. |
+| 2 | `block-02-paper` | Paper | — | IMFPA, BCL, CIS — the document ecosystem. |
+| 2a | `block-02a-seven-families` | The Seven Families | A | The families who control everything and nothing. |
+| 3 | `block-03-whatsapp` | WhatsApp | — | The broadcast layer. Forward #17. |
+| 3a | `block-03a-mutation-lagos` | Lagos Variant | B | The deal mutates through Lagos WhatsApp. |
+| 3b | `block-03b-mutation-dubai` | Dubai Variant | B | Gold brokers in marina apartments. |
+| 3c | `block-03c-mutation-zurich` | Zurich Variant | B | Compliance theater in Swiss German. |
+| 3d | `block-03d-mutation-ngo` | The Aid Wash | B | Humanitarian corridors that wash nothing clean. |
+| 3e | `block-03e-mutation-carbon` | The Conference | B | Carbon credits at a conference no one remembers. |
+| 4 | `block-04-donkeys` | Donkeys | — | 2,500 donkeys. Tangier corridor. Logistics of belief. |
+| 4a | `block-04a-storyteller-origin` | The Vault | A | The Storyteller's origin. The parking lot before the parking lot. |
+| 5 | `block-05-procession` | Procession | — | The caravan that may or may not exist. |
+| 5a | `block-05a-philippe-geneva` | The WeWork | A | Philippe's Geneva coworking empire. |
+| 5b | `block-05b-departure` | Departure | C | The donkeys begin to walk. |
+| 5c | `block-05c-attrition` | Attrition | C | The ones that don't make it. |
+| 5d | `block-05d-bandit-corridor` | Bandit Corridor | C | Armed men. Silent negotiation. |
+| 5e | `block-05e-green-zone` | Green Zone | C | The safe passage that isn't safe. |
+| 5f | `block-05f-collapse` | Collapse | C | When the formation breaks. |
+| 5g | `block-05g-arrival` | Arrival | C | What arrives is not what departed. |
+| 6 | `block-06-humanitarian` | Humanitarian | — | ESG theater, carbon credits, moral ballast. |
+| 6a | `block-06a-processing` | Processing | C | The settlement processes what remains. |
+| 7 | `block-07-silence` | Silence | — | When the music stops. The call that doesn't come. |
+| 7a | `block-07a-raymond-home` | The Woodlands | D | Raymond goes home. The subdivision is unchanged. |
+| 7b | `block-07b-groups-dying` | The Groups Dying | D | WhatsApp groups go silent, one by one. |
+| 7c | `block-07c-storyteller-summit` | The Summit | D | The Storyteller speaks at a London conference. |
+| 7d | `block-07d-resurrection` | Resurrection | D | A yak-backed lithium corridor is born. |
+| E | `epilogue` | Epilogue | — | The deal that never closes. |
 
 ### Artifact Exhibits
 
@@ -258,8 +303,8 @@ classDiagram
 ```mermaid
 flowchart LR
     subgraph INPUT ["Source Files"]
-        O["order.json\n14 entries"]
-        B["9 manuscript\nblocks"]
+        O["order.json\n36 entries"]
+        B["31 manuscript\nblocks"]
         A["5 artifact\nexhibits"]
     end
 
@@ -270,7 +315,7 @@ flowchart LR
     end
 
     subgraph OUTPUT ["dist/"]
-        FM["final-manuscript.md\n49,224 bytes"]
+        FM["final-manuscript.md\n293,550 bytes"]
         MN["manifest.json"]
         GJ["genesis.json\nSHA-256 + MD5"]
     end
@@ -305,9 +350,10 @@ npm run manifest      # Step 3: Per-file → dist/manifest.json
 
 | Field | Value |
 |-------|-------|
-| **SHA-256** | `cdef74d157437eeeb20d474fa7fcb590c83f87668aa109c036c76ac21e578364` |
-| **MD5** | `15ec4f352795ee7afdb5fe1e5d562510` |
-| **Size** | 49,224 bytes |
+| **SHA-256 (Edition 2)** | `9d062421b52d35aa23b73bfc8f66574db78bad9726e45c43a12d0109cdd57d84` |
+| **SHA-256 (Genesis)** | `cdef74d157437eeeb20d474fa7fcb590c83f87668aa109c036c76ac21e578364` |
+| **Size (Edition 2)** | 293,550 bytes |
+| **Size (Genesis)** | 49,224 bytes |
 | **Source** | `dist/final-manuscript.md` |
 
 > Identical input always produces identical output. The build is deterministic.
@@ -328,13 +374,13 @@ block-beta
         B["Layer 2 — GIT · Commit history · Author identity · SHA in message"]
     end
     block:L3:1
-        C["Layer 3 — SHA-256 · cdef74d157437...e578364"]
+        C["Layer 3 — SHA-256 · 9d062421b52d3...d57d84"]
     end
     block:L4:1
-        D["Layer 4 — IPFS · CID: QmVQ79NM3qxAsB...g8vK"]
+        D["Layer 4 — IPFS · CID: QmPXtEsRwiWua...pgtMa"]
     end
     block:L5:1
-        E["Layer 5 — POLYGON · Contract: 0x97f456...ba90 · Block 83,002,198"]
+        E["Layer 5 — POLYGON · Contract: 0x97f456...ba90 · Block 83,004,469"]
     end
 
     style A fill:#555,color:#fff
@@ -405,9 +451,10 @@ contract LiteraryAnchor {
 
   Title:         The 2,500 Donkeys         ✓
   Author:        0xC916...3978             ✓
-  Edition Count: 1
-  IPFS CID:      QmVQ79NM3...g8vK         ✓ MATCH
-  SHA-256:       cdef74d1...8364           ✓ MATCH
+  Edition Count: 4
+  Genesis CID:   QmVQ79NM3...g8vK         ✓ MATCH
+  Latest CID:    QmPXtEsR...pgtMa         ✓ MATCH
+  SHA-256:       9d062421...d84           ✓ MATCH
 
   All provenance layers aligned.
 ══════════════════════════════════════════════════
@@ -498,7 +545,37 @@ flowchart TD
 
 ---
 
-## IX. Asset Architecture
+## IX. Protocol Specification
+
+The protocol is formalized across three documents that elevate this from a project to a system:
+
+| Document | Purpose |
+|----------|--------|
+| [`LITERARY_PROTOCOL.md`](LITERARY_PROTOCOL.md) | State machine definition, asset types, roles, failure modes, governance |
+| [`INVARIANTS.md`](INVARIANTS.md) | Content, contract, provenance, and supply invariants |
+| [`DEPLOYMENTS.md`](DEPLOYMENTS.md) | Canonical deployment registry — every tx, CID, hash, block |
+
+### State Machine
+
+```
+DRAFT → COMPILED → HASHED → PINNED → ANCHORED → PUBLISHED
+```
+
+Each edition progresses through this linear sequence. No state can be skipped or reversed. The full specification is in [`LITERARY_PROTOCOL.md`](LITERARY_PROTOCOL.md).
+
+### Key Invariants
+
+- **INV-C1:** SHA-256 on-chain must match the SHA-256 of IPFS-pinned content
+- **INV-K1:** Author address is immutable — set once, stored in bytecode
+- **INV-K2:** Genesis edition cannot be overwritten or deleted
+- **INV-K3:** Editions are append-only
+- **INV-P1:** All five provenance layers must be consistent for any published edition
+
+Full invariant definitions in [`INVARIANTS.md`](INVARIANTS.md).
+
+---
+
+## X. Asset Architecture
 
 ### Five-Layer Asset Ecosystem
 
@@ -578,7 +655,7 @@ flowchart TB
 
 ---
 
-## X. Ecosystem Roadmap
+## XI. Ecosystem Roadmap
 
 ### Phase Map
 
@@ -689,7 +766,7 @@ flowchart TD
 
 ---
 
-## XI. Agentic Quality Gates
+## XII. Agentic Quality Gates
 
 Three internal roles enforce quality across the protocol:
 
@@ -715,7 +792,7 @@ See [AGENT.md](AGENT.md) for full role definitions.
 
 ---
 
-## XII. Developer Quick Start
+## XIII. Developer Quick Start
 
 ### Prerequisites
 
@@ -782,7 +859,7 @@ See [web3/DEPLOY.md](web3/DEPLOY.md) for the complete deployment guide.
 
 ---
 
-## XIII. Intellectual Property
+## XIV. Intellectual Property
 
 ### Ownership Statement
 
@@ -812,7 +889,7 @@ See [web3/DEPLOY.md](web3/DEPLOY.md) for the complete deployment guide.
 
 ---
 
-## XIV. License
+## XV. License
 
 ### Dual License Structure
 
