@@ -3,7 +3,7 @@ pragma solidity ^0.8.19;
 
 /**
  * @title PublishingKernel
- * @author Kevan Burnzy / FTH Trading
+ * @author Kevan Burns (Kidd James) / FTH Trading
  * @notice Literary Protocol Standard v1 (LPS-1) — On-chain publishing kernel
  *
  * Upgrades the original LiteraryAnchor with:
@@ -16,6 +16,14 @@ pragma solidity ^0.8.19;
  * This contract is designed to be deployed ALONGSIDE the existing
  * LiteraryAnchor at 0x97f456300817eaE3B40E235857b856dfFE8bba90.
  * The original remains the genesis anchor; this is the protocol upgrade.
+ *
+ * @dev Author Identity
+ *      Real name:  Kevan Burns
+ *      Nickname:   Burnzy
+ *      Pseudonym:  Kidd James (pen name)
+ *      Org:        FTH Trading
+ *      Wallet:     0xC91668184736BF75C4ecE37473D694efb2A43978
+ *      Domain:     unykorn.org
  */
 contract PublishingKernel {
 

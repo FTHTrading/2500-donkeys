@@ -3,7 +3,7 @@ pragma solidity ^0.8.19;
 
 /**
  * @title RoyaltyRouter
- * @author Kevan Burnzy / FTH Trading
+ * @author Kevan Burns (Kidd James) / FTH Trading
  * @notice Literary Protocol Standard v1 (LPS-1) - Programmable Revenue Splits
  *
  * Accepts incoming funds and distributes them according to configurable
@@ -16,6 +16,14 @@ pragma solidity ^0.8.19;
  *
  * Designed to be deployed per-edition or per-license and referenced
  * by PublishingKernel's license registry.
+ *
+ * @dev Author Identity
+ *      Real name:  Kevan Burns
+ *      Nickname:   Burnzy
+ *      Pseudonym:  Kidd James (pen name)
+ *      Org:        FTH Trading
+ *      Wallet:     0xC91668184736BF75C4ecE37473D694efb2A43978
+ *      Domain:     unykorn.org
  */
 contract RoyaltyRouter {
 

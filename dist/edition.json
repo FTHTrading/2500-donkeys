@@ -1,6 +1,6 @@
 {
   "title": "The 2,500 Donkeys",
-  "author": "Kevan Burnzy",
+  "author": "Kevan Burns (Kidd James)",
   "edition": "edition-2",
   "compiled_at": "2026-02-15T06:19:30.616Z",
   "manuscript_root": "sha256:dd95d1216b8e2cb8008c8993dffc54d66b550018a47401dd5df001ff487467d3",
@@ -126,5 +126,18 @@
     "fields_of_use": "all",
     "royalty_router": "0x44169829489d70aaecbf845870652871C65fC461",
     "edition_frozen": true
+  },
+  "author_identity": {
+    "contract": "0xB9ffa688A8Bb332221030BbBE46bE5bF03323170",
+    "real_name": "Kevan Burns",
+    "nickname": "Burnzy",
+    "pseudonym": "Kidd James",
+    "organization": "FTH Trading",
+    "domain": "unykorn.org",
+    "amazon_author_url": "https://www.amazon.com/stores/author/B0DQ5FN1GP",
+    "works_registered": 7,
+    "contracts_linked": 0,
+    "status": "PARTIAL — 5 works + 4 links pending",
+    "verified_on_polygonscan": true
   }
 }

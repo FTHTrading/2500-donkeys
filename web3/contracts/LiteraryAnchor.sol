@@ -3,13 +3,21 @@ pragma solidity ^0.8.19;
 
 /**
  * @title LiteraryAnchor
- * @author Kidd James
+ * @author Kevan Burns (Kidd James)
  * @notice Minimal on-chain anchor for the Genesis literary manuscript.
  *         Stores IPFS CID, SHA-256 hash, and author wallet with timestamp.
  *         Supports version history for subsequent editions.
  *
  *         This is not a token. This is not a speculation instrument.
  *         This is proof-of-origin for a literary work.
+ *
+ * @dev Author Identity
+ *      Real name:  Kevan Burns
+ *      Nickname:   Burnzy
+ *      Pseudonym:  Kidd James (pen name)
+ *      Org:        FTH Trading
+ *      Wallet:     0xC91668184736BF75C4ecE37473D694efb2A43978
+ *      Domain:     unykorn.org
  */
 contract LiteraryAnchor {
 

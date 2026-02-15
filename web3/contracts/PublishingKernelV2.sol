@@ -5,7 +5,7 @@ import "@openzeppelin/contracts/utils/cryptography/ECDSA.sol";
 
 /**
  * @title PublishingKernelV2
- * @author Kevan Burnzy / FTH Trading
+ * @author Kevan Burns (Kidd James) / FTH Trading
  * @notice Literary Protocol Standard v2 (LPS-2) — Hardened Publishing Kernel
  *
  * Upgrades PublishingKernel v1 with:
@@ -18,6 +18,14 @@ import "@openzeppelin/contracts/utils/cryptography/ECDSA.sol";
  *   - Predecessor kernel lineage (v1 → v2 chain)
  *
  * Predecessor: PublishingKernel v1 at 0x511c653fC0F450ba41C42A89A3125CcBf2eFE8ae
+ *
+ * @dev Author Identity
+ *      Real name:  Kevan Burns
+ *      Nickname:   Burnzy
+ *      Pseudonym:  Kidd James (pen name)
+ *      Org:        FTH Trading
+ *      Wallet:     0xC91668184736BF75C4ecE37473D694efb2A43978
+ *      Domain:     unykorn.org
  */
 contract PublishingKernelV2 {
     using ECDSA for bytes32;
