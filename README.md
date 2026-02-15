@@ -1,10 +1,48 @@
-# The 2,500 Donkeys
+<p align="center">
+  <img src="https://img.shields.io/badge/STATUS-GENESIS%20LOCKED-00c853?style=for-the-badge&labelColor=1a1a2e" />
+  <img src="https://img.shields.io/badge/POLYGON-MAINNET-7b3fe4?style=for-the-badge&logo=polygon&logoColor=white" />
+  <img src="https://img.shields.io/badge/IPFS-PINNED-65c2cb?style=for-the-badge&logo=ipfs&logoColor=white" />
+  <img src="https://img.shields.io/badge/SOLIDITY-0.8.19-363636?style=for-the-badge&logo=solidity&logoColor=white" />
+  <img src="https://img.shields.io/badge/LICENSE-MIT%20%2B%20©-yellow?style=for-the-badge" />
+</p>
 
-**A Web3 Literary Protocol by Kidd James**
+<h1 align="center">The 2,500 Donkeys</h1>
+<h3 align="center">A Sovereign Web3 Literary Protocol</h3>
+<p align="center"><em>by Kidd James</em></p>
+
+<p align="center">
+  <a href="https://polygonscan.com/address/0x97f456300817eaE3B40E235857b856dfFE8bba90#code">
+    <img src="https://img.shields.io/badge/VERIFIED%20CONTRACT-0x97f4...ba90-00c853?style=flat-square&logo=ethereum&logoColor=white" />
+  </a>
+  <a href="https://polygonscan.com/tx/0x9c036d1d8e946e0d9c8c520d4818e3d211c137478f7a704b733fbea500f28ec6">
+    <img src="https://img.shields.io/badge/GENESIS%20TX-Block%2083%2C002%2C198-7b3fe4?style=flat-square" />
+  </a>
+</p>
 
 ---
 
-## What This Is
+## Table of Contents
+
+| # | Section | Description |
+|:-:|---------|-------------|
+| **I** | [Overview](#i-overview) | What this is and why it exists |
+| **II** | [Architecture](#ii-architecture) | System design and flow diagrams |
+| **III** | [Project Structure](#iii-project-structure) | Repository layout and file map |
+| **IV** | [The Novel](#iv-the-novel) | Narrative blocks and artifact exhibits |
+| **V** | [Build Pipeline](#v-build-pipeline) | Deterministic compilation system |
+| **VI** | [Provenance Stack](#vi-provenance-stack) | Five-layer integrity chain |
+| **VII** | [Smart Contract](#vii-smart-contract--literaryanchorsol) | LiteraryAnchor.sol — on-chain anchor |
+| **VIII** | [Polygon Deployment](#viii-polygon-deployment) | Mainnet deployment details and verification |
+| **IX** | [Asset Architecture](#ix-asset-architecture) | Five-layer asset ecosystem map |
+| **X** | [Ecosystem Roadmap](#x-ecosystem-roadmap) | NFTs, ERC-6551, Audio, Visual, Platform |
+| **XI** | [Agentic Quality Gates](#xi-agentic-quality-gates) | Automated editorial and build enforcement |
+| **XII** | [Developer Quick Start](#xii-developer-quick-start) | Setup, build, test, deploy commands |
+| **XIII** | [Intellectual Property](#xiii-intellectual-property) | Ownership, rights, and legal clarity |
+| **XIV** | [License](#xiv-license) | Dual license structure |
+
+---
+
+## I. Overview
 
 A finance satire novel built as a proof-of-concept for sovereign Web3 publishing.
 
@@ -12,122 +50,789 @@ The story dissects how **narrative outpaces verification in opaque financial eco
 
 The infrastructure proves that authors can publish immutably, control rights, and anchor authorship on-chain — without publishers, without intermediaries, without permission.
 
----
-
-## Three Layers (Cleanly Separated)
-
-| Layer | Purpose |
-|---|---|
-| **The Novel** | Literary satire. Commercially readable. Observational, not preachy. |
-| **The Satire** | Critique of narrative leverage in commodity brokerage, ESG hype, and commission culture. |
-| **The Protocol** | IPFS + on-chain anchor. Deterministic build. Proof-of-origin. Publishing template. |
-
----
-
-## Project Structure
-
-```
-manuscript/       → Chapter blocks (canonical prose)
-artifacts/        → In-book exhibits (IMFPA, commission waterfall, WhatsApp logs, ESG deck)
-build/            → Compile, hash, and manifest scripts
-dist/             → Compiled output (generated, not committed)
-web3/contracts/   → LiteraryAnchor.sol (Polygon)
-web3/scripts/     → deploy.js, verify.js, audit.js
-web3/test/        → Contract test suite (11 tests)
-web3/metadata/    → Genesis hash, CID, chain references
-```
-
----
-
-## Build
-
-```bash
-npm run build
-```
-
-This runs three steps:
-
-1. **compile** — Concatenates all blocks + artifacts into `dist/final-manuscript.md`
-2. **hash** — SHA-256 of the compiled manuscript → `web3/metadata/genesis.json`
-3. **manifest** — Per-file hash manifest → `dist/manifest.json`
-
----
-
-## Publish Pipeline
-
-1. `npm run build` → deterministic manuscript
-2. Upload `dist/final-manuscript.md` to IPFS → get CID
-3. Deploy `LiteraryAnchor.sol` on Polygon with CID + SHA-256
-4. Update `web3/metadata/genesis.json` with contract address + tx hash
-5. Export to KDP (ebook + paperback) for reader distribution
-
----
-
-## Polygon Deployment
-
-### Quick Start
-
-```bash
-# 1. Compile the contract
-npm run hh:compile
-
-# 2. Run tests (11 tests)
-npm run hh:test
-
-# 3. Deploy to Amoy testnet (dry run)
-npm run deploy:amoy
-
-# 4. Deploy to Polygon mainnet
-npm run deploy:polygon
-
-# 5. Verify on Polygonscan (optional)
-npm run verify
-
-# 6. Audit on-chain state vs local genesis.json
-npm run audit:chain
-```
-
-### Deployer Wallet
-
-```
-0xC91668184736BF75C4ecE37473D694efb2A43978
-```
-
-Fund with ~0.1 MATIC on Polygon mainnet. Deployment costs < $0.01.
-
-See [web3/DEPLOY.md](web3/DEPLOY.md) for full guide.
-
----
-
-## The Provenance Stack
-
-| Layer | What It Proves |
-|---|---|
-| Git history | Authorship timeline |
-| SHA-256 hash | Content integrity |
-| IPFS CID | Immutable storage |
-| On-chain anchor | Timestamped proof-of-origin |
-| KDP publication | Commercial distribution record |
-
----
-
-## What This Is Not
-
-- Not a token sale
-- Not a speculation scheme
-- Not a conspiracy manifesto
-- Not an accusation of any real person or institution
-
-It is satire. It observes behavior. It mirrors patterns.
-
----
-
-## License
-
-- **Build tooling & contracts:** MIT
-- **Literary content:** © Kidd James. All rights reserved.
-
----
-
 > *"Belief travels faster than verification."*
 > — First Law of the Parking Lot
+
+### Three Layers (Cleanly Separated)
+
+| Layer | Purpose | Status |
+|:------|:--------|:------:|
+| 🟣 **The Novel** | Literary satire. Commercially readable. Observational, not preachy. | ✅ Complete |
+| 🔵 **The Satire** | Critique of narrative leverage in commodity brokerage, ESG hype, and commission culture. | ✅ Complete |
+| 🟢 **The Protocol** | IPFS + on-chain anchor. Deterministic build. Proof-of-origin. Publishing template. | ✅ Deployed |
+
+---
+
+## II. Architecture
+
+### System Flow
+
+```mermaid
+flowchart TD
+    subgraph AUTHORING ["🟣 Authoring Layer"]
+        M[/"manuscript/\n9 narrative blocks"/]
+        A[/"artifacts/\n5 exhibits"/]
+    end
+
+    subgraph BUILD ["🔵 Build Pipeline"]
+        C["compile.js\nConcatenate by order.json"]
+        H["hash.js\nSHA-256 + MD5"]
+        MF["manifest.js\nPer-file integrity map"]
+    end
+
+    subgraph STORAGE ["🟢 Storage Layer"]
+        IPFS["IPFS (Kubo)\nContent-addressed\nimmutable storage"]
+        GIT["Git / GitHub\nVersion history\nauthorship timeline"]
+    end
+
+    subgraph CHAIN ["🟡 On-Chain Layer"]
+        SC["LiteraryAnchor.sol\nPolygon Mainnet"]
+        PS["Polygonscan\nVerified source"]
+    end
+
+    subgraph OUTPUT ["⚪ Distribution"]
+        KDP["KDP\nEbook + Paperback"]
+        NFT["NFT Editions\nDigital collectibles"]
+        AUDIO["ElevenLabs\nAudiobook narration"]
+    end
+
+    M --> C
+    A --> C
+    C -->|"dist/final-manuscript.md\n49,224 bytes"| H
+    H -->|"SHA-256: cdef74d1..."| MF
+    MF --> IPFS
+    MF --> GIT
+    IPFS -->|"CID: QmVQ79NM3..."| SC
+    H -->|"SHA-256"| SC
+    SC --> PS
+    IPFS --> KDP
+    SC --> NFT
+    IPFS --> AUDIO
+```
+
+### Provenance Chain
+
+```mermaid
+flowchart LR
+    FS["📁 Filesystem\nLocal timestamps"]
+    FS -->|"committed"| GIT["🔀 Git\nCommit history"]
+    GIT -->|"hashed"| SHA["🔒 SHA-256\ncdef74d1..."]
+    SHA -->|"pinned"| IPFS["📌 IPFS\nQmVQ79NM3..."]
+    IPFS -->|"anchored"| POLY["⛓️ Polygon\nBlock 83,002,198"]
+
+    style FS fill:#2d2d2d,stroke:#666,color:#fff
+    style GIT fill:#f05032,stroke:#c44029,color:#fff
+    style SHA fill:#4a90d9,stroke:#357abd,color:#fff
+    style IPFS fill:#65c2cb,stroke:#4da8b1,color:#fff
+    style POLY fill:#7b3fe4,stroke:#6232b8,color:#fff
+```
+
+### Contract Architecture
+
+```mermaid
+classDiagram
+    class LiteraryAnchor {
+        +address author ⟨immutable⟩
+        +string title
+        +Edition[] editions
+        +constructor(title, ipfsCID, sha256Hash)
+        +anchorEdition(ipfsCID, sha256Hash, note)
+        +genesis() Edition
+        +latest() Edition
+        +editionCount() uint256
+    }
+    class Edition {
+        +string ipfsCID
+        +string sha256Hash
+        +uint256 timestamp
+        +string title
+        +string note
+    }
+    LiteraryAnchor "1" --> "*" Edition : stores
+```
+
+---
+
+## III. Project Structure
+
+```
+2500-donkeys/
+│
+├── 🟣 NARRATIVE
+│   ├── manuscript/                    Canonical prose — 9 files
+│   │   ├── block-00-genesis.md        The origin. The parking lot epiphany.
+│   │   ├── block-01-parking-lots.md   Where all gold deals begin.
+│   │   ├── block-02-paper.md          The document ecosystem.
+│   │   ├── block-03-whatsapp.md       The broadcast layer.
+│   │   ├── block-04-donkeys.md        2,500 donkeys. Tangier corridor.
+│   │   ├── block-05-procession.md     The logistics of belief.
+│   │   ├── block-06-humanitarian.md   ESG theater meets carbon opacity.
+│   │   ├── block-07-silence.md        When the music stops.
+│   │   └── epilogue.md               The deal that never closes.
+│   │
+│   └── artifacts/                     In-book exhibits — 5 files
+│       ├── imfpa-redline-v3.md        Irrevocable fee agreement (redlined)
+│       ├── commission-waterfall.md    Four-tier commission structure
+│       ├── whatsapp-forward-17.md     The forward that started it all
+│       ├── esg-deck-excerpt.md        Carbon credit pitch deck
+│       └── carbon-registry-summary.md Registry compliance theater
+│
+├── 🔵 BUILD SYSTEM
+│   ├── build/
+│   │   ├── compile.js                 Concatenates blocks → final manuscript
+│   │   ├── hash.js                    SHA-256 + MD5 integrity hashes
+│   │   ├── manifest.js                Per-file hash manifest
+│   │   └── order.json                 Canonical build order
+│   └── dist/                          ⟨generated — not committed⟩
+│       ├── final-manuscript.md        Compiled output (49,224 bytes)
+│       └── manifest.json              File-level integrity map
+│
+├── 🟢 WEB3 INFRASTRUCTURE
+│   └── web3/
+│       ├── contracts/
+│       │   └── LiteraryAnchor.sol     Solidity 0.8.19 — proof-of-origin
+│       ├── scripts/
+│       │   ├── deploy.js              Hardhat deployment script
+│       │   ├── deploy-raw.js          Raw transaction deployment (mainnet)
+│       │   ├── deploy-direct.js       Standalone ethers.js deployment
+│       │   ├── verify.js              Polygonscan source verification
+│       │   └── audit.js               On-chain integrity audit
+│       ├── test/
+│       │   └── LiteraryAnchor.test.js 11 tests — full coverage
+│       ├── metadata/
+│       │   ├── genesis.json           Build + IPFS + Chain provenance
+│       │   └── deployment-receipt.json Deployment transaction data
+│       ├── artifacts/                 ⟨generated — Hardhat compilation⟩
+│       ├── cache/                     ⟨generated — Hardhat cache⟩
+│       ├── ipfs/                      IPFS upload utilities
+│       └── DEPLOY.md                  Step-by-step deployment guide
+│
+├── 📋 PROJECT FILES
+│   ├── AGENT.md                       Agentic quality gate definitions
+│   ├── glossary.md                    In-universe terminology (94 terms)
+│   ├── style-guide.md                 Voice, tone, and prose rules
+│   ├── hardhat.config.js              Polygon + Amoy network config
+│   ├── package.json                   Scripts and dependencies
+│   ├── LICENSE                        MIT (tooling) + © (literary content)
+│   └── README.md                      ← You are here
+│
+└── 🔒 PRIVATE (gitignored)
+    ├── .env                           Keys, RPC, wallet config
+    └── node_modules/                  Dependencies
+```
+
+---
+
+## IV. The Novel
+
+### Narrative Blocks
+
+| # | Block | Title | Focus |
+|:-:|-------|-------|-------|
+| 0 | `block-00-genesis.md` | Genesis | The parking lot. The phone call. The first deal. |
+| 1 | `block-01-parking-lots.md` | Parking Lots | Where all gold deals begin and most die. |
+| 2 | `block-02-paper.md` | Paper | IMFPA, BCL, CIS — the document ecosystem. |
+| 3 | `block-03-whatsapp.md` | WhatsApp | The broadcast layer. Forward #17. |
+| 4 | `block-04-donkeys.md` | Donkeys | 2,500 donkeys. Tangier corridor. Logistics of belief. |
+| 5 | `block-05-procession.md` | Procession | The caravan that may or may not exist. |
+| 6 | `block-06-humanitarian.md` | Humanitarian | ESG theater, carbon credits, moral ballast. |
+| 7 | `block-07-silence.md` | Silence | When the music stops. The call that doesn't come. |
+| E | `epilogue.md` | Epilogue | The deal that never closes. |
+
+### Artifact Exhibits
+
+| # | Exhibit | Type | Satire Target |
+|:-:|---------|------|---------------|
+| A | `imfpa-redline-v3.md` | Legal document (redlined) | Irrevocable agreements that are revocable by silence |
+| B | `commission-waterfall.md` | Financial structure | Commissions finalized before product exists |
+| C | `whatsapp-forward-17.md` | Communication artifact | The broadcast layer of belief propagation |
+| D | `esg-deck-excerpt.md` | Pitch deck excerpt | ESG vocabulary as moral ballast |
+| E | `carbon-registry-summary.md` | Compliance document | Registry theater that registers nothing |
+
+---
+
+## V. Build Pipeline
+
+### Deterministic Compilation
+
+```mermaid
+flowchart LR
+    subgraph INPUT ["Source Files"]
+        O["order.json\n14 entries"]
+        B["9 manuscript\nblocks"]
+        A["5 artifact\nexhibits"]
+    end
+
+    subgraph PIPELINE ["npm run build"]
+        S1["① compile.js"]
+        S2["② hash.js"]
+        S3["③ manifest.js"]
+    end
+
+    subgraph OUTPUT ["dist/"]
+        FM["final-manuscript.md\n49,224 bytes"]
+        MN["manifest.json"]
+        GJ["genesis.json\nSHA-256 + MD5"]
+    end
+
+    O --> S1
+    B --> S1
+    A --> S1
+    S1 -->|concatenate| FM
+    FM --> S2
+    S2 -->|integrity hash| GJ
+    S2 --> S3
+    S3 -->|per-file hashes| MN
+
+    style S1 fill:#4a90d9,stroke:#357abd,color:#fff
+    style S2 fill:#e67e22,stroke:#d35400,color:#fff
+    style S3 fill:#27ae60,stroke:#1e8449,color:#fff
+```
+
+### Build Commands
+
+```powershell
+# Full deterministic build (all three steps)
+npm run build
+
+# Individual steps
+npm run compile       # Step 1: Concatenate → dist/final-manuscript.md
+npm run hash          # Step 2: SHA-256 → web3/metadata/genesis.json
+npm run manifest      # Step 3: Per-file → dist/manifest.json
+```
+
+### Genesis Output
+
+| Field | Value |
+|-------|-------|
+| **SHA-256** | `cdef74d157437eeeb20d474fa7fcb590c83f87668aa109c036c76ac21e578364` |
+| **MD5** | `15ec4f352795ee7afdb5fe1e5d562510` |
+| **Size** | 49,224 bytes |
+| **Source** | `dist/final-manuscript.md` |
+
+> Identical input always produces identical output. The build is deterministic.
+
+---
+
+## VI. Provenance Stack
+
+Five independent layers, each cryptographically reinforcing the others:
+
+```mermaid
+block-beta
+    columns 1
+    block:L1:1
+        A["Layer 1 — FILESYSTEM · Local creation timestamps"]
+    end
+    block:L2:1
+        B["Layer 2 — GIT · Commit history · Author identity · SHA in message"]
+    end
+    block:L3:1
+        C["Layer 3 — SHA-256 · cdef74d157437...e578364"]
+    end
+    block:L4:1
+        D["Layer 4 — IPFS · CID: QmVQ79NM3qxAsB...g8vK"]
+    end
+    block:L5:1
+        E["Layer 5 — POLYGON · Contract: 0x97f456...ba90 · Block 83,002,198"]
+    end
+
+    style A fill:#555,color:#fff
+    style B fill:#f05032,color:#fff
+    style C fill:#4a90d9,color:#fff
+    style D fill:#65c2cb,color:#fff
+    style E fill:#7b3fe4,color:#fff
+```
+
+| Layer | Mechanism | What It Proves | Verification |
+|:-----:|-----------|----------------|:------------:|
+| 1 | Filesystem | Creation timeline | Local |
+| 2 | Git / GitHub | Authorship + version history | `git log` |
+| 3 | SHA-256 | Content integrity — any byte change invalidates | `sha256sum` |
+| 4 | IPFS | Immutable content-addressed storage | Gateway fetch |
+| 5 | Polygon | Timestamped on-chain proof-of-origin | [Polygonscan](https://polygonscan.com/address/0x97f456300817eaE3B40E235857b856dfFE8bba90#code) |
+
+---
+
+## VII. Smart Contract — LiteraryAnchor.sol
+
+<table>
+<tr><td><strong>Contract</strong></td><td><code>0x97f456300817eaE3B40E235857b856dfFE8bba90</code></td></tr>
+<tr><td><strong>Network</strong></td><td>Polygon Mainnet (Chain ID 137)</td></tr>
+<tr><td><strong>Solidity</strong></td><td>0.8.19 · Optimizer: 200 runs</td></tr>
+<tr><td><strong>Source</strong></td><td><a href="https://polygonscan.com/address/0x97f456300817eaE3B40E235857b856dfFE8bba90#code">Verified on Polygonscan ✓</a></td></tr>
+<tr><td><strong>Author</strong></td><td><code>0xC91668184736BF75C4ecE37473D694efb2A43978</code> (immutable)</td></tr>
+</table>
+
+### Contract Interface
+
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.19;
+
+contract LiteraryAnchor {
+    struct Edition {
+        string ipfsCID;
+        string sha256Hash;
+        uint256 timestamp;
+        string title;
+        string note;
+    }
+
+    address public immutable author;
+    string  public title;
+    Edition[] public editions;
+
+    // Deploy with genesis edition
+    constructor(string memory _title, string memory _ipfsCID, string memory _sha256Hash);
+
+    // Anchor subsequent editions (author-only)
+    function anchorEdition(string calldata _ipfsCID, string calldata _sha256Hash, string calldata _note) external;
+
+    // Read functions
+    function genesis() external view returns (Edition memory);
+    function latest()  external view returns (Edition memory);
+    function editionCount() external view returns (uint256);
+}
+```
+
+### On-Chain Audit Results
+
+```
+══════════════════════════════════════════════════
+  ON-CHAIN AUDIT — LiteraryAnchor
+══════════════════════════════════════════════════
+
+  Title:         The 2,500 Donkeys         ✓
+  Author:        0xC916...3978             ✓
+  Edition Count: 1
+  IPFS CID:      QmVQ79NM3...g8vK         ✓ MATCH
+  SHA-256:       cdef74d1...8364           ✓ MATCH
+
+  All provenance layers aligned.
+══════════════════════════════════════════════════
+```
+
+### Test Suite
+
+```
+  LiteraryAnchor
+    Deployment
+      ✓ Should set the author to deployer
+      ✓ Should set the title
+      ✓ Should create genesis edition with correct CID
+      ✓ Should create genesis edition with correct SHA-256
+      ✓ Should emit EditionAnchored event on deploy
+    Edition management
+      ✓ Should allow author to anchor a new edition
+      ✓ Should increment edition count
+      ✓ Should reject non-author edition anchoring
+    View functions
+      ✓ Should return genesis edition
+      ✓ Should return latest edition
+      ✓ Should return correct edition count
+
+  11 passing
+```
+
+---
+
+## VIII. Polygon Deployment
+
+### Genesis Transaction
+
+| Field | Value |
+|-------|-------|
+| **Contract** | [`0x97f456300817eaE3B40E235857b856dfFE8bba90`](https://polygonscan.com/address/0x97f456300817eaE3B40E235857b856dfFE8bba90) |
+| **Tx Hash** | [`0x9c036d1d...28ec6`](https://polygonscan.com/tx/0x9c036d1d8e946e0d9c8c520d4818e3d211c137478f7a704b733fbea500f28ec6) |
+| **Block** | [83,002,198](https://polygonscan.com/block/83002198) |
+| **Gas Used** | 1,116,006 |
+| **Cost** | 0.887 POL |
+| **Deployer** | [`0xC91668184736BF75C4ecE37473D694efb2A43978`](https://polygonscan.com/address/0xC91668184736BF75C4ecE37473D694efb2A43978) |
+| **Verified** | [✓ Source code verified](https://polygonscan.com/address/0x97f456300817eaE3B40E235857b856dfFE8bba90#code) |
+
+### Constructor Arguments
+
+```json
+[
+  "The 2,500 Donkeys",
+  "QmVQ79NM3qxAsBpftTG4YhD4KV9sUEmM3WwFrc5vs5g8vK",
+  "cdef74d157437eeeb20d474fa7fcb590c83f87668aa109c036c76ac21e578364"
+]
+```
+
+### Deployment Pipeline
+
+```mermaid
+flowchart TD
+    subgraph PRE ["Pre-Deploy"]
+        T["npm run hh:test\n11/11 passing"]
+        G["genesis.json\nCID + SHA-256"]
+    end
+
+    subgraph DEPLOY ["Deploy"]
+        TX["deploy-raw.js\nRaw signed transaction"]
+        RPC["RPC: 1rpc.io/matic\nPolygon Mainnet"]
+    end
+
+    subgraph POST ["Post-Deploy"]
+        V["verify.js\nPolygonscan source"]
+        AU["audit.js\nOn-chain integrity check"]
+        RC["deployment-receipt.json"]
+        GU["genesis.json\n+ chain section"]
+    end
+
+    T --> TX
+    G --> TX
+    TX --> RPC
+    RPC -->|"Block 83,002,198"| V
+    RPC --> AU
+    RPC --> RC
+    RPC --> GU
+
+    style TX fill:#7b3fe4,stroke:#6232b8,color:#fff
+    style RPC fill:#e67e22,stroke:#d35400,color:#fff
+    style V fill:#27ae60,stroke:#1e8449,color:#fff
+    style AU fill:#27ae60,stroke:#1e8449,color:#fff
+```
+
+---
+
+## IX. Asset Architecture
+
+### Five-Layer Asset Ecosystem
+
+```mermaid
+flowchart TB
+    subgraph L1 ["LAYER 1 — CORE IP"]
+        direction LR
+        IP["The 2,500 Donkeys\nCopyrighted Literary Universe"]
+        IP --- MS["Manuscript"]
+        IP --- CH["Characters"]
+        IP --- AR["Artifacts"]
+        IP --- UN["Universe / Lore"]
+    end
+
+    subgraph L2 ["LAYER 2 — EDITION ASSETS"]
+        direction LR
+        EB["Ebook"]
+        PB["Paperback"]
+        HC["Hardcover"]
+        AB["Audiobook"]
+        IL["Illustrated"]
+    end
+
+    subgraph L3 ["LAYER 3 — DIGITAL COLLECTIBLES"]
+        direction LR
+        GN["Genesis NFT\n1/1"]
+        BN["Block NFTs\nPer-chapter"]
+        DN["Donkey NFTs\nCharacter series"]
+        AN["Artifact NFTs\nExhibit collectibles"]
+    end
+
+    subgraph L4 ["LAYER 4 — NARRATIVE INFRASTRUCTURE"]
+        direction LR
+        GP["Genesis Publishing Protocol"]
+        CL["CLI Scaffold"]
+        AT["Author Anchor Template"]
+        RG["On-Chain Literary Registry"]
+    end
+
+    subgraph L5 ["LAYER 5 — EXPERIENCE LAYER"]
+        direction LR
+        WB["Website"]
+        AP["Audio Player"]
+        DL["Interactive Donkey Ledger"]
+        TW["Token-Bound Wallets\nERC-6551"]
+    end
+
+    L1 --> L2
+    L2 --> L3
+    L3 --> L4
+    L4 --> L5
+
+    style L1 fill:#7b3fe4,stroke:#6232b8,color:#fff
+    style L2 fill:#4a90d9,stroke:#357abd,color:#fff
+    style L3 fill:#e67e22,stroke:#d35400,color:#fff
+    style L4 fill:#27ae60,stroke:#1e8449,color:#fff
+    style L5 fill:#e74c3c,stroke:#c0392b,color:#fff
+```
+
+### Asset Classification Matrix
+
+| Class | Asset | Type | Status |
+|:-----:|-------|------|:------:|
+| 🟣 | Literary manuscript + universe | Primary IP | ✅ Created |
+| 🟣 | Publishing protocol framework | Infrastructure IP | ✅ Built |
+| 🔵 | Ebook (KDP) | Edition | 🔲 Pending |
+| 🔵 | Paperback (KDP) | Edition | 🔲 Pending |
+| 🔵 | Audiobook (ElevenLabs) | Edition + Audio IP | 🔲 Pending |
+| 🟠 | Genesis NFT (1/1) | Digital Collectible | 🔲 Planned |
+| 🟠 | Block Edition NFTs | Digital Collectible | 🔲 Planned |
+| 🟠 | Donkey Character NFTs (2,500) | Digital Collectible | 🔲 Planned |
+| 🟠 | Artifact Exhibit NFTs | Digital Collectible | 🔲 Planned |
+| 🟢 | ERC-6551 Token-Bound Wallets | Protocol Extension | 🔲 Planned |
+| 🟢 | Genesis Publishing Protocol CLI | Platform / SaaS | 🔲 Planned |
+| 🔴 | Illustrated Edition | Derivative IP | 🔲 Future |
+| 🔴 | Film / Adaptation Rights | Derivative IP | 🔲 Future |
+
+---
+
+## X. Ecosystem Roadmap
+
+### Phase Map
+
+```mermaid
+gantt
+    title The 2,500 Donkeys — Ecosystem Phases
+    dateFormat YYYY-MM
+    axisFormat %b %Y
+
+    section Phase 1 — Genesis
+    Manuscript complete           :done,    p1a, 2026-02, 2026-02
+    Build pipeline                :done,    p1b, 2026-02, 2026-02
+    IPFS pinning                  :done,    p1c, 2026-02, 2026-02
+    Smart contract deploy         :done,    p1d, 2026-02, 2026-02
+    Polygonscan verification      :done,    p1e, 2026-02, 2026-02
+
+    section Phase 2 — Distribution
+    KDP ebook export              :active,  p2a, 2026-02, 2026-03
+    KDP paperback                 :         p2b, 2026-03, 2026-04
+    ElevenLabs audiobook          :         p2c, 2026-03, 2026-04
+
+    section Phase 3 — Digital Collectibles
+    Genesis NFT contract (ERC-721):         p3a, 2026-04, 2026-05
+    Block Edition NFTs            :         p3b, 2026-05, 2026-06
+    Donkey Character Series       :         p3c, 2026-06, 2026-07
+
+    section Phase 4 — Protocol
+    ERC-6551 Token-Bound Wallets  :         p4a, 2026-07, 2026-08
+    Genesis Publishing CLI        :         p4b, 2026-08, 2026-09
+    Author Anchor Registry        :         p4c, 2026-09, 2026-10
+
+    section Phase 5 — Experience
+    Website + Reader              :         p5a, 2026-06, 2026-08
+    Interactive Donkey Ledger     :         p5b, 2026-08, 2026-10
+    Illustrated Edition          :         p5c, 2026-10, 2027-01
+```
+
+### A. NFT Editions — Digital Collectibles
+
+> **Collectibles, not securities.** These represent ownership of digital art and literary artifacts. They do not confer copyright, profit sharing, or investment returns.
+
+| Edition | Supply | Description |
+|---------|:------:|-------------|
+| **Genesis** | 1/1 | The original manuscript anchor — singular provenance artifact |
+| **Founder** | 25 | Early supporter editions — unique cover art variants |
+| **Block** | 9 × 100 | Per-chapter collectibles — one for each narrative block |
+| **Donkey** | 2,500 | Character-series collectibles — generative donkey identities |
+| **Artifact** | 5 × 50 | Exhibit collectibles — IMFPA, waterfall, WhatsApp, ESG deck, registry |
+
+### B. ERC-6551 Token-Bound Donkeys
+
+Each Donkey NFT becomes a character-account with its own wallet:
+
+```mermaid
+flowchart TD
+    D["Donkey #0742\nERC-721 NFT"]
+    W["Token-Bound Wallet\nERC-6551 Account"]
+    
+    D --> W
+    
+    W --> F1["Chapter Fragment\nAirdropped artifact"]
+    W --> F2["Audio Clip\nNarration excerpt"]
+    W --> F3["Carbon Satire Token\nFictional in-universe token"]
+    W --> F4["Future Literary Drops\nNew editions · artifacts"]
+
+    style D fill:#e67e22,stroke:#d35400,color:#fff
+    style W fill:#7b3fe4,stroke:#6232b8,color:#fff
+```
+
+**What this enables:**
+- Each Donkey NFT **holds** literary assets in its own wallet
+- Airdrops go to the Donkey, not the owner — creating narrative accumulation
+- No staking. No yield. No profit promise. Art and literature only.
+
+### C. Revenue Streams (Non-Securities)
+
+| Stream | Source | Type |
+|--------|--------|------|
+| Ebook sales | KDP / Direct | Publishing revenue |
+| Paperback sales | KDP | Publishing revenue |
+| Audiobook sales | Audible / Direct | Streaming revenue |
+| NFT primary sales | Polygon marketplace | Collectible sales |
+| NFT royalties | Secondary market | Creator royalty (ERC-2981) |
+| Illustrated edition | Direct / Gallery | Art sales |
+| Film/adaptation rights | Licensing | IP licensing |
+| Publishing Protocol | SaaS / Open-source | Platform revenue |
+
+### D. Polygon Ecosystem Integration
+
+```mermaid
+flowchart TD
+    subgraph POLYGON ["Polygon Ecosystem"]
+        direction TB
+        MC["Polygon Mainnet\nLiteraryAnchor.sol\nDeployed + Verified"]
+        
+        MC --> OS["OpenSea\nNFT Marketplace"]
+        MC --> MG["Magic Eden\nNFT Marketplace"]
+        MC --> ZR["Zora\nMint Platform"]
+        MC --> LP["Lens Protocol\nSocial Distribution"]
+        MC --> UN["Unlock Protocol\nAccess Control"]
+        MC --> TBA["ERC-6551\nToken-Bound Accounts"]
+        MC --> PS["Polygonscan\nVerified Source"]
+    end
+
+    style MC fill:#7b3fe4,stroke:#6232b8,color:#fff
+    style PS fill:#27ae60,stroke:#1e8449,color:#fff
+```
+
+---
+
+## XI. Agentic Quality Gates
+
+Three internal roles enforce quality across the protocol:
+
+| # | Role | Responsibility | Trigger |
+|:-:|------|---------------|---------|
+| 1 | **The Editor** | Tone enforcement. Removes preachiness. Maintains deadpan anthropologist voice. | After any prose edit |
+| 2 | **The Continuity Auditor** | Internal consistency. Commission math, tonnage, character names, artifact cross-refs. | After any content change |
+| 3 | **The Format Guardian** | Deterministic build protection. Style-guide compliance. Manifest integrity. | Before any commit |
+
+### The Editor — Red Flags
+
+> 🚫 "shocking truth" · "they don't want you to know" · "wake up" · exclamation marks in prose
+
+### The Continuity Auditor — Validation Checks
+
+> ✓ Commission waterfall sums to 8.4% across 4 tiers · ✓ Tonnage: 500MT base · ✓ Characters: Raymond, Marcus, Gerald, Philippe · ✓ SHA-256 in genesis.json matches compiled output
+
+### The Format Guardian — Enforcement Rules
+
+> ✓ Headings follow style-guide.md · ✓ No trailing whitespace · ✓ order.json matches filesystem · ✓ `npm run build` is idempotent
+
+See [AGENT.md](AGENT.md) for full role definitions.
+
+---
+
+## XII. Developer Quick Start
+
+### Prerequisites
+
+- Node.js 18+
+- Git
+- A `.env` file (see template below)
+
+### Environment Template
+
+```env
+# .env.example
+POLYGON_RPC=https://polygon-bor-rpc.publicnode.com
+AUTHOR_WALLET=0xYourWalletAddress
+PRIVATE_KEY=your_private_key_without_0x_prefix
+POLYGONSCAN_API_KEY=your_polygonscan_api_key
+
+# Optional
+AMOY_RPC=https://rpc-amoy.polygon.technology
+IPFS_API=http://127.0.0.1:5001
+IPFS_GATEWAY=http://127.0.0.1:8080
+ELEVENLABS_API_KEY=your_elevenlabs_key
+```
+
+### Command Reference
+
+| Command | Description |
+|---------|-------------|
+| `npm run build` | Full deterministic build (compile → hash → manifest) |
+| `npm run compile` | Concatenate manuscript + artifacts → `dist/final-manuscript.md` |
+| `npm run hash` | Generate SHA-256 + MD5 → `web3/metadata/genesis.json` |
+| `npm run manifest` | Per-file integrity hashes → `dist/manifest.json` |
+| `npm run hh:compile` | Compile Solidity contracts |
+| `npm run hh:test` | Run test suite (11 tests) |
+| `npm run deploy:amoy` | Deploy to Polygon Amoy testnet (dry run) |
+| `npm run deploy:polygon` | Deploy to Polygon mainnet |
+| `npm run verify` | Verify source on Polygonscan |
+| `npm run audit:chain` | Audit on-chain state vs local genesis.json |
+
+### Full Deploy Sequence
+
+```powershell
+# 1. Build the manuscript
+npm run build
+
+# 2. Compile + test contracts
+npm run hh:compile
+npm run hh:test
+
+# 3. Deploy (testnet first, then mainnet)
+npm run deploy:amoy          # dry run
+npm run deploy:polygon        # production
+
+# 4. Verify + audit
+npm run verify
+npm run audit:chain
+
+# 5. Commit the anchor
+git add .
+git commit -m "Genesis locked"
+git push origin master
+```
+
+See [web3/DEPLOY.md](web3/DEPLOY.md) for the complete deployment guide.
+
+---
+
+## XIII. Intellectual Property
+
+### Ownership Statement
+
+> **The 2,500 Donkeys** and all associated narrative content, characters, artifacts, universe lore, and publishing frameworks are intellectual property of the author, **Kidd James**. Blockchain anchoring provides cryptographic proof of authorship and timestamping. Digital collectibles (NFTs) represent ownership of a digital collectible linked to a narrative artifact — they do not confer copyright ownership, revenue rights, or equity unless explicitly stated in a separate written agreement.
+
+### Provenance Evidence Chain
+
+| Evidence | Purpose | Record |
+|----------|---------|--------|
+| Local filesystem | First creation timestamps | OS metadata |
+| Git commit history | Continuous authorship timeline | [GitHub](https://github.com/FTHTrading/2500-donkeys) |
+| SHA-256 hash | Content integrity fingerprint | `genesis.json` |
+| IPFS CID | Immutable content-addressed storage | `QmVQ79NM3...g8vK` |
+| Polygon smart contract | Timestamped on-chain proof-of-origin | [`0x97f456...ba90`](https://polygonscan.com/address/0x97f456300817eaE3B40E235857b856dfFE8bba90) |
+| Polygonscan verification | Public source code transparency | [Verified ✓](https://polygonscan.com/address/0x97f456300817eaE3B40E235857b856dfFE8bba90#code) |
+
+### What This Is — And What It Is Not
+
+| | |
+|:-:|---|
+| ❌ | Not a token sale, ICO, or speculation scheme |
+| ❌ | Not a revenue-sharing instrument or investment vehicle |
+| ❌ | Not a conspiracy manifesto or accusation of any real person |
+| ✅ | Satire. Observational. Pattern recognition through narrative. |
+| ✅ | NFTs are collectibles — art and literature, not financial instruments |
+| ✅ | Protocol is open infrastructure — any author can use the framework |
+
+---
+
+## XIV. License
+
+### Dual License Structure
+
+| Scope | License | Details |
+|-------|---------|---------|
+| **Build tooling, scripts, smart contracts** | MIT | Free to use, modify, distribute |
+| **Literary content** (manuscript, artifacts, characters, universe) | © Kidd James | All rights reserved |
+
+The publishing protocol infrastructure is open-source so other authors can build on it. The literary work itself is copyrighted. These are deliberately separated — the protocol serves the ecosystem, the content serves the author.
+
+---
+
+<p align="center">
+  <img src="https://img.shields.io/badge/GENESIS-LOCKED-00c853?style=for-the-badge&labelColor=1a1a2e" />
+</p>
+
+<p align="center">
+  <em>"The deal expanded in inverse proportion to its certainty."</em>
+</p>
+
+<p align="center">
+  <sub>Built with conviction. Anchored with cryptography. Verified on <a href="https://polygonscan.com/address/0x97f456300817eaE3B40E235857b856dfFE8bba90#code">Polygon</a>.</sub>
+</p>
