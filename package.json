@@ -28,7 +28,13 @@
     "pub:pdf": "node publishing/build-pdf.js",
     "pub:cover": "node publishing/build-cover.js",
     "pub:all": "node publishing/build-epub.js && node publishing/build-pdf.js && node publishing/build-cover.js",
-    "publish": "npm run build && npm run pub:all"
+    "publish": "npm run build && npm run pub:all",
+    "audio:voices": "node audio/render.js --list-voices",
+    "audio:dry": "node audio/render.js --dry-run",
+    "audio:render": "node audio/render.js",
+    "audio:hash": "node audio/hash-audio.js",
+    "audio:verify": "node audio/hash-audio.js --verify",
+    "audio:all": "node audio/render.js && node audio/hash-audio.js"
   },
   "keywords": [
     "literary-protocol",

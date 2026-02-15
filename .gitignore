@@ -12,6 +12,9 @@ images/chapters/*.png
 images/cover/*.png
 images/generation-log.json
 
+# Generated audio (large MP3s — tracked via IAPL-1 manifest, not binary)
+audio/rendered/
+
 # Hardhat
 web3/cache/
 web3/artifacts/

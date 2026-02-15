@@ -39,8 +39,9 @@
 | **XI** | [Academic Infrastructure](#xi-academic-infrastructure) | DOI, ORCID, research paper, citations |
 | **XII** | [Protocol Specification (LPS-1)](#xii-protocol-specification-lps-1) | Literary Protocol Standard v1 |
 | **XIII** | [Developer Quick Start](#xiii-developer-quick-start) | Setup, build, test, deploy |
-| **XIV** | [Intellectual Property](#xiv-intellectual-property) | Ownership, rights, legal clarity |
-| **XV** | [License](#xv-license) | Dual license structure |
+| **XIV** | [Audio Provenance (IAPL-1)](#xiv-audio-provenance-iapl-1) | Immutable Audio Provenance Layer |
+| **XV** | [Intellectual Property](#xv-intellectual-property) | Ownership, rights, legal clarity |
+| **XVI** | [License](#xvi-license) | Dual license structure |
 
 ---
 
@@ -357,10 +358,18 @@ Any single-byte change to any chapter, artifact, or image invalidates the corres
 │
 ├── ✓ INDEPENDENT VERIFIER
 │   └── verify/
-│       └── lps-verify.js             Standalone provenance verifier (51 checks)
+│       └── lps-verify.js             Standalone provenance verifier (51+ checks)
+│
+├── 🔊 AUDIO PROVENANCE (IAPL-1)
+│   └── audio/
+│       ├── render.js                  ElevenLabs TTS renderer (1 MP3 per block)
+│       ├── hash-audio.js              Audio Merkle tree builder
+│       ├── audio-config.json          Voice + model configuration
+│       └── rendered/                  31 MP3 files (gitignored)
 │
 ├── 📋 PROTOCOL SPECIFICATION
 │   ├── LPS-1.md                       Literary Protocol Standard v1
+│   ├── IAPL-1.md                      Immutable Audio Provenance Layer v1
 │   ├── LITERARY_PROTOCOL.md           State machine + roles
 │   ├── INVARIANTS.md                  14 system invariants
 │   ├── DEPLOYMENTS.md                 Canonical deployment registry
@@ -468,6 +477,17 @@ npm run hash               # Step 2: SHA-256 → web3/metadata/genesis.json
 npm run manifest           # Step 3: Per-file → dist/manifest.json
 ```
 
+#### Audio Pipeline (IAPL-1)
+
+```bash
+npm run audio:voices       # List available ElevenLabs voices
+npm run audio:dry          # Dry run — preview what would be rendered
+npm run audio:render       # Render 31 MP3s via ElevenLabs TTS
+npm run audio:hash         # Hash audio → Merkle tree → audio-manifest.json
+npm run audio:verify       # Standalone audio integrity check
+npm run audio:all          # render + hash in sequence
+```
+
 ### Independent Verification
 
 Any third party can clone this repo and independently verify the entire provenance chain — from local source files through Merkle trees to on-chain Polygon state — with a single command:
@@ -487,6 +507,9 @@ npm run lps:verify         # 51 checks across 5 phases, ~1 second
 | **3. Merkle Trees** | 11 | 4 trees rebuilt from source → roots match stored + genesis |
 | **4. On-Chain** | 24 | LiteraryAnchor, KernelV2, AuthorIdentity all match local |
 | **5. Cross-Layer** | 7 | genesis.json ↔ merkle.json ↔ source ↔ on-chain consistent |
+| **6. Audio (IAPL-1)** | 8† | Audio hashes, Merkle tree, audioEditionRoot binding |
+
+† Phase 6 is conditional — activates only when `dist/audio-manifest.json` exists. Skips gracefully otherwise.
 
 Output: `dist/verification-report.json` (machine-readable)
 
@@ -745,7 +768,60 @@ npm run audit:chain
 
 ---
 
-## XIV. Intellectual Property
+## XIV. Audio Provenance (IAPL-1)
+
+The **Immutable Audio Provenance Layer** extends the protocol to spoken-word narration. Each of the 31 manuscript blocks maps to one MP3 file, rendered via ElevenLabs TTS. Audio gets its own Merkle tree and provenance chain, running **parallel** to the text layer.
+
+### Architecture
+
+```
+audio/rendered/block-NN.mp3   ← 1:1 with manuscript blocks
+    ↓
+audioRoot = merkle(sha256 of each MP3)
+    ↓
+audioEditionRoot = sha256(editionRoot + audioRoot)   ← binds audio to text
+```
+
+`audioEditionRoot` cryptographically bonds the audio layer to the existing frozen `editionRoot` without modifying any on-chain state.
+
+### Verification
+
+When `dist/audio-manifest.json` exists, Phase 6 of `lps-verify` activates automatically:
+
+| Check | What It Proves |
+|-------|----------------|
+| IAPL-1 version | Manifest conforms to spec |
+| Audio config | Voice and model settings recorded |
+| Block count | Audio files match manuscript block count |
+| File presence | All 31 MP3s exist |
+| Hash integrity | Every MP3 SHA-256 matches manifest |
+| Merkle rebuild | Audio tree root recomputed from hashes |
+| audioEditionRoot | `sha256(editionRoot + audioRoot)` verified |
+| editionRoot consistency | Audio layer references correct text edition |
+
+### Quick Start
+
+```bash
+# 1. List available voices
+npm run audio:voices
+
+# 2. Set voice.id in audio/audio-config.json
+
+# 3. Preview
+npm run audio:dry
+
+# 4. Render + hash
+npm run audio:all
+
+# 5. Verify everything (Phase 6 now active)
+npm run lps:verify
+```
+
+Full specification: [`IAPL-1.md`](IAPL-1.md)
+
+---
+
+## XV. Intellectual Property
 
 ### Ownership Statement
 
@@ -779,7 +855,7 @@ npm run audit:chain
 
 ---
 
-## XV. License
+## XVI. License
 
 ### Dual License Structure
 

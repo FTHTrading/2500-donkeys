@@ -1,0 +1,26 @@
+{
+  "version": "IAPL-1",
+  "voice": {
+    "id": "",
+    "name": "",
+    "model": "eleven_multilingual_v2",
+    "settings": {
+      "stability": 0.65,
+      "similarity_boost": 0.75,
+      "style": 0.35,
+      "use_speaker_boost": true
+    }
+  },
+  "format": "mp3_44100_128",
+  "outputDir": "audio/rendered",
+  "blockSource": "build/order.json",
+  "textPreprocessing": {
+    "stripHeaders": true,
+    "stripEmphasis": true,
+    "stripHorizontalRules": true,
+    "stripCodeBlocks": true,
+    "convertEmDashes": false,
+    "headerPause": "\n\n",
+    "rulePause": "\n\n\n"
+  }
+}

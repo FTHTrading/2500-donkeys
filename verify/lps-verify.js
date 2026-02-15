@@ -696,6 +696,120 @@ function verifyCrossLayer(genesis, merkleResults) {
 }
 
 // ══════════════════════════════════════════════════════════════════════════════
+//  PHASE 6 — AUDIO PROVENANCE (IAPL-1) — Conditional
+// ══════════════════════════════════════════════════════════════════════════════
+
+function verifyAudio(order, merkleResults) {
+  const audioManifestPath = path.join(DIST_DIR, "audio-manifest.json");
+  const audioConfigPath = path.join(ROOT, "audio", "audio-config.json");
+
+  // Check if audio layer exists — skip gracefully if not
+  if (!fs.existsSync(audioManifestPath)) {
+    section("Phase 6: Audio Provenance (IAPL-1) — SKIPPED");
+    console.log("  No audio manifest found (dist/audio-manifest.json)");
+    console.log("  Audio verification is optional. Skipping.\n");
+    return null;
+  }
+
+  section("Phase 6: Audio Provenance (IAPL-1)");
+
+  const manifest = JSON.parse(fs.readFileSync(audioManifestPath, "utf-8"));
+
+  // 6.1 — Manifest version
+  check(
+    "Audio manifest version is IAPL-1",
+    manifest.version === "IAPL-1",
+    `version: ${manifest.version}`
+  );
+
+  // 6.2 — Audio config exists
+  check(
+    "Audio config exists",
+    fs.existsSync(audioConfigPath),
+    audioConfigPath
+  );
+
+  // 6.3 — Block count matches order.json
+  check(
+    `Audio block count matches order (${order.blocks.length})`,
+    manifest.blocks && manifest.blocks.length === order.blocks.length,
+    `manifest: ${manifest.blocks ? manifest.blocks.length : 0}, order: ${order.blocks.length}`
+  );
+
+  // 6.4 — Check each audio file exists and hash matches
+  const audioConfig = fs.existsSync(audioConfigPath)
+    ? JSON.parse(fs.readFileSync(audioConfigPath, "utf-8"))
+    : { outputDir: "audio/rendered" };
+  const audioDir = path.join(ROOT, audioConfig.outputDir);
+
+  let allFilesPresent = true;
+  let allHashesMatch = true;
+  let fileCount = 0;
+
+  if (manifest.blocks) {
+    for (const block of manifest.blocks) {
+      const audioPath = path.join(audioDir, block.file);
+      if (!fs.existsSync(audioPath)) {
+        allFilesPresent = false;
+        continue;
+      }
+      fileCount++;
+      const hash = sha256File(audioPath);
+      if (hash !== block.sha256) {
+        allHashesMatch = false;
+      }
+    }
+  }
+
+  check(
+    `All ${order.blocks.length} audio files present`,
+    allFilesPresent && fileCount === order.blocks.length,
+    `found: ${fileCount}/${order.blocks.length}`
+  );
+
+  check(
+    "All audio file hashes match manifest",
+    allHashesMatch && fileCount === order.blocks.length,
+    allHashesMatch ? "all SHA-256 verified" : "hash mismatch detected"
+  );
+
+  // 6.5 — Rebuild audio Merkle tree
+  if (manifest.blocks && manifest.blocks.length > 0) {
+    const leafHashes = manifest.blocks.map((b) => b.sha256);
+    const rebuilt = buildMerkleTree(leafHashes);
+
+    check(
+      "Audio Merkle root matches rebuilt tree",
+      rebuilt.root === manifest.audioRoot,
+      `stored: ${(manifest.audioRoot || "").slice(0, 16)}… rebuilt: ${rebuilt.root.slice(0, 16)}…`
+    );
+
+    // 6.6 — audioEditionRoot = sha256(editionRoot + audioRoot)
+    if (manifest.editionRoot && manifest.audioEditionRoot) {
+      const expectedAER = sha256(manifest.editionRoot + manifest.audioRoot);
+      check(
+        "audioEditionRoot = sha256(editionRoot + audioRoot)",
+        expectedAER === manifest.audioEditionRoot,
+        `expected: ${expectedAER.slice(0, 16)}… stored: ${manifest.audioEditionRoot.slice(0, 16)}…`
+      );
+
+      // 6.7 — editionRoot in manifest matches Merkle results
+      if (merkleResults && merkleResults.editionRoot) {
+        check(
+          "Audio manifest editionRoot matches text editionRoot",
+          manifest.editionRoot === merkleResults.editionRoot,
+          manifest.editionRoot === merkleResults.editionRoot
+            ? "consistent"
+            : `audio: ${manifest.editionRoot.slice(0, 16)}… text: ${merkleResults.editionRoot.slice(0, 16)}…`
+        );
+      }
+    }
+  }
+
+  return manifest;
+}
+
+// ══════════════════════════════════════════════════════════════════════════════
 //  MAIN
 // ══════════════════════════════════════════════════════════════════════════════
 
@@ -721,6 +835,9 @@ async function main() {
 
   // Phase 5: Cross-layer consistency
   verifyCrossLayer(genesis, merkleResults);
+
+  // Phase 6: Audio provenance (IAPL-1) — conditional
+  verifyAudio(order, merkleResults);
 
   // ── Final Report ──
   const elapsed = ((Date.now() - startTime) / 1000).toFixed(1);

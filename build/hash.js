@@ -90,6 +90,7 @@ function generateHash() {
         ? `https://ipfs.io/ipfs/${existing.ipfs.cid}`
         : null
     },
+    authorIdentity: existing?.authorIdentity || null,
     chain: existing?.chain || {
       network: "polygon",
       chainId: 137,
