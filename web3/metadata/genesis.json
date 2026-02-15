@@ -5,9 +5,9 @@
   "schema": "literary-protocol-standard",
   "schemaVersion": "1.0.0",
   "build": {
-    "timestamp": "2026-02-15T11:19:30.845Z",
-    "sha256": "6668da69c87720cd4c5d4ea86162719c511efdd4393d6693a18f98855e4646b3",
-    "md5": "33f812ae2073347020da021c71bf3312",
+    "timestamp": "2026-02-15T13:43:26.533Z",
+    "sha256": "c1a072931906d37dfd5ae9aa10b7984ee154adb57524023b1f56e947707cb96d",
+    "md5": "842ef34d89ef81a4efdcb3ed93436804",
     "sizeBytes": 293550,
     "source": "dist/final-manuscript.md"
   },
@@ -16,7 +16,9 @@
     "manuscriptRoot": "dd95d1216b8e2cb8008c8993dffc54d66b550018a47401dd5df001ff487467d3",
     "artifactRoot": "9c653a2e453e895f294375818bb872d47d4c90b15859587ba2c5238024202c56",
     "imageRoot": "0e45331c0b80738ff3f491e63b47a5454f162cfe5a1d367e90b709c96c56c638",
-    "promptRoot": "32bed9e54ed6dc5f4ee8082dce928bd86fb76c36b92d9f949ba12c046674f32c"
+    "promptRoot": "32bed9e54ed6dc5f4ee8082dce928bd86fb76c36b92d9f949ba12c046674f32c",
+    "audioRoot": "e57bb9474d10f3b2ac70d11c602a32cd3b0fd84ebb5946cfbdd5a93680f430fa",
+    "audioEditionRoot": "514c2db5b9cd914b96a0a8b50d9dd6981a454c74cab7d717dc38f5fe9fa0501e"
   },
   "ipfs": {
     "cid": "QmVQ79NM3qxAsBpftTG4YhD4KV9sUEmM3WwFrc5vs5g8vK",
@@ -68,5 +70,16 @@
     "kernelV2EditionFrozen": true,
     "kernelV2WiredAt": "2026-02-15T07:54:00.487Z",
     "kernelV2Pipeline": "Edition #0 (FROZEN) → License #0 → Router 0x44169829489d70aaecbf845870652871C65fC461"
+  },
+  "audio": {
+    "version": "IAPL-1",
+    "voice": {
+      "id": "JBFqnCBsd6RMkjVDRZzb",
+      "name": "George",
+      "model": "eleven_multilingual_v2"
+    },
+    "blockCount": 31,
+    "totalSizeBytes": 153802092,
+    "manifest": "dist/audio-manifest.json"
   }
 }
