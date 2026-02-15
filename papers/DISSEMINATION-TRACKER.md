@@ -1,6 +1,6 @@
 # Phase IV — Dissemination Tracker
 
-*Last updated: February 15, 2026*
+*Last updated: February 15, 2026 — all drafts complete*
 
 ---
 
@@ -39,8 +39,8 @@
 | LinkedIn | ⏳ Ready | [LINKEDIN-POST.md](LINKEDIN-POST.md) | Tue–Thu 8–10 AM ET |
 | Hacker News | ⏳ Ready | [HACKERNEWS-SUBMISSION.md](HACKERNEWS-SUBMISSION.md) | Tue–Wed 9 AM ET |
 | Press Release | ⏳ Ready | [PRESS-RELEASE.md](PRESS-RELEASE.md) | After SSRN indexes |
-| Product Hunt | ⏳ Future | Draft needed | After HN response |
-| Twitter/X | ⏳ Future | Thread needed | After Medium publishes |
+| Product Hunt | ⏳ Ready | [PRODUCTHUNT-DRAFT.md](PRODUCTHUNT-DRAFT.md) | After HN response |
+| Twitter/X | ⏳ Ready | [TWITTER-THREAD.md](TWITTER-THREAD.md) | After Medium publishes |
 
 ---
 
@@ -94,4 +94,6 @@
 | `bfab14b` | PDF download on site, Medium + LinkedIn drafts |
 | `c02d562` | SSRN submitted, affiliation fix, author profile guide |
 | `804cb8c` | ORCID wired into all artifacts |
-| *(next)* | ORCID on site, press release, HN draft, tracker |
+| `6cad267` | Full dissemination suite: press, HN, tracker, ORCID on site |
+| `0a21695` | ResearchGate live, RG link on site + tracker |
+| *(next)* | Twitter/X thread + Product Hunt drafts |
