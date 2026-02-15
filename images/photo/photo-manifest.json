@@ -1,0 +1,91 @@
+{
+  "directory": "images/photo/",
+  "description": "Photographic visual identity for The 2,500 Donkeys",
+  "note": "Place the actual photographs in images/photo/ with these filenames. The gallery page references them.",
+  "images": [
+    {
+      "file": "procession-hero.jpg",
+      "section": "The Procession",
+      "description": "Hero image — donkeys carrying gold through desert landscape, wide cinematic shot",
+      "aspectRatio": "16:9",
+      "usage": "cinematic-hero"
+    },
+    {
+      "file": "procession-caravan.jpg",
+      "section": "The Procession",
+      "description": "Long line of donkeys carrying gold bars through sand dunes, wide angle",
+      "aspectRatio": "16:10",
+      "usage": "grid"
+    },
+    {
+      "file": "procession-closeup.jpg",
+      "section": "The Procession",
+      "description": "Lead donkey with gold-filled saddlebags, desert horizon behind",
+      "aspectRatio": "16:10",
+      "usage": "grid"
+    },
+    {
+      "file": "deal-parking-lot.jpg",
+      "section": "The Deal",
+      "description": "Two men in suits reviewing documents in a parking lot",
+      "aspectRatio": "3:4",
+      "usage": "grid"
+    },
+    {
+      "file": "deal-handoff.jpg",
+      "section": "The Deal",
+      "description": "Suited men exchanging papers beside a dark SUV",
+      "aspectRatio": "3:4",
+      "usage": "grid"
+    },
+    {
+      "file": "paper-whatsapp.jpg",
+      "section": "The Paper",
+      "description": "Multiple phone screens showing forwarded WhatsApp messages about IMF alignment",
+      "aspectRatio": "16:10",
+      "usage": "grid"
+    },
+    {
+      "file": "paper-phones.jpg",
+      "section": "The Paper",
+      "description": "Phone screen showing forwarded message at 9:17, IMF sovereign stabilization terms",
+      "aspectRatio": "16:10",
+      "usage": "grid"
+    },
+    {
+      "file": "gold-pyramid.jpg",
+      "section": "The Gold",
+      "description": "Pyramid of gold bars stacked in darkness",
+      "aspectRatio": "1:1",
+      "usage": "grid"
+    },
+    {
+      "file": "gold-bars-desk.jpg",
+      "section": "The Gold",
+      "description": "Gold bar beside laptop and calculator on desk",
+      "aspectRatio": "1:1",
+      "usage": "grid"
+    },
+    {
+      "file": "gold-bags-desert.jpg",
+      "section": "The Gold",
+      "description": "Saddlebags of gold left in desert sand",
+      "aspectRatio": "1:1",
+      "usage": "grid"
+    },
+    {
+      "file": "infra-dashboard.jpg",
+      "section": "The Infrastructure",
+      "description": "Financial dashboard with world map, bar charts, intelligence-style visuals",
+      "aspectRatio": "16:10",
+      "usage": "grid"
+    },
+    {
+      "file": "infra-room.jpg",
+      "section": "The Infrastructure",
+      "description": "Empty room with monitoring equipment, light through window",
+      "aspectRatio": "16:10",
+      "usage": "grid"
+    }
+  ]
+}

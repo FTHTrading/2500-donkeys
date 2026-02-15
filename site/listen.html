@@ -1,0 +1,1148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The 2,500 Donkeys — Listen</title>
+<meta name="description" content="Listen to The 2,500 Donkeys. 26 chapters narrated by George via ElevenLabs. A Literary Protocol by Kidd James.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🫏</text></svg>">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg: #0a0a0a;
+  --bg-raised: #111111;
+  --bg-card: #161616;
+  --bg-player: #0d0d0d;
+  --text: #d4d4d4;
+  --text-dim: #888888;
+  --text-bright: #f5f5f5;
+  --accent: #c9a84c;
+  --accent-dim: #a68832;
+  --accent-glow: rgba(201,168,76,0.15);
+  --border: #222222;
+  --mono: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+  --serif: 'Georgia', 'Palatino Linotype', serif;
+  --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--serif);
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+  padding-bottom: 140px;
+}
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { color: var(--text-bright); }
+
+/* ── Topbar ── */
+.topbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 48px;
+  background: rgba(10,10,10,0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(201,168,76,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  z-index: 100;
+  font-family: var(--sans);
+}
+
+.topbar-title {
+  color: var(--accent);
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.topbar-nav {
+  display: flex;
+  gap: 24px;
+}
+
+.topbar-nav a {
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  transition: color 0.2s;
+}
+
+.topbar-nav a:hover { color: var(--accent); }
+
+/* ── Hero ── */
+.hero {
+  padding: 120px 24px 48px;
+  text-align: center;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(201,168,76,0.04) 0%, transparent 60%),
+    var(--bg);
+}
+
+.hero h1 {
+  font-family: var(--serif);
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 400;
+  color: var(--text-bright);
+  margin-bottom: 8px;
+}
+
+.hero-sub {
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  color: var(--text-dim);
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.hero-stats {
+  display: flex;
+  gap: 32px;
+  justify-content: center;
+  margin-top: 24px;
+  flex-wrap: wrap;
+}
+
+.hero-stat {
+  text-align: center;
+}
+
+.hero-stat .val {
+  font-family: var(--mono);
+  font-size: 1.3rem;
+  color: var(--accent);
+}
+
+.hero-stat .label {
+  font-family: var(--sans);
+  font-size: 0.65rem;
+  color: var(--text-dim);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* ── Track List ── */
+.tracklist {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.section-label {
+  font-family: var(--sans);
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent);
+  padding: 32px 0 12px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 4px;
+}
+
+.track {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.15s;
+  border-bottom: 1px solid rgba(34,34,34,0.4);
+}
+
+.track:hover {
+  background: var(--bg-raised);
+}
+
+.track.active {
+  background: var(--accent-glow);
+  border-color: transparent;
+}
+
+.track.active .track-title {
+  color: var(--accent);
+}
+
+.track-num {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  color: var(--text-dim);
+  width: 28px;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.track.active .track-num {
+  color: var(--accent);
+}
+
+.track-play {
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.track-play:hover {
+  border-color: var(--accent);
+  background: var(--accent-glow);
+}
+
+.track-play svg {
+  width: 12px;
+  height: 12px;
+  fill: var(--text-dim);
+}
+
+.track.active .track-play {
+  border-color: var(--accent);
+  background: var(--accent-glow);
+}
+
+.track.active .track-play svg {
+  fill: var(--accent);
+}
+
+.track-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.track-title {
+  font-family: var(--serif);
+  font-size: 0.95rem;
+  color: var(--text-bright);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.track-id {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  color: var(--text-dim);
+}
+
+.track-size {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  color: var(--text-dim);
+  flex-shrink: 0;
+}
+
+.track-duration {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: var(--text-dim);
+  flex-shrink: 0;
+  width: 48px;
+  text-align: right;
+}
+
+.track-missing {
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.track-missing .track-title::after {
+  content: ' — not yet rendered';
+  font-style: italic;
+  font-size: 0.8rem;
+  color: var(--text-dim);
+}
+
+/* ── Sticky Player ── */
+.player {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--bg-player);
+  border-top: 1px solid rgba(201,168,76,0.15);
+  backdrop-filter: blur(16px);
+  padding: 12px 24px;
+  z-index: 200;
+  display: none;
+}
+
+.player.visible {
+  display: block;
+}
+
+.player-inner {
+  max-width: 880px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.player-top {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.player-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.player-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.player-btn svg {
+  width: 16px;
+  height: 16px;
+  fill: var(--text-dim);
+  transition: fill 0.2s;
+}
+
+.player-btn:hover svg {
+  fill: var(--accent);
+}
+
+.player-btn.play-pause svg {
+  width: 24px;
+  height: 24px;
+  fill: var(--accent);
+}
+
+.player-meta {
+  flex: 1;
+  min-width: 0;
+}
+
+.player-now-title {
+  font-family: var(--serif);
+  font-size: 0.88rem;
+  color: var(--text-bright);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.player-now-id {
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  color: var(--text-dim);
+}
+
+.player-time {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  color: var(--text-dim);
+  flex-shrink: 0;
+}
+
+.player-volume {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.player-volume svg {
+  width: 14px;
+  height: 14px;
+  fill: var(--text-dim);
+}
+
+.volume-slider {
+  width: 64px;
+  -webkit-appearance: none;
+  appearance: none;
+  height: 3px;
+  background: var(--border);
+  border-radius: 2px;
+  outline: none;
+}
+
+.volume-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 10px;
+  height: 10px;
+  background: var(--accent);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* Progress bar */
+.player-progress {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.progress-bar {
+  flex: 1;
+  height: 4px;
+  background: var(--border);
+  border-radius: 2px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: var(--accent);
+  border-radius: 2px;
+  width: 0%;
+  transition: width 0.1s linear;
+}
+
+.progress-time {
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  color: var(--text-dim);
+  flex-shrink: 0;
+  width: 36px;
+}
+
+.progress-time.right {
+  text-align: right;
+}
+
+/* ── Footer ── */
+.footer {
+  padding: 48px 24px;
+  text-align: center;
+  border-top: 1px solid var(--border);
+  margin-bottom: 80px;
+}
+
+.footer-title {
+  font-family: var(--serif);
+  font-size: 1rem;
+  color: var(--text-bright);
+  margin-bottom: 4px;
+}
+
+.footer-sub {
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  color: var(--text-dim);
+  margin-bottom: 16px;
+}
+
+.footer-links {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.footer-links a {
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+
+.footer-links a:hover { color: var(--accent); }
+
+.credit {
+  font-family: var(--sans);
+  font-size: 0.68rem;
+  color: var(--text-dim);
+  margin-top: 16px;
+}
+
+/* ── Responsive ── */
+@media (max-width: 640px) {
+  .topbar-nav { gap: 12px; }
+  .topbar-nav a { font-size: 0.65rem; }
+  .track { gap: 10px; padding: 10px 8px; }
+  .track-size { display: none; }
+  .player-volume { display: none; }
+  .hero-stats { gap: 16px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════ TOPBAR ═══════ -->
+<nav class="topbar">
+  <a href="index.html" class="topbar-title">The 2,500 Donkeys</a>
+  <div class="topbar-nav">
+    <a href="index.html">Home</a>
+    <a href="read.html">Read</a>
+    <a href="listen.html" style="color:var(--accent)">Listen</a>
+    <a href="gallery.html">Gallery</a>
+  </div>
+</nav>
+
+<!-- ═══════ HERO ═══════ -->
+<section class="hero">
+  <h1>Listen</h1>
+  <p class="hero-sub">The full text of <em>The 2,500 Donkeys</em>, narrated by George via ElevenLabs. 26 tracks. 105 MB. Deterministic audio from deterministic text.</p>
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <div class="val">26</div>
+      <div class="label">Tracks</div>
+    </div>
+    <div class="hero-stat">
+      <div class="val">21</div>
+      <div class="label">Chapters</div>
+    </div>
+    <div class="hero-stat">
+      <div class="val">5</div>
+      <div class="label">Artifacts</div>
+    </div>
+    <div class="hero-stat">
+      <div class="val">105 MB</div>
+      <div class="label">Total Size</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ TRACK LIST ═══════ -->
+<div class="tracklist" id="tracklist">
+
+  <div class="section-label">Chapters</div>
+
+  <!-- Available chapters -->
+  <div class="track" data-src="audio/block-00-genesis.mp3" data-title="Genesis Hash" data-id="block-00">
+    <span class="track-num">0</span>
+    <button class="track-play"><svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg></button>
+    <div class="track-info">
+      <div class="track-title">Genesis Hash</div>
+      <div class="track-id">block-00</div>
+    </div>
+    <span class="track-duration" data-loaded="false">—</span>
+    <span class="track-size">1.6 MB</span>
+  </div>
+
+  <div class="track" data-src="audio/block-01-parking-lots.mp3" data-title="The Parking Lots" data-id="block-01">
+    <span class="track-num">1</span>
+    <button class="track-play"><svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg></button>
+    <div class="track-info">
+      <div class="track-title">The Parking Lots</div>
+      <div class="track-id">block-01</div>
+    </div>
+    <span class="track-duration" data-loaded="false">—</span>
+    <span class="track-size">2.9 MB</span>
+  </div>
+
+  <div class="track" data-src="audio/block-01a-raymonds-deal.mp3" data-title="Raymond's First Deal" data-id="block-01a">
+    <span class="track-num">2</span>
+    <button class="track-play"><svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg></button>
+    <div class="track-info">
+      <div class="track-title">Raymond's First Deal</div>
+      <div class="track-id">block-01a</div>
+    </div>
+    <span class="track-duration" data-loaded="false">—</span>
+    <span class="track-size">7.7 MB</span>
+  </div>
+
+  <div class="track" data-src="audio/block-01b-geralds-lot.mp3" data-title="Gerald's Lot" data-id="block-01b">
+    <span class="track-num">3</span>
+    <button class="track-play"><svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg></button>
+    <div class="track-info">
+      <div class="track-title">Gerald's Lot</div>
+      <div class="track-id">block-01b</div>
+    </div>
+    <span class="track-duration" data-loaded="false">—</span>
+    <span class="track-size">10.2 MB</span>
+  </div>
+
+  <div class="track" data-src="audio/block-01c-marcus-connection.mp3" data-title="The Connection" data-id="block-01c">
+    <span class="track-num">4</span>
+    <button class="track-play"><svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg></button>
+    <div class="track-info">
+      <div class="track-title">The Connection</div>
+      <div class="track-id">block-01c</div>
+    </div>
+    <span class="track-duration" data-loaded="false">—</span>
+    <span class="track-size">9.7 MB</span>
+  </div>
+
+  <div class="track" data-src="audio/block-02-paper.mp3" data-title="The Paper" data-id="block-02">
+    <span class="track-num">5</span>
+    <button class="track-play"><svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg></button>
+    <div class="track-info">
+      <div class="track-title">The Paper</div>
+      <div class="track-id">block-02</div>
+    </div>
+    <span class="track-duration" data-loaded="false">—</span>
+    <span class="track-size">3.0 MB</span>
+  </div>
+
+  <div class="track" data-src="audio/block-02a-seven-families.mp3" data-title="The Seven Families" data-id="block-02a">
+    <span class="track-num">6</span>
+    <button class="track-play"><svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg></button>
+    <div class="track-info">
+      <div class="track-title">The Seven Families</div>
+      <div class="track-id">block-02a</div>
+    </div>
+    <span class="track-duration" data-loaded="false">—</span>
+    <span class="track-size">9.0 MB</span>
+  </div>
+
+  <div class="track" data-src="audio/block-03-whatsapp.mp3" data-title="The WhatsApp Mutation" data-id="block-03">
+    <span class="track-num">7</span>
+    <button class="track-play"><svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg></button>
+    <div class="track-info">
+      <div class="track-title">The WhatsApp Mutation</div>
+      <div class="track-id">block-03</div>
+    </div>
+    <span class="track-duration" data-loaded="false">—</span>
+    <span class="track-size">3.6 MB</span>
+  </div>
+
+  <div class="track" data-src="audio/block-03a-mutation-lagos.mp3" data-title="The Lagos Variant" data-id="block-03a">
+    <span class="track-num">8</span>
+    <button class="track-play"><svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg></button>
+    <div class="track-info">
+      <div class="track-title">The Lagos Variant</div>
+      <div class="track-id">block-03a</div>
+    </div>
+    <span class="track-duration" data-loaded="false">—</span>
+    <span class="track-size">9.1 MB</span>
+  </div>
+
+  <div class="track" data-src="audio/block-03b-mutation-dubai.mp3" data-title="The Dubai Variant" data-id="block-03b">
+    <span class="track-num">9</span>
+    <button class="track-play"><svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg></button>
+    <div class="track-info">
+      <div class="track-title">The Dubai Variant</div>
+      <div class="track-id">block-03b</div>
+    </div>
+    <span class="track-duration" data-loaded="false">—</span>
+    <span class="track-size">10.1 MB</span>
+  </div>
+
+  <div class="track" data-src="audio/block-03c-mutation-zurich.mp3" data-title="The Zurich Variant" data-id="block-03c">
+    <span class="track-num">10</span>
+    <button class="track-play"><svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg></button>
+    <div class="track-info">
+      <div class="track-title">The Zurich Variant</div>
+      <div class="track-id">block-03c</div>
+    </div>
+    <span class="track-duration" data-loaded="false">—</span>
+    <span class="track-size">4.1 MB</span>
+  </div>
+
+  <div class="track" data-src="audio/block-03d-mutation-ngo.mp3" data-title="The Aid Wash" data-id="block-03d">
+    <span class="track-num">11</span>
+    <button class="track-play"><svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg></button>
+    <div class="track-info">
+      <div class="track-title">The Aid Wash</div>
+      <div class="track-id">block-03d</div>
+    </div>
+    <span class="track-duration" data-loaded="false">—</span>
+    <span class="track-size">4.2 MB</span>
+  </div>
+
+  <div class="track" data-src="audio/block-03e-mutation-carbon.mp3" data-title="The Conference" data-id="block-03e">
+    <span class="track-num">12</span>
+    <button class="track-play"><svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg></button>
+    <div class="track-info">
+      <div class="track-title">The Conference</div>
+      <div class="track-id">block-03e</div>
+    </div>
+    <span class="track-duration" data-loaded="false">—</span>
+    <span class="track-size">4.9 MB</span>
+  </div>
+
+  <div class="track" data-src="audio/block-04-donkeys.mp3" data-title="The Donkeys" data-id="block-04">
+    <span class="track-num">13</span>
+    <button class="track-play"><svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg></button>
+    <div class="track-info">
+      <div class="track-title">The Donkeys</div>
+      <div class="track-id">block-04</div>
+    </div>
+    <span class="track-duration" data-loaded="false">—</span>
+    <span class="track-size">1.7 MB</span>
+  </div>
+
+  <!-- Missing: block-04a -->
+  <div class="track track-missing">
+    <span class="track-num">14</span>
+    <button class="track-play"><svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg></button>
+    <div class="track-info">
+      <div class="track-title">The Storyteller's Origin</div>
+      <div class="track-id">block-04a</div>
+    </div>
+    <span class="track-duration">—</span>
+    <span class="track-size">—</span>
+  </div>
+
+  <div class="track" data-src="audio/block-05-procession.mp3" data-title="The Procession" data-id="block-05">
+    <span class="track-num">15</span>
+    <button class="track-play"><svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg></button>
+    <div class="track-info">
+      <div class="track-title">The Procession</div>
+      <div class="track-id">block-05</div>
+    </div>
+    <span class="track-duration" data-loaded="false">—</span>
+    <span class="track-size">1.8 MB</span>
+  </div>
+
+  <div class="track" data-src="audio/block-05a-philippe-geneva.mp3" data-title="The WeWork" data-id="block-05a">
+    <span class="track-num">16</span>
+    <button class="track-play"><svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg></button>
+    <div class="track-info">
+      <div class="track-title">The WeWork</div>
+      <div class="track-id">block-05a</div>
+    </div>
+    <span class="track-duration" data-loaded="false">—</span>
+    <span class="track-size">4.7 MB</span>
+  </div>
+
+  <!-- Missing: block-05b through block-05f -->
+  <div class="track track-missing">
+    <span class="track-num">17</span>
+    <button class="track-play"><svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg></button>
+    <div class="track-info">
+      <div class="track-title">The Departure</div>
+      <div class="track-id">block-05b</div>
+    </div>
+    <span class="track-duration">—</span>
+    <span class="track-size">—</span>
+  </div>
+
+  <div class="track track-missing">
+    <span class="track-num">18</span>
+    <button class="track-play"><svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg></button>
+    <div class="track-info">
+      <div class="track-title">Attrition</div>
+      <div class="track-id">block-05c</div>
+    </div>
+    <span class="track-duration">—</span>
+    <span class="track-size">—</span>
+  </div>
+
+  <div class="track track-missing">
+    <span class="track-num">19</span>
+    <button class="track-play"><svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg></button>
+    <div class="track-info">
+      <div class="track-title">The Bandit Corridor</div>
+      <div class="track-id">block-05d</div>
+    </div>
+    <span class="track-duration">—</span>
+    <span class="track-size">—</span>
+  </div>
+
+  <div class="track track-missing">
+    <span class="track-num">20</span>
+    <button class="track-play"><svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg></button>
+    <div class="track-info">
+      <div class="track-title">The Green Zone</div>
+      <div class="track-id">block-05e</div>
+    </div>
+    <span class="track-duration">—</span>
+    <span class="track-size">—</span>
+  </div>
+
+  <div class="track track-missing">
+    <span class="track-num">21</span>
+    <button class="track-play"><svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg></button>
+    <div class="track-info">
+      <div class="track-title">Collapse</div>
+      <div class="track-id">block-05f</div>
+    </div>
+    <span class="track-duration">—</span>
+    <span class="track-size">—</span>
+  </div>
+
+  <div class="track" data-src="audio/block-05g-arrival.mp3" data-title="The Arrival" data-id="block-05g">
+    <span class="track-num">22</span>
+    <button class="track-play"><svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg></button>
+    <div class="track-info">
+      <div class="track-title">The Arrival</div>
+      <div class="track-id">block-05g</div>
+    </div>
+    <span class="track-duration" data-loaded="false">—</span>
+    <span class="track-size">4.2 MB</span>
+  </div>
+
+  <div class="track" data-src="audio/block-06-humanitarian.mp3" data-title="The Humanitarian Settlement" data-id="block-06">
+    <span class="track-num">23</span>
+    <button class="track-play"><svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg></button>
+    <div class="track-info">
+      <div class="track-title">The Humanitarian Settlement</div>
+      <div class="track-id">block-06</div>
+    </div>
+    <span class="track-duration" data-loaded="false">—</span>
+    <span class="track-size">1.8 MB</span>
+  </div>
+
+  <div class="track" data-src="audio/block-06a-processing.mp3" data-title="Processing" data-id="block-06a">
+    <span class="track-num">24</span>
+    <button class="track-play"><svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg></button>
+    <div class="track-info">
+      <div class="track-title">Processing</div>
+      <div class="track-id">block-06a</div>
+    </div>
+    <span class="track-duration" data-loaded="false">—</span>
+    <span class="track-size">0.4 MB</span>
+  </div>
+
+  <div class="track" data-src="audio/block-07-silence.mp3" data-title="The Silence" data-id="block-07">
+    <span class="track-num">25</span>
+    <button class="track-play"><svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg></button>
+    <div class="track-info">
+      <div class="track-title">The Silence</div>
+      <div class="track-id">block-07</div>
+    </div>
+    <span class="track-duration" data-loaded="false">—</span>
+    <span class="track-size">1.7 MB</span>
+  </div>
+
+  <!-- Missing: block-07a through block-07d -->
+  <div class="track track-missing">
+    <span class="track-num">26</span>
+    <button class="track-play"><svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg></button>
+    <div class="track-info">
+      <div class="track-title">Raymond Goes Home</div>
+      <div class="track-id">block-07a</div>
+    </div>
+    <span class="track-duration">—</span>
+    <span class="track-size">—</span>
+  </div>
+
+  <div class="track track-missing">
+    <span class="track-num">27</span>
+    <button class="track-play"><svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg></button>
+    <div class="track-info">
+      <div class="track-title">The Groups Are Dying</div>
+      <div class="track-id">block-07b</div>
+    </div>
+    <span class="track-duration">—</span>
+    <span class="track-size">—</span>
+  </div>
+
+  <div class="track track-missing">
+    <span class="track-num">28</span>
+    <button class="track-play"><svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg></button>
+    <div class="track-info">
+      <div class="track-title">The Storyteller's Summit</div>
+      <div class="track-id">block-07c</div>
+    </div>
+    <span class="track-duration">—</span>
+    <span class="track-size">—</span>
+  </div>
+
+  <div class="track track-missing">
+    <span class="track-num">29</span>
+    <button class="track-play"><svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg></button>
+    <div class="track-info">
+      <div class="track-title">Resurrection</div>
+      <div class="track-id">block-07d</div>
+    </div>
+    <span class="track-duration">—</span>
+    <span class="track-size">—</span>
+  </div>
+
+  <div class="track" data-src="audio/epilogue.mp3" data-title="The Genesis Remains" data-id="epilogue">
+    <span class="track-num">30</span>
+    <button class="track-play"><svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg></button>
+    <div class="track-info">
+      <div class="track-title">The Genesis Remains</div>
+      <div class="track-id">epilogue</div>
+    </div>
+    <span class="track-duration" data-loaded="false">—</span>
+    <span class="track-size">1.2 MB</span>
+  </div>
+
+  <div class="section-label">Documentary Artifacts</div>
+
+  <div class="track" data-src="audio/whatsapp-forward-17.mp3" data-title="WhatsApp Forward #17" data-id="artifact-whatsapp">
+    <span class="track-num">A1</span>
+    <button class="track-play"><svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg></button>
+    <div class="track-info">
+      <div class="track-title">WhatsApp Forward #17</div>
+      <div class="track-id">artifact-whatsapp</div>
+    </div>
+    <span class="track-duration" data-loaded="false">—</span>
+    <span class="track-size">2.0 MB</span>
+  </div>
+
+  <div class="track" data-src="audio/commission-waterfall.mp3" data-title="Commission Waterfall" data-id="artifact-commission">
+    <span class="track-num">A2</span>
+    <button class="track-play"><svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg></button>
+    <div class="track-info">
+      <div class="track-title">Commission Waterfall</div>
+      <div class="track-id">artifact-commission</div>
+    </div>
+    <span class="track-duration" data-loaded="false">—</span>
+    <span class="track-size">1.2 MB</span>
+  </div>
+
+  <div class="track" data-src="audio/esg-deck-excerpt.mp3" data-title="ESG Deck Excerpt" data-id="artifact-esg">
+    <span class="track-num">A3</span>
+    <button class="track-play"><svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg></button>
+    <div class="track-info">
+      <div class="track-title">ESG Deck Excerpt</div>
+      <div class="track-id">artifact-esg</div>
+    </div>
+    <span class="track-duration" data-loaded="false">—</span>
+    <span class="track-size">1.9 MB</span>
+  </div>
+
+  <div class="track" data-src="audio/carbon-registry-summary.mp3" data-title="Carbon Registry Summary" data-id="artifact-carbon">
+    <span class="track-num">A4</span>
+    <button class="track-play"><svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg></button>
+    <div class="track-info">
+      <div class="track-title">Carbon Registry Summary</div>
+      <div class="track-id">artifact-carbon</div>
+    </div>
+    <span class="track-duration" data-loaded="false">—</span>
+    <span class="track-size">1.3 MB</span>
+  </div>
+
+  <div class="track" data-src="audio/imfpa-redline-v3.mp3" data-title="IMFPA Redline v3" data-id="artifact-imfpa">
+    <span class="track-num">A5</span>
+    <button class="track-play"><svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg></button>
+    <div class="track-info">
+      <div class="track-title">IMFPA Redline v3</div>
+      <div class="track-id">artifact-imfpa</div>
+    </div>
+    <span class="track-duration" data-loaded="false">—</span>
+    <span class="track-size">2.2 MB</span>
+  </div>
+
+</div>
+
+<!-- ═══════ FOOTER ═══════ -->
+<footer class="footer">
+  <p class="footer-title">The 2,500 Donkeys</p>
+  <p class="footer-sub">A Literary Protocol by Kidd James</p>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="read.html">Read</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="https://github.com/FTHTrading/2500-donkeys" target="_blank" rel="noopener">GitHub</a>
+    <a href="https://doi.org/10.5281/zenodo.18646886" target="_blank" rel="noopener">DOI</a>
+    <a href="https://xxxiii.io" target="_blank" rel="noopener">xxxiii.io</a>
+  </div>
+  <p class="credit">Narration: George (ElevenLabs) &middot; Model: eleven_multilingual_v2 &middot; Format: MP3 44.1kHz 128kbps</p>
+</footer>
+
+<!-- ═══════ STICKY PLAYER ═══════ -->
+<div class="player" id="player">
+  <div class="player-inner">
+    <div class="player-top">
+      <div class="player-controls">
+        <button class="player-btn" id="btnPrev" title="Previous">
+          <svg viewBox="0 0 24 24"><path d="M6 6h2v12H6zm3.5 6l8.5 6V6z"/></svg>
+        </button>
+        <button class="player-btn play-pause" id="btnPlayPause" title="Play/Pause">
+          <svg viewBox="0 0 24 24" id="iconPlayPause"><polygon points="6,3 20,12 6,21"/></svg>
+        </button>
+        <button class="player-btn" id="btnNext" title="Next">
+          <svg viewBox="0 0 24 24"><path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z"/></svg>
+        </button>
+      </div>
+      <div class="player-meta">
+        <div class="player-now-title" id="playerTitle">—</div>
+        <div class="player-now-id" id="playerId">—</div>
+      </div>
+      <div class="player-volume">
+        <svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg>
+        <input type="range" class="volume-slider" id="volumeSlider" min="0" max="1" step="0.05" value="0.8">
+      </div>
+    </div>
+    <div class="player-progress">
+      <span class="progress-time" id="timeCurrent">0:00</span>
+      <div class="progress-bar" id="progressBar">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+      <span class="progress-time right" id="timeTotal">0:00</span>
+    </div>
+  </div>
+</div>
+
+<audio id="audioEl" preload="metadata"></audio>
+
+<script>
+(function() {
+  'use strict';
+
+  const audioEl       = document.getElementById('audioEl');
+  const player        = document.getElementById('player');
+  const playerTitle   = document.getElementById('playerTitle');
+  const playerId      = document.getElementById('playerId');
+  const btnPlayPause  = document.getElementById('btnPlayPause');
+  const iconPP        = document.getElementById('iconPlayPause');
+  const btnPrev       = document.getElementById('btnPrev');
+  const btnNext       = document.getElementById('btnNext');
+  const progressBar   = document.getElementById('progressBar');
+  const progressFill  = document.getElementById('progressFill');
+  const timeCurrent   = document.getElementById('timeCurrent');
+  const timeTotal     = document.getElementById('timeTotal');
+  const volumeSlider  = document.getElementById('volumeSlider');
+
+  const playIcon  = '<polygon points="6,3 20,12 6,21"/>';
+  const pauseIcon = '<rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/>';
+
+  const tracks = Array.from(document.querySelectorAll('.track[data-src]'));
+  let currentIndex = -1;
+  let isPlaying = false;
+
+  function fmt(s) {
+    if (!s || !isFinite(s)) return '—';
+    const m = Math.floor(s / 60);
+    const sec = Math.floor(s % 60);
+    return m + ':' + (sec < 10 ? '0' : '') + sec;
+  }
+
+  function loadTrack(idx, autoplay) {
+    if (idx < 0 || idx >= tracks.length) return;
+
+    // Remove previous active
+    tracks.forEach(function(t) { t.classList.remove('active'); });
+
+    currentIndex = idx;
+    const track = tracks[idx];
+    track.classList.add('active');
+
+    const src   = track.dataset.src;
+    const title = track.dataset.title;
+    const id    = track.dataset.id;
+
+    audioEl.src = src;
+    playerTitle.textContent = title;
+    playerId.textContent = id;
+    player.classList.add('visible');
+
+    // Scroll track into view
+    track.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
+    if (autoplay) {
+      audioEl.play().then(function() {
+        isPlaying = true;
+        iconPP.innerHTML = pauseIcon;
+        updatePlayButtons();
+      }).catch(function() {});
+    }
+  }
+
+  function updatePlayButtons() {
+    tracks.forEach(function(t, i) {
+      var btn = t.querySelector('.track-play svg');
+      if (i === currentIndex && isPlaying) {
+        btn.innerHTML = pauseIcon;
+      } else {
+        btn.innerHTML = playIcon;
+      }
+    });
+  }
+
+  // Track click
+  tracks.forEach(function(track, i) {
+    track.addEventListener('click', function() {
+      if (i === currentIndex) {
+        togglePlayPause();
+      } else {
+        loadTrack(i, true);
+      }
+    });
+  });
+
+  function togglePlayPause() {
+    if (currentIndex < 0) return;
+    if (isPlaying) {
+      audioEl.pause();
+      isPlaying = false;
+      iconPP.innerHTML = playIcon;
+    } else {
+      audioEl.play().then(function() {
+        isPlaying = true;
+        iconPP.innerHTML = pauseIcon;
+      }).catch(function() {});
+    }
+    updatePlayButtons();
+  }
+
+  btnPlayPause.addEventListener('click', togglePlayPause);
+
+  btnPrev.addEventListener('click', function() {
+    if (currentIndex > 0) loadTrack(currentIndex - 1, true);
+  });
+
+  btnNext.addEventListener('click', function() {
+    if (currentIndex < tracks.length - 1) loadTrack(currentIndex + 1, true);
+  });
+
+  // Progress
+  audioEl.addEventListener('timeupdate', function() {
+    if (!audioEl.duration) return;
+    var pct = (audioEl.currentTime / audioEl.duration) * 100;
+    progressFill.style.width = pct + '%';
+    timeCurrent.textContent = fmt(audioEl.currentTime);
+  });
+
+  audioEl.addEventListener('loadedmetadata', function() {
+    timeTotal.textContent = fmt(audioEl.duration);
+    // Update track duration display
+    if (currentIndex >= 0) {
+      var durEl = tracks[currentIndex].querySelector('.track-duration');
+      if (durEl) durEl.textContent = fmt(audioEl.duration);
+    }
+  });
+
+  audioEl.addEventListener('ended', function() {
+    isPlaying = false;
+    iconPP.innerHTML = playIcon;
+    updatePlayButtons();
+    // Auto-advance
+    if (currentIndex < tracks.length - 1) {
+      loadTrack(currentIndex + 1, true);
+    }
+  });
+
+  // Seek
+  progressBar.addEventListener('click', function(e) {
+    if (!audioEl.duration) return;
+    var rect = progressBar.getBoundingClientRect();
+    var pct = (e.clientX - rect.left) / rect.width;
+    audioEl.currentTime = pct * audioEl.duration;
+  });
+
+  // Volume
+  audioEl.volume = 0.8;
+  volumeSlider.addEventListener('input', function() {
+    audioEl.volume = this.value;
+  });
+
+  // Keyboard shortcuts
+  document.addEventListener('keydown', function(e) {
+    if (e.target.tagName === 'INPUT') return;
+    if (e.code === 'Space') { e.preventDefault(); togglePlayPause(); }
+    if (e.code === 'ArrowLeft') { audioEl.currentTime = Math.max(0, audioEl.currentTime - 10); }
+    if (e.code === 'ArrowRight') { audioEl.currentTime = Math.min(audioEl.duration || 0, audioEl.currentTime + 10); }
+  });
+
+})();
+</script>
+
+</body>
+</html>

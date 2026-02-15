@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The 2,500 Donkeys — Gallery</title>
+<meta name="description" content="Visual field notes from the deal. Photography and illustration from The 2,500 Donkeys by Kidd James.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🫏</text></svg>">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg: #0a0a0a;
+  --bg-raised: #111111;
+  --bg-card: #161616;
+  --text: #d4d4d4;
+  --text-dim: #888888;
+  --text-bright: #f5f5f5;
+  --accent: #c9a84c;
+  --accent-dim: #a68832;
+  --border: #222222;
+  --mono: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+  --serif: 'Georgia', 'Palatino Linotype', serif;
+  --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--serif);
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { color: var(--text-bright); }
+
+/* ── Navigation ── */
+.topbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 48px;
+  background: rgba(10,10,10,0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(201,168,76,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  z-index: 100;
+  font-family: var(--sans);
+}
+
+.topbar-title {
+  color: var(--accent);
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.topbar-nav {
+  display: flex;
+  gap: 24px;
+}
+
+.topbar-nav a {
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  transition: color 0.2s;
+}
+
+.topbar-nav a:hover { color: var(--accent); }
+
+/* ── Hero ── */
+.hero {
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 120px 24px 80px;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(201,168,76,0.04) 0%, transparent 60%),
+    var(--bg);
+}
+
+.hero h1 {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 400;
+  color: var(--text-bright);
+  letter-spacing: -0.02em;
+  margin-bottom: 12px;
+}
+
+.hero-sub {
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  color: var(--text-dim);
+  max-width: 460px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* ── Section Titles ── */
+.section-title {
+  text-align: center;
+  padding: 80px 24px 40px;
+}
+
+.section-title h2 {
+  font-family: var(--serif);
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: var(--text-bright);
+  margin-bottom: 8px;
+}
+
+.section-title p {
+  font-size: 0.88rem;
+  color: var(--text-dim);
+  font-style: italic;
+}
+
+/* ── Cinematic Full-Width ── */
+.cinematic {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.cinematic-hero {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 4px;
+  margin-bottom: 64px;
+}
+
+.cinematic-hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(30%);
+  transition: filter 0.6s ease;
+}
+
+.cinematic-hero:hover img {
+  filter: grayscale(0%);
+}
+
+.cinematic-hero .overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 40px 32px 24px;
+  background: linear-gradient(transparent, rgba(0,0,0,0.85));
+}
+
+.cinematic-hero .overlay h3 {
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 4px;
+}
+
+.cinematic-hero .overlay p {
+  font-size: 0.9rem;
+  color: var(--text-dim);
+  font-style: italic;
+}
+
+/* ── Grid Galleries ── */
+.gallery-grid {
+  display: grid;
+  gap: 4px;
+  max-width: 1400px;
+  margin: 0 auto 80px;
+  padding: 0 24px;
+}
+
+.grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.grid-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-2-1 {
+  grid-template-columns: 2fr 1fr;
+}
+
+.grid-1-2 {
+  grid-template-columns: 1fr 2fr;
+}
+
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 1;
+  cursor: pointer;
+}
+
+.gallery-item.landscape {
+  aspect-ratio: 16 / 10;
+}
+
+.gallery-item.portrait {
+  aspect-ratio: 3 / 4;
+}
+
+.gallery-item.wide {
+  aspect-ratio: 21 / 9;
+  grid-column: span 2;
+}
+
+.gallery-item.tall {
+  aspect-ratio: 9 / 16;
+  grid-row: span 2;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease, filter 0.6s ease;
+  filter: grayscale(20%);
+}
+
+.gallery-item:hover img {
+  transform: scale(1.03);
+  filter: grayscale(0%);
+}
+
+.gallery-item .caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 32px 16px 12px;
+  background: linear-gradient(transparent, rgba(0,0,0,0.8));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.gallery-item:hover .caption {
+  opacity: 1;
+}
+
+.caption h4 {
+  font-family: var(--sans);
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 2px;
+}
+
+.caption p {
+  font-size: 0.78rem;
+  color: var(--text-dim);
+  font-style: italic;
+}
+
+/* ── Illustration Section ── */
+.illustrations {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+  max-width: 1200px;
+  margin: 0 auto 80px;
+  padding: 0 24px;
+}
+
+.illust-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+}
+
+.illust-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(201,168,76,0.15);
+  border-color: var(--accent-dim);
+}
+
+.illust-card img {
+  width: 100%;
+  display: block;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+}
+
+.illust-card .info {
+  padding: 16px;
+}
+
+.illust-card .info h4 {
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  color: var(--accent);
+  margin-bottom: 4px;
+}
+
+.illust-card .info p {
+  font-size: 0.82rem;
+  color: var(--text-dim);
+  font-style: italic;
+}
+
+/* ── Divider ── */
+.divider {
+  text-align: center;
+  padding: 48px 24px;
+  color: var(--border);
+  font-size: 1.2rem;
+  letter-spacing: 0.5em;
+}
+
+/* ── Quote Block ── */
+.gallery-quote {
+  max-width: 600px;
+  margin: 0 auto 64px;
+  padding: 0 24px;
+  text-align: center;
+}
+
+.gallery-quote blockquote {
+  font-size: 1.15rem;
+  font-style: italic;
+  color: var(--accent);
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+
+.gallery-quote cite {
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  font-style: normal;
+}
+
+/* ── Footer ── */
+.footer {
+  padding: 48px 24px;
+  text-align: center;
+  border-top: 1px solid var(--border);
+}
+
+.footer-title {
+  font-family: var(--serif);
+  font-size: 1rem;
+  color: var(--text-bright);
+  margin-bottom: 4px;
+}
+
+.footer-sub {
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  color: var(--text-dim);
+  margin-bottom: 16px;
+}
+
+.footer-links {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.footer-links a {
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+
+.footer-links a:hover { color: var(--accent); }
+
+/* ── Lightbox ── */
+.lightbox {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.95);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+  cursor: zoom-out;
+}
+
+.lightbox.active { display: flex; }
+
+.lightbox img {
+  max-width: 92vw;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 2px;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 24px;
+  color: var(--text-dim);
+  font-size: 1.5rem;
+  cursor: pointer;
+  font-family: var(--sans);
+  background: none;
+  border: none;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .grid-3 { grid-template-columns: 1fr; }
+  .grid-2, .grid-2-1, .grid-1-2 { grid-template-columns: 1fr; }
+  .gallery-item.wide { grid-column: span 1; aspect-ratio: 16/10; }
+  .gallery-item.tall { grid-row: span 1; aspect-ratio: 3/4; }
+  .topbar-nav { gap: 12px; }
+  .topbar-nav a { font-size: 0.65rem; }
+  .illustrations { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════ TOPBAR ═══════ -->
+<nav class="topbar">
+  <a href="index.html" class="topbar-title">The 2,500 Donkeys</a>
+  <div class="topbar-nav">
+    <a href="index.html">Home</a>
+    <a href="read.html">Read</a>
+    <a href="listen.html">Listen</a>
+    <a href="gallery.html" style="color:var(--accent)">Gallery</a>
+  </div>
+</nav>
+
+<!-- ═══════ HERO ═══════ -->
+<section class="hero">
+  <div>
+    <h1>Visual Field Notes</h1>
+    <p class="hero-sub">Documentation from the deal. Photography and illustration from the world of phantom gold, forwarded messages, and 2,500 donkeys walking through the desert.</p>
+  </div>
+</section>
+
+<!-- ═══════ PART 1: THE PROCESSION ═══════ -->
+<div class="section-title">
+  <h2>The Procession</h2>
+  <p>2,500 donkeys. Gold bars in saddlebags. A narrow green corridor through the desert.</p>
+</div>
+
+<div class="cinematic">
+  <div class="cinematic-hero">
+    <img src="images/photo/procession-hero.jpg" alt="Donkeys carrying gold through desert landscape">
+    <div class="overlay">
+      <h3>Block 04 &mdash; The Donkeys</h3>
+      <p>The caravan moves. The paperwork says they already arrived.</p>
+    </div>
+  </div>
+</div>
+
+<div class="gallery-grid grid-2">
+  <div class="gallery-item landscape">
+    <img src="images/photo/procession-caravan.jpg" alt="Long line of donkeys carrying gold bars through sand dunes">
+    <div class="caption">
+      <h4>The Caravan</h4>
+      <p>Walking until the certificate says they stopped.</p>
+    </div>
+  </div>
+  <div class="gallery-item landscape">
+    <img src="images/photo/procession-closeup.jpg" alt="Lead donkey with gold-filled saddlebags, desert horizon behind">
+    <div class="caption">
+      <h4>The Lead</h4>
+      <p>Unbothered. Dignified. Loaded with what might be gold.</p>
+    </div>
+  </div>
+</div>
+
+<div class="gallery-quote">
+  <blockquote>&ldquo;653 donkeys don&rsquo;t arrive. The certificate says they all did.&rdquo;</blockquote>
+  <cite>Block 05c &mdash; Attrition</cite>
+</div>
+
+<!-- ═══════ PART 2: THE DEAL ═══════ -->
+<div class="section-title">
+  <h2>The Deal</h2>
+  <p>Parking lots. Dark suits. Papers exchanged beside running engines.</p>
+</div>
+
+<div class="gallery-grid grid-2">
+  <div class="gallery-item portrait">
+    <img src="images/photo/deal-parking-lot.jpg" alt="Two men in suits reviewing documents in a parking lot at night">
+    <div class="caption">
+      <h4>The Parking Lot</h4>
+      <p>Where belief travels faster than verification.</p>
+    </div>
+  </div>
+  <div class="gallery-item portrait">
+    <img src="images/photo/deal-handoff.jpg" alt="Suited men exchanging papers beside a dark SUV">
+    <div class="caption">
+      <h4>The Handoff</h4>
+      <p>The deal doesn't need an office. It needs proximity and plausibility.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════ PART 3: THE PAPER ═══════ -->
+<div class="section-title">
+  <h2>The Paper</h2>
+  <p>Forwarded messages. IMF alignment confirmations. Documentation that proves everything and nothing.</p>
+</div>
+
+<div class="gallery-grid grid-2">
+  <div class="gallery-item landscape">
+    <img src="images/photo/paper-whatsapp.jpg" alt="Multiple phone screens showing forwarded WhatsApp messages about IMF alignment">
+    <div class="caption">
+      <h4>The Forward</h4>
+      <p>Dear Sir, this is to confirm that the IMF alignment and sovereign stabilization terms have been ratified as specified.</p>
+    </div>
+  </div>
+  <div class="gallery-item landscape">
+    <img src="images/photo/paper-phones.jpg" alt="Phone screen showing forwarded message at 9:17">
+    <div class="caption">
+      <h4>Mutation #17</h4>
+      <p>Kindly revert with any outstanding items.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════ PART 4: THE GOLD ═══════ -->
+<div class="section-title">
+  <h2>The Gold</h2>
+  <p>Stacked. Photographed. Allegedly verified. The product that is optional.</p>
+</div>
+
+<div class="gallery-grid grid-3">
+  <div class="gallery-item">
+    <img src="images/photo/gold-pyramid.jpg" alt="Pyramid of gold bars stacked in darkness">
+    <div class="caption">
+      <h4>Proof of Product</h4>
+      <p>The photo proves the gold exists. The photo was forwarded nine times.</p>
+    </div>
+  </div>
+  <div class="gallery-item">
+    <img src="images/photo/gold-bars-desk.jpg" alt="Gold bar beside laptop and calculator">
+    <div class="caption">
+      <h4>The Desk</h4>
+      <p>One bar. One spreadsheet. Infinite commissions.</p>
+    </div>
+  </div>
+  <div class="gallery-item">
+    <img src="images/photo/gold-bags-desert.jpg" alt="Bags of gold left in desert sand">
+    <div class="caption">
+      <h4>The Drop</h4>
+      <p>Saddlebags in the sand. Attrition is just logistics.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════ PART 5: THE INFRASTRUCTURE ═══════ -->
+<div class="section-title">
+  <h2>The Infrastructure</h2>
+  <p>Dashboards. Presentations. The architecture of plausibility.</p>
+</div>
+
+<div class="gallery-grid grid-2">
+  <div class="gallery-item landscape">
+    <img src="images/photo/infra-dashboard.jpg" alt="Financial dashboard with world map and bar charts">
+    <div class="caption">
+      <h4>The Dashboard</h4>
+      <p>Metrics for a product that hasn't moved.</p>
+    </div>
+  </div>
+  <div class="gallery-item landscape">
+    <img src="images/photo/infra-room.jpg" alt="Empty room with radio equipment and light through window">
+    <div class="caption">
+      <h4>The Listening Post</h4>
+      <p>Someone was here. The equipment remembers.</p>
+    </div>
+  </div>
+</div>
+
+<div class="divider">&middot; &middot; &middot;</div>
+
+<!-- ═══════ ILLUSTRATIONS ═══════ -->
+<div class="section-title">
+  <h2>Chapter Illustrations</h2>
+  <p>Black and white pencil illustrations. One per arc.</p>
+</div>
+
+<div class="illustrations">
+  <div class="illust-card">
+    <img src="images/chapters/ch-00-genesis.png" alt="Genesis">
+    <div class="info">
+      <h4>Block 00 &mdash; Genesis</h4>
+      <p>The origin point. Before the deals, before the donkeys.</p>
+    </div>
+  </div>
+  <div class="illust-card">
+    <img src="images/chapters/ch-01-parking-lot.png" alt="Parking Lot">
+    <div class="info">
+      <h4>Block 01 &mdash; The Parking Lot</h4>
+      <p>Where belief travels faster than verification.</p>
+    </div>
+  </div>
+  <div class="illust-card">
+    <img src="images/chapters/ch-02-paper.png" alt="Paper">
+    <div class="info">
+      <h4>Block 02 &mdash; The Paper</h4>
+      <p>Documentation that proves everything and nothing.</p>
+    </div>
+  </div>
+  <div class="illust-card">
+    <img src="images/chapters/ch-03-whatsapp.png" alt="WhatsApp">
+    <div class="info">
+      <h4>Block 03 &mdash; WhatsApp</h4>
+      <p>The broker chain. Messages forwarded until origin dissolves.</p>
+    </div>
+  </div>
+  <div class="illust-card">
+    <img src="images/chapters/ch-04-donkeys.png" alt="Donkeys">
+    <div class="info">
+      <h4>Block 04 &mdash; The Donkeys</h4>
+      <p>2,500 of them. Walking across a desert. Allegedly.</p>
+    </div>
+  </div>
+  <div class="illust-card">
+    <img src="images/chapters/ch-05-procession.png" alt="Procession">
+    <div class="info">
+      <h4>Block 05 &mdash; The Procession</h4>
+      <p>When narrative becomes infrastructure.</p>
+    </div>
+  </div>
+  <div class="illust-card">
+    <img src="images/chapters/ch-06-humanitarian.png" alt="Humanitarian">
+    <div class="info">
+      <h4>Block 06 &mdash; Humanitarian</h4>
+      <p>ESG theater and the monetization of good intentions.</p>
+    </div>
+  </div>
+  <div class="illust-card">
+    <img src="images/chapters/ch-07-silence.png" alt="Silence">
+    <div class="info">
+      <h4>Block 07 &mdash; Silence</h4>
+      <p>What happens when verification finally catches up.</p>
+    </div>
+  </div>
+  <div class="illust-card">
+    <img src="images/chapters/ch-ep-genesis-remains.png" alt="Epilogue">
+    <div class="info">
+      <h4>Epilogue &mdash; Genesis Remains</h4>
+      <p>The chain is intact. The provenance holds.</p>
+    </div>
+  </div>
+</div>
+
+<div class="divider">&middot; &middot; &middot;</div>
+
+<div class="gallery-quote">
+  <blockquote>&ldquo;The gold was optional. The donkeys were optional. The only non-optional element was the narrative.&rdquo;</blockquote>
+  <cite>Epilogue</cite>
+</div>
+
+<!-- ═══════ FOOTER ═══════ -->
+<footer class="footer">
+  <p class="footer-title">The 2,500 Donkeys</p>
+  <p class="footer-sub">A Literary Protocol by Kidd James</p>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="read.html">Read</a>
+    <a href="listen.html">Listen</a>
+    <a href="https://github.com/FTHTrading/2500-donkeys" target="_blank" rel="noopener">GitHub</a>
+    <a href="https://doi.org/10.5281/zenodo.18646886" target="_blank" rel="noopener">DOI</a>
+    <a href="https://xxxiii.io" target="_blank" rel="noopener">xxxiii.io</a>
+  </div>
+</footer>
+
+<!-- ═══════ LIGHTBOX ═══════ -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightboxClose">&times;</button>
+  <img id="lightboxImg" src="" alt="">
+</div>
+
+<script>
+(function() {
+  'use strict';
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightboxImg');
+
+  document.querySelectorAll('.gallery-item, .cinematic-hero').forEach(function(item) {
+    item.addEventListener('click', function() {
+      const img = this.querySelector('img');
+      if (img) {
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt;
+        lightbox.classList.add('active');
+      }
+    });
+  });
+
+  lightbox.addEventListener('click', function() {
+    lightbox.classList.remove('active');
+  });
+
+  document.getElementById('lightboxClose').addEventListener('click', function(e) {
+    e.stopPropagation();
+    lightbox.classList.remove('active');
+  });
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') lightbox.classList.remove('active');
+  });
+})();
+</script>
+
+</body>
+</html>
