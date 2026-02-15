@@ -1,0 +1,78 @@
+{
+  "style": {
+    "global": "Black and white pencil illustration, high contrast, literary fiction style. Atmospheric, moody, cinematic composition. No text overlays. Grain texture. Think Cormac McCarthy book jacket meets financial thriller.",
+    "aspect": "3:2 landscape for chapter openers, 2:3 portrait for cover",
+    "negative": "color, cartoon, anime, photorealistic faces, brands, logos, text"
+  },
+  "cover": {
+    "file": "cover/cover-front.png",
+    "prompt": "A vast arid landscape stretching to the horizon. In the middle distance, a long line of donkeys walks single-file along a dusty road, diminishing into perspective. The sky is enormous and empty. In the foreground, a single smartphone lies face-up on cracked earth, its screen glowing with a WhatsApp notification. Black and white pencil illustration, high contrast, cinematic, literary fiction cover art.",
+    "dimensions": "2550x3300",
+    "notes": "Front cover. Will have title and author overlaid in typesetting. Leave upper third relatively clean for text placement."
+  },
+  "chapters": [
+    {
+      "block": "block-00",
+      "arc": "Genesis",
+      "file": "chapters/ch-00-genesis.png",
+      "prompt": "A darkened room illuminated only by a laptop screen. On the screen, lines of code and a hash string are visible as faint light. A hand rests on the keyboard. Through the window behind, a parking lot is visible under sodium lights. Black and white pencil illustration, atmospheric, grain texture.",
+      "scene": "The hashing moment — code, solitude, the parking lot origin"
+    },
+    {
+      "block": "block-01",
+      "arc": "The Deal",
+      "file": "chapters/ch-01-parking-lot.png",
+      "prompt": "An empty suburban parking lot at dusk. Three luxury SUVs parked at odd angles, engines running, exhaust visible in cold air. Inside one car, the glow of a phone screen illuminates a man's face. A strip mall with a closed Burger King visible in the background. Black and white pencil illustration, surveillance-camera angle, lonely, atmospheric.",
+      "scene": "The parking lot where it all begins — Raymond, the SUVs, the strip mall"
+    },
+    {
+      "block": "block-02",
+      "arc": "The Paper",
+      "file": "chapters/ch-02-paper.png",
+      "prompt": "A conference table covered in scattered documents — contracts, NDAs, spreadsheets with highlighted rows. A hand holds a fountain pen hovering over a signature line. The documents have official-looking stamps and seals. In the background, an unfocused window shows a city skyline. Black and white pencil illustration, overhead angle, documentary style.",
+      "scene": "The IMFPA, the signatures, the paper trail that proves nothing"
+    },
+    {
+      "block": "block-03",
+      "arc": "The Mutation",
+      "file": "chapters/ch-03-whatsapp.png",
+      "prompt": "Multiple smartphone screens arranged in a mosaic pattern, each showing message bubbles in WhatsApp-style chat interface. The messages get increasingly frantic from left to right. Some screens show forwarded-many-times indicators. Emoji and capital letters visible as abstract shapes. Black and white pencil illustration, flat lay composition, technological anxiety.",
+      "scene": "The WhatsApp mutation — messages multiplying across screens and continents"
+    },
+    {
+      "block": "block-04",
+      "arc": "The Donkeys",
+      "file": "chapters/ch-04-donkeys.png",
+      "prompt": "A single donkey standing motionless in an empty warehouse. The warehouse has high industrial ceilings with hanging fluorescent lights (off). Dust motes in shafts of light from high windows. The donkey is calm, still, unbothered. Stacks of shipping pallets visible in the background. Black and white pencil illustration, biblical stillness, absurdist dignity.",
+      "scene": "The first donkey — mundane, dignified, completely out of context"
+    },
+    {
+      "block": "block-05",
+      "arc": "The Procession",
+      "file": "chapters/ch-05-procession.png",
+      "prompt": "A long caravan of donkeys walking along a barren road through flat terrain. The line stretches from foreground to vanishing point. Alongside the road, tire tracks from vehicles. A single helicopter is a small dot in the vast sky. Black and white pencil illustration, wide panoramic composition, epic scale, desolate beauty.",
+      "scene": "2,500 donkeys in motion — the absurd logistics made real"
+    },
+    {
+      "block": "block-06",
+      "arc": "The Settlement",
+      "file": "chapters/ch-06-humanitarian.png",
+      "prompt": "A row of white UN-style tents in a desert compound. In front of one tent, a fold-out table with a laptop and scattered papers. A single plastic chair. In the distance, donkeys are visible behind a chain-link fence. A flag (generic, no national identity) hangs limp on a pole. Black and white pencil illustration, administrative desolation, institutional emptiness.",
+      "scene": "The humanitarian settlement — bureaucracy meets absurdity"
+    },
+    {
+      "block": "block-07",
+      "arc": "The Silence",
+      "file": "chapters/ch-07-silence.png",
+      "prompt": "An empty office with a single desk. On the desk: a closed laptop, a cold cup of coffee, and a phone face-down. The chair is pushed back as if someone just left. Through floor-to-ceiling windows, a cityscape at twilight. Everything is still. Black and white pencil illustration, profound emptiness, after-the-fact, forensic stillness.",
+      "scene": "The aftermath — everyone has gone quiet, the groups are dying"
+    },
+    {
+      "block": "epilogue",
+      "arc": "The Genesis Remains",
+      "file": "chapters/ch-ep-genesis-remains.png",
+      "prompt": "A parking lot, different from the first one. Dawn light. A single car. Inside, a figure holds a phone, but the screen is dark. On the phone's surface, a faint reflection of the sunrise. The parking lot is clean, empty, new. But the composition mirrors the opening image. Black and white pencil illustration, circular return, quiet resolution, dawn after darkness.",
+      "scene": "Full circle — different parking lot, same architecture, the cycle resets"
+    }
+  ]
+}

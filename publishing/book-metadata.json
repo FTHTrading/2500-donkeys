@@ -1,0 +1,72 @@
+{
+  "title": "The 2,500 Donkeys",
+  "subtitle": "A Novel",
+  "author": "Kidd James",
+  "language": "en-US",
+  "publisher": "Genesis Publishing Protocol",
+  "date": "2026",
+  "rights": "© 2026 Kidd James. All rights reserved.",
+  "isbn": {
+    "ebook": "",
+    "paperback": "",
+    "note": "Obtain ISBNs from Bowker (myidentifiers.com) or use KDP free ISBN"
+  },
+  "description": "A satirical novel about belief, brokerage, and 2,500 donkeys purchased for a gold deal that never existed. Reconstructed from a recovered IPFS archive, cryptographically anchored on Polygon.",
+  "categories": [
+    "FICTION / Satirical",
+    "FICTION / Literary",
+    "FICTION / Thrillers / Financial"
+  ],
+  "keywords": [
+    "satire",
+    "finance",
+    "gold trade",
+    "carbon credits",
+    "ESG",
+    "blockchain",
+    "cryptocurrency",
+    "literary fiction",
+    "dark humor",
+    "donkeys"
+  ],
+  "trim": {
+    "width": "5.5in",
+    "height": "8.5in",
+    "bleed": "0.125in",
+    "spine": "auto"
+  },
+  "margins": {
+    "top": "0.75in",
+    "bottom": "0.75in",
+    "inside": "0.875in",
+    "outside": "0.625in"
+  },
+  "typography": {
+    "bodyFont": "Crimson Text",
+    "bodyFallback": "Georgia, serif",
+    "bodySize": "11pt",
+    "lineHeight": "1.5",
+    "headingFont": "EB Garamond",
+    "headingFallback": "Georgia, serif",
+    "chapterDropCap": true,
+    "chapterStartRecto": true,
+    "sceneBreak": "* * *",
+    "paragraphIndent": "1.5em",
+    "firstParagraphIndent": false
+  },
+  "sections": {
+    "frontMatter": [
+      "half-title",
+      "title-page",
+      "copyright",
+      "dedication",
+      "epigraph"
+    ],
+    "body": "auto-from-order-json",
+    "backMatter": [
+      "acknowledgments",
+      "about-author",
+      "colophon"
+    ]
+  }
+}

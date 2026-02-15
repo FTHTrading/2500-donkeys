@@ -1,12 +1,11 @@
 node_modules/
-dist/final-manuscript.md
-dist/final-manuscript.pdf
-dist/kdp/
-dist/manifest.json
 .env
 *.log
 .DS_Store
 Thumbs.db
+
+# Build outputs
+dist/
 
 # Hardhat
 web3/cache/

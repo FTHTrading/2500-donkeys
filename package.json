@@ -16,7 +16,13 @@
     "deploy:amoy": "npx hardhat run web3/scripts/deploy.js --network amoy",
     "deploy:polygon": "npx hardhat run web3/scripts/deploy.js --network polygon",
     "verify": "npx hardhat run web3/scripts/verify.js --network polygon",
-    "audit:chain": "npx hardhat run web3/scripts/audit.js --network polygon"
+    "audit:chain": "npx hardhat run web3/scripts/audit.js --network polygon",
+    "pub:placeholders": "node publishing/generate-placeholders.js",
+    "pub:epub": "node publishing/build-epub.js",
+    "pub:pdf": "node publishing/build-pdf.js",
+    "pub:cover": "node publishing/build-cover.js",
+    "pub:all": "node publishing/build-epub.js && node publishing/build-pdf.js && node publishing/build-cover.js",
+    "publish": "npm run build && npm run pub:all"
   },
   "keywords": [
     "literary-protocol",
@@ -34,6 +40,7 @@
     "@nomicfoundation/hardhat-toolbox": "^5.0.0",
     "dotenv": "^17.3.1",
     "ethers": "^6.16.0",
-    "hardhat": "^2.28.6"
+    "hardhat": "^2.28.6",
+    "puppeteer": "^24.37.3"
   }
 }
