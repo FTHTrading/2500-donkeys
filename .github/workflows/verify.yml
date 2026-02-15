@@ -5,7 +5,13 @@
 # and on pull requests. No secrets required — the verifier uses
 # only public Polygon RPC endpoints.
 #
-# Pipeline: build (compile+hash+manifest) → hardhat test → verify
+# IMPORTANT: Genesis roots were computed on Windows (CRLF line
+# endings). To reproduce identical SHA-256 hashes in CI (Ubuntu),
+# we set core.autocrlf=true so checkout converts LF→CRLF,
+# matching the byte-for-byte content used to compute the
+# original Merkle roots anchored on-chain.
+#
+# Pipeline: build (compile+merkle+hash+manifest) → hardhat test → verify
 # ──────────────────────────────────────────────────────────────
 
 name: LPS Verify
@@ -22,6 +28,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Configure line endings (match Windows genesis)
+        run: git config --global core.autocrlf true
+
       - name: Checkout
         uses: actions/checkout@v4
 
@@ -46,6 +55,9 @@ jobs:
     needs: build-and-test
 
     steps:
+      - name: Configure line endings (match Windows genesis)
+        run: git config --global core.autocrlf true
+
       - name: Checkout
         uses: actions/checkout@v4
 

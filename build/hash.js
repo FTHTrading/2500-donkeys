@@ -75,13 +75,17 @@ function generateHash() {
       sizeBytes: stats.size,
       source: "dist/final-manuscript.md"
     },
-    // Merkle roots (LPS-1)
+    // Merkle roots (LPS-1) — preserve audioRoot/audioEditionRoot from existing
     roots: merkleData ? {
       editionRoot: merkleData.editionRoot,
       manuscriptRoot: merkleData.trees.manuscript.root,
       artifactRoot: merkleData.trees.artifact.root,
       imageRoot: merkleData.trees.image.root,
-      promptRoot: merkleData.trees.prompt.root
+      promptRoot: merkleData.trees.prompt.root,
+      ...(existing?.roots?.audioRoot ? {
+        audioRoot: existing.roots.audioRoot,
+        audioEditionRoot: existing.roots.audioEditionRoot
+      } : {})
     } : existing?.roots || null,
     ipfs: {
       cid: existing?.ipfs?.cid || null,

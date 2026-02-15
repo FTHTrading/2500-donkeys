@@ -9,7 +9,7 @@
     "compile": "node build/compile.js",
     "hash": "node build/hash.js",
     "manifest": "node build/manifest.js",
-    "build": "node build/compile.js && node build/hash.js && node build/manifest.js",
+    "build": "node build/compile.js && node build/merkle.js && node build/hash.js && node build/manifest.js",
     "build:deterministic": "node build/compile.js --deterministic && node build/hash.js && node build/manifest.js",
     "build:reproducible": "node build/compile.js --reproducible && node build/hash.js --reproducible && node build/manifest.js",
     "genesis": "npm run build",
