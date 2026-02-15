@@ -32,6 +32,8 @@ artifacts/        → In-book exhibits (IMFPA, commission waterfall, WhatsApp lo
 build/            → Compile, hash, and manifest scripts
 dist/             → Compiled output (generated, not committed)
 web3/contracts/   → LiteraryAnchor.sol (Polygon)
+web3/scripts/     → deploy.js, verify.js, audit.js
+web3/test/        → Contract test suite (11 tests)
 web3/metadata/    → Genesis hash, CID, chain references
 ```
 
@@ -58,6 +60,42 @@ This runs three steps:
 3. Deploy `LiteraryAnchor.sol` on Polygon with CID + SHA-256
 4. Update `web3/metadata/genesis.json` with contract address + tx hash
 5. Export to KDP (ebook + paperback) for reader distribution
+
+---
+
+## Polygon Deployment
+
+### Quick Start
+
+```bash
+# 1. Compile the contract
+npm run hh:compile
+
+# 2. Run tests (11 tests)
+npm run hh:test
+
+# 3. Deploy to Amoy testnet (dry run)
+npm run deploy:amoy
+
+# 4. Deploy to Polygon mainnet
+npm run deploy:polygon
+
+# 5. Verify on Polygonscan (optional)
+npm run verify
+
+# 6. Audit on-chain state vs local genesis.json
+npm run audit:chain
+```
+
+### Deployer Wallet
+
+```
+0xC91668184736BF75C4ecE37473D694efb2A43978
+```
+
+Fund with ~0.1 MATIC on Polygon mainnet. Deployment costs < $0.01.
+
+See [web3/DEPLOY.md](web3/DEPLOY.md) for full guide.
 
 ---
 

@@ -10,7 +10,13 @@
     "hash": "node build/hash.js",
     "manifest": "node build/manifest.js",
     "build": "node build/compile.js && node build/hash.js && node build/manifest.js",
-    "genesis": "npm run build"
+    "genesis": "npm run build",
+    "hh:compile": "npx hardhat compile",
+    "hh:test": "npx hardhat test",
+    "deploy:amoy": "npx hardhat run web3/scripts/deploy.js --network amoy",
+    "deploy:polygon": "npx hardhat run web3/scripts/deploy.js --network polygon",
+    "verify": "npx hardhat run web3/scripts/verify.js --network polygon",
+    "audit:chain": "npx hardhat run web3/scripts/audit.js --network polygon"
   },
   "keywords": [
     "literary-protocol",
@@ -23,5 +29,11 @@
     "carbon-credits",
     "blockchain",
     "polygon"
-  ]
+  ],
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
+    "dotenv": "^17.3.1",
+    "ethers": "^6.16.0",
+    "hardhat": "^2.28.6"
+  }
 }
