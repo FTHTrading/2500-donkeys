@@ -353,6 +353,10 @@ Any single-byte change to any chapter, artifact, or image invalidates the corres
 │       ├── index.html                 Landing page + verification tools
 │       └── style.css                  Dark theme, serif typography
 │
+├── ✓ INDEPENDENT VERIFIER
+│   └── verify/
+│       └── lps-verify.js             Standalone provenance verifier (51 checks)
+│
 ├── 📋 PROTOCOL SPECIFICATION
 │   ├── LPS-1.md                       Literary Protocol Standard v1
 │   ├── LITERARY_PROTOCOL.md           State machine + roles
@@ -459,6 +463,28 @@ npm run compile            # Step 1: Concatenate → dist/final-manuscript.md
 npm run hash               # Step 2: SHA-256 → web3/metadata/genesis.json
 npm run manifest           # Step 3: Per-file → dist/manifest.json
 ```
+
+### Independent Verification
+
+Any third party can clone this repo and independently verify the entire provenance chain — from local source files through Merkle trees to on-chain Polygon state — with a single command:
+
+```bash
+npm run lps:verify         # 51 checks across 5 phases, ~1 second
+```
+
+**No `.env` file or API keys required.** The verifier uses only public Polygon RPC endpoints for read-only queries.
+
+#### What It Verifies
+
+| Phase | Checks | What It Proves |
+|-------|--------|----------------|
+| **1. Local Files** | 6 | All 31 block files + order.json + genesis.json present |
+| **2. Compilation** | 3 | dist/final-manuscript.md SHA-256 matches genesis.json |
+| **3. Merkle Trees** | 11 | 4 trees rebuilt from source → roots match stored + genesis |
+| **4. On-Chain** | 24 | LiteraryAnchor, KernelV2, AuthorIdentity all match local |
+| **5. Cross-Layer** | 7 | genesis.json ↔ merkle.json ↔ source ↔ on-chain consistent |
+
+Output: `dist/verification-report.json` (machine-readable)
 
 ### Genesis Hashes
 

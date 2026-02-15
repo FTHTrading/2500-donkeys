@@ -16,6 +16,7 @@
     "deploy:amoy": "npx hardhat run web3/scripts/deploy.js --network amoy",
     "deploy:polygon": "npx hardhat run web3/scripts/deploy.js --network polygon",
     "verify": "npx hardhat run web3/scripts/verify.js --network polygon",
+    "lps:verify": "node verify/lps-verify.js",
     "audit:chain": "npx hardhat run web3/scripts/audit.js --network polygon",
     "pub:placeholders": "node publishing/generate-placeholders.js",
     "pub:images": "node images/generate-images.js",
