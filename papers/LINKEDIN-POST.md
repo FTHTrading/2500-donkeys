@@ -21,6 +21,7 @@ The paper is archived on Zenodo with a DOI. The source code, contracts, and test
 This isn't about NFTs or tokens — it's about document provenance infrastructure. The same architecture applies to legal documents, academic manuscripts, regulatory filings, or any context where "when did this version exist?" is a meaningful question.
 
 📄 Paper: https://doi.org/10.5281/zenodo.18646886
+✍️ Deep dive: https://medium.com/@kevanbtc/a-deterministic-publishing-experiment-and-the-infrastructure-paper-it-produced-8a4d7b6e9288
 💻 Source: https://github.com/FTHTrading/2500-donkeys
 🌐 Project: https://xxxiii.io
 
