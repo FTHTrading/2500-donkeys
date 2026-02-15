@@ -1,0 +1,64 @@
+{
+  "engine": "edge-tts",
+  "description": "Internal narration voice profiles for The 2,500 Donkeys. Uses Microsoft Edge neural TTS — free, unlimited, no API key required.",
+  "format": "mp3",
+  "outputDir": "audio/rendered",
+
+  "profiles": {
+    "narrator": {
+      "description": "Primary storyteller voice. British male, literary authority. Used for all prose narration.",
+      "voice": "en-GB-ThomasNeural",
+      "rate": "-8%",
+      "pitch": "+0Hz",
+      "volume": "+0%"
+    },
+    "narrator-american": {
+      "description": "Alternative narrator. American male, authoritative. Reliable, commanding.",
+      "voice": "en-US-ChristopherNeural",
+      "rate": "-5%",
+      "pitch": "+0Hz",
+      "volume": "+0%"
+    },
+    "narrator-warm": {
+      "description": "Warm conversational narrator. For intimate character moments.",
+      "voice": "en-US-AndrewMultilingualNeural",
+      "rate": "-10%",
+      "pitch": "+0Hz",
+      "volume": "+0%"
+    },
+    "narrator-female": {
+      "description": "Female narrator alternative. British, composed.",
+      "voice": "en-GB-SoniaNeural",
+      "rate": "-5%",
+      "pitch": "+0Hz",
+      "volume": "+0%"
+    },
+    "document": {
+      "description": "For documentary artifacts — IMFPAs, WhatsApp forwards, ESG decks. Flat, procedural, bureaucratic.",
+      "voice": "en-US-EricNeural",
+      "rate": "+0%",
+      "pitch": "+0Hz",
+      "volume": "+0%"
+    }
+  },
+
+  "chapterVoices": {
+    "default": "narrator",
+    "overrides": {
+      "whatsapp-forward-17.md": "document",
+      "commission-waterfall.md": "document",
+      "esg-deck-excerpt.md": "document",
+      "carbon-registry-summary.md": "document",
+      "imfpa-redline-v3.md": "document"
+    }
+  },
+
+  "ssml": {
+    "chapterPause": "1200ms",
+    "sectionBreakPause": "800ms",
+    "paragraphPause": "400ms",
+    "emDashPause": "200ms",
+    "blockquoteRate": "-10%",
+    "emphasisLevel": "moderate"
+  }
+}

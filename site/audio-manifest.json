@@ -1,0 +1,237 @@
+{
+  "version": "IAPL-1",
+  "title": "The 2,500 Donkeys — Audio Edition",
+  "author": "Kidd James",
+  "narrator": "George (ElevenLabs)",
+  "voiceModel": "eleven_multilingual_v2",
+  "format": "mp3_44100_128",
+  "generatedAt": "2026-02-15T13:39:59.935Z",
+  "editionRoot": "6719ed7f9e142a39a4a7db533895562bdf5379cf7f9816ed7cbe045ca359594e",
+  "audioRoot": "b292012f8e930319f95f8c4d69daff3f92b18c2f7b957ff21fee8dc9c2fe7e38",
+  "audioEditionRoot": "0f61ce03f8cb65bdc0541357af36d3d5dc7d96fa2d11b5802965e7159df961a8",
+  "blocks": [
+    {
+      "id": "block-00",
+      "title": "Genesis Hash",
+      "file": "block-00-genesis.mp3",
+      "sha256": "7b2984e14122875d7b56afb37ecbee6ef7e1bd0742eef3d6545c198c55cd1e53",
+      "sizeBytes": 1666029
+    },
+    {
+      "id": "block-01",
+      "title": "The Parking Lots",
+      "file": "block-01-parking-lots.mp3",
+      "sha256": "fa7c9a7005b338d4b6463e11ab06261184546506b2c09c6d08eed509478a2572",
+      "sizeBytes": 3014783
+    },
+    {
+      "id": "block-01a",
+      "title": "Raymond's First Deal",
+      "file": "block-01a-raymonds-deal.mp3",
+      "sha256": "2201d5a61a783a6416e2067ad316017ab368a69828d73aac3da759949b91c430",
+      "sizeBytes": 8027368
+    },
+    {
+      "id": "block-01b",
+      "title": "Gerald's Lot",
+      "file": "block-01b-geralds-lot.mp3",
+      "sha256": "05daa7d29b7cf375f4de0bf844a1cfc8f2c80e0ff199f6f9cd69812ca336ca25",
+      "sizeBytes": 10733653
+    },
+    {
+      "id": "block-01c",
+      "title": "The Connection",
+      "file": "block-01c-marcus-connection.mp3",
+      "sha256": "7e6285c54bf1371e048142a92fef6391de9fd460ed53327cc9643c0e42af9a29",
+      "sizeBytes": 10221653
+    },
+    {
+      "id": "block-02",
+      "title": "The Paper",
+      "file": "block-02-paper.mp3",
+      "sha256": "0e70054b9da94c9b3dda51683ce24ad8dc93ea50a7545d578b23223eb60b0e4f",
+      "sizeBytes": 3197013
+    },
+    {
+      "id": "block-02a",
+      "title": "The Seven Families",
+      "file": "block-02a-seven-families.mp3",
+      "sha256": "625df19a7e19d33b5d1536ea4f75b8fbe14fdeeef481829a6d5822c5d6a91c0b",
+      "sizeBytes": 9404125
+    },
+    {
+      "id": "block-03",
+      "title": "The WhatsApp Mutation",
+      "file": "block-03-whatsapp.mp3",
+      "sha256": "9bca7c156b88360c7dda0ba89bc3088d3476f43daa0ce6a0ef35f4333d547111",
+      "sizeBytes": 3814339
+    },
+    {
+      "id": "block-03a",
+      "title": "The Lagos Variant",
+      "file": "block-03a-mutation-lagos.mp3",
+      "sha256": "6f760218763cc866c83a40e34c4e188d708f5c713e6d6e2884b80c11614933a9",
+      "sizeBytes": 9550411
+    },
+    {
+      "id": "block-03b",
+      "title": "The Dubai Variant",
+      "file": "block-03b-mutation-dubai.mp3",
+      "sha256": "6f52111f8df2d44d51671f0989f63fee2a3ee3f2b0de1b85c5ac6d6bc2f65723",
+      "sizeBytes": 10540974
+    },
+    {
+      "id": "block-03c",
+      "title": "The Zurich Variant",
+      "file": "block-03c-mutation-zurich.mp3",
+      "sha256": "e4f824a1a424a3379a7059971f14666a9085a1e85d23bd4f2a388e4af686245a",
+      "sizeBytes": 4299696
+    },
+    {
+      "id": "block-03d",
+      "title": "The Aid Wash",
+      "file": "block-03d-mutation-ngo.mp3",
+      "sha256": "d76babf5de95ef78572794ac802069b30bae46d0832c111a4236cc0d3d7f5cf0",
+      "sizeBytes": 4448448
+    },
+    {
+      "id": "block-03e",
+      "title": "The Conference",
+      "file": "block-03e-mutation-carbon.mp3",
+      "sha256": "04a4bcc08e6ef9d6888db59cd62cb3c5c0bf1fb9116b6c3fa5ba951064ca1500",
+      "sizeBytes": 5145408
+    },
+    {
+      "id": "block-04",
+      "title": "The Donkeys",
+      "file": "block-04-donkeys.mp3",
+      "sha256": "ba376533ece14b41e7cc03dc902ca86e23c2777385bf1e4c304aa47ee8676d60",
+      "sizeBytes": 1753344
+    },
+    {
+      "id": "block-04a",
+      "title": "The Vault",
+      "file": "block-04a-storyteller-origin.mp3",
+      "sha256": "3988b70b7c5ae7b18ff86809f1a804b7b41a8b3891b14bf84386b23d935a2110",
+      "sizeBytes": 4418784
+    },
+    {
+      "id": "block-05",
+      "title": "The Procession",
+      "file": "block-05-procession.mp3",
+      "sha256": "204eedb9871cc34f5a1cdaea74885341d4fbcde60ad0b42a928722b351b25fd6",
+      "sizeBytes": 1917648
+    },
+    {
+      "id": "block-05a",
+      "title": "The WeWork",
+      "file": "block-05a-philippe-geneva.mp3",
+      "sha256": "b2955bfe8f2a9a15d6cddc14de12b3ce1f96b9b0f18cc74bf83e0578451c990e",
+      "sizeBytes": 4973760
+    },
+    {
+      "id": "block-05b",
+      "title": "The Departure",
+      "file": "block-05b-departure.mp3",
+      "sha256": "48cccc345233c43368e07f1d6f3da23c824e7215d6f74e5fa4fd50c8b1e04f5d",
+      "sizeBytes": 4564512
+    },
+    {
+      "id": "block-05c",
+      "title": "Attrition",
+      "file": "block-05c-attrition.mp3",
+      "sha256": "4af95e5228b6bd903d253309731b104947cd2c4d8e261c077dd0e19d497aba1a",
+      "sizeBytes": 5126832
+    },
+    {
+      "id": "block-05d",
+      "title": "The Bandit Corridor",
+      "file": "block-05d-bandit-corridor.mp3",
+      "sha256": "84ddf66c8d053f6c22898f4ba6d915dc136d81a374e642ef94eb45919bcac763",
+      "sizeBytes": 4729392
+    },
+    {
+      "id": "block-05e",
+      "title": "The Green Zone",
+      "file": "block-05e-green-zone.mp3",
+      "sha256": "e87b35fa7802e148bd1af26d1f51971a499dc9c115d603befbcbfa006c411abe",
+      "sizeBytes": 5103504
+    },
+    {
+      "id": "block-05f",
+      "title": "Collapse",
+      "file": "block-05f-collapse.mp3",
+      "sha256": "20d7e99cde4ac9a3af260d71f48f7b9f6c5d27a6910ae91694261e1104501bb1",
+      "sizeBytes": 5836752
+    },
+    {
+      "id": "block-05g",
+      "title": "The Arrival",
+      "file": "block-05g-arrival.mp3",
+      "sha256": "7e50de894c46374e1f8cd51862bf2efb40fc0dbca61c9ba12e4c072c80bdca5f",
+      "sizeBytes": 4391136
+    },
+    {
+      "id": "block-06",
+      "title": "The Humanitarian Settlement",
+      "file": "block-06-humanitarian.mp3",
+      "sha256": "748f505e7441608860afc0ee4fe085122b1c1b27aa9630d17f6fac44387e1db5",
+      "sizeBytes": 1868832
+    },
+    {
+      "id": "block-06a",
+      "title": "Processing",
+      "file": "block-06a-processing.mp3",
+      "sha256": "8b03efdeeaf0526382278964d3947c3ecc0a7fbdc823623d1a218ef6a257773f",
+      "sizeBytes": 435600
+    },
+    {
+      "id": "block-07",
+      "title": "The Silence",
+      "file": "block-07-silence.mp3",
+      "sha256": "64c9a119da3dc71412b8517bc66f44f8d8d1343a77787b8167a2b60ac5ebf7bf",
+      "sizeBytes": 1766448
+    },
+    {
+      "id": "block-07a",
+      "title": "The Woodlands",
+      "file": "block-07a-raymond-home.mp3",
+      "sha256": "42a23813bb605337bf69247714685ea9bed0cb9deda757084ca98f156eb7c741",
+      "sizeBytes": 5112576
+    },
+    {
+      "id": "block-07b",
+      "title": "The Groups Dying",
+      "file": "block-07b-groups-dying.mp3",
+      "sha256": "56b06c30de2f93cdb3ee3807872b700cfa47782b5198b3dd6e9f2a36afedaf29",
+      "sizeBytes": 4852080
+    },
+    {
+      "id": "block-07c",
+      "title": "The Summit",
+      "file": "block-07c-storyteller-summit.mp3",
+      "sha256": "8cb74dc321f50032e7f087dbab3dcbb9fe53b49c8eadfde6b99f30da99bcb4c1",
+      "sizeBytes": 6011856
+    },
+    {
+      "id": "block-07d",
+      "title": "Resurrection",
+      "file": "block-07d-resurrection.mp3",
+      "sha256": "156628b36b0b7f0a3d1cb4d0643e794c8dae1a9ea795cc22d3faf25c2446e2c0",
+      "sizeBytes": 5657328
+    },
+    {
+      "id": "epilogue",
+      "title": "The Genesis Remains",
+      "file": "epilogue.mp3",
+      "sha256": "a5169e068288d038c4d22e2d79e82831592d46a6215d452fec051fd9ca697406",
+      "sizeBytes": 1217808
+    }
+  ],
+  "stats": {
+    "totalBlocks": 31,
+    "rendered": 31,
+    "missing": 0,
+    "totalSizeBytes": 153802092
+  }
+}
