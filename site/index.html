@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The 2,500 Donkeys — by Kidd James</title>
-  <meta name="description" content="A literary protocol anchored on Polygon and pinned to IPFS. The first novel where the proof-of-origin is part of the narrative.">
+  <meta name="description" content="A deterministic literary publishing protocol. Five verified smart contracts on Polygon. 146 tests. Four Merkle trees. IPFS-pinned. DOI-archived. The first novel whose proof-of-origin is part of the narrative.">
   <meta property="og:title" content="The 2,500 Donkeys">
   <meta property="og:description" content="A literary protocol by Kidd James. Cryptographically anchored. Narratively inevitable.">
   <meta property="og:type" content="book">
@@ -21,9 +21,10 @@
       <p class="hero-pre">A Literary Protocol by</p>
       <h1>The 2,500 Donkeys</h1>
       <p class="hero-author">Kidd James</p>
-      <p class="hero-sub">Hashed before the deal closed. Anchored on Polygon. Pinned to IPFS.</p>
+      <p class="hero-sub">Five contracts on Polygon. Four Merkle trees. 146 tests. DOI-archived. Pinned to IPFS.</p>
       <div class="hero-actions">
         <a href="#read" class="btn btn-primary">Read the Opening</a>
+        <a href="#contracts" class="btn btn-ghost">View Architecture</a>
         <a href="#verify" class="btn btn-ghost">Verify the Proof</a>
       </div>
     </div>
@@ -62,8 +63,16 @@
           <span class="stat-label">Words</span>
         </div>
         <div class="stat">
-          <span class="stat-num">2</span>
-          <span class="stat-label">Editions</span>
+          <span class="stat-num">5</span>
+          <span class="stat-label">Contracts</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">146</span>
+          <span class="stat-label">Tests</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">4</span>
+          <span class="stat-label">Merkle Trees</span>
         </div>
       </div>
     </div>
@@ -115,11 +124,62 @@
     </div>
   </section>
 
+  <!-- ═══════ CONTRACT ARCHITECTURE ═══════ -->
+  <section id="contracts" class="section">
+    <div class="container narrow">
+      <h2>Smart Contract Architecture</h2>
+      <p>Five contracts deployed and source-verified on Polygon Mainnet. Total deployment cost: ~$1.80. Every contract is readable by anyone on Polygonscan.</p>
+
+      <div class="contracts-grid">
+        <div class="contract-card">
+          <h4>LiteraryAnchor</h4>
+          <p class="contract-desc">Proof-of-origin anchor. Stores edition CIDs and SHA-256 hashes. Genesis is immutable.</p>
+          <a href="https://polygonscan.com/address/0x97f456300817eaE3B40E235857b856dfFE8bba90#code" target="_blank" rel="noopener" class="contract-addr">0x97f4...b890 &rarr;</a>
+        </div>
+        <div class="contract-card">
+          <h4>PublishingKernel</h4>
+          <p class="contract-desc">Licensing engine. Grant, revoke, and query publishing licenses with territory and term controls.</p>
+          <a href="https://polygonscan.com/address/0x511c653fC0F450ba41C42A89A3125CcBf2eFE8ae#code" target="_blank" rel="noopener" class="contract-addr">0x511c...E8ae &rarr;</a>
+        </div>
+        <div class="contract-card">
+          <h4>PublishingKernelV2</h4>
+          <p class="contract-desc">Merkle-verified editions. Registers edition roots and verifies leaf proofs on-chain.</p>
+          <a href="https://polygonscan.com/address/0xca9F6604A9b498DB31d113836E2957c0a9aAE037#code" target="_blank" rel="noopener" class="contract-addr">0xca9F...C037 &rarr;</a>
+        </div>
+        <div class="contract-card">
+          <h4>RoyaltyRouter</h4>
+          <p class="contract-desc">Revenue distribution. Configurable splits across multiple recipients with on-chain execution.</p>
+          <a href="https://polygonscan.com/address/0x44169829489d70aaecbf845870652871C65fC461#code" target="_blank" rel="noopener" class="contract-addr">0x4416...C461 &rarr;</a>
+        </div>
+        <div class="contract-card">
+          <h4>AuthorIdentity</h4>
+          <p class="contract-desc">ECDSA identity binding. Wallet &harr; pen name verification via recoverable signatures.</p>
+          <a href="https://polygonscan.com/address/0xB9ffa688A8Bb332221030BbBE46bE5bF03323170#code" target="_blank" rel="noopener" class="contract-addr">0xB9ff...3170 &rarr;</a>
+        </div>
+      </div>
+
+      <div class="contract-meta">
+        <div class="contract-meta-row">
+          <span>Solidity</span>
+          <span>0.8.19 &middot; viaIR &middot; 200 runs</span>
+        </div>
+        <div class="contract-meta-row">
+          <span>Framework</span>
+          <span>Hardhat 2.28.6 &middot; Ethers 6.16.0 &middot; OpenZeppelin 4.9.6</span>
+        </div>
+        <div class="contract-meta-row">
+          <span>Test Suite</span>
+          <span>146 tests passing across 5 suites</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ═══════ PROOF CHAIN ═══════ -->
   <section id="proof" class="section">
     <div class="container narrow">
       <h2>Cryptographic Proof Chain</h2>
-      <p>Every word is hashed. Every hash is pinned. Every pin is anchored on-chain. This is not DRM. This is proof-of-origin.</p>
+      <p>Every word is hashed. Every hash is Merkle-treed. Every tree is pinned. Every pin is anchored on-chain. This is not DRM. This is proof-of-origin.</p>
 
       <div class="proof-chain">
         <div class="proof-step">
@@ -143,6 +203,15 @@
         <div class="proof-step">
           <div class="proof-icon">3</div>
           <div class="proof-content">
+            <h4>Merkle Trees</h4>
+            <p>Four independent trees (manuscript, artifact, image, prompt) combine into a single Edition Root.</p>
+            <code class="proof-value">H(manuscriptRoot ‖ artifactRoot ‖ imageRoot ‖ promptRoot)</code>
+          </div>
+        </div>
+        <div class="proof-connector"></div>
+        <div class="proof-step">
+          <div class="proof-icon">4</div>
+          <div class="proof-content">
             <h4>Pinned to IPFS</h4>
             <p>Content-addressed and distributed. The CID is the content.</p>
             <code class="proof-value"><a href="https://ipfs.io/ipfs/QmPXtEsRwiWuaKmKNA569XAqFNVySN8pwTdGQrvcdpgtMa" target="_blank" rel="noopener">QmPXtEsRwiWuaKmKNA569XAqFNVySN8pwTdGQrvcdpgtMa</a></code>
@@ -150,11 +219,20 @@
         </div>
         <div class="proof-connector"></div>
         <div class="proof-step">
-          <div class="proof-icon">4</div>
+          <div class="proof-icon">5</div>
           <div class="proof-content">
             <h4>Anchored on Polygon</h4>
-            <p>On-chain record. Immutable. Verifiable by anyone.</p>
-            <code class="proof-value"><a href="https://polygonscan.com/address/0x97f456300817eaE3B40E235857b856dfFE8bba90" target="_blank" rel="noopener">0x97f456300817eaE3B40E235857b856dfFE8bba90</a></code>
+            <p>Five verified contracts. Edition roots, licensing, royalties, and identity — all on-chain.</p>
+            <code class="proof-value"><a href="https://polygonscan.com/address/0xca9F6604A9b498DB31d113836E2957c0a9aAE037" target="_blank" rel="noopener">5 contracts verified on Polygonscan</a></code>
+          </div>
+        </div>
+        <div class="proof-connector"></div>
+        <div class="proof-step">
+          <div class="proof-icon">6</div>
+          <div class="proof-content">
+            <h4>Bitcoin Timestamp</h4>
+            <p>OpenTimestamps proof cross-chains the temporal anchor to Bitcoin&rsquo;s proof-of-work.</p>
+            <code class="proof-value">dist/edition.ots</code>
           </div>
         </div>
       </div>
@@ -262,7 +340,7 @@
           <span class="verify-num">03</span>
           <h4>Read the Smart Contract</h4>
         </div>
-        <p class="verify-desc">The <code>LiteraryAnchor</code> contract on Polygon stores every edition&rsquo;s IPFS CID and SHA-256 hash. It was deployed at block 83,002,198 and is verified on Polygonscan. Anyone can read it.</p>
+        <p class="verify-desc">Five verified contracts on Polygon store edition data, Merkle roots, licenses, royalty splits, and author identity. The <code>LiteraryAnchor</code> genesis was deployed at block 83,002,198. All contracts are readable on Polygonscan.</p>
         <div class="verify-contract">
           <div class="contract-row">
             <span class="contract-label">Contract</span>
@@ -282,8 +360,9 @@
           </div>
         </div>
         <div class="verify-actions">
-          <a href="https://polygonscan.com/address/0x97f456300817eaE3B40E235857b856dfFE8bba90#readContract" target="_blank" rel="noopener" class="btn btn-primary btn-sm">Read Contract on Polygonscan</a>
-          <a href="https://github.com/FTHTrading/2500-donkeys/blob/master/web3/contracts/LiteraryAnchor.sol" target="_blank" rel="noopener" class="btn btn-ghost btn-sm">View Source Code</a>
+          <a href="https://polygonscan.com/address/0x97f456300817eaE3B40E235857b856dfFE8bba90#readContract" target="_blank" rel="noopener" class="btn btn-primary btn-sm">Read LiteraryAnchor</a>
+          <a href="https://polygonscan.com/address/0xca9F6604A9b498DB31d113836E2957c0a9aAE037#readContract" target="_blank" rel="noopener" class="btn btn-primary btn-sm">Read KernelV2</a>
+          <a href="https://github.com/FTHTrading/2500-donkeys/tree/master/web3/contracts" target="_blank" rel="noopener" class="btn btn-ghost btn-sm">View All Source Code</a>
         </div>
       </div>
 
@@ -307,13 +386,18 @@
 <span class="t-cmd">npm run</span> compile
 
 <span class="t-comment"># 3. Hash it — should match the on-chain hash</span>
-<span class="t-cmd">shasum -a 256</span> dist/compiled-manuscript.md
+<span class="t-cmd">shasum -a 256</span> dist/final-manuscript.md
 <span class="t-output"># → 9d062421b52d35aa23b73bfc8f66574db78bad9726e45c43a12d0109cdd57d84</span>
 
-<span class="t-comment"># 4. Verify against the Polygon contract</span>
+<span class="t-comment"># 4. Run the test suite (146 tests)</span>
+<span class="t-cmd">npm run</span> hh:test
+<span class="t-output"># → 146 passing</span>
+
+<span class="t-comment"># 5. Verify against the Polygon contracts</span>
 <span class="t-cmd">npm run</span> audit:chain
 <span class="t-output"># → ✓ On-chain hash matches compiled manuscript</span>
 <span class="t-output"># → ✓ IPFS CID matches on-chain record</span>
+<span class="t-output"># → ✓ 5 contracts verified</span>
 <span class="t-output"># → ✓ Author wallet confirmed</span></code></pre>
         </div>
       </div>
@@ -446,8 +530,9 @@
         <a href="https://doi.org/10.5281/zenodo.18646886" target="_blank" rel="noopener">DOI</a>
         <a href="https://orcid.org/0009-0008-8425-939X" target="_blank" rel="noopener">ORCID</a>
         <a href="https://www.researchgate.net/profile/Kevan-Burns" target="_blank" rel="noopener">ResearchGate</a>
+        <a href="https://medium.com/@kevanbtc/a-deterministic-publishing-experiment-and-the-infrastructure-paper-it-produced-8a4d7b6e9288" target="_blank" rel="noopener">Medium</a>
         <a href="https://github.com/FTHTrading/2500-donkeys" target="_blank" rel="noopener">GitHub</a>
-        <a href="https://polygonscan.com/address/0x97f456300817eaE3B40E235857b856dfFE8bba90" target="_blank" rel="noopener">Polygonscan</a>
+        <a href="https://polygonscan.com/address/0xca9F6604A9b498DB31d113836E2957c0a9aAE037" target="_blank" rel="noopener">Polygonscan</a>
         <a href="https://ipfs.io/ipfs/QmPXtEsRwiWuaKmKNA569XAqFNVySN8pwTdGQrvcdpgtMa" target="_blank" rel="noopener">IPFS</a>
         <a href="#cite">Cite This Work</a>
       </div>
