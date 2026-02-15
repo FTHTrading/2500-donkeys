@@ -3,29 +3,21 @@
   "author": "Kidd James",
   "edition": "genesis",
   "build": {
-    "timestamp": "2026-02-15T02:14:13.322Z",
-    "sha256": "cdef74d157437eeeb20d474fa7fcb590c83f87668aa109c036c76ac21e578364",
-    "md5": "15ec4f352795ee7afdb5fe1e5d562510",
-    "sizeBytes": 49224,
+    "timestamp": "2026-02-15T03:57:27.693Z",
+    "sha256": "9d062421b52d35aa23b73bfc8f66574db78bad9726e45c43a12d0109cdd57d84",
+    "md5": "04c622804c2d75f6e5fff6740af1d00f",
+    "sizeBytes": 293368,
     "source": "dist/final-manuscript.md"
   },
   "ipfs": {
     "cid": "QmVQ79NM3qxAsBpftTG4YhD4KV9sUEmM3WwFrc5vs5g8vK",
-    "manuscriptCid": "QmdK3k8Npw8nE14JVRf2mv2QThkcXjmDLw7nFj2h69upNh",
     "pinnedAt": "2026-02-15T02:15:00.000Z",
-    "gateway": "http://127.0.0.1:8080/ipfs/QmVQ79NM3qxAsBpftTG4YhD4KV9sUEmM3WwFrc5vs5g8vK",
-    "peerID": "12D3KooWS2kwSctr6Lbxw2BZrEpAKQEwpaX1KnwDUSTxC3EKZd6E"
+    "gateway": "https://ipfs.io/ipfs/QmVQ79NM3qxAsBpftTG4YhD4KV9sUEmM3WwFrc5vs5g8vK"
   },
   "chain": {
     "network": "polygon-mainnet",
-    "chainId": 137,
     "contract": "0x97f456300817eaE3B40E235857b856dfFE8bba90",
     "txHash": "0x9c036d1d8e946e0d9c8c520d4818e3d211c137478f7a704b733fbea500f28ec6",
-    "blockNumber": 83002198,
-    "gasUsed": "1116006",
-    "deploymentCost": "0.887166106996181202 POL",
-    "authorWallet": "0xC91668184736BF75C4ecE37473D694efb2A43978",
-    "deployedAt": "2026-02-15T03:00:22.149Z",
-    "explorer": "https://polygonscan.com/address/0x97f456300817eaE3B40E235857b856dfFE8bba90"
+    "authorWallet": "0xC91668184736BF75C4ecE37473D694efb2A43978"
   }
 }

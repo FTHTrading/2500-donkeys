@@ -1,7 +1,7 @@
 {
   "title": "The 2,500 Donkeys",
   "subtitle": "A Literary Protocol by Kidd James",
-  "version": "genesis",
+  "version": "edition-2",
   "blocks": [
     {
       "id": "block-00",
@@ -16,9 +16,33 @@
       "type": "prose"
     },
     {
+      "id": "block-01a",
+      "file": "block-01a-raymonds-deal.md",
+      "title": "Raymond's First Deal",
+      "type": "prose"
+    },
+    {
+      "id": "block-01b",
+      "file": "block-01b-geralds-lot.md",
+      "title": "Gerald's Lot",
+      "type": "prose"
+    },
+    {
+      "id": "block-01c",
+      "file": "block-01c-marcus-connection.md",
+      "title": "The Connection",
+      "type": "prose"
+    },
+    {
       "id": "block-02",
       "file": "block-02-paper.md",
       "title": "The Paper",
+      "type": "prose"
+    },
+    {
+      "id": "block-02a",
+      "file": "block-02a-seven-families.md",
+      "title": "The Seven Families",
       "type": "prose"
     },
     {
@@ -31,9 +55,45 @@
       ]
     },
     {
+      "id": "block-03a",
+      "file": "block-03a-mutation-lagos.md",
+      "title": "The Lagos Variant",
+      "type": "prose"
+    },
+    {
+      "id": "block-03b",
+      "file": "block-03b-mutation-dubai.md",
+      "title": "The Dubai Variant",
+      "type": "prose"
+    },
+    {
+      "id": "block-03c",
+      "file": "block-03c-mutation-zurich.md",
+      "title": "The Zurich Variant",
+      "type": "prose"
+    },
+    {
+      "id": "block-03d",
+      "file": "block-03d-mutation-ngo.md",
+      "title": "The Aid Wash",
+      "type": "prose"
+    },
+    {
+      "id": "block-03e",
+      "file": "block-03e-mutation-carbon.md",
+      "title": "The Conference",
+      "type": "prose"
+    },
+    {
       "id": "block-04",
       "file": "block-04-donkeys.md",
       "title": "The Donkeys",
+      "type": "prose"
+    },
+    {
+      "id": "block-04a",
+      "file": "block-04a-storyteller-origin.md",
+      "title": "The Vault",
       "type": "prose"
     },
     {
@@ -47,6 +107,48 @@
       ]
     },
     {
+      "id": "block-05a",
+      "file": "block-05a-philippe-geneva.md",
+      "title": "The WeWork",
+      "type": "prose"
+    },
+    {
+      "id": "block-05b",
+      "file": "block-05b-departure.md",
+      "title": "The Departure",
+      "type": "prose"
+    },
+    {
+      "id": "block-05c",
+      "file": "block-05c-attrition.md",
+      "title": "Attrition",
+      "type": "prose"
+    },
+    {
+      "id": "block-05d",
+      "file": "block-05d-bandit-corridor.md",
+      "title": "The Bandit Corridor",
+      "type": "prose"
+    },
+    {
+      "id": "block-05e",
+      "file": "block-05e-green-zone.md",
+      "title": "The Green Zone",
+      "type": "prose"
+    },
+    {
+      "id": "block-05f",
+      "file": "block-05f-collapse.md",
+      "title": "Collapse",
+      "type": "prose"
+    },
+    {
+      "id": "block-05g",
+      "file": "block-05g-arrival.md",
+      "title": "The Arrival",
+      "type": "prose"
+    },
+    {
       "id": "block-06",
       "file": "block-06-humanitarian.md",
       "title": "The Humanitarian Settlement",
@@ -56,9 +158,39 @@
       ]
     },
     {
+      "id": "block-06a",
+      "file": "block-06a-processing.md",
+      "title": "Processing",
+      "type": "prose"
+    },
+    {
       "id": "block-07",
       "file": "block-07-silence.md",
       "title": "The Silence",
+      "type": "prose"
+    },
+    {
+      "id": "block-07a",
+      "file": "block-07a-raymond-home.md",
+      "title": "The Woodlands",
+      "type": "prose"
+    },
+    {
+      "id": "block-07b",
+      "file": "block-07b-groups-dying.md",
+      "title": "The Groups Dying",
+      "type": "prose"
+    },
+    {
+      "id": "block-07c",
+      "file": "block-07c-storyteller-summit.md",
+      "title": "The Summit",
+      "type": "prose"
+    },
+    {
+      "id": "block-07d",
+      "file": "block-07d-resurrection.md",
+      "title": "Resurrection",
       "type": "prose"
     },
     {
