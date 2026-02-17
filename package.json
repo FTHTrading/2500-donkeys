@@ -39,7 +39,20 @@
     "audio:render": "node audio/render.js",
     "audio:hash": "node audio/hash-audio.js",
     "audio:verify": "node audio/hash-audio.js --verify",
-    "audio:all": "node audio/render.js && node audio/hash-audio.js"
+    "audio:all": "node audio/render.js && node audio/hash-audio.js",
+
+    "stories:merkle": "node stories/stories-merkle.js",
+    "stories:pdf": "node stories/build-stories-pdf.js",
+    "stories:epub": "node stories/build-stories-epub.js",
+    "stories:build": "node stories/stories-merkle.js && node stories/build-stories-pdf.js && node stories/build-stories-epub.js",
+    "stories:audio:dry": "python stories/narrate-stories-kokoro.py --dry-run",
+    "stories:audio:render": "python stories/narrate-stories-kokoro.py",
+    "stories:audio:hash": "node stories/hash-stories-audio.js",
+    "stories:audio:verify": "node stories/hash-stories-audio.js --verify",
+    "stories:audio:all": "python stories/narrate-stories-kokoro.py && node stories/hash-stories-audio.js",
+    "stories:anchor": "node stories/anchor-stories.js",
+    "stories:anchor:execute": "node stories/anchor-stories.js --execute",
+    "stories:all": "node stories/stories-merkle.js && node stories/build-stories-pdf.js && node stories/build-stories-epub.js"
   },
   "keywords": [
     "literary-protocol",
