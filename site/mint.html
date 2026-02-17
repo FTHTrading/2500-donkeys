@@ -50,7 +50,7 @@
   .mint-hero .lead {
     font-family: 'Inter', sans-serif;
     font-size: 0.95rem;
-    color: var(--text-dim);
+    color: var(--text-secondary);
     max-width: 560px;
   }
 
@@ -81,7 +81,7 @@
   .wallet-status {
     font-family: 'IBM Plex Mono', monospace;
     font-size: 0.75rem;
-    color: var(--text-dim);
+    color: var(--text-tertiary);
     text-align: center;
     padding-bottom: 24px;
   }
@@ -106,7 +106,7 @@
   .mint-section .section-sub {
     font-family: 'Inter', sans-serif;
     font-size: 0.85rem;
-    color: var(--text-dim);
+    color: var(--text-secondary);
     text-align: center;
     margin-bottom: 32px;
   }
@@ -119,10 +119,10 @@
     margin-bottom: 40px;
   }
   .tier-card {
-    border: 1px solid var(--rule);
+    border: 1px solid var(--border);
     border-radius: 6px;
     padding: 28px 24px;
-    background: var(--bg-raised, #111);
+    background: var(--bg-card);
     position: relative;
     overflow: hidden;
   }
@@ -144,7 +144,7 @@
   .tier-card .tier-desc {
     font-family: 'Inter', sans-serif;
     font-size: 0.8rem;
-    color: var(--text-dim);
+    color: var(--text-secondary);
     line-height: 1.6;
     margin-bottom: 16px;
   }
@@ -153,9 +153,9 @@
     justify-content: space-between;
     font-family: 'IBM Plex Mono', monospace;
     font-size: 0.75rem;
-    color: var(--text-dim);
+    color: var(--text-tertiary);
     padding: 4px 0;
-    border-bottom: 1px solid var(--rule);
+    border-bottom: 1px solid var(--border-light);
   }
   .tier-stat:last-of-type { border-bottom: none; }
   .tier-stat .val { color: var(--text); }
@@ -186,17 +186,17 @@
     gap: 16px;
   }
   .story-card {
-    border: 1px solid var(--rule);
+    border: 1px solid var(--border);
     border-radius: 6px;
     padding: 20px 18px;
-    background: var(--bg-raised, #111);
+    background: var(--bg-card);
     transition: border-color 0.2s;
   }
   .story-card:hover { border-color: var(--gold); }
   .story-card .story-num {
     font-family: 'IBM Plex Mono', monospace;
     font-size: 0.65rem;
-    color: var(--text-dim);
+    color: var(--text-muted);
     letter-spacing: 0.1em;
     margin-bottom: 6px;
   }
@@ -213,7 +213,7 @@
     justify-content: space-between;
     font-family: 'IBM Plex Mono', monospace;
     font-size: 0.7rem;
-    color: var(--text-dim);
+    color: var(--text-tertiary);
     margin-bottom: 12px;
   }
   .story-info .val { color: var(--text); }
@@ -258,10 +258,10 @@
     .arch-grid { grid-template-columns: 1fr; }
   }
   .arch-item {
-    border: 1px solid var(--rule);
+    border: 1px solid var(--border);
     border-radius: 4px;
     padding: 16px;
-    background: var(--bg-raised, #111);
+    background: var(--bg-card);
   }
   .arch-item h4 {
     font-family: 'Inter', sans-serif;
@@ -275,7 +275,7 @@
   .arch-item p {
     font-family: 'IBM Plex Mono', monospace;
     font-size: 0.72rem;
-    color: var(--text-dim);
+    color: var(--text-secondary);
     line-height: 1.5;
     word-break: break-all;
   }
@@ -283,7 +283,7 @@
   .arch-note {
     font-family: 'Inter', sans-serif;
     font-size: 0.78rem;
-    color: var(--text-dim);
+    color: var(--text-secondary);
     line-height: 1.6;
     max-width: 600px;
     margin: 0 auto;
@@ -300,7 +300,7 @@
   .mint-log h3 {
     font-family: 'Inter', sans-serif;
     font-size: 0.8rem;
-    color: var(--text-dim);
+    color: var(--text-tertiary);
     letter-spacing: 0.08em;
     text-transform: uppercase;
     margin-bottom: 8px;
@@ -308,9 +308,9 @@
   .mint-log-entry {
     font-family: 'IBM Plex Mono', monospace;
     font-size: 0.72rem;
-    color: var(--text-dim);
+    color: var(--text-secondary);
     padding: 6px 0;
-    border-bottom: 1px solid var(--rule);
+    border-bottom: 1px solid var(--border-light);
   }
   .mint-log-entry .success { color: #4ade80; }
   .mint-log-entry .error { color: #f87171; }
@@ -320,12 +320,12 @@
   .mint-footer {
     text-align: center;
     padding: 40px 24px;
-    border-top: 1px solid var(--rule);
+    border-top: 1px solid var(--border);
   }
   .mint-footer p {
     font-family: 'Inter', sans-serif;
     font-size: 0.75rem;
-    color: var(--text-dim);
+    color: var(--text-secondary);
     margin-bottom: 4px;
   }
   .mint-footer a { color: var(--gold); }
@@ -410,7 +410,7 @@
   <!-- ━━━ Story NFT — Private Placement Programs ━━━ -->
   <section class="mint-section" id="story-mint">
     <h2>Private Placement Programs</h2>
-    <p class="section-sub">Per-Story Collectibles — XIV stories. Each a separate mintable series.</p>
+    <p class="section-sub">Per-Story Collectibles — 14 stories. Each a separate mintable series.</p>
 
     <div class="story-grid" id="storyGrid">
       <!-- Populated by JS -->
@@ -444,12 +444,12 @@
         <p><a href="https://polygonscan.com/address/0x44169829489d70aaecbf845870652871C65fC461#code" target="_blank" rel="noopener">0x441698...fC461</a><br>Programmable revenue splits. Recoupment waterfall.</p>
       </div>
     </div>
-    <p class="arch-note">All contracts are verified on Polygonscan. 293 tests passing across VII suites. Network: Polygon Mainnet, Chain ID 137, Solidity 0.8.19.</p>
+    <p class="arch-note">All contracts are verified on Polygonscan. 293 tests passing across 7 suites. Network: Polygon Mainnet, Chain ID 137, Solidity 0.8.19.</p>
   </section>
 
   <!-- ━━━ Footer ━━━ -->
   <div class="mint-footer">
-    <p>XXXIII · Deterministic Literary Infrastructure · MMXXVI</p>
+    <p>XXXIII · LPS-1 Open Provenance Standard · 2026</p>
     <p><a href="/">Home</a> · <a href="library.html">Library</a> · <a href="listen.html">Listen</a> · <a href="gallery.html">Gallery</a></p>
     <p style="margin-top: 8px;">Author: <a href="https://polygonscan.com/address/0xC91668184736BF75C4ecE37473D694efb2A43978" target="_blank" rel="noopener">0xC916...3978</a></p>
   </div>
@@ -774,7 +774,7 @@ function logEntry(message, type) {
   const linked = message.replace(/(0x[a-fA-F0-9]{64})/g,
     '<a href="https://polygonscan.com/tx/$1" target="_blank" rel="noopener">$1</a>');
 
-  entry.innerHTML = `<span style="color:var(--text-dim)">[${time}]</span> <span class="${cls}">${linked}</span>`;
+  entry.innerHTML = `<span style="color:var(--text-tertiary)">[${time}]</span> <span class="${cls}">${linked}</span>`;
   entries.prepend(entry);
 }
 
