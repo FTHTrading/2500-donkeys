@@ -1,11 +1,11 @@
 ::: {.front-matter}
 
 ::: {.half-title}
-# Private Placement Puppetry
+# Private Placement Programs
 :::
 
 ::: {.title-page}
-# Private Placement Puppetry
+# Private Placement Programs
 
 ### Thirteen Stories from the War Room
 

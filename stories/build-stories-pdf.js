@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * build-stories-pdf.js — Print-ready PDF for "Private Placement Puppetry"
+ * build-stories-pdf.js — Print-ready PDF for "Private Placement Programs"
  *
  * Concatenates manuscript files in order → Pandoc → HTML → Puppeteer → PDF
  * Reuses the existing print-style.css for 5.5" × 8.5" digest trim.
@@ -112,7 +112,7 @@ async function buildPDF() {
 
   // Step 2: Puppeteer HTML → PDF
   console.log("  [2/2] Puppeteer: HTML → PDF...");
-  const outputPath = path.join(DIST_DIR, "ppe-puppetry-print.pdf");
+  const outputPath = path.join(DIST_DIR, "ppp-programs-print.pdf");
 
   const puppeteer = require("puppeteer");
   const browser = await puppeteer.launch({

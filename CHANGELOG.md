@@ -56,7 +56,7 @@ Tags follow [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 ### Added
 - **EditionNFT** contract — ERC-721 + ERC-2981, 3-tier supply (Genesis/Founder/Public), deployed and verified (`e2c811d`)
 - **StoryNFT** contract — ERC-721 + ERC-2981, XIV stories, deployed and verified (`e2c811d`)
-- **Private Placement Puppetry** — 13 satirical stories, full pipeline (`d3d11d3`)
+- **Private Placement Programs** — 13 satirical stories, full pipeline (`d3d11d3`)
   - Manuscript Merkle tree (16 leaves)
   - Kokoro TTS narration (13 MP3s, `bm_george` narrator)
   - Audio Merkle tree (13 leaves)

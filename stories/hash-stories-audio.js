@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
  * ══════════════════════════════════════════════════════════════
- *  Private Placement Puppetry — Audio Hash + Merkle Tree Builder
+ *  Private Placement Programs — Audio Hash + Merkle Tree Builder
  * ──────────────────────────────────────────────────────────────
  *  Hashes all rendered story audio files, builds a Merkle tree,
  *  computes audioEditionRoot = H(editionRoot || audioRoot),
@@ -81,7 +81,7 @@ function buildMerkleTree(leaves) {
 function main() {
   console.log("");
   console.log("══════════════════════════════════════════════════");
-  console.log("  PRIVATE PLACEMENT PUPPETRY — Audio Hash + Merkle Tree");
+  console.log("  PRIVATE PLACEMENT PROGRAMS — Audio Hash + Merkle Tree");
   console.log("══════════════════════════════════════════════════\n");
 
   if (!fs.existsSync(AUDIO_DIR)) {
@@ -147,7 +147,7 @@ function main() {
   // ── Assemble manifest ─────────────────────────────────────
   const manifest = {
     version: "IAPL-1",
-    title: "Private Placement Puppetry",
+    title: "Private Placement Programs",
     generatedAt: new Date().toISOString(),
 
     voice: {
@@ -220,7 +220,7 @@ function main() {
 function verify() {
   console.log("");
   console.log("══════════════════════════════════════════════════");
-  console.log("  PRIVATE PLACEMENT PUPPETRY — Audio Verification");
+  console.log("  PRIVATE PLACEMENT PROGRAMS — Audio Verification");
   console.log("══════════════════════════════════════════════════\n");
 
   if (!fs.existsSync(MANIFEST_FILE)) {

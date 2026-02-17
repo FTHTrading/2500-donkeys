@@ -1,5 +1,5 @@
 /**
- * deploy-story-nft.js — Deploy StoryNFT for Private Placement Puppetry
+ * deploy-story-nft.js — Deploy StoryNFT for Private Placement Programs
  *
  * Deploys the StoryNFT contract, then:
  *   1. Batch-registers all 14 stories with their SHA-256 content hashes
@@ -209,7 +209,7 @@ async function main() {
   console.log("║   DEPLOYMENT COMPLETE                                    ║");
   console.log("╠══════════════════════════════════════════════════════════╣");
   console.log(`║  Contract:    ${nftAddress}  ║`);
-  console.log(`║  Name:        Private Placement Puppetry                  ║`);
+  console.log(`║  Name:        Private Placement Programs                  ║`);
   console.log(`║  Symbol:      STORY                                       ║`);
   console.log(`║  Stories:     14 registered                               ║`);
   console.log(`║  Supply:      ${CONFIG.maxSupplyPerStory} per story (${CONFIG.maxSupplyPerStory * 14} total)                      ║`);

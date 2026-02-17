@@ -10,7 +10,7 @@ import "@openzeppelin/contracts/token/common/ERC2981.sol";
  * @author Kevan Burns (Kidd James) / FTH Trading
  * @notice Literary Protocol Standard — Per-Story Collectible NFTs
  *
- * Each of the 14 stories in Private Placement Puppetry is a separate
+ * Each of the 14 stories in Private Placement Programs is a separate
  * mintable series. Collectors can own individual stories as NFTs.
  *
  * Architecture:
@@ -136,7 +136,7 @@ contract StoryNFT is ERC721, ERC721Enumerable, ERC2981 {
     /**
      * @notice Deploy StoryNFT linked to a LiteraryAnchor edition.
      * @param _genesisAnchor   LiteraryAnchor contract address
-     * @param _editionIndex    Edition index for Private Placement Puppetry
+     * @param _editionIndex    Edition index for Private Placement Programs
      * @param _baseMetadataURI Base URI for token metadata
      * @param _royaltyBps      Default royalty in basis points (e.g., 750 = 7.5%)
      */

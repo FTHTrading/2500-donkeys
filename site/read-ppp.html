@@ -3,15 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Private Placement Puppetry — Read</title>
-<meta name="description" content="Read Private Placement Puppetry: Fourteen Stories from the War Room by Kidd James. An interactive reading experience.">
-<meta property="og:title" content="Private Placement Puppetry — Read">
+<title>Private Placement Programs — Read</title>
+<meta name="description" content="Read Private Placement Programs: Fourteen Stories from the War Room by Kidd James. An interactive reading experience.">
+<meta property="og:title" content="Private Placement Programs — Read">
 <meta property="og:description" content="Fourteen Stories from the War Room. Satirical short fiction about private placement programs, phantom deals, and the puppet masters who pull the strings.">
 <meta property="og:type" content="article">
-<meta property="og:url" content="https://xxxiii.io/read-ppe.html">
+<meta property="og:url" content="https://xxxiii.io/read-ppp.html">
 <meta property="og:image" content="https://xxxiii.io/images/cover/cover-front.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Private Placement Puppetry — Fourteen Stories from the War Room">
+<meta name="twitter:title" content="Private Placement Programs — Fourteen Stories from the War Room">
 <meta name="twitter:description" content="Satirical short fiction anchored on Polygon. By Kidd James.">
 <meta name="twitter:image" content="https://xxxiii.io/images/cover/cover-front.png">
 <meta name="author" content="Kidd James">
@@ -513,7 +513,7 @@ body {
 <!-- Top bar -->
 <div class="topbar">
   <a href="library.html" class="home-btn">&#8962; Library</a>
-  <span class="topbar-title">Private Placement Puppetry</span>
+  <span class="topbar-title">Private Placement Programs</span>
   <span class="topbar-progress" id="progress-text">Cover</span>
 </div>
 <div class="progress-bar" id="progress-bar" style="width: 0%"></div>
@@ -524,7 +524,7 @@ body {
   <!-- PAGE 0: Cover -->
   <div class="page cover-page active" data-page="0">
     <div class="cover-icon">🎭</div>
-    <h1>Private Placement Puppetry</h1>
+    <h1>Private Placement Programs</h1>
     <p class="subtitle">Fourteen Stories from the War Room</p>
     <p class="author">by Kidd James</p>
     <button class="start-btn" onclick="goTo(1)">Begin Reading</button>
@@ -539,7 +539,7 @@ body {
         <div class="audio-bar" onclick="seekAudio(event, this)"><div class="audio-bar-fill"></div></div>
         <span class="audio-time">--:--</span>
       </div>
-      <h1>Private Placement Puppetry</h1>
+      <h1>Private Placement Programs</h1>
       <h2>Fourteen Stories from the War Room</h2>
       <p style="text-align:center;"><em>Kidd James</em></p>
       <p style="text-align:center;">xxxiii.io</p>
@@ -1868,7 +1868,7 @@ body {
   <!-- PAGE 17: Colophon -->
   <div class="page colophon" data-page="17">
     <h2>Colophon</h2>
-    <p><em>Private Placement Puppetry: Fourteen Stories from the War Room</em></p>
+    <p><em>Private Placement Programs: Fourteen Stories from the War Room</em></p>
     <p>Composed in Markdown, compiled with Pandoc, typeset with Puppeteer, anchored on Polygon.</p>
     <p>Interior set in Georgia, at 10.5/15pt.</p>
     <p>Built with the Genesis Publishing Protocol.</p>
@@ -1954,7 +1954,7 @@ function goTo(n) {
 
   setTimeout(function() { pages[old].classList.remove('exit-left'); }, 400);
   updateUI();
-  localStorage.setItem('ppe-reader-page', current);
+  localStorage.setItem('ppp-reader-page', current);
 }
 
 function next() { goTo(current + 1); }
@@ -1993,7 +1993,7 @@ document.addEventListener('touchend', function(e) {
 });
 
 // Restore position
-var saved = localStorage.getItem('ppe-reader-page');
+var saved = localStorage.getItem('ppp-reader-page');
 if (saved && parseInt(saved) > 0 && parseInt(saved) < total) {
   pages[0].classList.remove('active');
   current = parseInt(saved);

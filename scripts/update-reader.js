@@ -1,11 +1,11 @@
 #!/usr/bin/env node
 /**
- * update-reader.js — Apply all updates to read-ppe.html for Edition 2 (13 stories)
+ * update-reader.js — Apply all updates to read-ppp.html for Edition 2 (13 stories)
  */
 const fs = require('fs');
 const path = require('path');
 
-const READER = path.resolve(__dirname, '..', 'site', 'read-ppe.html');
+const READER = path.resolve(__dirname, '..', 'site', 'read-ppp.html');
 const NEW_PAGES = path.resolve(__dirname, '..', 'dist', 'new-pages.html');
 
 let html = fs.readFileSync(READER, 'utf-8');
@@ -13,8 +13,8 @@ const newPages = fs.readFileSync(NEW_PAGES, 'utf-8');
 
 // ── 1. Meta description ──
 html = html.replace(
-  'Read Private Placement Puppetry: Ten Stories from the War Room',
-  'Read Private Placement Puppetry: Thirteen Stories from the War Room'
+  'Read Private Placement Programs: Ten Stories from the War Room',
+  'Read Private Placement Programs: Thirteen Stories from the War Room'
 );
 
 // ── 2. Cover subtitle ──
@@ -103,8 +103,8 @@ html = html.replace(
   'data-page="17">'
 );
 html = html.replace(
-  '<p><em>PPE Puppetry: Ten Stories from the War Room</em></p>',
-  '<p><em>Private Placement Puppetry: Thirteen Stories from the War Room</em></p>'
+  '<p><em>PPE Programs: Ten Stories from the War Room</em></p>',
+  '<p><em>Private Placement Programs: Thirteen Stories from the War Room</em></p>'
 );
 
 // ── 9. Update TOC ──
@@ -132,7 +132,7 @@ html = html.replace(
 );
 
 fs.writeFileSync(READER, html);
-console.log('Updated read-ppe.html');
+console.log('Updated read-ppp.html');
 console.log('Total length:', html.length, 'chars');
 
 // Verify page count

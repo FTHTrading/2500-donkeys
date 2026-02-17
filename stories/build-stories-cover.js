@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * build-stories-cover.js — Book Cover Generator for Private Placement Puppetry
+ * build-stories-cover.js — Book Cover Generator for Private Placement Programs
  *
  * Creates a print-ready cover PDF for KDP paperback + EPUB cover image.
  *
@@ -46,7 +46,7 @@ function getPageCount() {
 }
 
 async function buildCover() {
-  console.log("[COVER] Building Private Placement Puppetry cover...\n");
+  console.log("[COVER] Building Private Placement Programs cover...\n");
 
   if (!fs.existsSync(DIST_DIR)) fs.mkdirSync(DIST_DIR, { recursive: true });
 
@@ -71,7 +71,7 @@ async function buildCover() {
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Private Placement Puppetry — Cover</title>
+<title>Private Placement Programs — Cover</title>
 <style>
   @page {
     size: ${totalWidth}in ${totalHeight}in;
@@ -254,13 +254,13 @@ async function buildCover() {
 
   <!-- SPINE -->
   <div class="spine">
-    <div class="spine-text">PRIVATE PLACEMENT PUPPETRY &nbsp;&nbsp;&bull;&nbsp;&nbsp; KIDD JAMES</div>
+    <div class="spine-text">PRIVATE PLACEMENT PROGRAMS &nbsp;&nbsp;&bull;&nbsp;&nbsp; KIDD JAMES</div>
   </div>
 
   <!-- FRONT COVER -->
   <div class="front-cover">
     <div class="mask-icon">&#127917;</div>
-    <div class="title">Private Placement<br>Puppetry</div>
+    <div class="title">Private Placement<br>Programs</div>
     <div class="rule"></div>
     <div class="subtitle">Thirteen Stories from the War Room</div>
     <div class="author">Kidd James</div>
@@ -353,7 +353,7 @@ async function buildCover() {
 
     await browser.close();
 
-    console.log(`\n[COVER] ✅ Private Placement Puppetry cover generated!`);
+    console.log(`\n[COVER] ✅ Private Placement Programs cover generated!`);
     console.log(`[COVER]    Wrap PDF: ${wrapPdf}`);
     console.log(`[COVER]    Front PNG: ${pngPath}`);
     console.log(`[COVER]    Use PNG as --epub-cover-image`);

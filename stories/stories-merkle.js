@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * stories-merkle.js — Merkle Tree Builder for Private Placement Puppetry
+ * stories-merkle.js — Merkle Tree Builder for Private Placement Programs
  * ═══════════════════════════════════════════════════════════
  *
  * Produces per-leaf SHA-256 hashes and Merkle roots for:
@@ -115,7 +115,7 @@ function getMerkleProof(layers, leafIndex) {
 function main() {
   console.log("");
   console.log("══════════════════════════════════════════════════");
-  console.log("  PRIVATE PLACEMENT PUPPETRY — Merkle Tree Builder");
+  console.log("  PRIVATE PLACEMENT PROGRAMS — Merkle Tree Builder");
   console.log("══════════════════════════════════════════════════\n");
 
   if (!fs.existsSync(DIST_DIR)) fs.mkdirSync(DIST_DIR, { recursive: true });

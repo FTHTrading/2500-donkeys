@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-narrate-stories-kokoro.py — Kokoro TTS Narration for Private Placement Puppetry
+narrate-stories-kokoro.py — Kokoro TTS Narration for Private Placement Programs
 =================================================================
 
 Renders all 13 manuscript files to MP3 using Kokoro neural TTS.
@@ -219,7 +219,7 @@ def render_chapter(pipeline_b, index: int, filename: str, total: int) -> str:
 def main():
     print()
     print("╔════════════════════════════════════════════════════╗")
-    print("║   KOKORO TTS — Private Placement Puppetry          ║")
+    print("║   KOKORO TTS — Private Placement Programs           ║")
     print("╚════════════════════════════════════════════════════╝")
     print()
     print(f"  Engine:     Kokoro 82M (hexgrad/Kokoro-82M)")

@@ -16,7 +16,7 @@ HERO = [
 
 CARDS = [
     "images/cover/cover-front.png",            # work card (already 512)
-    "images/photo/infra-room.png",             # Private Placement Puppetry card
+    "images/photo/infra-room.png",             # Private Placement Programs card
 ]
 
 CHAIN = [
