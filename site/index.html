@@ -57,7 +57,7 @@
     <div class="hero-inner">
       <h1 class="hero-title">XXXIII</h1>
       <p class="hero-subtitle">Deterministic Literary Publishing Protocol</p>
-      <p class="hero-subline">Live LPS-1 Level 5 deployment on Polygon Mainnet. Fully observable.</p>
+      <p class="hero-subline">LPS-1 is an open, deterministic provenance standard for verifiable digital manuscripts, deployed live on Polygon.</p>
       <div class="hero-verse">
         <p>Every word hashed.</p>
         <p>Every chapter Merkle-rooted.</p>
@@ -167,6 +167,384 @@
         <li>Client-side verification requiring no trusted third party</li>
         <li>Two frozen reference editions with full provenance chains</li>
       </ul>
+    </div>
+  </div>
+
+  <!-- ━━━ XII On-Chain State ━━━ -->
+  <section class="sect sect-stone" id="chainstatus">
+    <div class="sect-inner sect-centered">
+      <span class="sect-numeral">XII</span>
+      <h2 class="sect-heading">On-Chain State</h2>
+      <p class="sect-lead">Direct read-only RPC observation of deployed contracts. No intermediary services.</p>
+
+      <div class="chain-panel">
+        <div class="chain-header">
+          <span class="chain-net-dot" id="chainDot"></span>
+          <span class="chain-net-label">Polygon Mainnet</span>
+          <span class="chain-block" id="chainBlock">Block —</span>
+          <span class="chain-rpc">RPC: polygon-rpc.com</span>
+        </div>
+
+        <div class="chain-contracts">
+          <a href="https://polygonscan.com/address/0x97f456300817eaE3B40E235857b856dfFE8bba90#code" target="_blank" rel="noopener" class="chain-badge">LiteraryAnchor <code>0x97f4…8b90</code></a>
+          <a href="https://polygonscan.com/address/0xca9F6604A9b498DB31d113836E2957c0a9aAE037#code" target="_blank" rel="noopener" class="chain-badge">KernelV2 <code>0xca9F…E037</code></a>
+          <a href="https://polygonscan.com/address/0xB9ffa688A8Bb332221030BbBE46bE5bF03323170#code" target="_blank" rel="noopener" class="chain-badge">AuthorIdentity <code>0xB9ff…3170</code></a>
+          <a href="https://polygonscan.com/address/0x44169829489d70aaecbf845870652871C65fC461#code" target="_blank" rel="noopener" class="chain-badge">RoyaltyRouter <code>0x4416…C461</code></a>
+          <a href="https://polygonscan.com/address/0x9e9Cc1486bf440Bd9eAaaD947958524Aaed3f8b0#code" target="_blank" rel="noopener" class="chain-badge">EditionNFT <code>0x9e9C…8b0</code></a>
+          <a href="https://polygonscan.com/address/0xD67e537Dba1236f802432cbDD30Fec3f6D38e7E3#code" target="_blank" rel="noopener" class="chain-badge">StoryNFT <code>0xD67e…7E3</code></a>
+          <a href="https://polygonscan.com/address/0x511c653fC0F450ba41C42A89A3125CcBf2eFE8ae#code" target="_blank" rel="noopener" class="chain-badge">Kernel <code>0x511c…E8ae</code></a>
+        </div>
+
+        <div class="chain-grid">
+          <div class="chain-card">
+            <span class="chain-card-label">Literary Anchor</span>
+            <div class="chain-row"><span>Editions</span><code id="laEditionCount">—</code></div>
+            <div class="chain-row"><span>Latest Hash</span><code id="laLatestHash" class="chain-hash">—</code></div>
+            <div class="chain-row"><span>Latest CID</span><code id="laLatestCID" class="chain-hash">—</code></div>
+            <div class="chain-row"><span>Anchor Time</span><code id="laTimestamp">—</code></div>
+          </div>
+
+          <div class="chain-card">
+            <span class="chain-card-label">Publishing Kernel V2</span>
+            <div class="chain-row"><span>Editions</span><code id="kvEditionCount">—</code></div>
+            <div class="chain-row"><span>Canonical</span><code id="kvCanonical">—</code></div>
+            <div class="chain-row"><span>Frozen</span><code id="kvFrozen">—</code></div>
+            <div class="chain-row"><span>Edition Root</span><code id="kvEditionRoot" class="chain-hash">—</code></div>
+          </div>
+
+          <div class="chain-card">
+            <span class="chain-card-label">Author Identity</span>
+            <div class="chain-row"><span>Name</span><code id="aiName">—</code></div>
+            <div class="chain-row"><span>Pseudonym</span><code id="aiPseudonym">—</code></div>
+            <div class="chain-row"><span>Works</span><code id="aiWorks">—</code></div>
+            <div class="chain-row"><span>Linked Contracts</span><code id="aiContracts">—</code></div>
+          </div>
+
+          <div class="chain-card">
+            <span class="chain-card-label">NFT Layer</span>
+            <div class="chain-row"><span>EditionNFT Supply</span><code id="nftEditionSupply">—</code></div>
+            <div class="chain-row"><span>StoryNFT Supply</span><code id="nftStorySupply">—</code></div>
+            <div class="chain-row"><span>Royalty Router</span><code id="nftRoyalty">—</code></div>
+          </div>
+        </div>
+
+        <div class="chain-events">
+          <h4 class="chain-events-title">Recent On-Chain Events</h4>
+          <div id="chainEvents" class="chain-event-list">
+            <div class="chain-event-placeholder">Loading events…</div>
+          </div>
+        </div>
+
+        <div class="chain-footer">
+          <span class="chain-refresh" id="chainRefresh">↻ Refresh</span>
+          <span class="chain-updated" id="chainUpdated">Last read: —</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ━━━ XVIII Compliance Levels ━━━ -->
+  <section class="sect sect-stone" id="compliance">
+    <div class="sect-inner sect-centered">
+      <span class="sect-numeral">XVIII</span>
+      <h2 class="sect-heading">Compliance Levels</h2>
+      <p class="sect-lead">Progressive implementation tiers for protocol conformance.</p>
+
+      <div class="compliance-grid">
+        <div class="compliance-level">
+          <span class="cl-num">0</span>
+          <span class="cl-name">Anchor Only</span>
+          <span class="cl-req">SHA-256 hash stored on any public blockchain</span>
+        </div>
+        <div class="compliance-level">
+          <span class="cl-num">1</span>
+          <span class="cl-name">Deterministic Build</span>
+          <span class="cl-req">CRLF normalisation + reproducible canonical hash</span>
+        </div>
+        <div class="compliance-level">
+          <span class="cl-num">2</span>
+          <span class="cl-name">Merkle Provenance</span>
+          <span class="cl-req">Per-content-type Merkle trees + combined edition root</span>
+        </div>
+        <div class="compliance-level">
+          <span class="cl-num">3</span>
+          <span class="cl-name">On-Chain Anchoring</span>
+          <span class="cl-req">Immutable blockchain record binding edition root to block timestamp</span>
+        </div>
+        <div class="compliance-level">
+          <span class="cl-num">4</span>
+          <span class="cl-name">Signed Canonical Root</span>
+          <span class="cl-req">ECDSA identity binding + on-chain author registry</span>
+        </div>
+        <div class="compliance-level cl-active">
+          <span class="cl-num">5</span>
+          <span class="cl-name">Fully Observable</span>
+          <span class="cl-req">Cross-chain timestamp + client-side verification</span>
+        </div>
+      </div>
+
+      <div class="compliance-cert">
+        <span class="cert-badge">LPS-1 Level 5 &mdash; Fully Observable</span>
+        <p class="cert-detail">XXXIII reference implementation. VII verified contracts. Cross-chain anchoring via Polygon + Bitcoin (OpenTimestamps). Client-side on-chain state verification. 293 tests passing.</p>
+        <a href="https://github.com/FTHTrading/LPS-1-Reference-Implementation/blob/main/spec/COMPLIANCE.md" target="_blank" rel="noopener" class="btn btn-sm" style="margin-top:1rem">View Compliance Matrix</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ━━━ XIV The Verifier ━━━ -->
+  <section class="sect sect-stone" id="verify">
+    <div class="sect-inner sect-centered">
+      <span class="sect-numeral">XIV</span>
+      <h2 class="sect-heading">Verify It Yourself</h2>
+
+      <div class="verifier">
+        <div class="verifier-drop" id="dropzone">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" width="32" height="32"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+          <p>Drop compiled-manuscript.md</p>
+          <p class="verifier-hint">SHA-256 computed locally. Nothing leaves your machine.</p>
+          <label class="btn btn-sm" for="fileInput">Choose File</label>
+          <input type="file" id="fileInput" style="display:none" accept=".md,.txt">
+        </div>
+        <div class="verifier-result" id="hashResult" style="display:none">
+          <div class="vr-status" id="hashStatus"><span id="hashIcon"></span><span id="hashText"></span></div>
+          <div class="vr-compare">
+            <div class="vr-row"><span>Your file</span><code id="userHash"></code></div>
+            <div class="vr-row"><span>Canonical</span><code>9d062421...cdd57d84</code></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="verifier-cli">
+        <p class="verifier-lead">Clone. Run. Confirm.</p>
+        <div class="terminal">
+          <pre><code>git clone https://github.com/FTHTrading/LPS-1-Reference-Implementation.git
+cd LPS-1-Reference-Implementation &amp;&amp; npm install
+node verifier/cli.js --path example-work</code></pre>
+        </div>
+        <p class="verifier-checks">58 checks across 2 suites. All must pass.</p>
+        <p class="verifier-axiom">This is not trust. This is reproducibility.</p>
+      </div>
+
+      <div class="ref-impl">
+        <h3 class="ri-heading">Public Reference Implementation</h3>
+        <p class="ri-lead">Clone · Test · Deploy locally · Verify independently</p>
+        <div class="terminal">
+          <pre><code>git clone https://github.com/FTHTrading/LPS-1-Reference-Implementation.git
+cd LPS-1-Reference-Implementation
+npm install
+npm run demo
+node verifier/cli.js --path example-work</code></pre>
+        </div>
+        <div class="ri-badges">
+          <span class="ri-badge ri-pass">58 Tests Passing</span>
+          <span class="ri-badge">Deterministic Build Verified</span>
+        </div>
+        <a href="https://github.com/FTHTrading/LPS-1-Reference-Implementation" target="_blank" rel="noopener" class="btn btn-sm" style="margin-top:1.5rem">View on GitHub</a>
+      </div>
+
+      <div class="verifier-links">
+        <a href="https://polygonscan.com/address/0x97f456300817eaE3B40E235857b856dfFE8bba90#readContract" target="_blank" rel="noopener" class="btn btn-sm">Read LiteraryAnchor</a>
+        <a href="https://polygonscan.com/address/0xca9F6604A9b498DB31d113836E2957c0a9aAE037#readContract" target="_blank" rel="noopener" class="btn btn-sm">Read KernelV2</a>
+        <a href="https://github.com/FTHTrading/LPS-1-Reference-Implementation" target="_blank" rel="noopener" class="btn btn-sm">Source Code</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ━━━ VI LPS Protocol Stack ━━━ -->
+  <section class="sect sect-stone" id="lpsstack">
+    <div class="sect-inner sect-centered">
+      <span class="sect-numeral">VI</span>
+      <h2 class="sect-heading">LPS Protocol Stack</h2>
+      <p class="sect-lead">Six layers. Each independently specified, implementable, and verifiable.</p>
+
+      <div class="prov-stack">
+        <div class="prov-layer prov-layer-final"><span class="prov-num">VI</span><span class="prov-name">Observability</span><span class="prov-desc">Client-side chain reads, event timeline, status indicators</span></div>
+        <div class="prov-arrow"><svg width="2" height="24"><line x1="1" y1="0" x2="1" y2="24" stroke="var(--border)" stroke-width="1.5"/></svg></div>
+        <div class="prov-layer"><span class="prov-num">V</span><span class="prov-name">Compliance</span><span class="prov-desc">Level 0&ndash;5 conformance matrix, self-assessment, certification</span></div>
+        <div class="prov-arrow"><svg width="2" height="24"><line x1="1" y1="0" x2="1" y2="24" stroke="var(--border)" stroke-width="1.5"/></svg></div>
+        <div class="prov-layer"><span class="prov-num">IV</span><span class="prov-name">Distribution</span><span class="prov-desc">EditionNFT, StoryNFT, RoyaltyRouter (ERC-721 + ERC-2981)</span></div>
+        <div class="prov-arrow"><svg width="2" height="24"><line x1="1" y1="0" x2="1" y2="24" stroke="var(--border)" stroke-width="1.5"/></svg></div>
+        <div class="prov-layer"><span class="prov-num">III</span><span class="prov-name">Audio Layer</span><span class="prov-desc">IAPL-1 &mdash; Immutable Audio Publishing Layer</span></div>
+        <div class="prov-arrow"><svg width="2" height="24"><line x1="1" y1="0" x2="1" y2="24" stroke="var(--border)" stroke-width="1.5"/></svg></div>
+        <div class="prov-layer"><span class="prov-num">II</span><span class="prov-name">Core Protocol</span><span class="prov-desc">LPS-1 &mdash; SHA-256, Merkle trees, edition lifecycle, on-chain anchor</span></div>
+        <div class="prov-arrow"><svg width="2" height="24"><line x1="1" y1="0" x2="1" y2="24" stroke="var(--border)" stroke-width="1.5"/></svg></div>
+        <div class="prov-layer"><span class="prov-num">I</span><span class="prov-name">Infrastructure</span><span class="prov-desc">Polygon Mainnet, IPFS, OpenTimestamps, Git provenance</span></div>
+      </div>
+
+      <div class="impl-table" style="margin-top:2.5rem">
+        <div class="impl-row"><span class="impl-key">LPS-1</span><span class="impl-val"><a href="https://github.com/FTHTrading/LPS-1-Reference-Implementation/blob/main/spec/LPS-1.md" target="_blank" rel="noopener" style="color:var(--gold)">Literary Publishing Standard</a></span></div>
+        <div class="impl-row"><span class="impl-key">IAPL-1</span><span class="impl-val"><a href="https://github.com/FTHTrading/LPS-1-Reference-Implementation/blob/main/spec/IAPL-1.md" target="_blank" rel="noopener" style="color:var(--gold)">Immutable Audio Publishing Layer</a></span></div>
+        <div class="impl-row"><span class="impl-key">LPS-NFT</span><span class="impl-val">Token distribution layer (ERC-721 + ERC-2981)</span></div>
+        <div class="impl-row"><span class="impl-key">Stack Spec</span><span class="impl-val"><a href="https://github.com/FTHTrading/LPS-1-Reference-Implementation/blob/main/spec/LPS-STACK.md" target="_blank" rel="noopener" style="color:var(--gold)">Full Stack Architecture</a></span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ━━━ X The Works ━━━ -->
+  <section class="sect sect-stone" id="works">
+    <div class="sect-inner sect-centered">
+      <span class="sect-numeral">X</span>
+      <h2 class="sect-heading">Reference Implementations</h2>
+      <p class="sect-lead">Each edition is a protocol test vector — a complete, frozen deployment of the LPS-1 standard.</p>
+
+      <div class="works">
+        <div class="monolith">
+          <span class="impl-label">Reference Implementation A</span>
+          <h3 class="monolith-title">The 2,500 Donkeys</h3>
+          <span class="monolith-edition">Edition II</span>
+          <span class="badge-frozen">FROZEN</span>
+          <div class="monolith-stats">
+            <span>31 chapters</span>
+            <span>75,000+ words</span>
+            <span>36 audio files</span>
+            <span>6 Merkle trees</span>
+            <span>146 tests</span>
+            <span>51 checks</span>
+          </div>
+          <div class="monolith-roots">
+            <button class="roots-toggle" data-target="roots-ed2">Merkle Roots</button>
+            <div class="roots-panel" id="roots-ed2">
+              <div class="rp-row"><span>Edition</span><code data-copy="6719ed7f9e142a39a4a7db533895562bdf5379cf7f9816ed7cbe045ca359594e">6719ed7f...594e</code><button class="copy-icon" aria-label="Copy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button></div>
+              <div class="rp-row"><span>Manuscript</span><code data-copy="dd95d1216b8e2cb8008c8993dffc54d66b550018a47401dd5df001ff487467d3">dd95d121...67d3</code><button class="copy-icon" aria-label="Copy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button></div>
+              <div class="rp-row"><span>Artifact</span><code data-copy="9c653a2e453e895f294375818bb872d47d4c90b15859587ba2c5238024202c56">9c653a2e...2c56</code><button class="copy-icon" aria-label="Copy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button></div>
+              <div class="rp-row"><span>Image</span><code data-copy="0e45331c0b80738ff3f491e63b47a5454f162cfe5a1d367e90b709c96c56c638">0e45331c...c638</code><button class="copy-icon" aria-label="Copy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button></div>
+              <div class="rp-row"><span>Prompt</span><code data-copy="32bed9e54ed6dc5f4ee8082dce928bd86fb76c36b92d9f949ba12c046674f32c">32bed9e5...f32c</code><button class="copy-icon" aria-label="Copy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button></div>
+              <div class="rp-row"><span>Audio</span><code data-copy="e57bb9474d10f3b2ac70d11c602a32cd3b0fd84ebb5946cfbdd5a93680f430fa">e57bb947...30fa</code><button class="copy-icon" aria-label="Copy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button></div>
+              <div class="rp-row"><span>Audio Ed.</span><code data-copy="514c2db5b9cd914b96a0a8b50d9dd6981a454c74cab7d717dc38f5fe9fa0501e">514c2db5...501e</code><button class="copy-icon" aria-label="Copy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button></div>
+            </div>
+          </div>
+          <div class="monolith-links">
+            <a href="read.html">Read</a>
+            <a href="listen.html">Listen</a>
+            <a href="https://ipfs.io/ipfs/QmPXtEsRwiWuaKmKNA569XAqFNVySN8pwTdGQrvcdpgtMa" target="_blank" rel="noopener">IPFS</a>
+            <a href="gallery.html">Gallery</a>
+          </div>
+        </div>
+
+        <div class="monolith">
+          <span class="impl-label">Reference Implementation B</span>
+          <h3 class="monolith-title">Private Placement Programs</h3>
+          <span class="monolith-edition">Edition I</span>
+          <span class="badge-frozen">FROZEN</span>
+          <div class="monolith-stats">
+            <span>14 stories</span>
+            <span>17 audio files</span>
+            <span>3 transactions</span>
+            <span>3 Merkle roots</span>
+          </div>
+          <div class="monolith-roots">
+            <button class="roots-toggle" data-target="roots-ed1">Merkle Roots</button>
+            <div class="roots-panel" id="roots-ed1">
+              <div class="rp-row"><span>Manuscript</span><code data-copy="43c24c2998d070ab7a5068fb67bbea5bc4d3ea1db652b82e79901694cadf90c6">43c24c29...90c6</code><button class="copy-icon" aria-label="Copy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button></div>
+              <div class="rp-row"><span>Audio</span><code data-copy="b57afe2af664824bd77b1a33241f70b332f60a421d87e37182325db5d31a0151">b57afe2a...0151</code><button class="copy-icon" aria-label="Copy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button></div>
+              <div class="rp-row"><span>Audio Ed.</span><code data-copy="a6c597fc21d65a907466ed99ed1be8f1b606b7478ca7f0e1c537ad18bd79ab62">a6c597fc...ab62</code><button class="copy-icon" aria-label="Copy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button></div>
+              <div class="rp-row"><span>Combined</span><code data-copy="f5f0358b5623d3768fc4ddc152e0468124142cf15bb09b1a49a4990ce6d7df0f">f5f0358b...df0f</code><button class="copy-icon" aria-label="Copy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button></div>
+            </div>
+          </div>
+          <div class="monolith-links">
+            <a href="read-ppp.html">Read</a>
+            <a href="https://polygonscan.com/tx/0xe932f79746419cde7077b8f50b813ec73d6abb900f6512465a4cd3110313031e" target="_blank" rel="noopener">Anchor TX</a>
+            <a href="https://polygonscan.com/tx/0xb3072bb4757125a5a4caa852988c485f6ac1fff443e9557f0102ec76e132d774" target="_blank" rel="noopener">Freeze TX</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ━━━ XVII Protocol Stewardship ━━━ -->
+  <section class="sect" id="stewardship">
+    <div class="sect-inner sect-centered">
+      <span class="sect-numeral">XVII</span>
+      <h2 class="sect-heading">Protocol Stewardship</h2>
+
+      <div class="steward-grid">
+        <div class="steward-role">
+          <span class="steward-title">Protocol Author</span>
+          <span class="steward-name">Kidd James</span>
+        </div>
+        <div class="steward-role">
+          <span class="steward-title">Specification Steward</span>
+          <span class="steward-name">XXXIII Working Group</span>
+        </div>
+        <div class="steward-role">
+          <span class="steward-title">Reference Implementation</span>
+          <span class="steward-name">FTHTrading</span>
+        </div>
+        <div class="steward-role">
+          <span class="steward-title">Security Review</span>
+          <span class="steward-name">Independent internal audit (2026)</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ━━━ XXIII Implementation Roadmap ━━━ -->
+  <section class="sect" id="roadmap">
+    <div class="sect-inner sect-centered">
+      <span class="sect-numeral">XXIII</span>
+      <h2 class="sect-heading">Implementation Roadmap</h2>
+      <p class="sect-lead">Six phases from deterministic anchor to multi-implementation adoption.</p>
+
+      <div class="compliance-grid">
+        <div class="compliance-level cl-active">
+          <span class="cl-num">I</span>
+          <span class="cl-name">Deterministic Anchor</span>
+          <span class="cl-req">SHA-256 hashing, Merkle trees, Polygon anchoring, LPS-1 specification. Complete.</span>
+        </div>
+        <div class="compliance-level">
+          <span class="cl-num">II</span>
+          <span class="cl-name">Multi-Author Support</span>
+          <span class="cl-req">Co-author identity binding, shared edition governance, delegation support.</span>
+        </div>
+        <div class="compliance-level">
+          <span class="cl-num">III</span>
+          <span class="cl-name">Ethereum L1 Mirror</span>
+          <span class="cl-req">Cross-chain anchor standard (LPS-2), settlement-layer finality.</span>
+        </div>
+        <div class="compliance-level">
+          <span class="cl-num">IV</span>
+          <span class="cl-name">zk-Proof Inclusion</span>
+          <span class="cl-req">Zero-knowledge Merkle inclusion proofs for privacy-preserving verification.</span>
+        </div>
+        <div class="compliance-level">
+          <span class="cl-num">V</span>
+          <span class="cl-name">Institutional API</span>
+          <span class="cl-req">REST verification endpoints for libraries, archives, and publishers.</span>
+        </div>
+        <div class="compliance-level">
+          <span class="cl-num">VI</span>
+          <span class="cl-name">Multi-Implementation</span>
+          <span class="cl-req">Three+ independent implementations, governance transition to working group.</span>
+        </div>
+      </div>
+
+      <div class="prov-ref" style="margin-top:2rem">
+        <a href="https://github.com/FTHTrading/LPS-1-Reference-Implementation/blob/main/docs/ROADMAP.md" target="_blank" rel="noopener" class="btn btn-sm">View Full Roadmap</a>
+        <a href="https://github.com/FTHTrading/LPS-1-Reference-Implementation/blob/main/docs/FUNDING_BRIEF.md" target="_blank" rel="noopener" class="btn btn-sm" style="margin-left:1rem">Funding Brief</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ━━━ Funding Alignment ━━━ -->
+  <div class="funding-strip">
+    <div class="funding-inner">
+      <p class="funding-heading">LPS-1 satisfies eligibility criteria for public goods funding through:</p>
+      <div class="funding-criteria">
+        <span class="funding-criterion">Open-source MIT licensing</span>
+        <span class="funding-criterion">Deterministic reproducibility</span>
+        <span class="funding-criterion">Cross-chain timestamping</span>
+        <span class="funding-criterion">Independent verifiability</span>
+        <span class="funding-criterion">Governance transition criteria</span>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ━━━ Deep Protocol ━━━ -->
+  <div class="deep-protocol-divider" id="deepprotocol">
+    <div class="deep-protocol-inner">
+      <span class="deep-protocol-label">Deep Protocol</span>
+      <p class="deep-protocol-desc">Technical specification, architecture, and formal definitions.</p>
     </div>
   </div>
 
@@ -317,36 +695,6 @@
     </div>
   </section>
 
-
-  <!-- ━━━ VI LPS Protocol Stack ━━━ -->
-  <section class="sect sect-stone" id="lpsstack">
-    <div class="sect-inner sect-centered">
-      <span class="sect-numeral">VI</span>
-      <h2 class="sect-heading">LPS Protocol Stack</h2>
-      <p class="sect-lead">Six layers. Each independently specified, implementable, and verifiable.</p>
-
-      <div class="prov-stack">
-        <div class="prov-layer prov-layer-final"><span class="prov-num">VI</span><span class="prov-name">Observability</span><span class="prov-desc">Client-side chain reads, event timeline, status indicators</span></div>
-        <div class="prov-arrow"><svg width="2" height="24"><line x1="1" y1="0" x2="1" y2="24" stroke="var(--border)" stroke-width="1.5"/></svg></div>
-        <div class="prov-layer"><span class="prov-num">V</span><span class="prov-name">Compliance</span><span class="prov-desc">Level 0&ndash;5 conformance matrix, self-assessment, certification</span></div>
-        <div class="prov-arrow"><svg width="2" height="24"><line x1="1" y1="0" x2="1" y2="24" stroke="var(--border)" stroke-width="1.5"/></svg></div>
-        <div class="prov-layer"><span class="prov-num">IV</span><span class="prov-name">Distribution</span><span class="prov-desc">EditionNFT, StoryNFT, RoyaltyRouter (ERC-721 + ERC-2981)</span></div>
-        <div class="prov-arrow"><svg width="2" height="24"><line x1="1" y1="0" x2="1" y2="24" stroke="var(--border)" stroke-width="1.5"/></svg></div>
-        <div class="prov-layer"><span class="prov-num">III</span><span class="prov-name">Audio Layer</span><span class="prov-desc">IAPL-1 &mdash; Immutable Audio Publishing Layer</span></div>
-        <div class="prov-arrow"><svg width="2" height="24"><line x1="1" y1="0" x2="1" y2="24" stroke="var(--border)" stroke-width="1.5"/></svg></div>
-        <div class="prov-layer"><span class="prov-num">II</span><span class="prov-name">Core Protocol</span><span class="prov-desc">LPS-1 &mdash; SHA-256, Merkle trees, edition lifecycle, on-chain anchor</span></div>
-        <div class="prov-arrow"><svg width="2" height="24"><line x1="1" y1="0" x2="1" y2="24" stroke="var(--border)" stroke-width="1.5"/></svg></div>
-        <div class="prov-layer"><span class="prov-num">I</span><span class="prov-name">Infrastructure</span><span class="prov-desc">Polygon Mainnet, IPFS, OpenTimestamps, Git provenance</span></div>
-      </div>
-
-      <div class="impl-table" style="margin-top:2.5rem">
-        <div class="impl-row"><span class="impl-key">LPS-1</span><span class="impl-val"><a href="https://github.com/FTHTrading/LPS-1-Reference-Implementation/blob/main/spec/LPS-1.md" target="_blank" rel="noopener" style="color:var(--gold)">Literary Publishing Standard</a></span></div>
-        <div class="impl-row"><span class="impl-key">IAPL-1</span><span class="impl-val"><a href="https://github.com/FTHTrading/LPS-1-Reference-Implementation/blob/main/spec/IAPL-1.md" target="_blank" rel="noopener" style="color:var(--gold)">Immutable Audio Publishing Layer</a></span></div>
-        <div class="impl-row"><span class="impl-key">LPS-NFT</span><span class="impl-val">Token distribution layer (ERC-721 + ERC-2981)</span></div>
-        <div class="impl-row"><span class="impl-key">Stack Spec</span><span class="impl-val"><a href="https://github.com/FTHTrading/LPS-1-Reference-Implementation/blob/main/spec/LPS-STACK.md" target="_blank" rel="noopener" style="color:var(--gold)">Full Stack Architecture</a></span></div>
-      </div>
-    </div>
-  </section>
 
   <!-- ━━━ VII The Pipeline ━━━ -->
   <section class="sect" id="pipeline">
@@ -515,75 +863,6 @@
     </div>
   </section>
 
-  <!-- ━━━ X The Works ━━━ -->
-  <section class="sect sect-stone" id="works">
-    <div class="sect-inner sect-centered">
-      <span class="sect-numeral">X</span>
-      <h2 class="sect-heading">Reference Implementations</h2>
-      <p class="sect-lead">Each edition is a protocol test vector — a complete, frozen deployment of the LPS-1 standard.</p>
-
-      <div class="works">
-        <div class="monolith">
-          <h3 class="monolith-title">The 2,500 Donkeys</h3>
-          <span class="monolith-edition">Edition II</span>
-          <span class="badge-frozen">FROZEN</span>
-          <div class="monolith-stats">
-            <span>31 chapters</span>
-            <span>75,000+ words</span>
-            <span>36 audio files</span>
-            <span>6 Merkle trees</span>
-            <span>146 tests</span>
-            <span>51 checks</span>
-          </div>
-          <div class="monolith-roots">
-            <button class="roots-toggle" data-target="roots-ed2">Merkle Roots</button>
-            <div class="roots-panel" id="roots-ed2">
-              <div class="rp-row"><span>Edition</span><code data-copy="6719ed7f9e142a39a4a7db533895562bdf5379cf7f9816ed7cbe045ca359594e">6719ed7f...594e</code><button class="copy-icon" aria-label="Copy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button></div>
-              <div class="rp-row"><span>Manuscript</span><code data-copy="dd95d1216b8e2cb8008c8993dffc54d66b550018a47401dd5df001ff487467d3">dd95d121...67d3</code><button class="copy-icon" aria-label="Copy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button></div>
-              <div class="rp-row"><span>Artifact</span><code data-copy="9c653a2e453e895f294375818bb872d47d4c90b15859587ba2c5238024202c56">9c653a2e...2c56</code><button class="copy-icon" aria-label="Copy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button></div>
-              <div class="rp-row"><span>Image</span><code data-copy="0e45331c0b80738ff3f491e63b47a5454f162cfe5a1d367e90b709c96c56c638">0e45331c...c638</code><button class="copy-icon" aria-label="Copy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button></div>
-              <div class="rp-row"><span>Prompt</span><code data-copy="32bed9e54ed6dc5f4ee8082dce928bd86fb76c36b92d9f949ba12c046674f32c">32bed9e5...f32c</code><button class="copy-icon" aria-label="Copy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button></div>
-              <div class="rp-row"><span>Audio</span><code data-copy="e57bb9474d10f3b2ac70d11c602a32cd3b0fd84ebb5946cfbdd5a93680f430fa">e57bb947...30fa</code><button class="copy-icon" aria-label="Copy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button></div>
-              <div class="rp-row"><span>Audio Ed.</span><code data-copy="514c2db5b9cd914b96a0a8b50d9dd6981a454c74cab7d717dc38f5fe9fa0501e">514c2db5...501e</code><button class="copy-icon" aria-label="Copy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button></div>
-            </div>
-          </div>
-          <div class="monolith-links">
-            <a href="read.html">Read</a>
-            <a href="listen.html">Listen</a>
-            <a href="https://ipfs.io/ipfs/QmPXtEsRwiWuaKmKNA569XAqFNVySN8pwTdGQrvcdpgtMa" target="_blank" rel="noopener">IPFS</a>
-            <a href="gallery.html">Gallery</a>
-          </div>
-        </div>
-
-        <div class="monolith">
-          <h3 class="monolith-title">Private Placement Programs</h3>
-          <span class="monolith-edition">Edition I</span>
-          <span class="badge-frozen">FROZEN</span>
-          <div class="monolith-stats">
-            <span>14 stories</span>
-            <span>17 audio files</span>
-            <span>3 transactions</span>
-            <span>3 Merkle roots</span>
-          </div>
-          <div class="monolith-roots">
-            <button class="roots-toggle" data-target="roots-ed1">Merkle Roots</button>
-            <div class="roots-panel" id="roots-ed1">
-              <div class="rp-row"><span>Manuscript</span><code data-copy="43c24c2998d070ab7a5068fb67bbea5bc4d3ea1db652b82e79901694cadf90c6">43c24c29...90c6</code><button class="copy-icon" aria-label="Copy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button></div>
-              <div class="rp-row"><span>Audio</span><code data-copy="b57afe2af664824bd77b1a33241f70b332f60a421d87e37182325db5d31a0151">b57afe2a...0151</code><button class="copy-icon" aria-label="Copy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button></div>
-              <div class="rp-row"><span>Audio Ed.</span><code data-copy="a6c597fc21d65a907466ed99ed1be8f1b606b7478ca7f0e1c537ad18bd79ab62">a6c597fc...ab62</code><button class="copy-icon" aria-label="Copy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button></div>
-              <div class="rp-row"><span>Combined</span><code data-copy="f5f0358b5623d3768fc4ddc152e0468124142cf15bb09b1a49a4990ce6d7df0f">f5f0358b...df0f</code><button class="copy-icon" aria-label="Copy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button></div>
-            </div>
-          </div>
-          <div class="monolith-links">
-            <a href="read-ppp.html">Read</a>
-            <a href="https://polygonscan.com/tx/0xe932f79746419cde7077b8f50b813ec73d6abb900f6512465a4cd3110313031e" target="_blank" rel="noopener">Anchor TX</a>
-            <a href="https://polygonscan.com/tx/0xb3072bb4757125a5a4caa852988c485f6ac1fff443e9557f0102ec76e132d774" target="_blank" rel="noopener">Freeze TX</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- ━━━ XI The Contract Architecture ━━━ -->
   <section class="sect" id="contracts">
     <div class="sect-inner sect-centered">
@@ -683,81 +962,8 @@
         <p style="font-size:0.75rem; color:var(--text-dim); font-style:italic;">On-chain deployment (Feb 2026) recorded working title “Private Placement Puppetry.” Canonical title updated to “Private Placement Programs” in v2.2.</p>
         <p>Network: Polygon Mainnet · Solidity 0.8.19 · Hardhat · OpenZeppelin</p>
         <p><a href="mint.html" style="color:var(--gold)">Mint Literary NFTs →</a></p>
-        <p>CCXCIII tests passing across VII suites</p>
+        <p>293 tests passing across 7 suites</p>
         <p class="cf-wallet">Author Wallet: <a href="https://polygonscan.com/address/0xC91668184736BF75C4ecE37473D694efb2A43978" target="_blank" rel="noopener">0xC91668184736BF75C4ecE37473D694efb2A43978</a></p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ━━━ XII On-Chain State ━━━ -->
-  <section class="sect sect-stone" id="chainstatus">
-    <div class="sect-inner sect-centered">
-      <span class="sect-numeral">XII</span>
-      <h2 class="sect-heading">On-Chain State</h2>
-      <p class="sect-lead">Direct read-only RPC observation of deployed contracts. No intermediary services.</p>
-
-      <div class="chain-panel">
-        <div class="chain-header">
-          <span class="chain-net-dot" id="chainDot"></span>
-          <span class="chain-net-label">Polygon Mainnet</span>
-          <span class="chain-block" id="chainBlock">Block —</span>
-          <span class="chain-rpc">RPC: polygon-rpc.com</span>
-        </div>
-
-        <div class="chain-contracts">
-          <a href="https://polygonscan.com/address/0x97f456300817eaE3B40E235857b856dfFE8bba90#code" target="_blank" rel="noopener" class="chain-badge">LiteraryAnchor <code>0x97f4…8b90</code></a>
-          <a href="https://polygonscan.com/address/0xca9F6604A9b498DB31d113836E2957c0a9aAE037#code" target="_blank" rel="noopener" class="chain-badge">KernelV2 <code>0xca9F…E037</code></a>
-          <a href="https://polygonscan.com/address/0xB9ffa688A8Bb332221030BbBE46bE5bF03323170#code" target="_blank" rel="noopener" class="chain-badge">AuthorIdentity <code>0xB9ff…3170</code></a>
-          <a href="https://polygonscan.com/address/0x44169829489d70aaecbf845870652871C65fC461#code" target="_blank" rel="noopener" class="chain-badge">RoyaltyRouter <code>0x4416…C461</code></a>
-          <a href="https://polygonscan.com/address/0x9e9Cc1486bf440Bd9eAaaD947958524Aaed3f8b0#code" target="_blank" rel="noopener" class="chain-badge">EditionNFT <code>0x9e9C…8b0</code></a>
-          <a href="https://polygonscan.com/address/0xD67e537Dba1236f802432cbDD30Fec3f6D38e7E3#code" target="_blank" rel="noopener" class="chain-badge">StoryNFT <code>0xD67e…7E3</code></a>
-          <a href="https://polygonscan.com/address/0x511c653fC0F450ba41C42A89A3125CcBf2eFE8ae#code" target="_blank" rel="noopener" class="chain-badge">Kernel <code>0x511c…E8ae</code></a>
-        </div>
-
-        <div class="chain-grid">
-          <div class="chain-card">
-            <span class="chain-card-label">Literary Anchor</span>
-            <div class="chain-row"><span>Editions</span><code id="laEditionCount">—</code></div>
-            <div class="chain-row"><span>Latest Hash</span><code id="laLatestHash" class="chain-hash">—</code></div>
-            <div class="chain-row"><span>Latest CID</span><code id="laLatestCID" class="chain-hash">—</code></div>
-            <div class="chain-row"><span>Anchor Time</span><code id="laTimestamp">—</code></div>
-          </div>
-
-          <div class="chain-card">
-            <span class="chain-card-label">Publishing Kernel V2</span>
-            <div class="chain-row"><span>Editions</span><code id="kvEditionCount">—</code></div>
-            <div class="chain-row"><span>Canonical</span><code id="kvCanonical">—</code></div>
-            <div class="chain-row"><span>Frozen</span><code id="kvFrozen">—</code></div>
-            <div class="chain-row"><span>Edition Root</span><code id="kvEditionRoot" class="chain-hash">—</code></div>
-          </div>
-
-          <div class="chain-card">
-            <span class="chain-card-label">Author Identity</span>
-            <div class="chain-row"><span>Name</span><code id="aiName">—</code></div>
-            <div class="chain-row"><span>Pseudonym</span><code id="aiPseudonym">—</code></div>
-            <div class="chain-row"><span>Works</span><code id="aiWorks">—</code></div>
-            <div class="chain-row"><span>Linked Contracts</span><code id="aiContracts">—</code></div>
-          </div>
-
-          <div class="chain-card">
-            <span class="chain-card-label">NFT Layer</span>
-            <div class="chain-row"><span>EditionNFT Supply</span><code id="nftEditionSupply">—</code></div>
-            <div class="chain-row"><span>StoryNFT Supply</span><code id="nftStorySupply">—</code></div>
-            <div class="chain-row"><span>Royalty Router</span><code id="nftRoyalty">—</code></div>
-          </div>
-        </div>
-
-        <div class="chain-events">
-          <h4 class="chain-events-title">Recent On-Chain Events</h4>
-          <div id="chainEvents" class="chain-event-list">
-            <div class="chain-event-placeholder">Loading events…</div>
-          </div>
-        </div>
-
-        <div class="chain-footer">
-          <span class="chain-refresh" id="chainRefresh">↻ Refresh</span>
-          <span class="chain-updated" id="chainUpdated">Last read: —</span>
-        </div>
       </div>
     </div>
   </section>
@@ -794,65 +1000,6 @@
             <p>Every on-chain record maps to exactly one IPFS CID and one edition root. Every edition root maps to exactly four Merkle roots. Every root maps to a deterministic file hash tree.</p>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ━━━ XIV The Verifier ━━━ -->
-  <section class="sect sect-stone" id="verify">
-    <div class="sect-inner sect-centered">
-      <span class="sect-numeral">XIV</span>
-      <h2 class="sect-heading">Verify It Yourself</h2>
-
-      <div class="verifier">
-        <div class="verifier-drop" id="dropzone">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" width="32" height="32"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
-          <p>Drop compiled-manuscript.md</p>
-          <p class="verifier-hint">SHA-256 computed locally. Nothing leaves your machine.</p>
-          <label class="btn btn-sm" for="fileInput">Choose File</label>
-          <input type="file" id="fileInput" style="display:none" accept=".md,.txt">
-        </div>
-        <div class="verifier-result" id="hashResult" style="display:none">
-          <div class="vr-status" id="hashStatus"><span id="hashIcon"></span><span id="hashText"></span></div>
-          <div class="vr-compare">
-            <div class="vr-row"><span>Your file</span><code id="userHash"></code></div>
-            <div class="vr-row"><span>Canonical</span><code>9d062421...cdd57d84</code></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="verifier-cli">
-        <p class="verifier-lead">Clone. Run. Confirm.</p>
-        <div class="terminal">
-          <pre><code>git clone https://github.com/FTHTrading/LPS-1-Reference-Implementation.git
-cd LPS-1-Reference-Implementation &amp;&amp; npm install
-node verifier/cli.js --path example-work</code></pre>
-        </div>
-        <p class="verifier-checks">58 checks across 2 suites. All must pass.</p>
-        <p class="verifier-axiom">This is not trust. This is reproducibility.</p>
-      </div>
-
-      <div class="ref-impl">
-        <h3 class="ri-heading">Public Reference Implementation</h3>
-        <p class="ri-lead">Clone · Test · Deploy locally · Verify independently</p>
-        <div class="terminal">
-          <pre><code>git clone https://github.com/FTHTrading/LPS-1-Reference-Implementation.git
-cd LPS-1-Reference-Implementation
-npm install
-npm run demo
-node verifier/cli.js --path example-work</code></pre>
-        </div>
-        <div class="ri-badges">
-          <span class="ri-badge ri-pass">58 Tests Passing</span>
-          <span class="ri-badge">Deterministic Build Verified</span>
-        </div>
-        <a href="https://github.com/FTHTrading/LPS-1-Reference-Implementation" target="_blank" rel="noopener" class="btn btn-sm" style="margin-top:1.5rem">View on GitHub</a>
-      </div>
-
-      <div class="verifier-links">
-        <a href="https://polygonscan.com/address/0x97f456300817eaE3B40E235857b856dfFE8bba90#readContract" target="_blank" rel="noopener" class="btn btn-sm">Read LiteraryAnchor</a>
-        <a href="https://polygonscan.com/address/0xca9F6604A9b498DB31d113836E2957c0a9aAE037#readContract" target="_blank" rel="noopener" class="btn btn-sm">Read KernelV2</a>
-        <a href="https://github.com/FTHTrading/LPS-1-Reference-Implementation" target="_blank" rel="noopener" class="btn btn-sm">Source Code</a>
       </div>
     </div>
   </section>
@@ -910,81 +1057,6 @@ node verifier/cli.js --path example-work</code></pre>
           <h4>Reduce institutional trust dependency</h4>
           <p>Verification is mathematical, not reputational. The protocol replaces trust with reproducibility.</p>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ━━━ XVII Protocol Stewardship ━━━ -->
-  <section class="sect" id="stewardship">
-    <div class="sect-inner sect-centered">
-      <span class="sect-numeral">XVII</span>
-      <h2 class="sect-heading">Protocol Stewardship</h2>
-
-      <div class="steward-grid">
-        <div class="steward-role">
-          <span class="steward-title">Protocol Author</span>
-          <span class="steward-name">Kidd James</span>
-        </div>
-        <div class="steward-role">
-          <span class="steward-title">Specification Steward</span>
-          <span class="steward-name">XXXIII Working Group</span>
-        </div>
-        <div class="steward-role">
-          <span class="steward-title">Reference Implementation</span>
-          <span class="steward-name">FTHTrading</span>
-        </div>
-        <div class="steward-role">
-          <span class="steward-title">Security Review</span>
-          <span class="steward-name">Independent internal audit (2026)</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ━━━ XVIII Compliance Levels ━━━ -->
-  <section class="sect sect-stone" id="compliance">
-    <div class="sect-inner sect-centered">
-      <span class="sect-numeral">XVIII</span>
-      <h2 class="sect-heading">Compliance Levels</h2>
-      <p class="sect-lead">Progressive implementation tiers for protocol conformance.</p>
-
-      <div class="compliance-grid">
-        <div class="compliance-level">
-          <span class="cl-num">0</span>
-          <span class="cl-name">Anchor Only</span>
-          <span class="cl-req">SHA-256 hash stored on any public blockchain</span>
-        </div>
-        <div class="compliance-level">
-          <span class="cl-num">1</span>
-          <span class="cl-name">Deterministic Build</span>
-          <span class="cl-req">CRLF normalisation + reproducible canonical hash</span>
-        </div>
-        <div class="compliance-level">
-          <span class="cl-num">2</span>
-          <span class="cl-name">Merkle Provenance</span>
-          <span class="cl-req">Per-content-type Merkle trees + combined edition root</span>
-        </div>
-        <div class="compliance-level">
-          <span class="cl-num">3</span>
-          <span class="cl-name">On-Chain Anchoring</span>
-          <span class="cl-req">Immutable blockchain record binding edition root to block timestamp</span>
-        </div>
-        <div class="compliance-level">
-          <span class="cl-num">4</span>
-          <span class="cl-name">Signed Canonical Root</span>
-          <span class="cl-req">ECDSA identity binding + on-chain author registry</span>
-        </div>
-        <div class="compliance-level cl-active">
-          <span class="cl-num">5</span>
-          <span class="cl-name">Fully Observable</span>
-          <span class="cl-req">Cross-chain timestamp + client-side verification</span>
-        </div>
-      </div>
-
-      <div class="compliance-cert">
-        <span class="cert-badge">LPS-1 Level 5 &mdash; Fully Observable</span>
-        <p class="cert-detail">XXXIII reference implementation. VII verified contracts. Cross-chain anchoring via Polygon + Bitcoin (OpenTimestamps). Client-side on-chain state verification. 293 tests passing.</p>
-        <a href="https://github.com/FTHTrading/LPS-1-Reference-Implementation/blob/main/spec/COMPLIANCE.md" target="_blank" rel="noopener" class="btn btn-sm" style="margin-top:1rem">View Compliance Matrix</a>
       </div>
     </div>
   </section>
@@ -1095,9 +1167,9 @@ node verifier/cli.js --path example-work</code></pre>
         <div class="impl-row"><span class="impl-key">Core Team</span><span class="impl-val"><a href="https://github.com/FTHTrading/LPS-1-Reference-Implementation/blob/main/docs/roles/CORE_TEAM.md" target="_blank" rel="noopener" style="color:var(--gold);border-bottom:1px solid transparent">Roles &amp; Responsibilities</a></span></div>
         <div class="impl-row"><span class="impl-key">Governance</span><span class="impl-val"><a href="https://github.com/FTHTrading/LPS-1-Reference-Implementation/blob/main/spec/GOVERNANCE.md" target="_blank" rel="noopener" style="color:var(--gold);border-bottom:1px solid transparent">Author-Led → Working Group Model</a></span></div>
         <div class="impl-row"><span class="impl-key">Network</span><span class="impl-val">Polygon Mainnet (Chain ID 137)</span></div>
-        <div class="impl-row"><span class="impl-key">Contracts Verified</span><span class="impl-val">Yes — VII / VII</span></div>
+        <div class="impl-row"><span class="impl-key">Contracts Verified</span><span class="impl-val">Yes — 7 / 7</span></div>
         <div class="impl-row"><span class="impl-key">Upgradeability</span><span class="impl-val">None</span></div>
-        <div class="impl-row"><span class="impl-key">Test Coverage</span><span class="impl-val">293 tests across VII suites</span></div>
+        <div class="impl-row"><span class="impl-key">Test Coverage</span><span class="impl-val">293 tests across 7 suites</span></div>
         <div class="impl-row"><span class="impl-key">Ref. Impl. Tests</span><span class="impl-val">58 tests (37 contract + 21 pipeline)</span></div>
         <div class="impl-row"><span class="impl-key">Conformance Level</span><span class="impl-val">Level 5 &mdash; Fully Observable</span></div>
         <div class="impl-row"><span class="impl-key">License</span><span class="impl-val">MIT (infrastructure) · CC BY 4.0 (paper)</span></div>
@@ -1105,66 +1177,6 @@ node verifier/cli.js --path example-work</code></pre>
     </div>
   </section>
 
-
-  <!-- ━━━ XXIII Implementation Roadmap ━━━ -->
-  <section class="sect" id="roadmap">
-    <div class="sect-inner sect-centered">
-      <span class="sect-numeral">XXIII</span>
-      <h2 class="sect-heading">Implementation Roadmap</h2>
-      <p class="sect-lead">Six phases from deterministic anchor to multi-implementation adoption.</p>
-
-      <div class="compliance-grid">
-        <div class="compliance-level cl-active">
-          <span class="cl-num">I</span>
-          <span class="cl-name">Deterministic Anchor</span>
-          <span class="cl-req">SHA-256 hashing, Merkle trees, Polygon anchoring, LPS-1 specification. Complete.</span>
-        </div>
-        <div class="compliance-level">
-          <span class="cl-num">II</span>
-          <span class="cl-name">Multi-Author Support</span>
-          <span class="cl-req">Co-author identity binding, shared edition governance, delegation support.</span>
-        </div>
-        <div class="compliance-level">
-          <span class="cl-num">III</span>
-          <span class="cl-name">Ethereum L1 Mirror</span>
-          <span class="cl-req">Cross-chain anchor standard (LPS-2), settlement-layer finality.</span>
-        </div>
-        <div class="compliance-level">
-          <span class="cl-num">IV</span>
-          <span class="cl-name">zk-Proof Inclusion</span>
-          <span class="cl-req">Zero-knowledge Merkle inclusion proofs for privacy-preserving verification.</span>
-        </div>
-        <div class="compliance-level">
-          <span class="cl-num">V</span>
-          <span class="cl-name">Institutional API</span>
-          <span class="cl-req">REST verification endpoints for libraries, archives, and publishers.</span>
-        </div>
-        <div class="compliance-level">
-          <span class="cl-num">VI</span>
-          <span class="cl-name">Multi-Implementation</span>
-          <span class="cl-req">Three+ independent implementations, governance transition to working group.</span>
-        </div>
-      </div>
-
-      <div class="prov-ref" style="margin-top:2rem">
-        <a href="https://github.com/FTHTrading/LPS-1-Reference-Implementation/blob/main/docs/ROADMAP.md" target="_blank" rel="noopener" class="btn btn-sm">View Full Roadmap</a>
-        <a href="https://github.com/FTHTrading/LPS-1-Reference-Implementation/blob/main/docs/FUNDING_BRIEF.md" target="_blank" rel="noopener" class="btn btn-sm" style="margin-left:1rem">Funding Brief</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ━━━ Funding Alignment ━━━ -->
-  <div class="funding-strip">
-    <div class="funding-inner">
-      <p class="funding-heading">Aligned With Public Infrastructure Grants</p>
-      <div class="funding-pillars">
-        <span class="funding-pillar">Polygon Ecosystem</span>
-        <span class="funding-pillar">Ethereum Public Goods</span>
-        <span class="funding-pillar">Open Provenance</span>
-        <span class="funding-pillar">AI Disclosure Standards</span>
-      </div>
-    </div>
-  </div>
 
   <!-- ━━━ XXIV Citation ━━━ -->
   <section class="sect sect-stone" id="citation">
@@ -1551,7 +1563,10 @@ https://doi.org/10.5281/zenodo.18646886</code></pre>
           if (dot) dot.className = 'chain-net-dot live';
 
           // Last updated
-          if ($('chainUpdated')) $('chainUpdated').textContent = 'Last read: ' + new Date().toLocaleTimeString();
+          // Store read metadata for live footer
+          window.__chainReadAt = Date.now();
+          window.__chainBlockStr = blockNum ? 'Block ' + Number(blockNum).toLocaleString() : '';
+          updateChainFooter();
 
           // Fetch events
           await fetchEvents();
@@ -1641,6 +1656,16 @@ https://doi.org/10.5281/zenodo.18646886</code></pre>
           if (container) container.innerHTML = '<div class=\"chain-event-placeholder\">Event query unavailable</div>';
         }
       }
+
+      // Live chain footer updater
+      function updateChainFooter() {
+        if (!window.__chainReadAt || !$('chainUpdated')) return;
+        var secs = Math.floor((Date.now() - window.__chainReadAt) / 1000);
+        var ago = secs < 2 ? 'just now' : secs + 's ago';
+        var parts = [window.__chainBlockStr, ago, 'RPC: polygon-rpc.com'].filter(Boolean);
+        $('chainUpdated').textContent = parts.join(' \u00B7 ');
+      }
+      setInterval(updateChainFooter, 1000);
 
       // Initial load
       fetchAll();

@@ -1735,13 +1735,13 @@ img { max-width: 100%; display: block; }
   color: var(--text-muted);
   margin-bottom: 1.5rem;
 }
-.funding-pillars {
+.funding-criteria {
   display: flex;
   justify-content: center;
   gap: 2rem;
   flex-wrap: wrap;
 }
-.funding-pillar {
+.funding-criterion {
   font-family: 'IBM Plex Mono', monospace;
   font-size: 0.62rem;
   letter-spacing: 0.08em;
@@ -1749,6 +1749,49 @@ img { max-width: 100%; display: block; }
   padding: 0.4rem 1rem;
   border: 1px solid var(--border);
   white-space: nowrap;
+}
+
+/* ── Deep Protocol Divider ── */
+.deep-protocol-divider {
+  text-align: center;
+  padding: 4rem 1.5rem 3rem;
+  border-top: 2px solid var(--border);
+  margin-top: 2rem;
+}
+.deep-protocol-inner {
+  max-width: 600px;
+  margin: 0 auto;
+}
+.deep-protocol-label {
+  font-family: 'Cinzel', serif;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  display: block;
+  margin-bottom: 0.6rem;
+}
+.deep-protocol-desc {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.6rem;
+  color: var(--text-dim);
+  letter-spacing: 0.04em;
+}
+
+/* ── Reference Implementation Label ── */
+.impl-label {
+  display: inline-block;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.52rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold);
+  background: rgba(212, 175, 55, 0.08);
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  padding: 0.25rem 0.8rem;
+  margin-bottom: 0.6rem;
 }
 
 /* ── Chain RPC Source ── */
@@ -1804,7 +1847,7 @@ img { max-width: 100%; display: block; }
   .steward-grid { grid-template-columns: 1fr; max-width: 300px; margin-left: auto; margin-right: auto; }
   .related-grid { grid-template-columns: 1fr; max-width: 400px; margin-left: auto; margin-right: auto; }
   .chain-contracts { gap: 0.4rem; padding: 0.8rem 1.2rem; }
-  .funding-pillars { gap: 1.2rem; }
+  .funding-criteria { gap: 1.2rem; }
 }
 
 @media (max-width: 700px) {
@@ -1832,7 +1875,7 @@ img { max-width: 100%; display: block; }
   .chain-contracts { gap: 0.3rem; padding: 0.6rem 1rem; }
   .chain-badge { font-size: 0.48rem; padding: 0.25rem 0.5rem; }
   .chain-rpc { width: 100%; margin-top: 0.3rem; }
-  .funding-pillars { flex-direction: column; align-items: center; gap: 0.8rem; }
+  .funding-criteria { flex-direction: column; align-items: center; gap: 0.8rem; }
   .standard-list li { font-size: 0.65rem; }
   .hero-subline { font-size: 0.62rem; }
 }
