@@ -2,9 +2,10 @@
   <img src="https://img.shields.io/badge/STATUS-PRODUCTION-00c853?style=for-the-badge&labelColor=1a1a2e" />
   <img src="https://img.shields.io/badge/POLYGON-MAINNET-7b3fe4?style=for-the-badge&logo=polygon&logoColor=white" />
   <img src="https://img.shields.io/badge/IPFS-PINNED-65c2cb?style=for-the-badge&logo=ipfs&logoColor=white" />
-  <img src="https://img.shields.io/badge/TESTS-146%20PASSING-27ae60?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/TESTS-293%20PASSING-27ae60?style=for-the-badge" />
   <img src="https://img.shields.io/badge/VERIFY-51%20CHECKS-00c853?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/CONTRACTS-5%20VERIFIED-7b3fe4?style=for-the-badge&logo=solidity&logoColor=white" />
+  <img src="https://img.shields.io/badge/CONTRACTS-7%20VERIFIED-7b3fe4?style=for-the-badge&logo=solidity&logoColor=white" />
+  <img src="https://img.shields.io/badge/COMPLIANCE-L5%20OBSERVABLE-c9a84c?style=for-the-badge" />
   <img src="https://img.shields.io/badge/LICENSE-MIT%20%2B%20©-yellow?style=for-the-badge" />
 </p>
 
@@ -19,6 +20,37 @@
   <a href="https://polygonscan.com/address/0xca9F6604A9b498DB31d113836E2957c0a9aAE037#code"><img src="https://img.shields.io/badge/KERNEL-VERIFIED-00c853?style=flat-square&logo=ethereum&logoColor=white" alt="Kernel" /></a>
   <a href="https://github.com/FTHTrading/2500-donkeys/actions/workflows/verify.yml"><img src="https://github.com/FTHTrading/2500-donkeys/actions/workflows/verify.yml/badge.svg" alt="LPS Verify" /></a>
 </p>
+
+---
+
+> **📄 [LPS-1 v1.0 Public Release Announcement](docs/ANNOUNCEMENT_LPS1_v1.0.md)** — Executive summary, verification path, compliance claim, and roadmap in one document.
+
+<details>
+<summary><strong>Quick Links</strong></summary>
+
+| Resource | Link |
+|----------|------|
+| **Announcement** | [ANNOUNCEMENT_LPS1_v1.0.md](docs/ANNOUNCEMENT_LPS1_v1.0.md) |
+| **LPS-1 Specification** | [LPS-1.md](docs/spec/LPS-1.md) |
+| **LPS Stack Architecture** | [LPS-STACK.md](docs/spec/LPS-STACK.md) |
+| **Compliance Matrix (L0–L5)** | [COMPLIANCE.md](docs/spec/COMPLIANCE.md) |
+| **Governance** | [GOVERNANCE.md](docs/spec/GOVERNANCE.md) |
+| **Roadmap** | [ROADMAP.md](docs/ROADMAP.md) |
+| **Funding Brief** | [FUNDING_BRIEF.md](docs/FUNDING_BRIEF.md) |
+| **Reference Implementation** | [FTHTrading/LPS-1-Reference-Implementation](https://github.com/FTHTrading/LPS-1-Reference-Implementation) |
+| **Protocol Site** | [xxxiii.io](https://xxxiii.io) |
+| **DOI** | [10.5281/zenodo.18646886](https://doi.org/10.5281/zenodo.18646886) |
+
+</details>
+
+### Verify in 90 Seconds
+
+```bash
+git clone https://github.com/FTHTrading/2500-donkeys.git
+cd 2500-donkeys
+npm install
+npm run lps:verify
+```
 
 ---
 

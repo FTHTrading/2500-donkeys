@@ -31,6 +31,7 @@ Tags follow [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
   - Section VI: LPS Protocol Stack — 6-layer stack visualization with spec links
   - Section XXIII: Implementation Roadmap — 6-phase timeline with active phase indicator
   - Governance links (Roadmap, LPS Stack, Core Team) added to Implementation Status
+- **ANNOUNCEMENT_LPS1_v1.0.md** — public release announcement and executive one-pager
 
 ### Changed
 - All section numerals renumbered I–XXIV with strict light/dark alternation
