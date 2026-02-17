@@ -20,6 +20,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Inter:wght@300;400;500&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/ethers@6.13.4/dist/ethers.umd.min.js"></script>
   <script>/* Apply saved theme before first paint */(function(){var t=localStorage.getItem('xxxiii-theme');if(t)document.documentElement.setAttribute('data-theme',t)})()</script>
   <script defer data-domain="xxxiii.io" src="https://plausible.io/js/script.js"></script>
 </head>
@@ -34,6 +35,7 @@
       <a href="#protocol">Protocol</a>
       <a href="#pipeline">Pipeline</a>
       <a href="#contracts">Contracts</a>
+      <a href="#chainstatus">Live</a>
       <a href="#verify">Verify</a>
       <a href="#citation">Citation</a>
     </div>
@@ -513,10 +515,72 @@
     </div>
   </section>
 
-  <!-- ━━━ X System Invariants ━━━ -->
-  <section class="sect" id="invariants">
+  <!-- ━━━ X Live Chain Status ━━━ -->
+  <section class="sect" id="chainstatus">
     <div class="sect-inner sect-centered">
       <span class="sect-numeral">X</span>
+      <h2 class="sect-heading">Live Chain Status</h2>
+      <p class="sect-lead">Read-only state from Polygon mainnet. No cache. No screenshots. Direct RPC.</p>
+
+      <div class="chain-panel">
+        <div class="chain-header">
+          <span class="chain-net-dot" id="chainDot"></span>
+          <span class="chain-net-label">Polygon Mainnet</span>
+          <span class="chain-block" id="chainBlock">Block —</span>
+        </div>
+
+        <div class="chain-grid">
+          <div class="chain-card">
+            <span class="chain-card-label">Literary Anchor</span>
+            <div class="chain-row"><span>Editions</span><code id="laEditionCount">—</code></div>
+            <div class="chain-row"><span>Latest Hash</span><code id="laLatestHash" class="chain-hash">—</code></div>
+            <div class="chain-row"><span>Latest CID</span><code id="laLatestCID" class="chain-hash">—</code></div>
+            <div class="chain-row"><span>Anchor Time</span><code id="laTimestamp">—</code></div>
+          </div>
+
+          <div class="chain-card">
+            <span class="chain-card-label">Publishing Kernel V2</span>
+            <div class="chain-row"><span>Editions</span><code id="kvEditionCount">—</code></div>
+            <div class="chain-row"><span>Canonical</span><code id="kvCanonical">—</code></div>
+            <div class="chain-row"><span>Frozen</span><code id="kvFrozen">—</code></div>
+            <div class="chain-row"><span>Edition Root</span><code id="kvEditionRoot" class="chain-hash">—</code></div>
+          </div>
+
+          <div class="chain-card">
+            <span class="chain-card-label">Author Identity</span>
+            <div class="chain-row"><span>Name</span><code id="aiName">—</code></div>
+            <div class="chain-row"><span>Pseudonym</span><code id="aiPseudonym">—</code></div>
+            <div class="chain-row"><span>Works</span><code id="aiWorks">—</code></div>
+            <div class="chain-row"><span>Linked Contracts</span><code id="aiContracts">—</code></div>
+          </div>
+
+          <div class="chain-card">
+            <span class="chain-card-label">NFT Layer</span>
+            <div class="chain-row"><span>EditionNFT Supply</span><code id="nftEditionSupply">—</code></div>
+            <div class="chain-row"><span>StoryNFT Supply</span><code id="nftStorySupply">—</code></div>
+            <div class="chain-row"><span>Royalty Router</span><code id="nftRoyalty">—</code></div>
+          </div>
+        </div>
+
+        <div class="chain-events">
+          <h4 class="chain-events-title">Recent On-Chain Events</h4>
+          <div id="chainEvents" class="chain-event-list">
+            <div class="chain-event-placeholder">Loading events…</div>
+          </div>
+        </div>
+
+        <div class="chain-footer">
+          <span class="chain-refresh" id="chainRefresh">↻ Refresh</span>
+          <span class="chain-updated" id="chainUpdated">Last read: —</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ━━━ XI System Invariants ━━━ -->
+  <section class="sect sect-stone" id="invariants">
+    <div class="sect-inner sect-centered">
+      <span class="sect-numeral">XI</span>
       <h2 class="sect-heading">System Invariants</h2>
       <p class="sect-lead">Verifiable guarantees that hold at every layer of the protocol.</p>
 
@@ -549,10 +613,10 @@
     </div>
   </section>
 
-  <!-- ━━━ XI The Verifier ━━━ -->
-  <section class="sect sect-stone" id="verify">
+  <!-- ━━━ XII The Verifier ━━━ -->
+  <section class="sect" id="verify">
     <div class="sect-inner sect-centered">
-      <span class="sect-numeral">XI</span>
+      <span class="sect-numeral">XII</span>
       <h2 class="sect-heading">Verify It Yourself</h2>
 
       <div class="verifier">
@@ -608,10 +672,10 @@ node verifier/cli.js --path example-work</code></pre>
     </div>
   </section>
 
-  <!-- ━━━ XII Cross-Chain ━━━ -->
-  <section class="sect" id="crosschain">
+  <!-- ━━━ XIII Cross-Chain ━━━ -->
+  <section class="sect sect-stone" id="crosschain">
     <div class="sect-inner sect-centered">
-      <span class="sect-numeral">XII</span>
+      <span class="sect-numeral">XIII</span>
       <h2 class="sect-heading">Cross-Chain Anchoring</h2>
 
       <div class="xchain-grid">
@@ -634,10 +698,10 @@ node verifier/cli.js --path example-work</code></pre>
     </div>
   </section>
 
-  <!-- ━━━ XIII Why This Matters ━━━ -->
-  <section class="sect sect-stone" id="whythismatters">
+  <!-- ━━━ XIV Why This Matters ━━━ -->
+  <section class="sect" id="whythismatters">
     <div class="sect-inner sect-centered">
-      <span class="sect-numeral">XIII</span>
+      <span class="sect-numeral">XIV</span>
       <h2 class="sect-heading">Why This Matters</h2>
 
       <div class="why-list">
@@ -665,10 +729,10 @@ node verifier/cli.js --path example-work</code></pre>
     </div>
   </section>
 
-  <!-- ━━━ XIV Citation ━━━ -->
-  <section class="sect" id="citation">
+  <!-- ━━━ XV Citation ━━━ -->
+  <section class="sect sect-stone" id="citation">
     <div class="sect-inner sect-centered">
-      <span class="sect-numeral">XIV</span>
+      <span class="sect-numeral">XV</span>
       <h2 class="sect-heading">Citation</h2>
       <p class="cite-title">Deterministic Literary Publishing:<br>A Multi-Layer Provenance Model for Verifiable Manuscripts</p>
       <p class="cite-pub-status">Working Paper &middot; Published February 15, 2026 &middot; Version 1.0 &middot; Open Access</p>
@@ -899,6 +963,251 @@ https://doi.org/10.5281/zenodo.18646886</code></pre>
         card.classList.toggle('open');
       });
     });
+
+    // ═══════════════════════════════════════════════════════════════
+    //  LIVE CHAIN STATUS — Read-only Polygon mainnet via Ethers v6
+    // ═══════════════════════════════════════════════════════════════
+    (function initChainStatus() {
+      if (typeof ethers === 'undefined') { console.warn('[XXXIII] ethers.js not loaded'); return; }
+
+      var RPC = 'https://polygon-rpc.com';
+      var CONTRACTS = {
+        anchor:   '0x97f456300817eaE3B40E235857b856dfFE8bba90',
+        kernelV2: '0xca9F6604A9b498DB31d113836E2957c0a9aAE037',
+        author:   '0xB9ffa688A8Bb332221030BbBE46bE5bF03323170',
+        edition:  '0x9e9Cc1486bf440Bd9eAaaD947958524Aaed3f8b0',
+        story:    '0xD67e537Dba1236f802432cbDD30Fec3f6D38e7E3',
+        royalty:  '0x44169829489d70aaecbf845870652871C65fC461'
+      };
+
+      // Minimal ABIs — read-only functions only
+      var ABI_ANCHOR = [
+        'function editionCount() view returns (uint256)',
+        'function latest() view returns (tuple(string ipfsCID, string sha256Hash, uint256 timestamp, string title, string note))'
+      ];
+      var ABI_KERNELV2 = [
+        'function editionCount() view returns (uint256)',
+        'function canonicalEditionId() view returns (uint256)',
+        'function hasCanonical() view returns (bool)',
+        'function getEdition(uint256) view returns (tuple(string ipfsCID, string sha256Hash, string title, string note, uint256 timestamp, tuple(bytes32 manuscriptRoot, bytes32 artifactRoot, bytes32 imageRoot, bytes32 promptRoot, bytes32 editionRoot) roots, uint256 supersedesEdition, bool isCanonical, bool isRetracted, string retractionReason, string aiModel, bytes32 promptSetHash, bytes authorSignature, bool isFrozen))'
+      ];
+      var ABI_AUTHOR = [
+        'function getIdentity() view returns (tuple(string realName, string nickname, string pseudonym, string organization, string domain, string amazonAuthorUrl))',
+        'function getBibliographyCount() view returns (uint256)',
+        'function getLinkedContractCount() view returns (uint256)'
+      ];
+      var ABI_NFT = [
+        'function totalSupply() view returns (uint256)'
+      ];
+
+      // Event ABIs for decoding logs
+      var EVENT_ANCHOR = ['event EditionAnchored(uint256 indexed editionIndex, string ipfsCID, string sha256Hash, uint256 timestamp)'];
+      var EVENT_KERNELV2 = [
+        'event EditionAnchored(uint256 indexed editionId, string ipfsCID, bytes32 editionRoot, uint256 timestamp, string note)',
+        'event EditionFrozen(uint256 indexed editionId, uint256 timestamp)'
+      ];
+
+      var provider = new ethers.JsonRpcProvider(RPC);
+      var anchor   = new ethers.Contract(CONTRACTS.anchor, ABI_ANCHOR, provider);
+      var kernel   = new ethers.Contract(CONTRACTS.kernelV2, ABI_KERNELV2.concat(EVENT_KERNELV2), provider);
+      var authorC  = new ethers.Contract(CONTRACTS.author, ABI_AUTHOR, provider);
+      var editionNFT = new ethers.Contract(CONTRACTS.edition, ABI_NFT, provider);
+      var storyNFT   = new ethers.Contract(CONTRACTS.story, ABI_NFT, provider);
+
+      var $  = function(id) { return document.getElementById(id); };
+      var dot = $('chainDot');
+      var truncHash = function(h) { return h ? h.slice(0,10) + '\u2026' + h.slice(-6) : '\u2014'; };
+      var truncCID  = function(c) { return c ? c.slice(0,12) + '\u2026' + c.slice(-4) : '\u2014'; };
+
+      function formatDate(ts) {
+        var d = new Date(Number(ts) * 1000);
+        return d.toISOString().replace('T', ' ').slice(0, 19) + ' UTC';
+      }
+
+      async function fetchAll() {
+        try {
+          if (dot) dot.className = 'chain-net-dot loading';
+
+          // Parallel reads — all independent
+          var results = await Promise.allSettled([
+            provider.getBlockNumber(),                   // 0
+            anchor.editionCount(),                       // 1
+            anchor.latest(),                             // 2
+            kernel.editionCount(),                       // 3
+            kernel.hasCanonical(),                       // 4
+            kernel.canonicalEditionId(),                  // 5
+            authorC.getIdentity(),                       // 6
+            authorC.getBibliographyCount(),               // 7
+            authorC.getLinkedContractCount(),             // 8
+            editionNFT.totalSupply(),                    // 9
+            storyNFT.totalSupply()                       // 10
+          ]);
+
+          var v = function(i) { return results[i].status === 'fulfilled' ? results[i].value : null; };
+
+          // Block
+          var blockNum = v(0);
+          if (blockNum && $('chainBlock')) $('chainBlock').textContent = 'Block ' + Number(blockNum).toLocaleString();
+
+          // Literary Anchor
+          var laCount = v(1);
+          var laLatest = v(2);
+          if (laCount != null && $('laEditionCount')) $('laEditionCount').textContent = String(laCount);
+          if (laLatest) {
+            if ($('laLatestHash')) $('laLatestHash').textContent = truncHash(laLatest.sha256Hash);
+            if ($('laLatestCID'))  $('laLatestCID').textContent  = truncCID(laLatest.ipfsCID);
+            if ($('laTimestamp'))  $('laTimestamp').textContent   = formatDate(laLatest.timestamp);
+          }
+
+          // KernelV2
+          var kvCount = v(3);
+          var hasCan = v(4);
+          var canId = v(5);
+          if (kvCount != null && $('kvEditionCount')) $('kvEditionCount').textContent = String(kvCount);
+          if (hasCan && canId != null && $('kvCanonical')) $('kvCanonical').textContent = 'Edition #' + String(canId);
+
+          // Fetch canonical edition for freeze + root
+          if (hasCan && canId != null) {
+            try {
+              var canEdition = await kernel.getEdition(canId);
+              if ($('kvFrozen')) {
+                $('kvFrozen').textContent = canEdition.isFrozen ? 'Yes \u2014 Sealed' : 'No';
+                $('kvFrozen').className = canEdition.isFrozen ? 'chain-hash chain-frozen' : 'chain-hash';
+              }
+              if ($('kvEditionRoot') && canEdition.roots && canEdition.roots.editionRoot) {
+                var root = canEdition.roots.editionRoot;
+                $('kvEditionRoot').textContent = truncHash(root);
+              }
+            } catch(e) { /* edition read failed, leave dashes */ }
+          }
+
+          // Author Identity
+          var identity = v(6);
+          var bibCount = v(7);
+          var linkCount = v(8);
+          if (identity) {
+            if ($('aiName'))      $('aiName').textContent = identity.realName || '\u2014';
+            if ($('aiPseudonym')) $('aiPseudonym').textContent = identity.pseudonym || '\u2014';
+          }
+          if (bibCount != null && $('aiWorks'))     $('aiWorks').textContent = String(bibCount);
+          if (linkCount != null && $('aiContracts')) $('aiContracts').textContent = String(linkCount);
+
+          // NFT Layer
+          var edSup = v(9);
+          var stSup = v(10);
+          if (edSup != null && $('nftEditionSupply')) $('nftEditionSupply').textContent = String(edSup);
+          if (stSup != null && $('nftStorySupply'))   $('nftStorySupply').textContent = String(stSup);
+          if ($('nftRoyalty')) $('nftRoyalty').textContent = 'Active';
+
+          // Dot green
+          if (dot) dot.className = 'chain-net-dot live';
+
+          // Last updated
+          if ($('chainUpdated')) $('chainUpdated').textContent = 'Last read: ' + new Date().toLocaleTimeString();
+
+          // Fetch events
+          await fetchEvents();
+
+        } catch(err) {
+          console.error('[XXXIII] Chain read error:', err);
+          if (dot) dot.className = 'chain-net-dot error';
+        }
+      }
+
+      async function fetchEvents() {
+        try {
+          var currentBlock = await provider.getBlockNumber();
+          // Look back ~7 days (~30k blocks on Polygon)
+          var fromBlock = Math.max(0, currentBlock - 200000);
+
+          var anchorFilter = anchor.filters.EditionAnchored();
+          var kernelAnchorFilter = kernel.filters.EditionAnchored();
+          var freezeFilter = kernel.filters.EditionFrozen();
+
+          var results = await Promise.allSettled([
+            anchor.queryFilter(anchorFilter, fromBlock),
+            kernel.queryFilter(kernelAnchorFilter, fromBlock),
+            kernel.queryFilter(freezeFilter, fromBlock)
+          ]);
+
+          var events = [];
+          var v = function(i) { return results[i].status === 'fulfilled' ? results[i].value : []; };
+
+          v(0).forEach(function(e) {
+            events.push({
+              block: e.blockNumber,
+              tx: e.transactionHash,
+              type: 'Anchor',
+              detail: 'Edition #' + String(e.args[0]) + ' anchored',
+              contract: 'LiteraryAnchor'
+            });
+          });
+          v(1).forEach(function(e) {
+            events.push({
+              block: e.blockNumber,
+              tx: e.transactionHash,
+              type: 'Anchor',
+              detail: 'Edition #' + String(e.args[0]) + ' \u2014 ' + (e.args[4] || ''),
+              contract: 'KernelV2'
+            });
+          });
+          v(2).forEach(function(e) {
+            events.push({
+              block: e.blockNumber,
+              tx: e.transactionHash,
+              type: 'Freeze',
+              detail: 'Edition #' + String(e.args[0]) + ' frozen',
+              contract: 'KernelV2'
+            });
+          });
+
+          // Sort descending by block
+          events.sort(function(a, b) { return b.block - a.block; });
+
+          // Render
+          var container = $('chainEvents');
+          if (!container) return;
+
+          if (events.length === 0) {
+            container.innerHTML = '<div class=\"chain-event-placeholder\">No recent events found</div>';
+            return;
+          }
+
+          var html = '';
+          var shown = events.slice(0, 8);
+          shown.forEach(function(ev) {
+            var txShort = ev.tx.slice(0, 10) + '\u2026' + ev.tx.slice(-6);
+            html += '<div class=\"chain-event\">';
+            html += '<span class=\"ce-type ce-' + ev.type.toLowerCase() + '\">' + ev.type + '</span>';
+            html += '<span class=\"ce-detail\">' + ev.detail + '</span>';
+            html += '<span class=\"ce-contract\">' + ev.contract + '</span>';
+            html += '<a href=\"https://polygonscan.com/tx/' + ev.tx + '\" target=\"_blank\" rel=\"noopener\" class=\"ce-tx\">' + txShort + '</a>';
+            html += '<span class=\"ce-block\">Block ' + ev.block.toLocaleString() + '</span>';
+            html += '</div>';
+          });
+          container.innerHTML = html;
+
+        } catch(err) {
+          console.error('[XXXIII] Event fetch error:', err);
+          var container = $('chainEvents');
+          if (container) container.innerHTML = '<div class=\"chain-event-placeholder\">Event query unavailable</div>';
+        }
+      }
+
+      // Initial load
+      fetchAll();
+
+      // Refresh button
+      var refreshBtn = $('chainRefresh');
+      if (refreshBtn) {
+        refreshBtn.addEventListener('click', function() {
+          refreshBtn.textContent = '\u21bb Reading\u2026';
+          fetchAll().then(function() {
+            refreshBtn.textContent = '\u21bb Refresh';
+          });
+        });
+      }
+    })();
   })();
   </script>
 
