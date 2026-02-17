@@ -1483,7 +1483,12 @@ https://doi.org/10.5281/zenodo.18646886</code></pre>
     (function initChainStatus() {
       if (typeof ethers === 'undefined') { console.warn('[XXXIII] ethers.js not loaded'); return; }
 
-      var RPC = 'https://polygon-rpc.com';
+      // RPC endpoints — fallback chain for reliability
+      var RPC_LIST = [
+        'https://polygon-rpc.com',
+        'https://rpc.ankr.com/polygon',
+        'https://polygon.llamarpc.com'
+      ];
       var CONTRACTS = {
         anchor:   '0x97f456300817eaE3B40E235857b856dfFE8bba90',
         kernelV2: '0xca9F6604A9b498DB31d113836E2957c0a9aAE037',
@@ -1520,12 +1525,41 @@ https://doi.org/10.5281/zenodo.18646886</code></pre>
         'event EditionFrozen(uint256 indexed editionId, uint256 timestamp)'
       ];
 
-      var provider = new ethers.JsonRpcProvider(RPC);
-      var anchor   = new ethers.Contract(CONTRACTS.anchor, ABI_ANCHOR, provider);
-      var kernel   = new ethers.Contract(CONTRACTS.kernelV2, ABI_KERNELV2.concat(EVENT_KERNELV2), provider);
-      var authorC  = new ethers.Contract(CONTRACTS.author, ABI_AUTHOR, provider);
-      var editionNFT = new ethers.Contract(CONTRACTS.edition, ABI_NFT, provider);
-      var storyNFT   = new ethers.Contract(CONTRACTS.story, ABI_NFT, provider);
+      // Polygon mainnet — staticNetwork skips eth_chainId auto-detect
+      // which can silently fail on public RPCs in browsers
+      var polygonNetwork = new ethers.Network('polygon', 137);
+
+      // Build provider with fallback — try each RPC until one works
+      var provider, rpcLabel;
+      function makeProvider(url) {
+        return new ethers.JsonRpcProvider(url, polygonNetwork, { staticNetwork: polygonNetwork });
+      }
+
+      async function initProvider() {
+        for (var i = 0; i < RPC_LIST.length; i++) {
+          try {
+            var p = makeProvider(RPC_LIST[i]);
+            await p.getBlockNumber(); // quick connectivity test
+            rpcLabel = RPC_LIST[i].replace('https://', '').split('/')[0];
+            return p;
+          } catch(e) {
+            console.warn('[XXXIII] RPC failed:', RPC_LIST[i], e.message);
+          }
+        }
+        throw new Error('All RPC endpoints unreachable');
+      }
+
+      var anchor, kernel, authorC, editionNFT, storyNFT;
+      var retryCount = 0;
+      var MAX_RETRIES = 2;
+
+      function bindContracts(p) {
+        anchor     = new ethers.Contract(CONTRACTS.anchor, ABI_ANCHOR, p);
+        kernel     = new ethers.Contract(CONTRACTS.kernelV2, ABI_KERNELV2.concat(EVENT_KERNELV2), p);
+        authorC    = new ethers.Contract(CONTRACTS.author, ABI_AUTHOR, p);
+        editionNFT = new ethers.Contract(CONTRACTS.edition, ABI_NFT, p);
+        storyNFT   = new ethers.Contract(CONTRACTS.story, ABI_NFT, p);
+      }
 
       var $  = function(id) { return document.getElementById(id); };
       var dot = $('chainDot');
@@ -1539,6 +1573,15 @@ https://doi.org/10.5281/zenodo.18646886</code></pre>
 
       async function fetchAll() {
         try {
+          // Initialize provider on first call (with RPC fallback)
+          if (!provider) {
+            provider = await initProvider();
+            bindContracts(provider);
+            // Update RPC label in UI
+            var rpcEl = document.querySelector('.chain-rpc');
+            if (rpcEl) rpcEl.textContent = 'RPC: ' + rpcLabel;
+          }
+
           if (dot) dot.className = 'chain-net-dot loading';
           var rpcStart = performance.now();
 
@@ -1558,6 +1601,14 @@ https://doi.org/10.5281/zenodo.18646886</code></pre>
           ]);
 
           var v = function(i) { return results[i].status === 'fulfilled' ? results[i].value : null; };
+
+          // Log any rejected calls for debugging
+          results.forEach(function(r, i) {
+            if (r.status === 'rejected') {
+              var labels = ['getBlockNumber','anchor.editionCount','anchor.latest','kernel.editionCount','kernel.hasCanonical','kernel.canonicalEditionId','author.getIdentity','author.getBibliographyCount','author.getLinkedContractCount','editionNFT.totalSupply','storyNFT.totalSupply'];
+              console.warn('[XXXIII] Call failed:', labels[i], r.reason?.message || r.reason);
+            }
+          });
 
           // Latency
           var rpcMs = Math.round(performance.now() - rpcStart);
@@ -1665,6 +1716,27 @@ https://doi.org/10.5281/zenodo.18646886</code></pre>
         } catch(err) {
           console.error('[XXXIII] Chain read error:', err);
           if (dot) dot.className = 'chain-net-dot error';
+          // Show error state instead of eternal dashes
+          var errorIds = ['chainBlock','laEditionCount','laLatestHash','laLatestCID','laTimestamp',
+            'kvEditionCount','kvCanonical','kvFrozen','kvEditionRoot',
+            'aiName','aiPseudonym','aiWorks','aiContracts',
+            'nftEditionSupply','nftStorySupply','nftRoyalty'];
+          errorIds.forEach(function(id) {
+            var el = $(id);
+            if (el && el.textContent === '\u2014') {
+              el.textContent = 'RPC unavailable';
+              el.style.opacity = '0.5';
+            }
+          });
+          if ($('chainUpdated')) $('chainUpdated').textContent = 'Read failed \u2014 retrying\u2026';
+          // Auto-retry with next RPC after 3s (max 2 retries)
+          if (retryCount < MAX_RETRIES) {
+            retryCount++;
+            provider = null;
+            setTimeout(fetchAll, 3000);
+          } else {
+            if ($('chainUpdated')) $('chainUpdated').textContent = 'All RPC endpoints failed';
+          }
         }
       }
 
@@ -1753,7 +1825,7 @@ https://doi.org/10.5281/zenodo.18646886</code></pre>
         if (!window.__chainReadAt || !$('chainUpdated')) return;
         var secs = Math.floor((Date.now() - window.__chainReadAt) / 1000);
         var ago = secs < 2 ? 'just now' : secs + 's ago';
-        var parts = [window.__chainBlockStr, ago, 'RPC: polygon-rpc.com'].filter(Boolean);
+        var parts = [window.__chainBlockStr, ago, 'RPC: ' + (rpcLabel || 'connecting\u2026')].filter(Boolean);
         $('chainUpdated').textContent = parts.join(' \u00B7 ');
       }
       setInterval(updateChainFooter, 1000);
