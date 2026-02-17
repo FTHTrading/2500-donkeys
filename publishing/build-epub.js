@@ -148,10 +148,9 @@ css: epub-style.css
   const metaPath = path.join(DIST_DIR, "epub-metadata.yaml");
   fs.writeFileSync(metaPath, epubMeta, "utf-8");
 
-  // 3. Create EPUB stylesheet
+  // 3. Create EPUB stylesheet (no external @import — KDP cannot fetch remote resources)
   const epubCSS = `/* EPUB Stylesheet — The 2,500 Donkeys */
-
-@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&family=EB+Garamond:ital,wght@0,400;0,700;1,400&display=swap');
+/* Note: Using system serif fallbacks. Kindle uses Bookerly by default. */
 
 body {
   font-family: "Crimson Text", Georgia, serif;

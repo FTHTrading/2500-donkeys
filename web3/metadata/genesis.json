@@ -5,10 +5,10 @@
   "schema": "literary-protocol-standard",
   "schemaVersion": "1.0.0",
   "build": {
-    "timestamp": "2026-02-15T13:43:26.533Z",
-    "sha256": "c1a072931906d37dfd5ae9aa10b7984ee154adb57524023b1f56e947707cb96d",
-    "md5": "842ef34d89ef81a4efdcb3ed93436804",
-    "sizeBytes": 293550,
+    "timestamp": "2026-02-17T03:58:10.129Z",
+    "sha256": "2535976853a6f23687043162b949d067dbb7f297ebaf5c382dd82bd3e30c1179",
+    "md5": "4252a6a51b30b3c43d1769a3a50e8892",
+    "sizeBytes": 293861,
     "source": "dist/final-manuscript.md"
   },
   "roots": {
@@ -70,16 +70,5 @@
     "kernelV2EditionFrozen": true,
     "kernelV2WiredAt": "2026-02-15T07:54:00.487Z",
     "kernelV2Pipeline": "Edition #0 (FROZEN) → License #0 → Router 0x44169829489d70aaecbf845870652871C65fC461"
-  },
-  "audio": {
-    "version": "IAPL-1",
-    "voice": {
-      "id": "JBFqnCBsd6RMkjVDRZzb",
-      "name": "George",
-      "model": "eleven_multilingual_v2"
-    },
-    "blockCount": 31,
-    "totalSizeBytes": 153802092,
-    "manifest": "dist/audio-manifest.json"
   }
 }
