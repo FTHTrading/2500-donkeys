@@ -29,6 +29,10 @@ import sys
 import time
 from pathlib import Path
 
+# Prevent transformers from importing TensorFlow (hangs on Windows)
+os.environ["USE_TF"] = "0"
+os.environ["USE_TORCH"] = "1"
+
 import numpy as np
 import soundfile as sf
 

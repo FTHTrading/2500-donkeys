@@ -14,6 +14,7 @@ images/generation-log.json
 
 # Generated audio (large MP3s — tracked via IAPL-1 manifest, not binary)
 audio/rendered/
+audio/rendered-stories/
 
 # Hardhat
 web3/cache/

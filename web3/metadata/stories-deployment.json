@@ -1,0 +1,44 @@
+{
+  "title": "PPE Puppetry",
+  "subtitle": "Ten Stories from the War Room",
+  "author": "Kidd James",
+  "anchoredAt": "2026-02-17T07:08:02.930Z",
+  "literaryAnchor": {
+    "contract": "0x97f456300817eaE3B40E235857b856dfFE8bba90",
+    "txHash": "0xe932f79746419cde7077b8f50b813ec73d6abb900f6512465a4cd3110313031e",
+    "blockNumber": 83096018,
+    "gasUsed": "261026"
+  },
+  "publishingKernelV2": {
+    "contract": "0xca9F6604A9b498DB31d113836E2957c0a9aAE037",
+    "txHash": "0xb2fc00d00c18bcc1c7edff388eba89d95595d3a3ef593ddeca89f5b09f0bfe57",
+    "blockNumber": 83096023,
+    "gasUsed": "498163",
+    "editionId": 1,
+    "frozen": true,
+    "freezeTxHash": "0xb3072bb4757125a5a4caa852988c485f6ac1fff443e9557f0102ec76e132d774",
+    "freezeBlockNumber": 83096027
+  },
+  "merkle": {
+    "manuscriptRoot": "43c24c2998d070ab7a5068fb67bbea5bc4d3ea1db652b82e79901694cadf90c6",
+    "editionRoot": "43c24c2998d070ab7a5068fb67bbea5bc4d3ea1db652b82e79901694cadf90c6",
+    "audioRoot": "b57afe2af664824bd77b1a33241f70b332f60a421d87e37182325db5d31a0151",
+    "audioEditionRoot": "a6c597fc21d65a907466ed99ed1be8f1b606b7478ca7f0e1c537ad18bd79ab62"
+  },
+  "manuscript": {
+    "combinedHash": "f5f0358b5623d3768fc4ddc152e0468124142cf15bb09b1a49a4990ce6d7df0f",
+    "fileCount": 13,
+    "totalSizeBytes": 83435
+  },
+  "ipfs": {
+    "cid": "pending-ipfs-pin"
+  },
+  "authorWallet": "0xC91668184736BF75C4ecE37473D694efb2A43978",
+  "network": "polygon-mainnet",
+  "chainId": 137,
+  "explorer": {
+    "anchor": "https://polygonscan.com/tx/0xe932f79746419cde7077b8f50b813ec73d6abb900f6512465a4cd3110313031e",
+    "kernel": "https://polygonscan.com/tx/0xb2fc00d00c18bcc1c7edff388eba89d95595d3a3ef593ddeca89f5b09f0bfe57",
+    "freeze": "https://polygonscan.com/tx/0xb3072bb4757125a5a4caa852988c485f6ac1fff443e9557f0102ec76e132d774"
+  }
+}
