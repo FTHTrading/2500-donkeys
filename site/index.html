@@ -36,6 +36,7 @@
       <a href="#verify">Verify</a>
       <a href="#compliance">Compliance</a>
       <a href="#roadmap">Roadmap</a>
+      <a href="#implement">Implement</a>
       <a href="#works">Works</a>
       <a href="https://github.com/FTHTrading/LPS-1-Reference-Implementation" target="_blank" rel="noopener">GitHub</a>
     </div>
@@ -181,8 +182,10 @@
         <div class="chain-header">
           <span class="chain-net-dot" id="chainDot"></span>
           <span class="chain-net-label">Polygon Mainnet</span>
+          <span class="chain-id-badge">Chain ID 137</span>
           <span class="chain-block" id="chainBlock">Block —</span>
           <span class="chain-rpc">RPC: polygon-rpc.com</span>
+          <span class="chain-latency" id="chainLatency"></span>
         </div>
 
         <div class="chain-contracts">
@@ -237,6 +240,7 @@
 
         <div class="chain-footer">
           <span class="chain-refresh" id="chainRefresh">↻ Refresh</span>
+          <span class="chain-anchor-tx" id="chainAnchorTx"></span>
           <span class="chain-updated" id="chainUpdated">Last read: —</span>
         </div>
       </div>
@@ -521,6 +525,65 @@ node verifier/cli.js --path example-work</code></pre>
       <div class="prov-ref" style="margin-top:2rem">
         <a href="https://github.com/FTHTrading/LPS-1-Reference-Implementation/blob/main/docs/ROADMAP.md" target="_blank" rel="noopener" class="btn btn-sm">View Full Roadmap</a>
         <a href="https://github.com/FTHTrading/LPS-1-Reference-Implementation/blob/main/docs/FUNDING_BRIEF.md" target="_blank" rel="noopener" class="btn btn-sm" style="margin-left:1rem">Funding Brief</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ━━━ Become an Implementor ━━━ -->
+  <section class="sect sect-stone" id="implement">
+    <div class="sect-inner sect-centered">
+      <h2 class="sect-heading">Become an Implementor</h2>
+      <p class="sect-lead">LPS-1 is designed for multi-implementation adoption. Build your own conformant deployment in five steps.</p>
+
+      <div class="impl-steps">
+        <div class="impl-step">
+          <span class="impl-step-num">1</span>
+          <span class="impl-step-title">Choose Compliance Level</span>
+          <p class="impl-step-desc">Select L0 (anchor only) through L5 (fully observable) based on your requirements.</p>
+          <a href="https://github.com/FTHTrading/LPS-1-Reference-Implementation/blob/main/spec/COMPLIANCE.md" target="_blank" rel="noopener" class="impl-step-link">View Compliance Matrix →</a>
+        </div>
+        <div class="impl-step">
+          <span class="impl-step-num">2</span>
+          <span class="impl-step-title">Clone Reference Implementation</span>
+          <p class="impl-step-desc">Fork the public repo. All contracts, tests, and pipeline code are MIT-licensed.</p>
+          <a href="https://github.com/FTHTrading/LPS-1-Reference-Implementation" target="_blank" rel="noopener" class="impl-step-link">GitHub Repository →</a>
+        </div>
+        <div class="impl-step">
+          <span class="impl-step-num">3</span>
+          <span class="impl-step-title">Run the Verifier</span>
+          <p class="impl-step-desc">Execute the 58-test verification suite against your deployment to confirm determinism.</p>
+          <code class="impl-step-code">npx hardhat test</code>
+        </div>
+        <div class="impl-step">
+          <span class="impl-step-num">4</span>
+          <span class="impl-step-title">Deploy Your Anchor</span>
+          <p class="impl-step-desc">Deploy your own LiteraryAnchor contract to any EVM chain. Minimal Hardhat config included.</p>
+          <code class="impl-step-code">npx hardhat run scripts/deploy.js --network polygon</code>
+        </div>
+        <div class="impl-step">
+          <span class="impl-step-num">5</span>
+          <span class="impl-step-title">Submit Conformance Statement</span>
+          <p class="impl-step-desc">Open a GitHub issue with your deployment address, chain ID, and compliance level achieved.</p>
+          <a href="https://github.com/FTHTrading/LPS-1-Reference-Implementation/issues" target="_blank" rel="noopener" class="impl-step-link">Submit Statement →</a>
+        </div>
+      </div>
+
+      <div class="impl-registry">
+        <h3 class="impl-registry-title">Implementation Registry</h3>
+        <div class="impl-registry-grid">
+          <div class="impl-registry-entry impl-active">
+            <span class="impl-registry-name">XXXIII</span>
+            <span class="impl-registry-level">Level 5 — Fully Observable</span>
+            <span class="impl-registry-chain">Polygon Mainnet</span>
+            <span class="impl-registry-status">Production</span>
+          </div>
+          <div class="impl-registry-entry impl-open">
+            <span class="impl-registry-name">Your Implementation</span>
+            <span class="impl-registry-level">Any Level (L0–L5)</span>
+            <span class="impl-registry-chain">Any EVM Chain</span>
+            <span class="impl-registry-status">Open Slot</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -1476,6 +1539,7 @@ https://doi.org/10.5281/zenodo.18646886</code></pre>
       async function fetchAll() {
         try {
           if (dot) dot.className = 'chain-net-dot loading';
+          var rpcStart = performance.now();
 
           // Parallel reads — all independent
           var results = await Promise.allSettled([
@@ -1493,6 +1557,10 @@ https://doi.org/10.5281/zenodo.18646886</code></pre>
           ]);
 
           var v = function(i) { return results[i].status === 'fulfilled' ? results[i].value : null; };
+
+          // Latency
+          var rpcMs = Math.round(performance.now() - rpcStart);
+          if ($('chainLatency')) $('chainLatency').textContent = rpcMs + 'ms';
 
           // Block
           var blockNum = v(0);
@@ -1518,6 +1586,20 @@ https://doi.org/10.5281/zenodo.18646886</code></pre>
             if ($('laLatestCID'))  $('laLatestCID').textContent  = truncCID(laLatest.ipfsCID);
             if ($('laTimestamp'))  $('laTimestamp').textContent   = formatDate(laLatest.timestamp);
           }
+
+          // Latest anchor TX — fetch from most recent EditionAnchored event
+          try {
+            var recentFilter = anchor.filters.EditionAnchored();
+            var recentBlock = await provider.getBlockNumber();
+            var recentEvents = await anchor.queryFilter(recentFilter, Math.max(0, recentBlock - 500000));
+            if (recentEvents.length > 0) {
+              var lastTx = recentEvents[recentEvents.length - 1].transactionHash;
+              var txShort = lastTx.slice(0, 10) + '\u2026' + lastTx.slice(-6);
+              if ($('chainAnchorTx')) {
+                $('chainAnchorTx').innerHTML = 'Latest Anchor: <a href="https://polygonscan.com/tx/' + lastTx + '" target="_blank" rel="noopener">' + txShort + '</a>';
+              }
+            }
+          } catch(e) { /* anchor tx fetch failed, leave empty */ }
 
           // KernelV2
           var kvCount = v(3);
