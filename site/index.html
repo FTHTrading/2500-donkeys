@@ -3,16 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>XXXIII Protocol — Deterministic Literary Publishing Standard</title>
-  <meta name="description" content="A deterministic literary publishing protocol establishing cryptographic proof-of-origin, content integrity, and immutable anchoring. Specification and reference implementation.">
-  <meta property="og:title" content="XXXIII — Deterministic Literary Infrastructure">
-  <meta property="og:description" content="A deterministic provenance standard with a literary reference implementation. 7 verified contracts on Polygon. 2 frozen editions. Level 5 compliant.">
+  <title>XXXIII — LPS-1 Open Provenance Standard</title>
+  <meta name="description" content="LPS-1: an open standard for deterministic digital provenance. 7 verified contracts on Polygon Mainnet. MIT licensed. Level 5 compliant.">
+  <meta property="og:title" content="XXXIII — LPS-1 Open Provenance Standard">
+  <meta property="og:description" content="An open standard for deterministic digital provenance. 7 verified contracts on Polygon. 293 tests. Level 5 compliant. MIT licensed.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://xxxiii.io">
   <meta property="og:image" content="https://xxxiii.io/images/cover/cover-front.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="XXXIII — Deterministic Literary Infrastructure">
-  <meta name="twitter:description" content="A deterministic provenance standard with a literary reference implementation. 7 verified contracts on Polygon. 2 frozen editions. Level 5 compliant.">
+  <meta name="twitter:title" content="XXXIII — LPS-1 Open Provenance Standard">
+  <meta name="twitter:description" content="An open standard for deterministic digital provenance. 7 verified contracts on Polygon. 293 tests. Level 5 compliant. MIT licensed.">
   <meta name="twitter:image" content="https://xxxiii.io/images/cover/cover-front.png">
   <meta name="author" content="Kidd James">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.88em' font-size='72' font-family='serif' fill='%23111'>X</text></svg>">
@@ -57,13 +57,12 @@
     <div class="hero-watermark" aria-hidden="true">XXXIII</div>
     <div class="hero-inner">
       <h1 class="hero-title">XXXIII</h1>
-      <p class="hero-subtitle">Deterministic Literary Publishing Protocol</p>
-      <p class="hero-subline">LPS-1 is an open, deterministic provenance standard for verifiable digital manuscripts, deployed live on Polygon.</p>
+      <p class="hero-subtitle">Open Standard for Deterministic Digital Provenance</p>
+      <p class="hero-subline">Deployed live on Polygon Mainnet. Independently verifiable. MIT licensed.</p>
       <div class="hero-verse">
-        <p>Every word hashed.</p>
-        <p>Every chapter Merkle-rooted.</p>
-        <p>Anchored on-chain.</p>
-        <p>Verifiable forever.</p>
+        <p>SHA-256 content hashing at word, paragraph, and chapter level.</p>
+        <p>Merkle tree commitments per edition with on-chain root anchoring.</p>
+        <p>Forward-only lifecycle. Zero upgradeability. Client-side verification.</p>
       </div>
       <div class="hero-actions">
         <a href="#verify" class="btn btn-primary">Verify in 90 Seconds</a>
@@ -240,6 +239,7 @@
 
         <div class="chain-footer">
           <span class="chain-refresh" id="chainRefresh">↻ Refresh</span>
+          <span class="chain-protocol-meta" id="chainMeta"></span>
           <span class="chain-anchor-tx" id="chainAnchorTx"></span>
           <span class="chain-updated" id="chainUpdated">Last read: —</span>
         </div>
@@ -533,7 +533,7 @@ node verifier/cli.js --path example-work</code></pre>
   <section class="sect sect-stone" id="implement">
     <div class="sect-inner sect-centered">
       <h2 class="sect-heading">Become an Implementor</h2>
-      <p class="sect-lead">LPS-1 is designed for multi-implementation adoption. Build your own conformant deployment in five steps.</p>
+      <p class="sect-lead">LPS-1 is designed for multi-implementation adoption. Level 0 requires a single SHA-256 anchor. Level 5 provides full observability.</p>
 
       <div class="impl-steps">
         <div class="impl-step">
@@ -599,6 +599,7 @@ node verifier/cli.js --path example-work</code></pre>
         <span class="funding-criterion">Independent verifiability</span>
         <span class="funding-criterion">Governance transition criteria</span>
       </div>
+      <p class="funding-footnote">The reference implementation is production-deployed and independently verifiable today.</p>
     </div>
   </div>
 
@@ -1621,6 +1622,14 @@ https://doi.org/10.5281/zenodo.18646886</code></pre>
                 $('kvEditionRoot').textContent = truncHash(root);
               }
             } catch(e) { /* edition read failed, leave dashes */ }
+          }
+
+          // Protocol meta — visible in chain footer
+          if ($('chainMeta')) {
+            var metaParts = [];
+            if (laCount != null) metaParts.push('Editions: ' + String(laCount));
+            if (hasCan && canId != null) metaParts.push('Canonical: #' + String(canId));
+            $('chainMeta').textContent = metaParts.join(' \u00B7 ');
           }
 
           // Author Identity

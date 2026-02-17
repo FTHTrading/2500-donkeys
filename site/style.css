@@ -1750,6 +1750,14 @@ img { max-width: 100%; display: block; }
   border: 1px solid var(--border);
   white-space: nowrap;
 }
+.funding-footnote {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.58rem;
+  color: var(--text-dim);
+  margin-top: 1.5rem;
+  letter-spacing: 0.03em;
+  font-style: italic;
+}
 
 /* ── Become an Implementor ── */
 .impl-steps {
@@ -1959,6 +1967,12 @@ img { max-width: 100%; display: block; }
 }
 .chain-anchor-tx a:hover {
   border-bottom-color: var(--gold);
+}
+.chain-protocol-meta {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.52rem;
+  color: var(--accent);
+  letter-spacing: 0.04em;
 }
 .chain-rpc {
   font-family: 'IBM Plex Mono', monospace;
