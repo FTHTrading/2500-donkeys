@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>XXXIII — Deterministic Literary Infrastructure</title>
-  <meta name="description" content="A deterministic publishing protocol. SHA-256 hashed manuscripts. Merkle-rooted editions. IPFS-pinned. Polygon-anchored. Verifiable forever.">
+  <title>XXXIII Protocol — Deterministic Literary Publishing Standard</title>
+  <meta name="description" content="A deterministic literary publishing protocol establishing cryptographic proof-of-origin, content integrity, and immutable anchoring. Specification and reference implementation.">
   <meta property="og:title" content="XXXIII — Deterministic Literary Infrastructure">
   <meta property="og:description" content="Proof-of-origin for authored works. V verified contracts on Polygon. II frozen editions. VI Merkle trees.">
   <meta property="og:type" content="website">
@@ -30,12 +30,12 @@
   <nav class="nav" id="nav">
     <a href="#" class="nav-brand">XXXIII</a>
     <div class="nav-links" id="navLinks">
-      <a href="#declaration">Declaration</a>
-      <a href="#pillars">Pillars</a>
+      <a href="#abstract">Abstract</a>
+      <a href="#guarantees">Guarantees</a>
       <a href="#protocol">Protocol</a>
-      <a href="#pipeline">Pipeline</a>
+      <a href="#statemachine">States</a>
       <a href="#contracts">Contracts</a>
-      <a href="#chainstatus">Live</a>
+      <a href="#chainstatus">Observe</a>
       <a href="#verify">Verify</a>
       <a href="#citation">Citation</a>
     </div>
@@ -57,7 +57,7 @@
     <div class="hero-watermark" aria-hidden="true">XXXIII</div>
     <div class="hero-inner">
       <h1 class="hero-title">XXXIII</h1>
-      <p class="hero-subtitle">Deterministic Literary Infrastructure</p>
+      <p class="hero-subtitle">Deterministic Literary Publishing Protocol</p>
       <div class="hero-verse">
         <p>Every word hashed.</p>
         <p>Every chapter Merkle-rooted.</p>
@@ -65,11 +65,15 @@
         <p>Verifiable forever.</p>
       </div>
       <div class="hero-actions">
-        <a href="#pillars" class="btn btn-primary">Open Protocol</a>
+        <a href="#abstract" class="btn btn-primary">Read Specification</a>
         <a href="read.html" class="btn">Read · The 2,500 Donkeys</a>
         <a href="read-ppe.html" class="btn">Read · Private Placement Puppetry</a>
       </div>
       <p class="hero-chain">MMXXVI · Polygon Mainnet · Chain ID CXXXVII</p>
+      <div class="hero-role-badges">
+        <span class="hero-role-badge role-spec">SPECIFICATION</span>
+        <span class="hero-role-badge role-impl">REFERENCE IMPLEMENTATION</span>
+      </div>
       <div class="proto-badges">
         <span class="proto-badge">Solidity 0.8.19</span>
         <span class="proto-badge">Hardhat</span>
@@ -115,10 +119,61 @@
     </div>
   </div>
 
-  <!-- ━━━ Ⅱ Declaration ━━━ -->
-  <section class="sect" id="declaration">
+  <!-- ━━━ I Abstract ━━━ -->
+  <section class="sect" id="abstract">
+    <div class="sect-inner sect-centered">
+      <span class="sect-numeral">I</span>
+      <h2 class="sect-heading">Abstract</h2>
+      <div class="abstract-text">
+        <p>This document describes a deterministic literary publishing protocol that establishes cryptographic proof-of-origin, content integrity, and immutable anchoring across decentralized storage and public blockchains.</p>
+        <p>The protocol formalizes a forward-only edition lifecycle, Merkle-based provenance commitments, and independently verifiable build determinism.</p>
+        <p class="abstract-impl">Reference implementation deployed on Polygon Mainnet.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ━━━ II Definitions ━━━ -->
+  <section class="sect sect-stone" id="definitions">
     <div class="sect-inner sect-centered">
       <span class="sect-numeral">II</span>
+      <h2 class="sect-heading">Definitions</h2>
+      <div class="def-grid">
+        <div class="def-item">
+          <dt class="def-term">Canonical Manuscript</dt>
+          <dd class="def-desc">The CRLF-normalized, UTF-8 encoded source file whose SHA-256 hash constitutes the authoritative content fingerprint.</dd>
+        </div>
+        <div class="def-item">
+          <dt class="def-term">Edition</dt>
+          <dd class="def-desc">A frozen, versioned snapshot of a literary work comprising manuscript, artifacts, images, and prompt logs, identified by a unique edition root.</dd>
+        </div>
+        <div class="def-item">
+          <dt class="def-term">Edition Root</dt>
+          <dd class="def-desc">SHA-256 hash derived from the concatenation of four independent Merkle roots: manuscriptRoot + artifactRoot + imageRoot + promptRoot.</dd>
+        </div>
+        <div class="def-item">
+          <dt class="def-term">Anchor</dt>
+          <dd class="def-desc">An immutable on-chain record binding an edition root and IPFS CID to a specific block number and timestamp on a public blockchain.</dd>
+        </div>
+        <div class="def-item">
+          <dt class="def-term">Terminal State</dt>
+          <dd class="def-desc">A state from which no further forward transitions are possible. Terminal states preserve all historical data. Defined states: SUPERSEDED, RETRACTED.</dd>
+        </div>
+        <div class="def-item">
+          <dt class="def-term">Determinism</dt>
+          <dd class="def-desc">The property that identical inputs always produce identical outputs. Achieved through canonical ordering, CRLF normalization, and fixed concatenation sequences.</dd>
+        </div>
+        <div class="def-item">
+          <dt class="def-term">Supersession</dt>
+          <dd class="def-desc">The process by which a newer edition replaces an older edition as canonical. The superseded edition remains on-chain but is marked non-canonical.</dd>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ━━━ III Declaration ━━━ -->
+  <section class="sect" id="declaration">
+    <div class="sect-inner sect-centered">
+      <span class="sect-numeral">III</span>
       <h2 class="sect-heading">Not DRM.</h2>
       <div class="declaration-text">
         <p>This system does not restrict access.<br>It proves origin.</p>
@@ -128,17 +183,17 @@
     </div>
   </section>
 
-  <!-- ━━━ Ⅲ The Three Pillars ━━━ -->
-  <section class="sect sect-stone" id="pillars">
+  <!-- ━━━ IV Core Guarantees ━━━ -->
+  <section class="sect sect-stone" id="guarantees">
     <div class="sect-inner sect-centered">
-      <span class="sect-numeral">III</span>
-      <h2 class="sect-heading">The Three Pillars</h2>
+      <span class="sect-numeral">IV</span>
+      <h2 class="sect-heading">Core Guarantees</h2>
 
       <div class="pillars">
-        <!-- Origin -->
+        <!-- G1: Origin -->
         <div class="pillar">
-          <span class="pillar-numeral">I</span>
-          <h3 class="pillar-name">Origin</h3>
+          <span class="pillar-numeral">G1</span>
+          <h3 class="pillar-name">Origin Guarantee</h3>
           <p class="pillar-text">SHA-256 canonical hash establishes authorship at byte-level precision.</p>
           <div class="pillar-hash">
             <span class="pillar-label">Canonical</span>
@@ -147,10 +202,10 @@
           </div>
         </div>
 
-        <!-- Integrity -->
+        <!-- G2: Integrity -->
         <div class="pillar">
-          <span class="pillar-numeral">II</span>
-          <h3 class="pillar-name">Integrity</h3>
+          <span class="pillar-numeral">G2</span>
+          <h3 class="pillar-name">Integrity Guarantee</h3>
           <p class="pillar-text">IV independent Merkle trees combine into a single Edition Root.</p>
           <div class="pillar-hash">
             <span class="pillar-label">Edition Root</span>
@@ -164,10 +219,10 @@
           </div>
         </div>
 
-        <!-- Permanence -->
+        <!-- G3: Permanence -->
         <div class="pillar">
-          <span class="pillar-numeral">III</span>
-          <h3 class="pillar-name">Permanence</h3>
+          <span class="pillar-numeral">G3</span>
+          <h3 class="pillar-name">Permanence Guarantee</h3>
           <p class="pillar-text">IPFS content addressing + Polygon on-chain anchor. Immutable by design.</p>
           <div class="pillar-hash">
             <span class="pillar-label">Edition II CID</span>
@@ -184,10 +239,10 @@
     </div>
   </section>
 
-  <!-- ━━━ IV Protocol Layer ━━━ -->
+  <!-- ━━━ V Protocol Layer ━━━ -->
   <section class="sect" id="protocol">
     <div class="sect-inner sect-centered">
-      <span class="sect-numeral">IV</span>
+      <span class="sect-numeral">V</span>
       <h2 class="sect-heading">The Protocol Layer</h2>
       <p class="sect-lead">A five-layer provenance stack. Each layer independently verifiable.</p>
 
@@ -211,10 +266,10 @@
     </div>
   </section>
 
-  <!-- ━━━ V The Pipeline ━━━ -->
+  <!-- ━━━ VI The Pipeline ━━━ -->
   <section class="sect sect-stone" id="pipeline">
     <div class="sect-inner sect-centered">
-      <span class="sect-numeral">V</span>
+      <span class="sect-numeral">VI</span>
       <h2 class="sect-heading">The Pipeline</h2>
       <p class="sect-lead">A deterministic sequence from manuscript to chain.</p>
 
@@ -289,10 +344,10 @@
     </div>
   </section>
 
-  <!-- ━━━ VI Merkle Architecture ━━━ -->
+  <!-- ━━━ VII Merkle Architecture ━━━ -->
   <section class="sect" id="merkle">
     <div class="sect-inner sect-centered">
-      <span class="sect-numeral">VI</span>
+      <span class="sect-numeral">VII</span>
       <h2 class="sect-heading">Merkle Architecture</h2>
       <p class="sect-lead">Four independent trees converge into a single edition root.</p>
 
@@ -336,12 +391,12 @@
     </div>
   </section>
 
-  <!-- ━━━ VII State Machine ━━━ -->
+  <!-- ━━━ VIII State Machine ━━━ -->
   <section class="sect sect-stone" id="statemachine">
     <div class="sect-inner sect-centered">
-      <span class="sect-numeral">VII</span>
+      <span class="sect-numeral">VIII</span>
       <h2 class="sect-heading">Edition State Machine</h2>
-      <p class="sect-lead">Forward-only transitions. No state can be reverted or erased.</p>
+      <p class="sect-lead">The edition lifecycle is modeled as a monotonic finite-state machine. All transitions are irreversible. All terminal states preserve historical data.</p>
 
       <div class="sm-flow">
         <div class="sm-state">DRAFT</div>
@@ -364,13 +419,13 @@
           <span class="sm-branch-label">From PUBLISHED</span>
           <span class="sm-branch-sep">↘</span>
           <div class="sm-state sm-end">SUPERSEDED</div>
-          <span class="sm-branch-note">Replaced by newer edition</span>
+          <span class="sm-branch-note">Non-canonical. Replaced by newer edition.</span>
         </div>
         <div class="sm-terminal-branch">
           <span class="sm-branch-label">From PUBLISHED</span>
           <span class="sm-branch-sep">↘</span>
           <div class="sm-state sm-end">RETRACTED</div>
-          <span class="sm-branch-note">Withdrawn by author (48h timelock)</span>
+          <span class="sm-branch-note">Author-initiated withdrawal. 48h timelock.</span>
         </div>
       </div>
 
@@ -378,10 +433,10 @@
     </div>
   </section>
 
-  <!-- ━━━ VIII The Works ━━━ -->
+  <!-- ━━━ IX The Works ━━━ -->
   <section class="sect" id="works">
     <div class="sect-inner sect-centered">
-      <span class="sect-numeral">VIII</span>
+      <span class="sect-numeral">IX</span>
       <h2 class="sect-heading">The Works</h2>
 
       <div class="works">
@@ -446,10 +501,10 @@
     </div>
   </section>
 
-  <!-- ━━━ IX The Contract Architecture ━━━ -->
+  <!-- ━━━ X The Contract Architecture ━━━ -->
   <section class="sect sect-stone" id="contracts">
     <div class="sect-inner sect-centered">
-      <span class="sect-numeral">IX</span>
+      <span class="sect-numeral">X</span>
       <h2 class="sect-heading">The Contract Architecture</h2>
       <p class="sect-lead">VII contracts deployed. Source verified.</p>
 
@@ -550,12 +605,12 @@
     </div>
   </section>
 
-  <!-- ━━━ X Live Chain Status ━━━ -->
+  <!-- ━━━ XI On-Chain State ━━━ -->
   <section class="sect" id="chainstatus">
     <div class="sect-inner sect-centered">
-      <span class="sect-numeral">X</span>
-      <h2 class="sect-heading">Live Chain Status</h2>
-      <p class="sect-lead">Read-only state from Polygon mainnet. No cache. No screenshots. Direct RPC.</p>
+      <span class="sect-numeral">XI</span>
+      <h2 class="sect-heading">On-Chain State</h2>
+      <p class="sect-lead">Direct read-only RPC observation of deployed contracts. No intermediary services.</p>
 
       <div class="chain-panel">
         <div class="chain-header">
@@ -612,10 +667,10 @@
     </div>
   </section>
 
-  <!-- ━━━ XI System Invariants ━━━ -->
+  <!-- ━━━ XII System Invariants ━━━ -->
   <section class="sect sect-stone" id="invariants">
     <div class="sect-inner sect-centered">
-      <span class="sect-numeral">XI</span>
+      <span class="sect-numeral">XII</span>
       <h2 class="sect-heading">System Invariants</h2>
       <p class="sect-lead">Verifiable guarantees that hold at every layer of the protocol.</p>
 
@@ -648,10 +703,10 @@
     </div>
   </section>
 
-  <!-- ━━━ XII The Verifier ━━━ -->
+  <!-- ━━━ XIII The Verifier ━━━ -->
   <section class="sect" id="verify">
     <div class="sect-inner sect-centered">
-      <span class="sect-numeral">XII</span>
+      <span class="sect-numeral">XIII</span>
       <h2 class="sect-heading">Verify It Yourself</h2>
 
       <div class="verifier">
@@ -707,10 +762,10 @@ node verifier/cli.js --path example-work</code></pre>
     </div>
   </section>
 
-  <!-- ━━━ XIII Cross-Chain ━━━ -->
+  <!-- ━━━ XIV Cross-Chain ━━━ -->
   <section class="sect sect-stone" id="crosschain">
     <div class="sect-inner sect-centered">
-      <span class="sect-numeral">XIII</span>
+      <span class="sect-numeral">XIV</span>
       <h2 class="sect-heading">Cross-Chain Anchoring</h2>
 
       <div class="xchain-grid">
@@ -733,10 +788,10 @@ node verifier/cli.js --path example-work</code></pre>
     </div>
   </section>
 
-  <!-- ━━━ XIV Why This Matters ━━━ -->
+  <!-- ━━━ XV Why This Matters ━━━ -->
   <section class="sect" id="whythismatters">
     <div class="sect-inner sect-centered">
-      <span class="sect-numeral">XIV</span>
+      <span class="sect-numeral">XV</span>
       <h2 class="sect-heading">Why This Matters</h2>
 
       <div class="why-list">
@@ -764,10 +819,185 @@ node verifier/cli.js --path example-work</code></pre>
     </div>
   </section>
 
-  <!-- ━━━ XV Citation ━━━ -->
+  <!-- ━━━ XVI Protocol Stewardship ━━━ -->
+  <section class="sect sect-stone" id="stewardship">
+    <div class="sect-inner sect-centered">
+      <span class="sect-numeral">XVI</span>
+      <h2 class="sect-heading">Protocol Stewardship</h2>
+
+      <div class="steward-grid">
+        <div class="steward-role">
+          <span class="steward-title">Protocol Author</span>
+          <span class="steward-name">Kidd James</span>
+        </div>
+        <div class="steward-role">
+          <span class="steward-title">Specification Steward</span>
+          <span class="steward-name">XXXIII Working Group</span>
+        </div>
+        <div class="steward-role">
+          <span class="steward-title">Reference Implementation</span>
+          <span class="steward-name">FTHTrading</span>
+        </div>
+        <div class="steward-role">
+          <span class="steward-title">Security Review</span>
+          <span class="steward-name">Independent internal audit (2026)</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ━━━ XVII Compliance Levels ━━━ -->
+  <section class="sect" id="compliance">
+    <div class="sect-inner sect-centered">
+      <span class="sect-numeral">XVII</span>
+      <h2 class="sect-heading">Compliance Levels</h2>
+      <p class="sect-lead">Progressive implementation tiers for protocol conformance.</p>
+
+      <div class="compliance-grid">
+        <div class="compliance-level">
+          <span class="cl-num">1</span>
+          <span class="cl-name">Deterministic Build</span>
+          <span class="cl-req">SHA-256 canonical hash + CRLF normalization</span>
+        </div>
+        <div class="compliance-level">
+          <span class="cl-num">2</span>
+          <span class="cl-name">Merkle Commitments</span>
+          <span class="cl-req">Per-content-type Merkle roots + combined edition root</span>
+        </div>
+        <div class="compliance-level">
+          <span class="cl-num">3</span>
+          <span class="cl-name">On-Chain Anchoring</span>
+          <span class="cl-req">Immutable blockchain record binding edition root to block timestamp</span>
+        </div>
+        <div class="compliance-level">
+          <span class="cl-num">4</span>
+          <span class="cl-name">ECDSA Identity Binding</span>
+          <span class="cl-req">Signed canonical edition with on-chain author identity</span>
+        </div>
+        <div class="compliance-level">
+          <span class="cl-num">5</span>
+          <span class="cl-name">Cross-Chain Timestamping</span>
+          <span class="cl-req">Multi-chain anchor for independent temporal verification</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ━━━ XVIII Related Work ━━━ -->
+  <section class="sect sect-stone" id="relatedwork">
+    <div class="sect-inner sect-centered">
+      <span class="sect-numeral">XVIII</span>
+      <h2 class="sect-heading">Related Work</h2>
+
+      <div class="related-grid">
+        <div class="related-item">
+          <h4>Content-Addressable Storage</h4>
+          <p>IPFS (InterPlanetary File System) provides content-addressed, peer-to-peer storage. This protocol uses IPFS CIDs as the decentralized persistence layer.</p>
+        </div>
+        <div class="related-item">
+          <h4>Merkle Commitment Schemes</h4>
+          <p>Binary hash trees for tamper-evident data structures, as described by Merkle (1979). This protocol extends the model to per-content-type independent trees with a combined edition root.</p>
+        </div>
+        <div class="related-item">
+          <h4>OpenTimestamps</h4>
+          <p>Calendar-based Bitcoin timestamping. Used by this protocol for cross-chain temporal anchoring independent of the primary Polygon deployment.</p>
+        </div>
+        <div class="related-item">
+          <h4>Reproducible Builds</h4>
+          <p>Deterministic compilation ensuring identical inputs produce identical outputs. This protocol applies reproducible build principles to literary content via canonical ordering and normalization.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ━━━ XIX Security Considerations ━━━ -->
+  <section class="sect" id="security">
+    <div class="sect-inner sect-centered">
+      <span class="sect-numeral">XIX</span>
+      <h2 class="sect-heading">Security Considerations</h2>
+
+      <div class="sec-grid">
+        <div class="sec-item">
+          <h4>Hash Collision Resistance</h4>
+          <p>All content fingerprinting uses SHA-256 (FIPS 180-4). The protocol's integrity guarantees depend on SHA-256's collision resistance. No known practical collision attack exists against SHA-256 as of this writing.</p>
+        </div>
+        <div class="sec-item">
+          <h4>Author Key Custody</h4>
+          <p>All anchoring and minting operations require the author's private key. Key compromise permits unauthorized anchoring. Key loss is non-recoverable. The trust model is self-sovereign: no recovery mechanism exists by design.</p>
+        </div>
+        <div class="sec-item">
+          <h4>IPFS Availability</h4>
+          <p>IPFS provides content addressing, not availability guarantees. Content must be actively pinned. CID immutability ensures integrity independent of availability. Loss of all pin providers does not affect on-chain anchor validity.</p>
+        </div>
+        <div class="sec-item">
+          <h4>RPC Observation Integrity</h4>
+          <p>Client-side chain reads depend on public RPC endpoint honesty. Verification across multiple independent RPC providers mitigates eclipse attacks. All displayed state is independently reproducible via Polygonscan.</p>
+        </div>
+        <div class="sec-item">
+          <h4>Non-Upgradeable Contracts</h4>
+          <p>No proxy pattern. No admin keys. No governance multisig. Contract behavior is fixed at deployment. This eliminates upgrade-path attacks at the cost of post-deployment mutability. This is an intentional design constraint.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ━━━ XX Limitations ━━━ -->
+  <section class="sect sect-stone" id="limitations">
+    <div class="sect-inner sect-centered">
+      <span class="sect-numeral">XX</span>
+      <h2 class="sect-heading">Limitations</h2>
+
+      <div class="limit-grid">
+        <div class="limit-item">
+          <span class="limit-marker">&#x2022;</span>
+          <p>Does not prevent copyright disputes. The protocol proves temporal priority of anchoring, not legal ownership.</p>
+        </div>
+        <div class="limit-item">
+          <span class="limit-marker">&#x2022;</span>
+          <p>Does not guarantee IPFS availability. Content addressing ensures integrity but not persistence without active pinning.</p>
+        </div>
+        <div class="limit-item">
+          <span class="limit-marker">&#x2022;</span>
+          <p>Does not prevent private key loss. Self-sovereign identity has no recovery mechanism by design.</p>
+        </div>
+        <div class="limit-item">
+          <span class="limit-marker">&#x2022;</span>
+          <p>Does not enforce content quality. The protocol is agnostic to the literary merit of anchored works.</p>
+        </div>
+        <div class="limit-item">
+          <span class="limit-marker">&#x2022;</span>
+          <p>Does not provide offline verification. On-chain state observation requires network access to an RPC endpoint.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ━━━ XXI Implementation Status ━━━ -->
+  <section class="sect" id="implstatus">
+    <div class="sect-inner sect-centered">
+      <span class="sect-numeral">XXI</span>
+      <h2 class="sect-heading">Implementation Status</h2>
+
+      <div class="impl-table">
+        <div class="impl-row"><span class="impl-key">Specification Status</span><span class="impl-val">Informational</span></div>
+        <div class="impl-row"><span class="impl-key">Reference Implementation</span><span class="impl-val"><a href="https://github.com/FTHTrading/LPS-1-Reference-Implementation" target="_blank" rel="noopener" style="color:var(--gold);border-bottom:1px solid transparent">Production — GitHub</a></span></div>
+        <div class="impl-row"><span class="impl-key">LPS-1 Specification</span><span class="impl-val"><a href="https://github.com/FTHTrading/LPS-1-Reference-Implementation/blob/main/spec/LPS-1.md" target="_blank" rel="noopener" style="color:var(--gold);border-bottom:1px solid transparent">Literary Protocol Standard (RFC-style)</a></span></div>
+        <div class="impl-row"><span class="impl-key">IAPL-1 Specification</span><span class="impl-val"><a href="https://github.com/FTHTrading/LPS-1-Reference-Implementation/blob/main/spec/IAPL-1.md" target="_blank" rel="noopener" style="color:var(--gold);border-bottom:1px solid transparent">Immutable Audio Publishing Layer</a></span></div>
+        <div class="impl-row"><span class="impl-key">Network</span><span class="impl-val">Polygon Mainnet (Chain ID 137)</span></div>
+        <div class="impl-row"><span class="impl-key">Contracts Verified</span><span class="impl-val">Yes — VII / VII</span></div>
+        <div class="impl-row"><span class="impl-key">Upgradeability</span><span class="impl-val">None</span></div>
+        <div class="impl-row"><span class="impl-key">Test Coverage</span><span class="impl-val">293 tests across VII suites</span></div>
+        <div class="impl-row"><span class="impl-key">Ref. Impl. Tests</span><span class="impl-val">58 tests (37 contract + 21 pipeline)</span></div>
+        <div class="impl-row"><span class="impl-key">Conformance Level</span><span class="impl-val">Level 3 — Extended (IAPL-1 + Identity + Royalties)</span></div>
+        <div class="impl-row"><span class="impl-key">License</span><span class="impl-val">MIT (infrastructure) · CC BY 4.0 (paper)</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ━━━ XXII Citation ━━━ -->
   <section class="sect sect-stone" id="citation">
     <div class="sect-inner sect-centered">
-      <span class="sect-numeral">XV</span>
+      <span class="sect-numeral">XXII</span>
       <h2 class="sect-heading">Citation</h2>
       <p class="cite-title">Deterministic Literary Publishing:<br>A Multi-Layer Provenance Model for Verifiable Manuscripts</p>
       <p class="cite-pub-status">Working Paper &middot; Published February 15, 2026 &middot; Version 1.0 &middot; Open Access</p>
@@ -833,7 +1063,7 @@ https://doi.org/10.5281/zenodo.18646886</code></pre>
   <footer class="footer">
     <div class="footer-inner">
       <p class="footer-brand">XXXIII</p>
-      <p class="footer-line">Deterministic Literary Publishing</p>
+      <p class="footer-line">XXXIII Deterministic Literary Publishing Protocol (v2.0)</p>
       <p class="footer-year">MMXXVI</p>
       <p class="footer-hashes">Canonical · Edition Root · On-Chain Anchor</p>
       <div class="footer-nav">

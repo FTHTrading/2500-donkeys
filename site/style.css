@@ -1257,6 +1257,237 @@ img { max-width: 100%; display: block; }
   letter-spacing: 0.04em;
 }
 
+/* ═══════════════════════════
+   Academic Standard Layer
+   ═══════════════════════════ */
+
+/* ── Hero Role Badges ── */
+.hero-role-badges {
+  display: flex; gap: 0.8rem; justify-content: center;
+  flex-wrap: wrap; margin-top: 1.5rem; margin-bottom: 0.5rem;
+}
+.hero-role-badge {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.62rem; letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 0.35rem 1.2rem;
+  border-radius: 2px;
+  font-weight: 500;
+}
+.role-spec {
+  background: var(--gold); color: var(--bg);
+  border: 1px solid var(--gold);
+}
+.role-impl {
+  background: transparent; color: var(--gold);
+  border: 1px solid var(--gold);
+}
+
+/* ── Abstract ── */
+.abstract-text {
+  max-width: 620px; margin: 0 auto;
+  text-align: left;
+}
+.abstract-text p {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.92rem; line-height: 1.85;
+  color: var(--text-secondary);
+  margin-bottom: 1.2rem;
+}
+.abstract-impl {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  font-style: italic;
+  margin-top: 1.5rem;
+}
+
+/* ── Definitions ── */
+.def-grid {
+  display: grid; gap: 0;
+  max-width: 640px; margin: 2rem auto 0;
+  text-align: left;
+  border-top: 1px solid var(--border);
+}
+.def-item {
+  padding: 1.2rem 0;
+  border-bottom: 1px solid var(--border);
+}
+.def-term {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.78rem; font-weight: 500;
+  color: var(--gold);
+  letter-spacing: 0.04em;
+  margin-bottom: 0.4rem;
+}
+.def-desc {
+  font-size: 0.82rem; line-height: 1.7;
+  color: var(--text-secondary);
+}
+
+/* ── Protocol Stewardship ── */
+.steward-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  max-width: 560px; margin: 2.5rem auto 0;
+}
+.steward-role {
+  display: flex; flex-direction: column;
+  align-items: center; gap: 0.4rem;
+  padding: 1.5rem 1rem;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  transition: border-color 0.25s;
+}
+.steward-role:hover { border-color: var(--gold); }
+.steward-title {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.6rem; letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+.steward-name {
+  font-family: 'Cinzel', serif;
+  font-size: 0.88rem; font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.03em;
+}
+
+/* ── Compliance Levels ── */
+.compliance-grid {
+  display: flex; flex-direction: column;
+  gap: 0; max-width: 580px; margin: 2.5rem auto 0;
+  border-top: 1px solid var(--border);
+}
+.compliance-level {
+  display: grid;
+  grid-template-columns: 2.5rem 1fr;
+  grid-template-rows: auto auto;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--border);
+  gap: 0 1rem;
+  text-align: left;
+}
+.cl-num {
+  grid-row: 1 / 3;
+  font-family: 'Cinzel', serif;
+  font-size: 1.1rem; font-weight: 600;
+  color: var(--gold);
+  display: flex; align-items: center; justify-content: center;
+}
+.cl-name {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.75rem; font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.04em;
+}
+.cl-req {
+  font-size: 0.72rem; line-height: 1.6;
+  color: var(--text-tertiary);
+  margin-top: 0.15rem;
+}
+
+/* ── Related Work ── */
+.related-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  max-width: 680px; margin: 2.5rem auto 0;
+  text-align: left;
+}
+.related-item {
+  padding: 1.5rem;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  transition: border-color 0.25s;
+}
+.related-item:hover { border-color: var(--gold); }
+.related-item h4 {
+  font-family: 'Cinzel', serif;
+  font-size: 0.82rem; font-weight: 600;
+  color: var(--text);
+  margin-bottom: 0.6rem;
+  letter-spacing: 0.02em;
+}
+.related-item p {
+  font-size: 0.75rem; line-height: 1.7;
+  color: var(--text-secondary);
+}
+
+/* ── Security Considerations ── */
+.sec-grid {
+  display: grid; gap: 1.5rem;
+  max-width: 640px; margin: 2.5rem auto 0;
+  text-align: left;
+}
+.sec-item {
+  padding: 1.5rem;
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--gold);
+  background: var(--bg-card);
+}
+.sec-item h4 {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.72rem; font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 0.6rem;
+}
+.sec-item p {
+  font-size: 0.78rem; line-height: 1.8;
+  color: var(--text-secondary);
+}
+
+/* ── Limitations ── */
+.limit-grid {
+  display: grid; gap: 0;
+  max-width: 600px; margin: 2rem auto 0;
+  text-align: left;
+  border-top: 1px solid var(--border);
+}
+.limit-item {
+  display: flex; gap: 0.8rem; align-items: baseline;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--border);
+}
+.limit-marker {
+  color: var(--gold);
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+.limit-item p {
+  font-size: 0.78rem; line-height: 1.7;
+  color: var(--text-secondary);
+}
+
+/* ── Implementation Status ── */
+.impl-table {
+  max-width: 500px; margin: 2.5rem auto 0;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+}
+.impl-row {
+  display: flex; justify-content: space-between;
+  align-items: baseline;
+  padding: 0.8rem 1.4rem;
+  border-bottom: 1px solid var(--border);
+}
+.impl-row:last-child { border-bottom: none; }
+.impl-key {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.65rem; letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+.impl-val {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.72rem; font-weight: 500;
+  color: var(--text);
+  text-align: right;
+}
+
 /* ── Responsive: new sections ── */
 
 /* ── Metrics Bar ── */
@@ -1315,6 +1546,8 @@ img { max-width: 100%; display: block; }
   .chain-card { border-right: none; }
   .chain-card:nth-last-child(-n+2) { border-bottom: 1px solid var(--border); }
   .chain-card:last-child { border-bottom: none; }
+  .steward-grid { grid-template-columns: 1fr; max-width: 300px; margin-left: auto; margin-right: auto; }
+  .related-grid { grid-template-columns: 1fr; max-width: 400px; margin-left: auto; margin-right: auto; }
 }
 
 @media (max-width: 700px) {
@@ -1334,4 +1567,7 @@ img { max-width: 100%; display: block; }
   .chain-block { width: 100%; margin-left: 0; margin-top: 0.4rem; }
   .chain-event { font-size: 0.52rem; gap: 0.3rem; }
   .chain-footer { flex-direction: column; gap: 0.5rem; align-items: flex-start; }
+  .impl-row { flex-direction: column; gap: 0.2rem; }
+  .impl-val { text-align: left; }
+  .hero-role-badges { flex-direction: column; align-items: center; }
 }

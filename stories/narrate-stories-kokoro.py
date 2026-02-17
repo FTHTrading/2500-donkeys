@@ -218,9 +218,9 @@ def render_chapter(pipeline_b, index: int, filename: str, total: int) -> str:
 
 def main():
     print()
-    print("╔══════════════════════════════════════════════════╗")
+    print("╔════════════════════════════════════════════════════╗")
     print("║   KOKORO TTS — Private Placement Puppetry          ║")
-    print("╚══════════════════════════════════════════════════╝")
+    print("╚════════════════════════════════════════════════════╝")
     print()
     print(f"  Engine:     Kokoro 82M (hexgrad/Kokoro-82M)")
     print(f"  Narrator:   {NARRATOR_VOICE} (speed {NARRATOR_SPEED})")
