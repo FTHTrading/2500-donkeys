@@ -1,9 +1,12 @@
 # LPS-1 LinkedIn Launch Package
 
 **Prepared:** February 17, 2026
+**Updated:** February 17, 2026 — Audit-hardened revision
 **Author:** Kidd James (Kevan Burns)
 **Protocol:** LPS-1 — Literary Publishing Standard
 **Site:** xxxiii.io
+**Production:** production.2500-donkeys.pages.dev (verification fallback)
+**Status:** Launch-ready — all on-chain reads operational, multi-RPC fallback active
 
 ---
 
@@ -15,9 +18,17 @@
 
 LPS-1 is now live on Polygon Mainnet.
 7 verified smart contracts. 293 tests. Zero upgradeability.
-An open standard for deterministic digital provenance — available today.
+An open protocol specification for deterministic digital provenance — available today.
 
 The protocol establishes cryptographic proof-of-origin for digital manuscripts using SHA-256 hashing, Merkle tree commitments, and on-chain anchoring. No publisher. No platform. No intermediary.
+
+Decision summary:
+
+• What exists: 7 verified contracts on Polygon, 2 frozen editions, live verification dashboard
+• What's verifiable: SHA-256 hashes, IPFS CIDs, Merkle roots, on-chain anchors — all client-side
+• Compliance achieved: Level 5 — highest tier in the LPS conformance matrix
+• Ecosystem impact: open spec, MIT licensed, observable without intermediaries
+• Provenance model: extends W3C PROV into decentralised, crypto-anchored deterministic publishing
 
 What is deployed:
 
@@ -30,7 +41,7 @@ What is deployed:
 
 The specification is RFC-style (14 sections), MIT licensed, and published alongside a DOI-indexed research paper (open access). The conformance model defines five compliance levels (L0–L5) with published evidence requirements.
 
-Why this standard exists:
+Why this protocol specification exists:
 
 Digital works have no standardised mechanism for cryptographic proof-of-origin. Authors cannot independently prove when a work was written or that its contents are unaltered — without relying on centralised intermediaries. LPS-1 solves this structurally. Given source files and a Polygon RPC endpoint, any party can verify every hash, every Merkle root, and every on-chain anchor. No trusted service required.
 
@@ -56,7 +67,7 @@ MIT licensed. Independently verifiable. Deployed today.
 
 ---
 
-LPS-1 is now live on Polygon Mainnet — an open standard for deterministic digital provenance.
+LPS-1 is now live on Polygon Mainnet — an open protocol specification for deterministic digital provenance.
 
 The protocol uses SHA-256 hashing, Merkle trees, and on-chain anchoring to establish cryptographic proof-of-origin for digital manuscripts. No platform. No intermediary. No trust required.
 
@@ -66,6 +77,7 @@ What's deployed:
 → 2 reference works frozen on-chain
 → MIT licensed, fully open source
 → Total deployment cost: < $2.50
+→ Live on-chain state dashboard with multi-RPC fallback
 
 The specification, research paper, and full verification suite are public.
 
@@ -92,7 +104,9 @@ Filesystem → Git → SHA-256 → Merkle Trees → IPFS → Polygon
 
 Each layer produces outputs that any party can verify using standard tools (sha256sum, git verify-commit, IPFS CID resolution, Polygon RPC read). No backend. No API key.
 
-The protocol achieves Level 5 compliance — the highest tier in the LPS conformance matrix — with live on-chain state readable at xxxiii.io.
+The provenance model extends W3C PROV into decentralised, crypto-anchored deterministic publishing — adding Merkle commitments, on-chain lifecycle enforcement, and client-side observability to established provenance frameworks.
+
+The protocol achieves Level 5 compliance — the highest tier in the LPS conformance matrix — with live on-chain state readable at xxxiii.io (multi-RPC fallback, automatic retry, real-time contract reads).
 
 LiteraryAnchor contract (verified): https://polygonscan.com/address/0x97f456300817eaE3B40E235857b856dfFE8bba90#code
 
@@ -166,6 +180,8 @@ Digital works have no standardised mechanism for cryptographic proof-of-origin.
 
 An author cannot independently prove when a work was written, that its contents have not been altered, or that a specific individual authored it — without relying on a centralised intermediary. Publishers, ISBN registries, copyright offices, and platform operators serve as de facto authorities on authorship and content integrity. Every one of them is a single point of failure.
 
+Existing provenance frameworks (W3C PROV, ISO 17572, C2PA) address aspects of this problem at different layers, but none provide a fully deterministic, independently verifiable, blockchain-anchored pipeline for literary works specifically. LPS-1 extends these models into decentralised, crypto-anchored deterministic publishing.
+
 This problem is compounded by three converging trends:
 
 **AI-generated content.** Large language models produce text indistinguishable from human-authored work. Within the next two years, surface-level inspection will not be sufficient to determine whether a human wrote a given document. Authors need a mechanism to establish verifiable provenance before publication.
@@ -195,6 +211,17 @@ The key design properties:
 - **Forward-only.** Editions move from Draft → Anchored → Frozen. Frozen editions cannot be modified. State transitions are enforced on-chain.
 - **Non-upgradeable.** All seven smart contracts use no proxy pattern, no admin key, and no governance override.
 - **Client-side verifiable.** Any user can verify any claim using a blockchain RPC endpoint and the source files. No backend required.
+
+### Decision Summary
+
+For quick assessment:
+
+- **What exists:** 7 verified contracts on Polygon, 2 frozen editions, live verification dashboard
+- **What's verifiable:** SHA-256 hashes, IPFS CIDs, Merkle roots, on-chain anchors — all client-side
+- **Compliance achieved:** Level 5 — highest tier in the LPS conformance matrix
+- **Provenance model:** Extends W3C PROV into decentralised, crypto-anchored deterministic publishing
+- **Ecosystem impact:** Open specification, MIT licensed, observable without intermediaries
+- **Cost:** Total 7-contract deployment under $2.50
 
 ### What Is Deployed Today
 
@@ -410,8 +437,9 @@ There isn't one in the traditional sense. LPS-1 is public goods infrastructure. 
 | Day | Action | Content |
 |-----|--------|---------|
 | Day -1 | Update profile | Section 5 (headline, about, featured) — do this BEFORE posting |
+| Day -1 | Verify site | Hard-refresh xxxiii.io + check production.2500-donkeys.pages.dev + mobile |
 | Day 0 | Primary launch post | Section 1 (main post) |
-| Day 0 +15 min | Comment: Technical stack | Section 3, Comment 1 (MOST IMPORTANT) |
+| Day 0 +15 min | Comment: Technical stack | Section 3, Comment 1 (MOST IMPORTANT — includes Polygonscan proof) |
 | Day 0 +30 min | Comment: Non-upgradeable | Section 3, Comment 2 |
 | Day 0 +45 min | Comment: AI problem | Section 3, Comment 3 |
 | Day 0 +60 min | Comment: Call to implementors | Section 3, Comment 4 |
