@@ -7,6 +7,38 @@ Tags follow [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ---
 
+## [v3.0.0] — 2026-02-18
+
+### Added
+- **Role Structure** — `docs/roles/` with institutional team framework
+  - `CORE_TEAM.md` — Protocol Author, Specification Editor, Infrastructure Maintainer, Security Reviewer
+  - `CONTRIBUTORS.md` — 5 contribution pathways, quality standards, IP/licensing
+  - `REVIEWERS.md` — 3 review types, criteria matrix, standard/emergency/breaking processes
+- **ROADMAP.md** — 6-phase milestone-based development trajectory
+  - Phase I: Deterministic Anchor (complete) → Phase VI: Multi-Implementation Adoption
+  - Funding alignment and risk assessment per phase
+- **LPS-STACK.md** — full protocol stack formalization (`docs/spec/`)
+  - 6-layer architecture: Infrastructure → Core Protocol → Audio → Distribution → Compliance → Observability
+  - Component tables, stack interaction model, improvement proposals registry
+- **FUNDING_BRIEF.md** — institutional positioning document
+  - Problem framing, measurable impact metrics, budget categories
+  - Grant alignment: NEH, Mellon, IMLS, Protocol Labs, ETH Foundation, Polygon Village
+- **Compliance Framework** — `docs/spec/COMPLIANCE.md` with L0–L5 conformance matrix
+- **Governance Model** — `docs/spec/GOVERNANCE.md` author-led → working group transition
+- **Working Group Scope** — `docs/WORKING_GROUP.md` with future proposals (LPS-2 through LPS-5)
+- **Release Notes v2.2** — `docs/RELEASE_NOTES_v2.2.md` documenting PPP rename + provenance footnotes
+- **Site sections expanded** — 22 → 24 sections on xxxiii.io
+  - Section VI: LPS Protocol Stack — 6-layer stack visualization with spec links
+  - Section XXIII: Implementation Roadmap — 6-phase timeline with active phase indicator
+  - Governance links (Roadmap, LPS Stack, Core Team) added to Implementation Status
+
+### Changed
+- All section numerals renumbered I–XXIV with strict light/dark alternation
+- "Private Placement Entertainment" → "Private Placement Programs" across codebase (`81f750c`)
+- Provenance footnotes added to narrative sections (`50925ab`)
+
+---
+
 ## [v2.1.0] — 2026-02-17
 
 ### Added
@@ -121,7 +153,8 @@ Tags follow [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ---
 
-[v2.1.0]: https://github.com/FTHTrading/2500-donkeys/compare/v2.0-protocol...HEAD
+[v3.0.0]: https://github.com/FTHTrading/2500-donkeys/compare/v2.1-observability...v3.0-standards-foundation
+[v2.1.0]: https://github.com/FTHTrading/2500-donkeys/compare/v2.0-protocol...v2.1-observability
 [v2.0.0]: https://github.com/FTHTrading/2500-donkeys/compare/v1.1-paper...v2.0-protocol
 [v1.1.0]: https://github.com/FTHTrading/2500-donkeys/compare/v1.0-paper...v1.1-paper
 [v1.0.0]: https://github.com/FTHTrading/2500-donkeys/compare/v0.9.0...v1.0-paper

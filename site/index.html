@@ -266,10 +266,41 @@
     </div>
   </section>
 
-  <!-- ━━━ VI The Pipeline ━━━ -->
-  <section class="sect sect-stone" id="pipeline">
+
+  <!-- ━━━ VI LPS Protocol Stack ━━━ -->
+  <section class="sect sect-stone" id="lpsstack">
     <div class="sect-inner sect-centered">
       <span class="sect-numeral">VI</span>
+      <h2 class="sect-heading">LPS Protocol Stack</h2>
+      <p class="sect-lead">Six layers. Each independently specified, implementable, and verifiable.</p>
+
+      <div class="prov-stack">
+        <div class="prov-layer prov-layer-final"><span class="prov-num">VI</span><span class="prov-name">Observability</span><span class="prov-desc">Client-side chain reads, event timeline, status indicators</span></div>
+        <div class="prov-arrow"><svg width="2" height="24"><line x1="1" y1="0" x2="1" y2="24" stroke="var(--border)" stroke-width="1.5"/></svg></div>
+        <div class="prov-layer"><span class="prov-num">V</span><span class="prov-name">Compliance</span><span class="prov-desc">Level 0&ndash;5 conformance matrix, self-assessment, certification</span></div>
+        <div class="prov-arrow"><svg width="2" height="24"><line x1="1" y1="0" x2="1" y2="24" stroke="var(--border)" stroke-width="1.5"/></svg></div>
+        <div class="prov-layer"><span class="prov-num">IV</span><span class="prov-name">Distribution</span><span class="prov-desc">EditionNFT, StoryNFT, RoyaltyRouter (ERC-721 + ERC-2981)</span></div>
+        <div class="prov-arrow"><svg width="2" height="24"><line x1="1" y1="0" x2="1" y2="24" stroke="var(--border)" stroke-width="1.5"/></svg></div>
+        <div class="prov-layer"><span class="prov-num">III</span><span class="prov-name">Audio Layer</span><span class="prov-desc">IAPL-1 &mdash; Immutable Audio Publishing Layer</span></div>
+        <div class="prov-arrow"><svg width="2" height="24"><line x1="1" y1="0" x2="1" y2="24" stroke="var(--border)" stroke-width="1.5"/></svg></div>
+        <div class="prov-layer"><span class="prov-num">II</span><span class="prov-name">Core Protocol</span><span class="prov-desc">LPS-1 &mdash; SHA-256, Merkle trees, edition lifecycle, on-chain anchor</span></div>
+        <div class="prov-arrow"><svg width="2" height="24"><line x1="1" y1="0" x2="1" y2="24" stroke="var(--border)" stroke-width="1.5"/></svg></div>
+        <div class="prov-layer"><span class="prov-num">I</span><span class="prov-name">Infrastructure</span><span class="prov-desc">Polygon Mainnet, IPFS, OpenTimestamps, Git provenance</span></div>
+      </div>
+
+      <div class="impl-table" style="margin-top:2.5rem">
+        <div class="impl-row"><span class="impl-key">LPS-1</span><span class="impl-val"><a href="https://github.com/FTHTrading/2500-donkeys/blob/master/docs/spec/LPS-1.md" target="_blank" rel="noopener" style="color:var(--gold)">Literary Publishing Standard</a></span></div>
+        <div class="impl-row"><span class="impl-key">IAPL-1</span><span class="impl-val"><a href="https://github.com/FTHTrading/LPS-1-Reference-Implementation/blob/main/spec/IAPL-1.md" target="_blank" rel="noopener" style="color:var(--gold)">Immutable Audio Publishing Layer</a></span></div>
+        <div class="impl-row"><span class="impl-key">LPS-NFT</span><span class="impl-val">Token distribution layer (ERC-721 + ERC-2981)</span></div>
+        <div class="impl-row"><span class="impl-key">Stack Spec</span><span class="impl-val"><a href="https://github.com/FTHTrading/2500-donkeys/blob/master/docs/spec/LPS-STACK.md" target="_blank" rel="noopener" style="color:var(--gold)">Full Stack Architecture</a></span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ━━━ VII The Pipeline ━━━ -->
+  <section class="sect" id="pipeline">
+    <div class="sect-inner sect-centered">
+      <span class="sect-numeral">VII</span>
       <h2 class="sect-heading">The Pipeline</h2>
       <p class="sect-lead">A deterministic sequence from manuscript to chain.</p>
 
@@ -344,10 +375,10 @@
     </div>
   </section>
 
-  <!-- ━━━ VII Merkle Architecture ━━━ -->
-  <section class="sect" id="merkle">
+  <!-- ━━━ VIII Merkle Architecture ━━━ -->
+  <section class="sect sect-stone" id="merkle">
     <div class="sect-inner sect-centered">
-      <span class="sect-numeral">VII</span>
+      <span class="sect-numeral">VIII</span>
       <h2 class="sect-heading">Merkle Architecture</h2>
       <p class="sect-lead">Four independent trees converge into a single edition root.</p>
 
@@ -391,10 +422,10 @@
     </div>
   </section>
 
-  <!-- ━━━ VIII State Machine ━━━ -->
-  <section class="sect sect-stone" id="statemachine">
+  <!-- ━━━ IX State Machine ━━━ -->
+  <section class="sect" id="statemachine">
     <div class="sect-inner sect-centered">
-      <span class="sect-numeral">VIII</span>
+      <span class="sect-numeral">IX</span>
       <h2 class="sect-heading">Edition State Machine</h2>
       <p class="sect-lead">The edition lifecycle is modeled as a monotonic finite-state machine. All transitions are irreversible. All terminal states preserve historical data.</p>
 
@@ -433,10 +464,10 @@
     </div>
   </section>
 
-  <!-- ━━━ IX The Works ━━━ -->
-  <section class="sect" id="works">
+  <!-- ━━━ X The Works ━━━ -->
+  <section class="sect sect-stone" id="works">
     <div class="sect-inner sect-centered">
-      <span class="sect-numeral">IX</span>
+      <span class="sect-numeral">X</span>
       <h2 class="sect-heading">The Works</h2>
 
       <div class="works">
@@ -501,10 +532,10 @@
     </div>
   </section>
 
-  <!-- ━━━ X The Contract Architecture ━━━ -->
-  <section class="sect sect-stone" id="contracts">
+  <!-- ━━━ XI The Contract Architecture ━━━ -->
+  <section class="sect" id="contracts">
     <div class="sect-inner sect-centered">
-      <span class="sect-numeral">X</span>
+      <span class="sect-numeral">XI</span>
       <h2 class="sect-heading">The Contract Architecture</h2>
       <p class="sect-lead">VII contracts deployed. Source verified.</p>
 
@@ -606,10 +637,10 @@
     </div>
   </section>
 
-  <!-- ━━━ XI On-Chain State ━━━ -->
-  <section class="sect" id="chainstatus">
+  <!-- ━━━ XII On-Chain State ━━━ -->
+  <section class="sect sect-stone" id="chainstatus">
     <div class="sect-inner sect-centered">
-      <span class="sect-numeral">XI</span>
+      <span class="sect-numeral">XII</span>
       <h2 class="sect-heading">On-Chain State</h2>
       <p class="sect-lead">Direct read-only RPC observation of deployed contracts. No intermediary services.</p>
 
@@ -668,10 +699,10 @@
     </div>
   </section>
 
-  <!-- ━━━ XII System Invariants ━━━ -->
-  <section class="sect sect-stone" id="invariants">
+  <!-- ━━━ XIII System Invariants ━━━ -->
+  <section class="sect" id="invariants">
     <div class="sect-inner sect-centered">
-      <span class="sect-numeral">XII</span>
+      <span class="sect-numeral">XIII</span>
       <h2 class="sect-heading">System Invariants</h2>
       <p class="sect-lead">Verifiable guarantees that hold at every layer of the protocol.</p>
 
@@ -704,10 +735,10 @@
     </div>
   </section>
 
-  <!-- ━━━ XIII The Verifier ━━━ -->
-  <section class="sect" id="verify">
+  <!-- ━━━ XIV The Verifier ━━━ -->
+  <section class="sect sect-stone" id="verify">
     <div class="sect-inner sect-centered">
-      <span class="sect-numeral">XIII</span>
+      <span class="sect-numeral">XIV</span>
       <h2 class="sect-heading">Verify It Yourself</h2>
 
       <div class="verifier">
@@ -763,10 +794,10 @@ node verifier/cli.js --path example-work</code></pre>
     </div>
   </section>
 
-  <!-- ━━━ XIV Cross-Chain ━━━ -->
-  <section class="sect sect-stone" id="crosschain">
+  <!-- ━━━ XV Cross-Chain ━━━ -->
+  <section class="sect" id="crosschain">
     <div class="sect-inner sect-centered">
-      <span class="sect-numeral">XIV</span>
+      <span class="sect-numeral">XV</span>
       <h2 class="sect-heading">Cross-Chain Anchoring</h2>
 
       <div class="xchain-grid">
@@ -789,10 +820,10 @@ node verifier/cli.js --path example-work</code></pre>
     </div>
   </section>
 
-  <!-- ━━━ XV Why This Matters ━━━ -->
-  <section class="sect" id="whythismatters">
+  <!-- ━━━ XVI Why This Matters ━━━ -->
+  <section class="sect sect-stone" id="whythismatters">
     <div class="sect-inner sect-centered">
-      <span class="sect-numeral">XV</span>
+      <span class="sect-numeral">XVI</span>
       <h2 class="sect-heading">Why This Matters</h2>
 
       <div class="why-list">
@@ -820,10 +851,10 @@ node verifier/cli.js --path example-work</code></pre>
     </div>
   </section>
 
-  <!-- ━━━ XVI Protocol Stewardship ━━━ -->
-  <section class="sect sect-stone" id="stewardship">
+  <!-- ━━━ XVII Protocol Stewardship ━━━ -->
+  <section class="sect" id="stewardship">
     <div class="sect-inner sect-centered">
-      <span class="sect-numeral">XVI</span>
+      <span class="sect-numeral">XVII</span>
       <h2 class="sect-heading">Protocol Stewardship</h2>
 
       <div class="steward-grid">
@@ -847,10 +878,10 @@ node verifier/cli.js --path example-work</code></pre>
     </div>
   </section>
 
-  <!-- ━━━ XVII Compliance Levels ━━━ -->
-  <section class="sect" id="compliance">
+  <!-- ━━━ XVIII Compliance Levels ━━━ -->
+  <section class="sect sect-stone" id="compliance">
     <div class="sect-inner sect-centered">
-      <span class="sect-numeral">XVII</span>
+      <span class="sect-numeral">XVIII</span>
       <h2 class="sect-heading">Compliance Levels</h2>
       <p class="sect-lead">Progressive implementation tiers for protocol conformance.</p>
 
@@ -895,10 +926,10 @@ node verifier/cli.js --path example-work</code></pre>
     </div>
   </section>
 
-  <!-- ━━━ XVIII Related Work ━━━ -->
-  <section class="sect sect-stone" id="relatedwork">
+  <!-- ━━━ XIX Related Work ━━━ -->
+  <section class="sect" id="relatedwork">
     <div class="sect-inner sect-centered">
-      <span class="sect-numeral">XVIII</span>
+      <span class="sect-numeral">XIX</span>
       <h2 class="sect-heading">Related Work</h2>
 
       <div class="related-grid">
@@ -922,10 +953,10 @@ node verifier/cli.js --path example-work</code></pre>
     </div>
   </section>
 
-  <!-- ━━━ XIX Security Considerations ━━━ -->
-  <section class="sect" id="security">
+  <!-- ━━━ XX Security Considerations ━━━ -->
+  <section class="sect sect-stone" id="security">
     <div class="sect-inner sect-centered">
-      <span class="sect-numeral">XIX</span>
+      <span class="sect-numeral">XX</span>
       <h2 class="sect-heading">Security Considerations</h2>
 
       <div class="sec-grid">
@@ -953,10 +984,10 @@ node verifier/cli.js --path example-work</code></pre>
     </div>
   </section>
 
-  <!-- ━━━ XX Limitations ━━━ -->
-  <section class="sect sect-stone" id="limitations">
+  <!-- ━━━ XXI Limitations ━━━ -->
+  <section class="sect" id="limitations">
     <div class="sect-inner sect-centered">
-      <span class="sect-numeral">XX</span>
+      <span class="sect-numeral">XXI</span>
       <h2 class="sect-heading">Limitations</h2>
 
       <div class="limit-grid">
@@ -984,10 +1015,10 @@ node verifier/cli.js --path example-work</code></pre>
     </div>
   </section>
 
-  <!-- ━━━ XXI Implementation Status ━━━ -->
-  <section class="sect" id="implstatus">
+  <!-- ━━━ XXII Implementation Status ━━━ -->
+  <section class="sect sect-stone" id="implstatus">
     <div class="sect-inner sect-centered">
-      <span class="sect-numeral">XXI</span>
+      <span class="sect-numeral">XXII</span>
       <h2 class="sect-heading">Implementation Status</h2>
 
       <div class="impl-table">
@@ -996,6 +1027,9 @@ node verifier/cli.js --path example-work</code></pre>
         <div class="impl-row"><span class="impl-key">LPS-1 Specification</span><span class="impl-val"><a href="https://github.com/FTHTrading/LPS-1-Reference-Implementation/blob/main/spec/LPS-1.md" target="_blank" rel="noopener" style="color:var(--gold);border-bottom:1px solid transparent">Literary Protocol Standard (RFC-style)</a></span></div>
         <div class="impl-row"><span class="impl-key">IAPL-1 Specification</span><span class="impl-val"><a href="https://github.com/FTHTrading/LPS-1-Reference-Implementation/blob/main/spec/IAPL-1.md" target="_blank" rel="noopener" style="color:var(--gold);border-bottom:1px solid transparent">Immutable Audio Publishing Layer</a></span></div>
         <div class="impl-row"><span class="impl-key">Compliance Matrix</span><span class="impl-val"><a href="https://github.com/FTHTrading/2500-donkeys/blob/master/docs/spec/COMPLIANCE.md" target="_blank" rel="noopener" style="color:var(--gold);border-bottom:1px solid transparent">Level 0–5 Definitions + Evidence</a></span></div>
+        <div class="impl-row"><span class="impl-key">Roadmap</span><span class="impl-val"><a href="https://github.com/FTHTrading/2500-donkeys/blob/master/docs/ROADMAP.md" target="_blank" rel="noopener" style="color:var(--gold);border-bottom:1px solid transparent">6-Phase Development Trajectory</a></span></div>
+        <div class="impl-row"><span class="impl-key">LPS Stack</span><span class="impl-val"><a href="https://github.com/FTHTrading/2500-donkeys/blob/master/docs/spec/LPS-STACK.md" target="_blank" rel="noopener" style="color:var(--gold);border-bottom:1px solid transparent">Full Protocol Stack Architecture</a></span></div>
+        <div class="impl-row"><span class="impl-key">Core Team</span><span class="impl-val"><a href="https://github.com/FTHTrading/2500-donkeys/blob/master/docs/roles/CORE_TEAM.md" target="_blank" rel="noopener" style="color:var(--gold);border-bottom:1px solid transparent">Roles &amp; Responsibilities</a></span></div>
         <div class="impl-row"><span class="impl-key">Governance</span><span class="impl-val"><a href="https://github.com/FTHTrading/2500-donkeys/blob/master/docs/spec/GOVERNANCE.md" target="_blank" rel="noopener" style="color:var(--gold);border-bottom:1px solid transparent">Author-Led → Working Group Model</a></span></div>
         <div class="impl-row"><span class="impl-key">Network</span><span class="impl-val">Polygon Mainnet (Chain ID 137)</span></div>
         <div class="impl-row"><span class="impl-key">Contracts Verified</span><span class="impl-val">Yes — VII / VII</span></div>
@@ -1008,10 +1042,58 @@ node verifier/cli.js --path example-work</code></pre>
     </div>
   </section>
 
-  <!-- ━━━ XXII Citation ━━━ -->
+
+  <!-- ━━━ XXIII Implementation Roadmap ━━━ -->
+  <section class="sect" id="roadmap">
+    <div class="sect-inner sect-centered">
+      <span class="sect-numeral">XXIII</span>
+      <h2 class="sect-heading">Implementation Roadmap</h2>
+      <p class="sect-lead">Six phases from deterministic anchor to multi-implementation adoption.</p>
+
+      <div class="compliance-grid">
+        <div class="compliance-level cl-active">
+          <span class="cl-num">I</span>
+          <span class="cl-name">Deterministic Anchor</span>
+          <span class="cl-req">SHA-256 hashing, Merkle trees, Polygon anchoring, LPS-1 specification. Complete.</span>
+        </div>
+        <div class="compliance-level">
+          <span class="cl-num">II</span>
+          <span class="cl-name">Multi-Author Support</span>
+          <span class="cl-req">Co-author identity binding, shared edition governance, delegation support.</span>
+        </div>
+        <div class="compliance-level">
+          <span class="cl-num">III</span>
+          <span class="cl-name">Ethereum L1 Mirror</span>
+          <span class="cl-req">Cross-chain anchor standard (LPS-2), settlement-layer finality.</span>
+        </div>
+        <div class="compliance-level">
+          <span class="cl-num">IV</span>
+          <span class="cl-name">zk-Proof Inclusion</span>
+          <span class="cl-req">Zero-knowledge Merkle inclusion proofs for privacy-preserving verification.</span>
+        </div>
+        <div class="compliance-level">
+          <span class="cl-num">V</span>
+          <span class="cl-name">Institutional API</span>
+          <span class="cl-req">REST verification endpoints for libraries, archives, and publishers.</span>
+        </div>
+        <div class="compliance-level">
+          <span class="cl-num">VI</span>
+          <span class="cl-name">Multi-Implementation</span>
+          <span class="cl-req">Three+ independent implementations, governance transition to working group.</span>
+        </div>
+      </div>
+
+      <div class="prov-ref" style="margin-top:2rem">
+        <a href="https://github.com/FTHTrading/2500-donkeys/blob/master/docs/ROADMAP.md" target="_blank" rel="noopener" class="btn btn-sm">View Full Roadmap</a>
+        <a href="https://github.com/FTHTrading/2500-donkeys/blob/master/docs/FUNDING_BRIEF.md" target="_blank" rel="noopener" class="btn btn-sm" style="margin-left:1rem">Funding Brief</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ━━━ XXIV Citation ━━━ -->
   <section class="sect sect-stone" id="citation">
     <div class="sect-inner sect-centered">
-      <span class="sect-numeral">XXII</span>
+      <span class="sect-numeral">XXIV</span>
       <h2 class="sect-heading">Citation</h2>
       <p class="cite-title">Deterministic Literary Publishing:<br>A Multi-Layer Provenance Model for Verifiable Manuscripts</p>
       <p class="cite-pub-status">Working Paper &middot; Published February 15, 2026 &middot; Version 1.0 &middot; Open Access</p>
