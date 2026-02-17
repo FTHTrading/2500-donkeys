@@ -31,8 +31,8 @@
     <div class="nav-links" id="navLinks">
       <a href="#declaration">Declaration</a>
       <a href="#pillars">Pillars</a>
+      <a href="#protocol">Protocol</a>
       <a href="#pipeline">Pipeline</a>
-      <a href="#works">Works</a>
       <a href="#contracts">Contracts</a>
       <a href="#verify">Verify</a>
       <a href="#citation">Citation</a>
@@ -68,6 +68,13 @@
         <a href="read-ppe.html" class="btn">Read · Private Placement Puppetry</a>
       </div>
       <p class="hero-chain">MMXXVI · Polygon Mainnet · Chain ID CXXXVII</p>
+      <div class="proto-badges">
+        <span class="proto-badge">Solidity 0.8.19</span>
+        <span class="proto-badge">Hardhat</span>
+        <span class="proto-badge">OpenZeppelin</span>
+        <span class="proto-badge">Deterministic Build</span>
+        <span class="proto-badge">MIT</span>
+      </div>
     </div>
   </header>
 
@@ -140,10 +147,37 @@
     </div>
   </section>
 
-  <!-- ━━━ Ⅳ The Pipeline ━━━ -->
-  <section class="sect" id="pipeline">
+  <!-- ━━━ IV Protocol Layer ━━━ -->
+  <section class="sect" id="protocol">
     <div class="sect-inner sect-centered">
       <span class="sect-numeral">IV</span>
+      <h2 class="sect-heading">The Protocol Layer</h2>
+      <p class="sect-lead">A five-layer provenance stack. Each layer independently verifiable.</p>
+
+      <div class="prov-stack">
+        <div class="prov-layer"><span class="prov-num">I</span><span class="prov-name">Filesystem</span><span class="prov-desc">Source files, canonical ordering, version control</span></div>
+        <div class="prov-arrow"><svg width="2" height="24"><line x1="1" y1="0" x2="1" y2="24" stroke="var(--border)" stroke-width="1.5"/></svg></div>
+        <div class="prov-layer"><span class="prov-num">II</span><span class="prov-name">Git</span><span class="prov-desc">Commit history, authorship timestamps, diffs</span></div>
+        <div class="prov-arrow"><svg width="2" height="24"><line x1="1" y1="0" x2="1" y2="24" stroke="var(--border)" stroke-width="1.5"/></svg></div>
+        <div class="prov-layer"><span class="prov-num">III</span><span class="prov-name">SHA-256</span><span class="prov-desc">FIPS 180-4 cryptographic fingerprint, CRLF-normalized</span></div>
+        <div class="prov-arrow"><svg width="2" height="24"><line x1="1" y1="0" x2="1" y2="24" stroke="var(--border)" stroke-width="1.5"/></svg></div>
+        <div class="prov-layer"><span class="prov-num">IV</span><span class="prov-name">Merkle Trees</span><span class="prov-desc">Four independent roots combined into edition root</span></div>
+        <div class="prov-arrow"><svg width="2" height="24"><line x1="1" y1="0" x2="1" y2="24" stroke="var(--border)" stroke-width="1.5"/></svg></div>
+        <div class="prov-layer"><span class="prov-num">V</span><span class="prov-name">IPFS</span><span class="prov-desc">Content-addressed decentralized storage</span></div>
+        <div class="prov-arrow"><svg width="2" height="24"><line x1="1" y1="0" x2="1" y2="24" stroke="var(--border)" stroke-width="1.5"/></svg></div>
+        <div class="prov-layer prov-layer-final"><span class="prov-num">VI</span><span class="prov-name">Polygon</span><span class="prov-desc">Immutable on-chain anchor, block-level timestamp</span></div>
+      </div>
+
+      <div class="prov-ref">
+        <a href="https://github.com/FTHTrading/LPS-1-Reference-Implementation" target="_blank" rel="noopener" class="btn btn-sm">View Reference Implementation</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ━━━ V The Pipeline ━━━ -->
+  <section class="sect sect-stone" id="pipeline">
+    <div class="sect-inner sect-centered">
+      <span class="sect-numeral">V</span>
       <h2 class="sect-heading">The Pipeline</h2>
       <p class="sect-lead">A deterministic sequence from manuscript to chain.</p>
 
@@ -218,10 +252,99 @@
     </div>
   </section>
 
-  <!-- ━━━ Ⅴ The Works ━━━ -->
-  <section class="sect sect-stone" id="works">
+  <!-- ━━━ VI Merkle Architecture ━━━ -->
+  <section class="sect" id="merkle">
     <div class="sect-inner sect-centered">
-      <span class="sect-numeral">V</span>
+      <span class="sect-numeral">VI</span>
+      <h2 class="sect-heading">Merkle Architecture</h2>
+      <p class="sect-lead">Four independent trees converge into a single edition root.</p>
+
+      <div class="merkle-viz">
+        <div class="merkle-leaves">
+          <div class="merkle-leaf">
+            <span class="ml-label">Manuscript</span>
+            <code class="ml-hash" data-full="dd95d1216b8e2cb8008c8993dffc54d66b550018a47401dd5df001ff487467d3">dd95d121...67d3</code>
+          </div>
+          <div class="merkle-leaf">
+            <span class="ml-label">Artifact</span>
+            <code class="ml-hash" data-full="9c653a2e453e895f294375818bb872d47d4c90b15859587ba2c5238024202c56">9c653a2e...2c56</code>
+          </div>
+          <div class="merkle-leaf">
+            <span class="ml-label">Image</span>
+            <code class="ml-hash" data-full="0e45331c0b80738ff3f491e63b47a5454f162cfe5a1d367e90b709c96c56c638">0e45331c...c638</code>
+          </div>
+          <div class="merkle-leaf">
+            <span class="ml-label">Prompt</span>
+            <code class="ml-hash" data-full="32bed9e54ed6dc5f4ee8082dce928bd86fb76c36b92d9f949ba12c046674f32c">32bed9e5...f32c</code>
+          </div>
+        </div>
+        <div class="merkle-converge">
+          <div class="merkle-lines-svg" aria-hidden="true">
+            <svg viewBox="0 0 400 36" preserveAspectRatio="none" width="100%" height="36">
+              <line x1="50" y1="0" x2="200" y2="34" stroke="var(--border)" stroke-width="1"/>
+              <line x1="150" y1="0" x2="200" y2="34" stroke="var(--border)" stroke-width="1"/>
+              <line x1="250" y1="0" x2="200" y2="34" stroke="var(--border)" stroke-width="1"/>
+              <line x1="350" y1="0" x2="200" y2="34" stroke="var(--border)" stroke-width="1"/>
+            </svg>
+          </div>
+          <div class="merkle-root-box">
+            <span class="mr-label">Edition Root</span>
+            <code class="mr-hash" data-full="6719ed7f9e142a39a4a7db533895562bdf5379cf7f9816ed7cbe045ca359594e">6719ed7f...594e</code>
+          </div>
+        </div>
+        <button class="btn btn-sm hash-toggle-btn" id="hashToggle">Show Full Hashes</button>
+      </div>
+
+      <p class="merkle-formula">editionRoot = SHA-256( manuscriptRoot + artifactRoot + imageRoot + promptRoot )</p>
+    </div>
+  </section>
+
+  <!-- ━━━ VII State Machine ━━━ -->
+  <section class="sect sect-stone" id="statemachine">
+    <div class="sect-inner sect-centered">
+      <span class="sect-numeral">VII</span>
+      <h2 class="sect-heading">Edition State Machine</h2>
+      <p class="sect-lead">Forward-only transitions. No state can be reverted or erased.</p>
+
+      <div class="sm-flow">
+        <div class="sm-state">DRAFT</div>
+        <span class="sm-arrow">→</span>
+        <div class="sm-state">COMPILED</div>
+        <span class="sm-arrow">→</span>
+        <div class="sm-state">HASHED</div>
+        <span class="sm-arrow">→</span>
+        <div class="sm-state">MERKLE_BUILT</div>
+        <span class="sm-arrow">→</span>
+        <div class="sm-state">PINNED</div>
+        <span class="sm-arrow">→</span>
+        <div class="sm-state sm-anchor">ANCHORED</div>
+        <span class="sm-arrow">→</span>
+        <div class="sm-state sm-final">PUBLISHED</div>
+      </div>
+
+      <div class="sm-terminals">
+        <div class="sm-terminal-branch">
+          <span class="sm-branch-label">From PUBLISHED</span>
+          <span class="sm-branch-sep">↘</span>
+          <div class="sm-state sm-end">SUPERSEDED</div>
+          <span class="sm-branch-note">Replaced by newer edition</span>
+        </div>
+        <div class="sm-terminal-branch">
+          <span class="sm-branch-label">From PUBLISHED</span>
+          <span class="sm-branch-sep">↘</span>
+          <div class="sm-state sm-end">RETRACTED</div>
+          <span class="sm-branch-note">Withdrawn by author (48h timelock)</span>
+        </div>
+      </div>
+
+      <p class="sm-axiom">State transitions are irreversible. Data is preserved in all terminal states.</p>
+    </div>
+  </section>
+
+  <!-- ━━━ VIII The Works ━━━ -->
+  <section class="sect" id="works">
+    <div class="sect-inner sect-centered">
+      <span class="sect-numeral">VIII</span>
       <h2 class="sect-heading">The Works</h2>
 
       <div class="works">
@@ -286,12 +409,32 @@
     </div>
   </section>
 
-  <!-- ━━━ Ⅵ The Contract Architecture ━━━ -->
-  <section class="sect" id="contracts">
+  <!-- ━━━ IX The Contract Architecture ━━━ -->
+  <section class="sect sect-stone" id="contracts">
     <div class="sect-inner sect-centered">
-      <span class="sect-numeral">VI</span>
+      <span class="sect-numeral">IX</span>
       <h2 class="sect-heading">The Contract Architecture</h2>
       <p class="sect-lead">VII contracts deployed. Source verified.</p>
+
+      <div class="contract-map">
+        <div class="cm-row">
+          <a href="https://polygonscan.com/address/0xB9ffa688A8Bb332221030BbBE46bE5bF03323170#code" target="_blank" rel="noopener" class="cm-node"><span>AuthorIdentity</span></a>
+          <span class="cm-sep">→</span>
+          <a href="https://polygonscan.com/address/0x97f456300817eaE3B40E235857b856dfFE8bba90#code" target="_blank" rel="noopener" class="cm-node"><span>LiteraryAnchor</span></a>
+          <span class="cm-sep">→</span>
+          <a href="https://polygonscan.com/address/0x511c653fC0F450ba41C42A89A3125CcBf2eFE8ae#code" target="_blank" rel="noopener" class="cm-node"><span>Kernel</span></a>
+          <span class="cm-sep">→</span>
+          <a href="https://polygonscan.com/address/0xca9F6604A9b498DB31d113836E2957c0a9aAE037#code" target="_blank" rel="noopener" class="cm-node cm-active"><span>KernelV2</span></a>
+        </div>
+        <div class="cm-branches">
+          <div class="cm-branch-line"></div>
+          <div class="cm-sub-row">
+            <a href="https://polygonscan.com/address/0x44169829489d70aaecbf845870652871C65fC461#code" target="_blank" rel="noopener" class="cm-node"><span>RoyaltyRouter</span></a>
+            <a href="https://polygonscan.com/address/0x9e9Cc1486bf440Bd9eAaaD947958524Aaed3f8b0#code" target="_blank" rel="noopener" class="cm-node"><span>EditionNFT</span></a>
+            <a href="https://polygonscan.com/address/0xD67e537Dba1236f802432cbDD30Fec3f6D38e7E3#code" target="_blank" rel="noopener" class="cm-node"><span>StoryNFT</span></a>
+          </div>
+        </div>
+      </div>
 
       <div class="inscriptions">
         <div class="inscription" data-reveal="ins-anchor">
@@ -370,10 +513,46 @@
     </div>
   </section>
 
-  <!-- ━━━ Ⅶ The Verifier ━━━ -->
+  <!-- ━━━ X System Invariants ━━━ -->
+  <section class="sect" id="invariants">
+    <div class="sect-inner sect-centered">
+      <span class="sect-numeral">X</span>
+      <h2 class="sect-heading">System Invariants</h2>
+      <p class="sect-lead">Verifiable guarantees that hold at every layer of the protocol.</p>
+
+      <div class="inv-grid">
+        <div class="inv-card" data-reveal="inv-content">
+          <div class="inv-header"><span class="inv-check">✓</span><h4 class="inv-name">Content Invariants</h4></div>
+          <div class="inv-detail" id="inv-content">
+            <p>Identical source files always produce identical SHA-256 hashes. CRLF normalization eliminates platform-dependent line endings. UTF-8 with no BOM. Canonical file ordering via order.json.</p>
+          </div>
+        </div>
+        <div class="inv-card" data-reveal="inv-contract">
+          <div class="inv-header"><span class="inv-check">✓</span><h4 class="inv-name">Contract Invariants</h4></div>
+          <div class="inv-detail" id="inv-contract">
+            <p>Non-upgradeable. Author-only anchoring. Append-only edition history. Frozen editions are permanently sealed. No admin backdoors. Pull-based withdrawals.</p>
+          </div>
+        </div>
+        <div class="inv-card" data-reveal="inv-pipeline">
+          <div class="inv-header"><span class="inv-check">✓</span><h4 class="inv-name">Pipeline Invariants</h4></div>
+          <div class="inv-detail" id="inv-pipeline">
+            <p>Deterministic file ordering. Odd-leaf duplication for balanced Merkle trees. Fixed concatenation order for edition root. No randomness. No mutable state.</p>
+          </div>
+        </div>
+        <div class="inv-card" data-reveal="inv-provenance">
+          <div class="inv-header"><span class="inv-check">✓</span><h4 class="inv-name">Provenance Alignment</h4></div>
+          <div class="inv-detail" id="inv-provenance">
+            <p>Every on-chain record maps to exactly one IPFS CID and one edition root. Every edition root maps to exactly four Merkle roots. Every root maps to a deterministic file hash tree.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ━━━ XI The Verifier ━━━ -->
   <section class="sect sect-stone" id="verify">
     <div class="sect-inner sect-centered">
-      <span class="sect-numeral">VII</span>
+      <span class="sect-numeral">XI</span>
       <h2 class="sect-heading">Verify It Yourself</h2>
 
       <div class="verifier">
@@ -404,6 +583,23 @@ npm run lps:verify</code></pre>
         <p class="verifier-axiom">This is not trust. This is reproducibility.</p>
       </div>
 
+      <div class="ref-impl">
+        <h3 class="ri-heading">Public Reference Implementation</h3>
+        <p class="ri-lead">Clone · Test · Deploy locally · Verify independently</p>
+        <div class="terminal">
+          <pre><code>git clone https://github.com/FTHTrading/LPS-1-Reference-Implementation.git
+cd LPS-1-Reference-Implementation
+npm install
+npm run demo
+node verifier/cli.js --path example-work</code></pre>
+        </div>
+        <div class="ri-badges">
+          <span class="ri-badge ri-pass">58 Tests Passing</span>
+          <span class="ri-badge">Deterministic Build Verified</span>
+        </div>
+        <a href="https://github.com/FTHTrading/LPS-1-Reference-Implementation" target="_blank" rel="noopener" class="btn btn-sm" style="margin-top:1.5rem">View on GitHub</a>
+      </div>
+
       <div class="verifier-links">
         <a href="https://polygonscan.com/address/0x97f456300817eaE3B40E235857b856dfFE8bba90#readContract" target="_blank" rel="noopener" class="btn btn-sm">Read LiteraryAnchor</a>
         <a href="https://polygonscan.com/address/0xca9F6604A9b498DB31d113836E2957c0a9aAE037#readContract" target="_blank" rel="noopener" class="btn btn-sm">Read KernelV2</a>
@@ -412,10 +608,67 @@ npm run lps:verify</code></pre>
     </div>
   </section>
 
-  <!-- ━━━ Ⅷ Citation ━━━ -->
+  <!-- ━━━ XII Cross-Chain ━━━ -->
+  <section class="sect" id="crosschain">
+    <div class="sect-inner sect-centered">
+      <span class="sect-numeral">XII</span>
+      <h2 class="sect-heading">Cross-Chain Anchoring</h2>
+
+      <div class="xchain-grid">
+        <div class="xchain-item xchain-active">
+          <span class="xchain-name">Polygon</span>
+          <span class="xchain-status">✓ Active</span>
+          <span class="xchain-detail">VII contracts deployed, source verified</span>
+        </div>
+        <div class="xchain-item xchain-active">
+          <span class="xchain-name">Bitcoin</span>
+          <span class="xchain-status">✓ OpenTimestamps</span>
+          <span class="xchain-detail">Merkle root timestamped via BTC</span>
+        </div>
+        <div class="xchain-item xchain-planned">
+          <span class="xchain-name">Ethereum</span>
+          <span class="xchain-status">Planned</span>
+          <span class="xchain-detail">L1 anchor under evaluation</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ━━━ XIII Why This Matters ━━━ -->
+  <section class="sect sect-stone" id="whythismatters">
+    <div class="sect-inner sect-centered">
+      <span class="sect-numeral">XIII</span>
+      <h2 class="sect-heading">Why This Matters</h2>
+
+      <div class="why-list">
+        <div class="why-item">
+          <h4>Prevent silent revision</h4>
+          <p>Once anchored, no party can alter content without detection. Every byte is hashed and tree-committed.</p>
+        </div>
+        <div class="why-item">
+          <h4>Eliminate provenance disputes</h4>
+          <p>Block-level timestamps and ECDSA signatures establish authorship with cryptographic certainty.</p>
+        </div>
+        <div class="why-item">
+          <h4>Enable AI disclosure verification</h4>
+          <p>Prompt logs are Merkle-rooted alongside manuscripts, creating verifiable AI usage records.</p>
+        </div>
+        <div class="why-item">
+          <h4>Support independent verification</h4>
+          <p>Any third party can reconstruct hashes, trees, and roots from source files alone. No platform dependency.</p>
+        </div>
+        <div class="why-item">
+          <h4>Reduce institutional trust dependency</h4>
+          <p>Verification is mathematical, not reputational. The protocol replaces trust with reproducibility.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ━━━ XIV Citation ━━━ -->
   <section class="sect" id="citation">
     <div class="sect-inner sect-centered">
-      <span class="sect-numeral">VIII</span>
+      <span class="sect-numeral">XIV</span>
       <h2 class="sect-heading">Citation</h2>
       <p class="cite-title">Deterministic Literary Publishing:<br>A Multi-Layer Provenance Model for Verifiable Manuscripts</p>
       <p class="cite-pub-status">Working Paper &middot; Published February 15, 2026 &middot; Version 1.0 &middot; Open Access</p>
@@ -621,6 +874,31 @@ https://doi.org/10.5281/zenodo.18646886</code></pre>
         }
       });
     })();
+
+    // Hash toggle (Merkle Architecture section)
+    var ht = document.getElementById('hashToggle');
+    if (ht) {
+      var showFull = false;
+      ht.addEventListener('click', function(){
+        showFull = !showFull;
+        document.querySelectorAll('.ml-hash, .mr-hash').forEach(function(el){
+          if (showFull) {
+            el.textContent = el.dataset.full;
+          } else {
+            var f = el.dataset.full;
+            el.textContent = f.slice(0,8) + '...' + f.slice(-4);
+          }
+        });
+        ht.textContent = showFull ? 'Truncate Hashes' : 'Show Full Hashes';
+      });
+    }
+
+    // Invariant card toggles
+    document.querySelectorAll('.inv-card').forEach(function(card){
+      card.addEventListener('click', function(){
+        card.classList.toggle('open');
+      });
+    });
   })();
   </script>
 
