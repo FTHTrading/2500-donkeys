@@ -9,86 +9,70 @@
 
 ## 1. Primary Launch Post
 
-> Copy the text below directly into LinkedIn. Stays within the 3,000-character limit. The first three lines appear above "...see more" — they must carry the hook.
+> Copy the text below directly into LinkedIn. The first three lines appear above "...see more" — they carry the entire hook. Protocol is the subject. No first-person framing.
 
 ---
 
-I built an open standard for proving authorship on-chain. It's live on Polygon Mainnet today.
+LPS-1 is now live on Polygon Mainnet.
+7 verified smart contracts. 293 tests. Zero upgradeability.
+An open standard for deterministic digital provenance — available today.
 
-LPS-1 is a deterministic provenance protocol for digital manuscripts. It uses SHA-256 hashing, Merkle tree commitments, and on-chain anchoring to prove that a specific person wrote a specific work at a specific time — without relying on any publisher, platform, or intermediary.
+The protocol establishes cryptographic proof-of-origin for digital manuscripts using SHA-256 hashing, Merkle tree commitments, and on-chain anchoring. No publisher. No platform. No intermediary.
 
-Here is what's deployed right now:
+What is deployed:
 
-→ 7 verified smart contracts on Polygon Mainnet
+→ 7 source-verified contracts on Polygon Mainnet
 → 293 tests across 7 suites (100% pass)
-→ 2 literary works frozen on-chain with signed Merkle roots
-→ 6 Merkle trees (manuscript, audio, image, artifact, prompt, combined)
-→ Cross-chain timestamps on Polygon + Bitcoin (OpenTimestamps)
-→ Level 5 compliance — the highest tier in the LPS conformance matrix
+→ Level 5 compliance — highest tier in the LPS conformance matrix
+→ 2 reference works frozen on-chain with signed Merkle roots
 → Total deployment cost: under $2.50
-→ Zero upgradeability. No admin keys. No proxy patterns.
+→ No admin keys. No proxy patterns. Non-upgradeable by design.
 
-The entire protocol stack is open source (MIT). The specification is CC BY 4.0. Anyone can implement it. Anyone can verify it.
+The specification is RFC-style (14 sections), MIT licensed, and published alongside a DOI-indexed research paper (open access). The conformance model defines five compliance levels (L0–L5) with published evidence requirements.
 
-Why this matters now:
+Why this standard exists:
 
-AI-generated text is indistinguishable from human-authored work. There is no standardised mechanism for an author to cryptographically prove when a work was written or that its contents haven't been altered. Copyright registries and publisher attestations are centralised points of failure.
+Digital works have no standardised mechanism for cryptographic proof-of-origin. Authors cannot independently prove when a work was written or that its contents are unaltered — without relying on centralised intermediaries. LPS-1 solves this structurally. Given source files and a Polygon RPC endpoint, any party can verify every hash, every Merkle root, and every on-chain anchor. No trusted service required.
 
-LPS-1 solves this structurally. Given the source files and a Polygon RPC endpoint, any party can reconstruct every hash, verify every Merkle root, and confirm every on-chain anchor. No trusted service required.
+The protocol is not a marketplace, not a financial instrument, and not a product. It is infrastructure.
 
-What LPS-1 is NOT:
-— Not a marketplace or publishing platform
-— Not a financial instrument or tokenisation scheme
-— Not a product
-
-It is infrastructure. A standard. Like TCP/IP is a standard for packet routing, LPS-1 is a standard for literary provenance.
-
-The specification is RFC-style (14 sections). There is a published research paper (DOI-indexed, open access). A governance model with codified transition criteria. A six-phase roadmap. And a live verification dashboard that reads directly from Polygon — no backend, no caching layer.
-
-Verify it yourself in 90 seconds:
+Verify it in 90 seconds:
 git clone https://github.com/FTHTrading/LPS-1-Reference-Implementation.git
 npm install && npx hardhat test
 
-Or view the live protocol dashboard: https://xxxiii.io
+Live protocol dashboard: https://xxxiii.io
 
-The protocol is built. The contracts are deployed. The standard is published. Now looking for:
-— External implementors (Level 0 requires a single SHA-256 anchor)
-— Security auditors for independent contract review
-— Institutional partners (libraries, archives, university presses)
-
-If you work in digital provenance, on-chain infrastructure, or literary technology — this is an open invitation.
+The conformance registry is open. External implementations are invited at any compliance level. Level 0 requires a single SHA-256 anchor.
 
 MIT licensed. Independently verifiable. Deployed today.
 
-#Polygon #Blockchain #OpenSource #DigitalProvenance #SmartContracts #Web3 #LiteraryTechnology #OpenStandards #Cryptography #PublicGoods
+#Polygon #OpenSource #DigitalProvenance #SmartContracts #Web3 #OpenStandards #Cryptography #PublicGoods
 
 ---
 
 ## 2. Short Version (Under 1,300 Characters)
 
-> Use this for reposting, cross-posting, or if the long version feels too dense for your network.
+> Use this for reposting, cross-posting, or if the long version feels too dense for your network. Same rule: protocol is the subject.
 
 ---
 
-I built an open standard for proving authorship on a public blockchain. It's deployed on Polygon Mainnet today.
+LPS-1 is now live on Polygon Mainnet — an open standard for deterministic digital provenance.
 
-LPS-1 uses SHA-256 hashing, Merkle trees, and on-chain anchoring to let any author prove — cryptographically — that they wrote a specific work at a specific time. No platform. No intermediary. No trust required.
+The protocol uses SHA-256 hashing, Merkle trees, and on-chain anchoring to establish cryptographic proof-of-origin for digital manuscripts. No platform. No intermediary. No trust required.
 
-What's live:
+What's deployed:
 → 7 verified contracts on Polygon
 → 293 tests, Level 5 compliance
-→ 2 literary works frozen on-chain
+→ 2 reference works frozen on-chain
 → MIT licensed, fully open source
 → Total deployment cost: < $2.50
-
-In a world where AI generates text indistinguishable from human writing, authors need deterministic proof-of-origin. Not claims. Not timestamps. Mathematical proof that anyone can verify independently.
 
 The specification, research paper, and full verification suite are public.
 
 Verify it: https://xxxiii.io
 Clone it: https://github.com/FTHTrading/LPS-1-Reference-Implementation
 
-Looking for implementors, auditors, and institutional partners.
+The conformance registry is open. Implementations invited at any compliance level.
 
 #Polygon #OpenSource #DigitalProvenance #Web3 #SmartContracts #PublicGoods
 
@@ -100,16 +84,19 @@ Looking for implementors, auditors, and institutional partners.
 
 ### Comment 1 — The Technical Stack (Post at +15 min)
 
-For the technical audience — here's the protocol stack:
+> This is the most important comment. Skeptics look here. Include the Polygonscan link — it's proof under the headline claim.
 
-Layer 1: Filesystem — Canonical file ordering, version control
-Layer 2: Git — Commit-level authorship with GPG signatures
-Layer 3: SHA-256 — FIPS 180-4 hashing at word, paragraph, and chapter level
-Layer 4: Merkle Trees — Per-content-type provenance commitments
-Layer 5: IPFS — Content-addressed decentralised storage
-Layer 6: Polygon — Immutable on-chain anchor with block timestamp
+The LPS-1 protocol stack has six independently verifiable layers:
 
-Each layer is independently verifiable. The specification covers all six: https://github.com/FTHTrading/LPS-1-Reference-Implementation/blob/main/spec/LPS-1.md
+Filesystem → Git → SHA-256 → Merkle Trees → IPFS → Polygon
+
+Each layer produces outputs that any party can verify using standard tools (sha256sum, git verify-commit, IPFS CID resolution, Polygon RPC read). No backend. No API key.
+
+The protocol achieves Level 5 compliance — the highest tier in the LPS conformance matrix — with live on-chain state readable at xxxiii.io.
+
+LiteraryAnchor contract (verified): https://polygonscan.com/address/0x97f456300817eaE3B40E235857b856dfFE8bba90#code
+
+Full specification: https://github.com/FTHTrading/LPS-1-Reference-Implementation/blob/main/spec/LPS-1.md
 
 ### Comment 2 — Why Non-Upgradeable (Post at +30 min)
 
@@ -131,18 +118,33 @@ That's a verifiable fact, not a claim.
 
 ### Comment 4 — Call to Implementors (Post at +60 min)
 
-LPS-1 has five compliance levels. Level 0 requires a single SHA-256 anchor. Level 5 provides full runtime observability.
+The LPS-1 conformance model defines five compliance levels. Level 0 requires a single SHA-256 anchor. Level 5 provides full runtime observability.
 
-If you want to build a conformant implementation:
+The onboarding path:
 1. Choose a compliance level
 2. Clone the reference implementation
 3. Run the verification suite
-4. Deploy your own anchor contract
+4. Deploy an anchor contract
 5. Submit a conformance statement
 
-The onboarding path is documented at https://xxxiii.io/#implement
+Documented at https://xxxiii.io/#implement
 
-Open slots in the conformance registry. MIT licensed. No permission required.
+The conformance registry has open slots. MIT licensed. No permission required.
+
+### Comment 5 — Pinned Verification (Pin This to Top of Comments)
+
+> Post this last, then pin it. This is the falsifiability anchor. It makes the entire launch independently verifiable.
+
+Independent verification takes ~90 seconds.
+
+git clone https://github.com/FTHTrading/LPS-1-Reference-Implementation.git
+cd LPS-1-Reference-Implementation
+npm install
+npx hardhat test
+
+58 automated checks: hash comparison, Merkle root reconstruction, on-chain state verification, edition consistency. Deterministic. Pass or fail.
+
+Every claim in this post is falsifiable.
 
 ---
 
@@ -306,33 +308,31 @@ Protocol Author — LPS-1 Open Provenance Standard | Polygon Mainnet | xxxiii.io
 ### About Section (First 3 Lines — Visible Before "See More")
 
 ```
-Author of LPS-1, an open standard for deterministic literary provenance deployed on Polygon Mainnet. 7 verified contracts. 293 tests. MIT licensed.
+Protocol author, LPS-1 — an open standard for deterministic digital provenance. Deployed on Polygon Mainnet. 7 verified contracts. 293 tests. MIT licensed.
 
-Currently seeking external implementors, security auditors, and institutional partners for the first open standard that lets authors cryptographically prove authorship without intermediaries.
+The conformance registry is open. External implementations invited at any compliance level.
 ```
 
 ### Full About Section
 
 ```
-Author of LPS-1 (Literary Publishing Standard), an open protocol for deterministic digital provenance deployed on Polygon Mainnet.
+Protocol author, LPS-1 (Literary Publishing Standard) — an open standard for deterministic digital provenance deployed on Polygon Mainnet.
 
-LPS-1 uses SHA-256 hashing, Merkle tree commitments, and on-chain anchoring to provide cryptographic proof-of-origin for digital manuscripts. The protocol is fully specified (RFC-style, 14 sections), fully deployed (7 verified contracts), fully tested (293 tests), and fully open (MIT license).
+The LPS-1 protocol establishes cryptographic proof-of-origin for digital manuscripts using SHA-256 hashing, Merkle tree commitments, and on-chain anchoring. The specification is RFC-style (14 sections). The codebase is MIT licensed. The research paper is DOI-indexed and open access.
 
-What's live today:
-• 7 smart contracts on Polygon Mainnet (all source-verified)
-• 2 literary works frozen on-chain with signed Merkle roots
-• Level 5 compliance (highest tier)
+Deployed today:
+• 7 smart contracts on Polygon Mainnet (all source-verified on Polygonscan)
+• 2 reference works frozen on-chain with signed Merkle roots
+• Level 5 compliance (highest tier in the LPS conformance matrix)
 • Live verification dashboard at xxxiii.io
-• Published research paper (DOI-indexed)
 • Zero upgradeability — no admin keys, no proxy patterns
 
-The protocol is infrastructure, not a product. It is designed for independent implementation by anyone — authors, publishers, libraries, archives.
+The protocol is infrastructure, not a product. The conformance model defines five compliance levels for independent implementation by authors, publishers, libraries, and archives.
 
-Currently focused on:
-• Independent security audit
+Current priorities:
+• Independent security audit of all seven contracts
 • TypeScript SDK for third-party integration
-• External implementor onboarding
-• Polygon ecosystem grant application
+• External implementor onboarding via published conformance path
 
 Protocol: xxxiii.io
 Code: github.com/FTHTrading/LPS-1-Reference-Implementation
@@ -409,12 +409,15 @@ There isn't one in the traditional sense. LPS-1 is public goods infrastructure. 
 
 | Day | Action | Content |
 |-----|--------|---------|
+| Day -1 | Update profile | Section 5 (headline, about, featured) — do this BEFORE posting |
 | Day 0 | Primary launch post | Section 1 (main post) |
-| Day 0 +15 min | Comment: Technical stack | Section 3, Comment 1 |
+| Day 0 +15 min | Comment: Technical stack | Section 3, Comment 1 (MOST IMPORTANT) |
 | Day 0 +30 min | Comment: Non-upgradeable | Section 3, Comment 2 |
 | Day 0 +45 min | Comment: AI problem | Section 3, Comment 3 |
 | Day 0 +60 min | Comment: Call to implementors | Section 3, Comment 4 |
-| Day 1 | Update profile | Section 5 (headline, about, featured) |
+| Day 0 +90 min | Comment: Pinned verification | Section 3, Comment 5 — PIN THIS |
+| Day 0 +2 hrs | DM outreach | Section 9 — send to 5–10 targeted contacts |
+| Day 1 | Submit Polygon grant | Momentum window — reviewers see post + engagement |
 | Day 2 | Publish LinkedIn Article | Section 4 (long-form article) |
 | Day 3 | Short repost | Section 2 (short version) |
 | Day 7 | Follow-up post | Metrics update, community response |
@@ -428,25 +431,25 @@ There isn't one in the traditional sense. LPS-1 is public goods infrastructure. 
 ### To Polygon Ecosystem / DevRel
 
 ```
-Hi [Name] — I've deployed an open provenance standard (LPS-1) on Polygon Mainnet. 7 verified contracts, 293 tests, MIT licensed. Live dashboard at xxxiii.io. Looking at Polygon ecosystem grants for security audit and SDK development. Happy to share details.
+Hi [Name] — LPS-1 is an open provenance standard deployed on Polygon Mainnet. 7 verified contracts, 293 tests, MIT licensed. Would you consider reviewing the conformance model? Live dashboard at xxxiii.io. Happy to share the specification.
 ```
 
 ### To Security Auditors
 
 ```
-Hi [Name] — I have 7 non-upgradeable smart contracts (Solidity 0.8.19, OpenZeppelin) deployed on Polygon Mainnet for a literary provenance protocol. Seeking an independent security audit. All contracts are source-verified on Polygonscan. Details at xxxiii.io.
+Hi [Name] — LPS-1 has 7 non-upgradeable smart contracts (Solidity 0.8.19, OpenZeppelin) deployed on Polygon Mainnet. All source-verified on Polygonscan. Seeking an independent security review. Would you be open to evaluating the contract architecture? Details at xxxiii.io.
 ```
 
 ### To Academic / Digital Humanities
 
 ```
-Hi [Name] — I've published an open standard for cryptographic proof-of-authorship for digital manuscripts. RFC-style spec, DOI-indexed research paper, deployed on Polygon. Could be relevant for digital humanities / archival verification. Paper: doi.org/10.5281/zenodo.18646886
+Hi [Name] — LPS-1 is an open standard for cryptographic proof-of-authorship for digital manuscripts. RFC-style spec, DOI-indexed research paper, deployed on Polygon. The conformance model may be relevant to digital humanities / archival verification. Paper: doi.org/10.5281/zenodo.18646886
 ```
 
 ### To Web3 Builders / Developers
 
 ```
-Hi [Name] — Built an open provenance standard for literary works on Polygon. 7 contracts, 293 tests, MIT licensed. Reference implementation is public. Looking for external implementors — Level 0 requires just a single SHA-256 anchor. Repo: github.com/FTHTrading/LPS-1-Reference-Implementation
+Hi [Name] — LPS-1 is an open provenance standard for literary works, deployed on Polygon. 7 contracts, 293 tests, MIT licensed. The conformance registry has open slots — Level 0 requires a single SHA-256 anchor. Repo: github.com/FTHTrading/LPS-1-Reference-Implementation
 ```
 
 ---
@@ -467,3 +470,173 @@ Hi [Name] — Built an open provenance standard for literary works on Polygon. 7
 - Mention token prices, financial returns, or speculative value
 - Over-explain blockchain basics to a technical audience
 - Use poetic or emotional language — specification tone throughout
+- Use first-person ("I built") — protocol is the subject ("LPS-1 defines...")
+
+---
+
+## 11. Skeptic Simulation
+
+> The harshest possible LinkedIn comments and pre-built responses. Tone: calm, factual, never defensive. Every response includes a verifiable claim.
+
+---
+
+### SKEPTIC: "This is a solution looking for a problem. Who actually needs on-chain proof of authorship?"
+
+**Response:**
+
+The C2PA coalition (Adobe, Microsoft, Intel, BBC) is spending hundreds of millions on content authenticity infrastructure for exactly this problem. LPS-1 addresses the same need — provenance attestation — but for literary works specifically, using an open standard rather than a platform-locked solution.
+
+The use case is straightforward: an author anchors a manuscript's cryptographic fingerprint on-chain before publication. If the work is later reproduced, modified, or attributed to someone else, the on-chain record provides independently verifiable proof of prior existence.
+
+Whether the market for this is large or small is an empirical question. The protocol exists so that anyone who needs it can implement it without permission.
+
+---
+
+### SKEPTIC: "7 contracts for a publishing tool? This is massively over-engineered."
+
+**Response:**
+
+Each contract serves a distinct function:
+
+- LiteraryAnchor: hash/CID storage
+- KernelV2: edition lifecycle + freeze enforcement
+- AuthorIdentity: ECDSA identity binding
+- RoyaltyRouter: ERC-2981 pull-based routing
+- EditionNFT: ERC-721 edition tokens
+- StoryNFT: ERC-721 story tokens
+- Kernel (v1): legacy, superseded
+
+This is separation of concerns, not complexity. Each contract is independently verifiable and non-upgradeable. A monolithic contract would be harder to audit, harder to verify, and harder for external implementors to adopt selectively.
+
+The architecture decision is documented in the ADR registry: https://github.com/FTHTrading/LPS-1-Reference-Implementation
+
+---
+
+### SKEPTIC: "One user and two books. This isn't a 'standard' — it's a personal project."
+
+**Response:**
+
+TCP/IP had one implementation before it had two. Every standard starts with a reference implementation.
+
+LPS-1 has a formal specification (14 sections, RFC-style), five compliance levels with published evidence requirements, a governance model with codified transition criteria for community stewardship, and an open conformance registry.
+
+The transition criterion for moving from author-led governance to a working group is explicitly defined: a second independent implementation, an external specification review, and a public comment period. The protocol is designed for this transition — the specification is not coupled to this implementation.
+
+Currently: one production implementation at Level 5. The conformance registry is open at any level.
+
+---
+
+### SKEPTIC: "Why would anyone use Polygon for this instead of Ethereum mainnet?"
+
+**Response:**
+
+Documented in ADR-0006. Three factors:
+
+1. Cost — The entire 7-contract deployment cost under $2.50. On Ethereum mainnet, a single contract deployment costs $50–200+ depending on gas. For a standard designed to be accessible to individual authors, sub-cent anchoring is a structural requirement.
+2. Finality — ~2 second blocks vs. ~12 seconds.
+3. Verification — Polygonscan provides free source-code verification accessible to non-technical reviewers.
+
+Phase III of the roadmap adds an Ethereum L1 mirror for settlement-layer finality. The protocol is designed for multi-chain anchoring — Polygon is the primary layer, not the only layer.
+
+---
+
+### SKEPTIC: "Non-upgradeable contracts sounds like a bug, not a feature. What happens when you find a vulnerability?"
+
+**Response:**
+
+For most DeFi protocols, upgradeability is necessary because they manage user funds. LPS-1 manages provenance records — hashes, Merkle roots, and edition metadata. The threat model is different.
+
+If an anchored hash could be modified after deployment, the entire verification model is invalid. Non-upgradeability is the security property that makes the protocol trustworthy. It means no party — including the protocol author — can alter anchored content.
+
+If a vulnerability is found, the mitigation path is deployment of a new contract with a migration path, not in-place modification. This is documented in the governance model. The existing anchored data remains immutable regardless.
+
+Independent security audit is the next funded milestone.
+
+---
+
+### SKEPTIC: "You say 293 tests. That doesn't mean the code is secure. Have you been audited?"
+
+**Response:**
+
+No. The contracts have not been independently audited. That is stated explicitly and is the primary reason for the current grant application.
+
+What exists today: 293 tests across 7 suites, 58 reference implementation verification tests, all contracts source-verified on Polygonscan. The test coverage is publicly reproducible:
+
+```
+git clone https://github.com/FTHTrading/LPS-1-Reference-Implementation.git
+npm install && npx hardhat test
+```
+
+An independent security audit is Phase 1 of the grant request and represents 25% of the proposed budget.
+
+---
+
+### SKEPTIC: "This is just IPFS + a hash on a blockchain. People have been doing this since 2017."
+
+**Response:**
+
+IPFS + hash is one layer of six. LPS-1 adds:
+
+- Multi-level content hashing (word, paragraph, chapter — not just file-level)
+- Per-content-type Merkle trees (manuscript, audio, image, artifact, prompt)
+- Forward-only edition lifecycle enforced on-chain (Draft → Anchored → Frozen)
+- ECDSA-bound author identity with pseudonym support
+- Five compliance levels with formal evidence requirements
+- RFC-style specification for independent implementation
+
+The difference between "hash on a blockchain" and LPS-1 is the same as the difference between "bytes on a wire" and TCP/IP. The protocol layer is what makes it a standard.
+
+---
+
+### SKEPTIC: "MIT license and public goods framing, but you're applying for grants. So it IS a business."
+
+**Response:**
+
+Grants fund development, not revenue. The protocol infrastructure is MIT licensed and deployed permanently — it cannot be taken down, paywalled, or made proprietary. The contracts are non-upgradeable.
+
+Grant funding covers: independent security audit (25%), SDK development for third-party integration (20%), protocol engineering for multi-author support (40%), and ecosystem outreach (15%). Every deliverable is publicly verifiable. Every contract deployment is on-chain.
+
+This is the same funding model used by OpenSSL, Let's Encrypt, and the Linux kernel. Public goods infrastructure funded by ecosystem grants, not product revenue.
+
+---
+
+### SKEPTIC: "The research paper is self-published to Zenodo, not peer-reviewed. That's not the same as academic validation."
+
+**Response:**
+
+Correct. The paper is DOI-indexed and open access via Zenodo, not peer-reviewed in a traditional academic journal. This is stated accurately in all materials — "DOI-indexed, open access" — without claiming peer review.
+
+Zenodo is operated by CERN and used by established research institutions for preprints and working papers. The DOI provides a permanent, citable reference.
+
+Formal peer review is a reasonable next step and is part of the academic adoption strategy. The protocol's verifiability does not depend on academic endorsement — every claim is independently reproducible from the source code and on-chain state.
+
+---
+
+### SKEPTIC: "How do you prove the person who deployed the contracts actually wrote the books? Anyone could deploy a hash."
+
+**Response:**
+
+This is the right question.
+
+LPS-1 uses ECDSA identity binding through the AuthorIdentity contract. The same Ethereum address that deployed and signed the contracts is cryptographically bound to the author identity. The signature chain is: author wallet → contract deployment → edition anchoring → Merkle root signing → identity binding. Each step is on-chain and verifiable.
+
+This does not prove that a specific human typed the words. It proves that the holder of a specific private key deployed a specific set of cryptographic commitments at a specific time. The identity layer binds that key to a declared authorship claim.
+
+The AuthorIdentity contract: https://polygonscan.com/address/0xB9ffa688A8Bb332221030BbBE46bE5bF03323170#code
+
+---
+
+### SKEPTIC: "Cool project but realistically this will never get adoption beyond you."
+
+**Response:**
+
+That's a prediction, not a critique. The protocol is designed so that the prediction can be tested:
+
+- The conformance registry is public and accepting submissions
+- Level 0 implementation requires one SHA-256 anchor — minimal barrier
+- The specification is MIT licensed and independently implementable
+- The governance transition criteria are codified and published
+
+If no external implementation appears, that's a market signal. The protocol infrastructure remains functional regardless — the two anchored works will be independently verifiable as long as Polygon exists.
+
+The question isn't whether adoption is guaranteed. It's whether the standard is sound enough to adopt. That's verifiable today.
