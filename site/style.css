@@ -1631,6 +1631,164 @@ img { max-width: 100%; display: block; }
   border-bottom-color: var(--gold);
 }
 
+/* ── Hero Subline ── */
+.hero-subline {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  color: var(--pass);
+  margin-bottom: 2.5rem;
+  font-weight: 400;
+}
+
+/* ── Metric Source Labels ── */
+.metric-source {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.42rem;
+  color: var(--pass);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.8;
+}
+.metric-live {
+  position: relative;
+}
+.metric-live::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  right: -8px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--pass);
+  animation: metric-pulse 2s ease-in-out infinite;
+}
+@keyframes metric-pulse {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+
+/* ── Why This Is a Standard Block ── */
+.standard-block {
+  background: var(--bg-alt);
+  border-bottom: 1px solid var(--border);
+  padding: 3rem 1.5rem;
+}
+.standard-inner {
+  max-width: 680px;
+  margin: 0 auto;
+}
+.standard-heading {
+  font-family: 'Cinzel', serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text);
+  margin-bottom: 1.8rem;
+  text-align: center;
+}
+.standard-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.standard-list li {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+  line-height: 1.9;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--border-light);
+  padding-left: 1.2rem;
+  position: relative;
+}
+.standard-list li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--gold);
+}
+.standard-list li:last-child {
+  border-bottom: none;
+}
+
+/* ── Funding Alignment Strip ── */
+.funding-strip {
+  background: var(--bg-alt);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+}
+.funding-inner {
+  max-width: 680px;
+  margin: 0 auto;
+}
+.funding-heading {
+  font-family: 'Cinzel', serif;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+}
+.funding-pillars {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+.funding-pillar {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  color: var(--text-tertiary);
+  padding: 0.4rem 1rem;
+  border: 1px solid var(--border);
+  white-space: nowrap;
+}
+
+/* ── Chain RPC Source ── */
+.chain-rpc {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.52rem;
+  color: var(--text-faint);
+  letter-spacing: 0.06em;
+}
+
+/* ── Chain Contract Badges ── */
+.chain-contracts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 1rem 1.8rem;
+  border-bottom: 1px solid var(--border);
+}
+.chain-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.52rem;
+  color: var(--text-muted);
+  text-decoration: none;
+  padding: 0.3rem 0.6rem;
+  border: 1px solid var(--border);
+  transition: border-color 0.2s, color 0.2s;
+  letter-spacing: 0.04em;
+}
+.chain-badge:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+.chain-badge code {
+  font-size: 0.48rem;
+  color: var(--text-faint);
+}
+
 @media (max-width: 900px) {
   .metrics-inner { gap: 1rem; }
   .metric-value { font-size: 0.95rem; }
@@ -1645,6 +1803,8 @@ img { max-width: 100%; display: block; }
   .chain-card:last-child { border-bottom: none; }
   .steward-grid { grid-template-columns: 1fr; max-width: 300px; margin-left: auto; margin-right: auto; }
   .related-grid { grid-template-columns: 1fr; max-width: 400px; margin-left: auto; margin-right: auto; }
+  .chain-contracts { gap: 0.4rem; padding: 0.8rem 1.2rem; }
+  .funding-pillars { gap: 1.2rem; }
 }
 
 @media (max-width: 700px) {
@@ -1669,4 +1829,10 @@ img { max-width: 100%; display: block; }
   .impl-row { flex-direction: column; gap: 0.2rem; }
   .impl-val { text-align: left; }
   .hero-role-badges { flex-direction: column; align-items: center; }
+  .chain-contracts { gap: 0.3rem; padding: 0.6rem 1rem; }
+  .chain-badge { font-size: 0.48rem; padding: 0.25rem 0.5rem; }
+  .chain-rpc { width: 100%; margin-top: 0.3rem; }
+  .funding-pillars { flex-direction: column; align-items: center; gap: 0.8rem; }
+  .standard-list li { font-size: 0.65rem; }
+  .hero-subline { font-size: 0.62rem; }
 }

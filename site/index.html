@@ -6,13 +6,13 @@
   <title>XXXIII Protocol — Deterministic Literary Publishing Standard</title>
   <meta name="description" content="A deterministic literary publishing protocol establishing cryptographic proof-of-origin, content integrity, and immutable anchoring. Specification and reference implementation.">
   <meta property="og:title" content="XXXIII — Deterministic Literary Infrastructure">
-  <meta property="og:description" content="Proof-of-origin for authored works. V verified contracts on Polygon. II frozen editions. VI Merkle trees.">
+  <meta property="og:description" content="A deterministic provenance standard with a literary reference implementation. 7 verified contracts on Polygon. 2 frozen editions. Level 5 compliant.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://xxxiii.io">
   <meta property="og:image" content="https://xxxiii.io/images/cover/cover-front.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="XXXIII — Deterministic Literary Infrastructure">
-  <meta name="twitter:description" content="Proof-of-origin for authored works. V verified contracts on Polygon. II frozen editions. VI Merkle trees.">
+  <meta name="twitter:description" content="A deterministic provenance standard with a literary reference implementation. 7 verified contracts on Polygon. 2 frozen editions. Level 5 compliant.">
   <meta name="twitter:image" content="https://xxxiii.io/images/cover/cover-front.png">
   <meta name="author" content="Kidd James">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.88em' font-size='72' font-family='serif' fill='%23111'>X</text></svg>">
@@ -30,15 +30,14 @@
   <nav class="nav" id="nav">
     <a href="#" class="nav-brand">XXXIII</a>
     <div class="nav-links" id="navLinks">
-      <a href="#abstract">Abstract</a>
+      <a href="#abstract">Declaration</a>
       <a href="#lpsstack">Stack</a>
-      <a href="#contracts">Contracts</a>
-      <a href="#chainstatus">Observe</a>
+      <a href="#chainstatus">Live</a>
       <a href="#verify">Verify</a>
       <a href="#compliance">Compliance</a>
-      <a href="#implstatus">Status</a>
       <a href="#roadmap">Roadmap</a>
-      <a href="#citation">Citation</a>
+      <a href="#works">Works</a>
+      <a href="https://github.com/FTHTrading/LPS-1-Reference-Implementation" target="_blank" rel="noopener">GitHub</a>
     </div>
     <div class="nav-actions">
       <a href="read.html" class="nav-link-btn">Read</a>
@@ -58,6 +57,7 @@
     <div class="hero-inner">
       <h1 class="hero-title">XXXIII</h1>
       <p class="hero-subtitle">Deterministic Literary Publishing Protocol</p>
+      <p class="hero-subline">Live LPS-1 Level 5 deployment on Polygon Mainnet. Fully observable.</p>
       <div class="hero-verse">
         <p>Every word hashed.</p>
         <p>Every chapter Merkle-rooted.</p>
@@ -65,11 +65,11 @@
         <p>Verifiable forever.</p>
       </div>
       <div class="hero-actions">
-        <a href="#verify" class="btn btn-primary">Verify Now</a>
+        <a href="#verify" class="btn btn-primary">Verify in 90 Seconds</a>
+        <a href="#chainstatus" class="btn">View Live Contracts</a>
         <a href="#abstract" class="btn">Read Specification</a>
-        <a href="https://github.com/FTHTrading/2500-donkeys/blob/master/docs/ANNOUNCEMENT_LPS1_v1.0.md" target="_blank" rel="noopener" class="btn">LPS-1 Announcement</a>
       </div>
-      <p class="hero-chain">MMXXVI · Polygon Mainnet · Chain ID CXXXVII</p>
+      <p class="hero-chain">2026 · Polygon Mainnet · Chain ID 137</p>
       <div class="hero-role-badges">
         <span class="hero-role-badge role-spec">SPECIFICATION</span>
         <span class="hero-role-badge role-impl">REFERENCE IMPLEMENTATION</span>
@@ -93,33 +93,35 @@
   <div class="metrics-bar" id="metricsBar">
     <div class="metrics-inner">
       <div class="metric">
-        <span class="metric-value" id="metricEditions">—</span>
+        <span class="metric-value metric-live" id="metricEditions">—</span>
         <span class="metric-label">Editions Anchored</span>
+        <span class="metric-source">on-chain</span>
       </div>
       <div class="metric-sep"></div>
       <div class="metric">
-        <span class="metric-value">VII</span>
+        <span class="metric-value metric-static">7</span>
         <span class="metric-label">Contracts Verified</span>
       </div>
       <div class="metric-sep"></div>
       <div class="metric">
-        <span class="metric-value">VI</span>
+        <span class="metric-value metric-static">6</span>
         <span class="metric-label">Merkle Trees</span>
       </div>
       <div class="metric-sep"></div>
       <div class="metric">
-        <span class="metric-value">293</span>
+        <span class="metric-value metric-static">293</span>
         <span class="metric-label">Tests Passing</span>
       </div>
       <div class="metric-sep"></div>
       <div class="metric">
-        <span class="metric-value">LI</span>
+        <span class="metric-value metric-static">58</span>
         <span class="metric-label">Verify Checks</span>
       </div>
       <div class="metric-sep"></div>
       <div class="metric">
-        <span class="metric-value" id="metricBlocks">—</span>
+        <span class="metric-value metric-live" id="metricBlocks">—</span>
         <span class="metric-label">Blocks Since Genesis</span>
+        <span class="metric-source">on-chain</span>
       </div>
       <div class="metric-sep"></div>
       <div class="metric">
@@ -132,24 +134,39 @@
   <!-- ━━━ Protocol Resources Bar ━━━ -->
   <div class="resources-bar">
     <div class="resources-inner">
-      <a href="https://github.com/FTHTrading/2500-donkeys/blob/master/docs/spec/LPS-1.md" target="_blank" rel="noopener" class="resource-link">
+      <a href="https://github.com/FTHTrading/LPS-1-Reference-Implementation/blob/main/spec/LPS-1.md" target="_blank" rel="noopener" class="resource-link">
         <span class="resource-icon">📄</span><span>LPS-1 Spec</span>
       </a>
-      <a href="https://github.com/FTHTrading/2500-donkeys/blob/master/docs/spec/COMPLIANCE.md" target="_blank" rel="noopener" class="resource-link">
+      <a href="https://github.com/FTHTrading/LPS-1-Reference-Implementation/blob/main/spec/COMPLIANCE.md" target="_blank" rel="noopener" class="resource-link">
         <span class="resource-icon">✓</span><span>Compliance L0–L5</span>
       </a>
-      <a href="https://github.com/FTHTrading/2500-donkeys/blob/master/docs/spec/GOVERNANCE.md" target="_blank" rel="noopener" class="resource-link">
+      <a href="https://github.com/FTHTrading/LPS-1-Reference-Implementation/blob/main/spec/GOVERNANCE.md" target="_blank" rel="noopener" class="resource-link">
         <span class="resource-icon">⚖</span><span>Governance</span>
       </a>
-      <a href="https://github.com/FTHTrading/2500-donkeys/blob/master/docs/ROADMAP.md" target="_blank" rel="noopener" class="resource-link">
+      <a href="https://github.com/FTHTrading/LPS-1-Reference-Implementation/blob/main/docs/ROADMAP.md" target="_blank" rel="noopener" class="resource-link">
         <span class="resource-icon">🗺</span><span>Roadmap</span>
       </a>
-      <a href="https://github.com/FTHTrading/2500-donkeys/blob/master/docs/ANNOUNCEMENT_LPS1_v1.0.md" target="_blank" rel="noopener" class="resource-link">
+      <a href="https://github.com/FTHTrading/LPS-1-Reference-Implementation/blob/main/docs/ANNOUNCEMENT_LPS1_v1.0.md" target="_blank" rel="noopener" class="resource-link">
         <span class="resource-icon">📢</span><span>Announcement</span>
       </a>
-      <a href="https://github.com/FTHTrading/2500-donkeys/blob/master/docs/FUNDING_BRIEF.md" target="_blank" rel="noopener" class="resource-link">
+      <a href="https://github.com/FTHTrading/LPS-1-Reference-Implementation/blob/main/docs/FUNDING_BRIEF.md" target="_blank" rel="noopener" class="resource-link">
         <span class="resource-icon">🏛</span><span>Funding Brief</span>
       </a>
+    </div>
+  </div>
+
+  <!-- ━━━ Why This Is a Standard ━━━ -->
+  <div class="standard-block">
+    <div class="standard-inner">
+      <h2 class="standard-heading">Why This Is a Standard</h2>
+      <ul class="standard-list">
+        <li>Deterministic content hashing with SHA-256 at word, paragraph, and chapter level</li>
+        <li>Merkle tree construction per edition with on-chain root anchoring</li>
+        <li>Seven verified smart contracts on Polygon with zero upgradeability</li>
+        <li>Cross-chain timestamping via Bitcoin (OpenTimestamps)</li>
+        <li>Client-side verification requiring no trusted third party</li>
+        <li>Two frozen reference editions with full provenance chains</li>
+      </ul>
     </div>
   </div>
 
@@ -323,10 +340,10 @@
       </div>
 
       <div class="impl-table" style="margin-top:2.5rem">
-        <div class="impl-row"><span class="impl-key">LPS-1</span><span class="impl-val"><a href="https://github.com/FTHTrading/2500-donkeys/blob/master/docs/spec/LPS-1.md" target="_blank" rel="noopener" style="color:var(--gold)">Literary Publishing Standard</a></span></div>
+        <div class="impl-row"><span class="impl-key">LPS-1</span><span class="impl-val"><a href="https://github.com/FTHTrading/LPS-1-Reference-Implementation/blob/main/spec/LPS-1.md" target="_blank" rel="noopener" style="color:var(--gold)">Literary Publishing Standard</a></span></div>
         <div class="impl-row"><span class="impl-key">IAPL-1</span><span class="impl-val"><a href="https://github.com/FTHTrading/LPS-1-Reference-Implementation/blob/main/spec/IAPL-1.md" target="_blank" rel="noopener" style="color:var(--gold)">Immutable Audio Publishing Layer</a></span></div>
         <div class="impl-row"><span class="impl-key">LPS-NFT</span><span class="impl-val">Token distribution layer (ERC-721 + ERC-2981)</span></div>
-        <div class="impl-row"><span class="impl-key">Stack Spec</span><span class="impl-val"><a href="https://github.com/FTHTrading/2500-donkeys/blob/master/docs/spec/LPS-STACK.md" target="_blank" rel="noopener" style="color:var(--gold)">Full Stack Architecture</a></span></div>
+        <div class="impl-row"><span class="impl-key">Stack Spec</span><span class="impl-val"><a href="https://github.com/FTHTrading/LPS-1-Reference-Implementation/blob/main/spec/LPS-STACK.md" target="_blank" rel="noopener" style="color:var(--gold)">Full Stack Architecture</a></span></div>
       </div>
     </div>
   </section>
@@ -502,7 +519,8 @@
   <section class="sect sect-stone" id="works">
     <div class="sect-inner sect-centered">
       <span class="sect-numeral">X</span>
-      <h2 class="sect-heading">The Works</h2>
+      <h2 class="sect-heading">Reference Implementations</h2>
+      <p class="sect-lead">Each edition is a protocol test vector — a complete, frozen deployment of the LPS-1 standard.</p>
 
       <div class="works">
         <div class="monolith">
@@ -683,6 +701,17 @@
           <span class="chain-net-dot" id="chainDot"></span>
           <span class="chain-net-label">Polygon Mainnet</span>
           <span class="chain-block" id="chainBlock">Block —</span>
+          <span class="chain-rpc">RPC: polygon-rpc.com</span>
+        </div>
+
+        <div class="chain-contracts">
+          <a href="https://polygonscan.com/address/0x97f456300817eaE3B40E235857b856dfFE8bba90#code" target="_blank" rel="noopener" class="chain-badge">LiteraryAnchor <code>0x97f4…8b90</code></a>
+          <a href="https://polygonscan.com/address/0xca9F6604A9b498DB31d113836E2957c0a9aAE037#code" target="_blank" rel="noopener" class="chain-badge">KernelV2 <code>0xca9F…E037</code></a>
+          <a href="https://polygonscan.com/address/0xB9ffa688A8Bb332221030BbBE46bE5bF03323170#code" target="_blank" rel="noopener" class="chain-badge">AuthorIdentity <code>0xB9ff…3170</code></a>
+          <a href="https://polygonscan.com/address/0x44169829489d70aaecbf845870652871C65fC461#code" target="_blank" rel="noopener" class="chain-badge">RoyaltyRouter <code>0x4416…C461</code></a>
+          <a href="https://polygonscan.com/address/0x9e9Cc1486bf440Bd9eAaaD947958524Aaed3f8b0#code" target="_blank" rel="noopener" class="chain-badge">EditionNFT <code>0x9e9C…8b0</code></a>
+          <a href="https://polygonscan.com/address/0xD67e537Dba1236f802432cbDD30Fec3f6D38e7E3#code" target="_blank" rel="noopener" class="chain-badge">StoryNFT <code>0xD67e…7E3</code></a>
+          <a href="https://polygonscan.com/address/0x511c653fC0F450ba41C42A89A3125CcBf2eFE8ae#code" target="_blank" rel="noopener" class="chain-badge">Kernel <code>0x511c…E8ae</code></a>
         </div>
 
         <div class="chain-grid">
@@ -795,11 +824,11 @@
       <div class="verifier-cli">
         <p class="verifier-lead">Clone. Run. Confirm.</p>
         <div class="terminal">
-          <pre><code>git clone https://github.com/FTHTrading/2500-donkeys.git
-cd 2500-donkeys &amp;&amp; npm install
-npm run lps:verify</code></pre>
+          <pre><code>git clone https://github.com/FTHTrading/LPS-1-Reference-Implementation.git
+cd LPS-1-Reference-Implementation &amp;&amp; npm install
+node verifier/cli.js --path example-work</code></pre>
         </div>
-        <p class="verifier-checks">LI checks across V phases. All must pass.</p>
+        <p class="verifier-checks">58 checks across 2 suites. All must pass.</p>
         <p class="verifier-axiom">This is not trust. This is reproducibility.</p>
       </div>
 
@@ -823,7 +852,7 @@ node verifier/cli.js --path example-work</code></pre>
       <div class="verifier-links">
         <a href="https://polygonscan.com/address/0x97f456300817eaE3B40E235857b856dfFE8bba90#readContract" target="_blank" rel="noopener" class="btn btn-sm">Read LiteraryAnchor</a>
         <a href="https://polygonscan.com/address/0xca9F6604A9b498DB31d113836E2957c0a9aAE037#readContract" target="_blank" rel="noopener" class="btn btn-sm">Read KernelV2</a>
-        <a href="https://github.com/FTHTrading/2500-donkeys" target="_blank" rel="noopener" class="btn btn-sm">Source Code</a>
+        <a href="https://github.com/FTHTrading/LPS-1-Reference-Implementation" target="_blank" rel="noopener" class="btn btn-sm">Source Code</a>
       </div>
     </div>
   </section>
@@ -955,7 +984,7 @@ node verifier/cli.js --path example-work</code></pre>
       <div class="compliance-cert">
         <span class="cert-badge">LPS-1 Level 5 &mdash; Fully Observable</span>
         <p class="cert-detail">XXXIII reference implementation. VII verified contracts. Cross-chain anchoring via Polygon + Bitcoin (OpenTimestamps). Client-side on-chain state verification. 293 tests passing.</p>
-        <a href="https://github.com/FTHTrading/2500-donkeys/blob/master/docs/spec/COMPLIANCE.md" target="_blank" rel="noopener" class="btn btn-sm" style="margin-top:1rem">View Compliance Matrix</a>
+        <a href="https://github.com/FTHTrading/LPS-1-Reference-Implementation/blob/main/spec/COMPLIANCE.md" target="_blank" rel="noopener" class="btn btn-sm" style="margin-top:1rem">View Compliance Matrix</a>
       </div>
     </div>
   </section>
@@ -1060,11 +1089,11 @@ node verifier/cli.js --path example-work</code></pre>
         <div class="impl-row"><span class="impl-key">Reference Implementation</span><span class="impl-val"><a href="https://github.com/FTHTrading/LPS-1-Reference-Implementation" target="_blank" rel="noopener" style="color:var(--gold);border-bottom:1px solid transparent">Production — GitHub</a></span></div>
         <div class="impl-row"><span class="impl-key">LPS-1 Specification</span><span class="impl-val"><a href="https://github.com/FTHTrading/LPS-1-Reference-Implementation/blob/main/spec/LPS-1.md" target="_blank" rel="noopener" style="color:var(--gold);border-bottom:1px solid transparent">Literary Protocol Standard (RFC-style)</a></span></div>
         <div class="impl-row"><span class="impl-key">IAPL-1 Specification</span><span class="impl-val"><a href="https://github.com/FTHTrading/LPS-1-Reference-Implementation/blob/main/spec/IAPL-1.md" target="_blank" rel="noopener" style="color:var(--gold);border-bottom:1px solid transparent">Immutable Audio Publishing Layer</a></span></div>
-        <div class="impl-row"><span class="impl-key">Compliance Matrix</span><span class="impl-val"><a href="https://github.com/FTHTrading/2500-donkeys/blob/master/docs/spec/COMPLIANCE.md" target="_blank" rel="noopener" style="color:var(--gold);border-bottom:1px solid transparent">Level 0–5 Definitions + Evidence</a></span></div>
-        <div class="impl-row"><span class="impl-key">Roadmap</span><span class="impl-val"><a href="https://github.com/FTHTrading/2500-donkeys/blob/master/docs/ROADMAP.md" target="_blank" rel="noopener" style="color:var(--gold);border-bottom:1px solid transparent">6-Phase Development Trajectory</a></span></div>
-        <div class="impl-row"><span class="impl-key">LPS Stack</span><span class="impl-val"><a href="https://github.com/FTHTrading/2500-donkeys/blob/master/docs/spec/LPS-STACK.md" target="_blank" rel="noopener" style="color:var(--gold);border-bottom:1px solid transparent">Full Protocol Stack Architecture</a></span></div>
-        <div class="impl-row"><span class="impl-key">Core Team</span><span class="impl-val"><a href="https://github.com/FTHTrading/2500-donkeys/blob/master/docs/roles/CORE_TEAM.md" target="_blank" rel="noopener" style="color:var(--gold);border-bottom:1px solid transparent">Roles &amp; Responsibilities</a></span></div>
-        <div class="impl-row"><span class="impl-key">Governance</span><span class="impl-val"><a href="https://github.com/FTHTrading/2500-donkeys/blob/master/docs/spec/GOVERNANCE.md" target="_blank" rel="noopener" style="color:var(--gold);border-bottom:1px solid transparent">Author-Led → Working Group Model</a></span></div>
+        <div class="impl-row"><span class="impl-key">Compliance Matrix</span><span class="impl-val"><a href="https://github.com/FTHTrading/LPS-1-Reference-Implementation/blob/main/spec/COMPLIANCE.md" target="_blank" rel="noopener" style="color:var(--gold);border-bottom:1px solid transparent">Level 0–5 Definitions + Evidence</a></span></div>
+        <div class="impl-row"><span class="impl-key">Roadmap</span><span class="impl-val"><a href="https://github.com/FTHTrading/LPS-1-Reference-Implementation/blob/main/docs/ROADMAP.md" target="_blank" rel="noopener" style="color:var(--gold);border-bottom:1px solid transparent">6-Phase Development Trajectory</a></span></div>
+        <div class="impl-row"><span class="impl-key">LPS Stack</span><span class="impl-val"><a href="https://github.com/FTHTrading/LPS-1-Reference-Implementation/blob/main/spec/LPS-STACK.md" target="_blank" rel="noopener" style="color:var(--gold);border-bottom:1px solid transparent">Full Protocol Stack Architecture</a></span></div>
+        <div class="impl-row"><span class="impl-key">Core Team</span><span class="impl-val"><a href="https://github.com/FTHTrading/LPS-1-Reference-Implementation/blob/main/docs/roles/CORE_TEAM.md" target="_blank" rel="noopener" style="color:var(--gold);border-bottom:1px solid transparent">Roles &amp; Responsibilities</a></span></div>
+        <div class="impl-row"><span class="impl-key">Governance</span><span class="impl-val"><a href="https://github.com/FTHTrading/LPS-1-Reference-Implementation/blob/main/spec/GOVERNANCE.md" target="_blank" rel="noopener" style="color:var(--gold);border-bottom:1px solid transparent">Author-Led → Working Group Model</a></span></div>
         <div class="impl-row"><span class="impl-key">Network</span><span class="impl-val">Polygon Mainnet (Chain ID 137)</span></div>
         <div class="impl-row"><span class="impl-key">Contracts Verified</span><span class="impl-val">Yes — VII / VII</span></div>
         <div class="impl-row"><span class="impl-key">Upgradeability</span><span class="impl-val">None</span></div>
@@ -1118,11 +1147,24 @@ node verifier/cli.js --path example-work</code></pre>
       </div>
 
       <div class="prov-ref" style="margin-top:2rem">
-        <a href="https://github.com/FTHTrading/2500-donkeys/blob/master/docs/ROADMAP.md" target="_blank" rel="noopener" class="btn btn-sm">View Full Roadmap</a>
-        <a href="https://github.com/FTHTrading/2500-donkeys/blob/master/docs/FUNDING_BRIEF.md" target="_blank" rel="noopener" class="btn btn-sm" style="margin-left:1rem">Funding Brief</a>
+        <a href="https://github.com/FTHTrading/LPS-1-Reference-Implementation/blob/main/docs/ROADMAP.md" target="_blank" rel="noopener" class="btn btn-sm">View Full Roadmap</a>
+        <a href="https://github.com/FTHTrading/LPS-1-Reference-Implementation/blob/main/docs/FUNDING_BRIEF.md" target="_blank" rel="noopener" class="btn btn-sm" style="margin-left:1rem">Funding Brief</a>
       </div>
     </div>
   </section>
+
+  <!-- ━━━ Funding Alignment ━━━ -->
+  <div class="funding-strip">
+    <div class="funding-inner">
+      <p class="funding-heading">Aligned With Public Infrastructure Grants</p>
+      <div class="funding-pillars">
+        <span class="funding-pillar">Polygon Ecosystem</span>
+        <span class="funding-pillar">Ethereum Public Goods</span>
+        <span class="funding-pillar">Open Provenance</span>
+        <span class="funding-pillar">AI Disclosure Standards</span>
+      </div>
+    </div>
+  </div>
 
   <!-- ━━━ XXIV Citation ━━━ -->
   <section class="sect sect-stone" id="citation">
@@ -1143,7 +1185,7 @@ node verifier/cli.js --path example-work</code></pre>
         </div>
         <div class="cite-block">
           <span class="cite-label">Paper</span>
-          <a href="https://github.com/FTHTrading/2500-donkeys/releases/download/v1.1-paper/deterministic-literary-publishing.pdf" target="_blank" rel="noopener" class="cite-value">Download PDF</a>
+          <a href="deterministic-literary-publishing.pdf" target="_blank" rel="noopener" class="cite-value">Download PDF</a>
         </div>
         <div class="cite-block">
           <span class="cite-label">License</span>
@@ -1184,7 +1226,7 @@ https://doi.org/10.5281/zenodo.18646886</code></pre>
         <a href="https://doi.org/10.5281/zenodo.18646886" target="_blank" rel="noopener">Zenodo</a>
         <a href="https://www.researchgate.net/profile/Kevan-Burns" target="_blank" rel="noopener">ResearchGate</a>
         <a href="https://medium.com/@kevanbtc/a-deterministic-publishing-experiment-and-the-infrastructure-paper-it-produced-8a4d7b6e9288" target="_blank" rel="noopener">Medium</a>
-        <a href="https://github.com/FTHTrading/2500-donkeys" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://github.com/FTHTrading/LPS-1-Reference-Implementation" target="_blank" rel="noopener">GitHub</a>
       </div>
     </div>
   </section>
@@ -1202,7 +1244,7 @@ https://doi.org/10.5281/zenodo.18646886</code></pre>
         <a href="gallery.html">Gallery</a>
         <a href="https://doi.org/10.5281/zenodo.18646886" target="_blank" rel="noopener">DOI</a>
         <a href="https://orcid.org/0009-0008-8425-939X" target="_blank" rel="noopener">ORCID</a>
-        <a href="https://github.com/FTHTrading/2500-donkeys" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://github.com/FTHTrading/LPS-1-Reference-Implementation" target="_blank" rel="noopener">GitHub</a>
         <a href="https://polygonscan.com/address/0xca9F6604A9b498DB31d113836E2957c0a9aAE037" target="_blank" rel="noopener">Polygonscan</a>
       </div>
       <p class="footer-copy">&copy; MMXXVI Kevan Burns. Literary rights reserved. Infrastructure MIT licensed.</p>
