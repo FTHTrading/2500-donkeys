@@ -4,20 +4,15 @@
  * Compiles the manuscript into a typeset PDF suitable for
  * KDP paperback submission (5.5" x 8.5" digest trim).
  *
- * Pipeline: order.json → combined MD → Pandoc → HTML → Puppeteer → PDF
+ * Pipeline: order.json → combined MD → Pandoc → HTML → post-process → Puppeteer → PDF
  *
  * Uses Puppeteer (headless Chromium) for HTML→PDF conversion with:
- * - Precise page sizing (5.5" x 8.5")
- * - Running headers (book title recto, author name verso)
- * - Page numbers (bottom center)
- * - Professional interior typesetting via CSS
+ * - CSS @page size (5.5" x 8.5") via preferCSSPageSize
+ * - Page numbers (bottom center, Georgia)
+ * - System font stack (Georgia, Times New Roman) — no external font loading
+ * - Semantic front-matter / back-matter div structure via Pandoc fenced divs
  *
  * Usage: node publishing/build-pdf.js
- *
- * Prerequisites:
- *   - Pandoc 3.x on PATH
- *   - puppeteer (npm install --save-dev puppeteer)
- *   - node publishing/generate-placeholders.js (or real images in images/)
  */
 
 const fs = require("fs");
@@ -50,21 +45,21 @@ function buildBookHTML() {
     "epilogue": "ch-ep-genesis-remains"
   };
 
-  // Build combined markdown
   const parts = [];
 
-  // Front matter
+  // ── Front matter (already wrapped in ::: {.front-matter} fenced divs) ──
   const frontMatter = path.join(PUBLISHING_DIR, "front-matter.md");
   if (fs.existsSync(frontMatter)) {
     parts.push(fs.readFileSync(frontMatter, "utf-8"));
     parts.push("\n\n");
   }
 
+  // ── Body: manuscript blocks + artifact exhibits ──
   for (const block of order.blocks) {
     const blockPath = path.join(MANUSCRIPT_DIR, block.file);
     if (!fs.existsSync(blockPath)) continue;
 
-    // Insert chapter opener image for arc-starting blocks only
+    // Insert chapter opener image for arc-starting blocks
     const imageBase = arcMap[block.id];
     if (imageBase) {
       const pngPath = path.join(IMAGES_DIR, "chapters", imageBase + ".png");
@@ -89,9 +84,9 @@ function buildBookHTML() {
     );
 
     parts.push(content);
-    parts.push("\n\n---\n\n");
+    parts.push("\n\n");
 
-    // Artifacts
+    // Artifact exhibits
     if (block.artifactInserts) {
       for (const insert of block.artifactInserts) {
         if (insert.after) {
@@ -99,14 +94,14 @@ function buildBookHTML() {
           if (fs.existsSync(artifactPath)) {
             parts.push(`::: {.exhibit}\n`);
             parts.push(fs.readFileSync(artifactPath, "utf-8"));
-            parts.push(`\n:::\n\n---\n\n`);
+            parts.push(`\n:::\n\n`);
           }
         }
       }
     }
   }
 
-  // Back matter
+  // ── Back matter (already wrapped in ::: {.back-matter} fenced divs) ──
   const backMatter = path.join(PUBLISHING_DIR, "back-matter.md");
   if (fs.existsSync(backMatter)) {
     parts.push(fs.readFileSync(backMatter, "utf-8"));
@@ -116,22 +111,25 @@ function buildBookHTML() {
   const combinedPath = path.join(DIST_DIR, "book-print.md");
   fs.writeFileSync(combinedPath, parts.join("\n"), "utf-8");
 
-  // Convert to HTML via Pandoc
+  // Convert to HTML via Pandoc (fenced_divs enabled for semantic structure)
   const htmlPath = path.join(DIST_DIR, "book-print.html");
   const pandocCmd = [
     "pandoc",
     `"${combinedPath}"`,
     "-o", `"${htmlPath}"`,
-    "--from", "markdown+smart",
+    "--from", "markdown+smart+fenced_divs",
     "--to", "html5",
     "--standalone",
+    "--wrap=none",
     `--metadata=title:"${metadata.title}"`,
   ].join(" ");
 
   execSync(pandocCmd, { cwd: DIST_DIR, stdio: "pipe" });
 
-  // Embed the print stylesheet directly into the HTML
+  // ── Post-process HTML ──
   let html = fs.readFileSync(htmlPath, "utf-8");
+
+  // Embed the print stylesheet
   const cssPath = path.join(PUBLISHING_DIR, "print-style.css");
   if (fs.existsSync(cssPath)) {
     const cssContent = fs.readFileSync(cssPath, "utf-8");
@@ -147,6 +145,9 @@ function buildBookHTML() {
     'src="file:///'
   );
 
+  // Remove any stray \newpage literals that Pandoc didn't consume
+  html = html.replace(/\\newpage/g, "");
+
   fs.writeFileSync(htmlPath, html, "utf-8");
   return htmlPath;
 }
@@ -154,7 +155,8 @@ function buildBookHTML() {
 async function buildPDF() {
   console.log("[PDF] Starting print-ready PDF build...\n");
   console.log('  Trim: 5.5" × 8.5" (digest)');
-  console.log('  Margins: 0.875" inside, 0.625" outside\n');
+  console.log('  Margins: 0.875" gutter, 0.625" outside');
+  console.log("  Fonts: Georgia / Times New Roman (system)\n");
 
   if (!fs.existsSync(DIST_DIR)) fs.mkdirSync(DIST_DIR, { recursive: true });
 
@@ -169,11 +171,12 @@ async function buildPDF() {
 
   const puppeteer = require("puppeteer");
   const browser = await puppeteer.launch({
-    headless: true,
+    headless: "new",
     args: [
       "--no-sandbox",
       "--disable-setuid-sandbox",
       "--allow-file-access-from-files",
+      "--font-render-hinting=none",
     ],
   });
 
@@ -184,37 +187,33 @@ async function buildPDF() {
     const fileUrl = "file:///" + htmlPath.replace(/\\/g, "/");
     await page.goto(fileUrl, { waitUntil: "networkidle0", timeout: 60000 });
 
-    // Wait for fonts to load
+    // Wait for fonts and rendering to settle
     await page.evaluateHandle("document.fonts.ready");
+    await new Promise(r => setTimeout(r, 1000));
 
-    // Generate PDF with professional print settings
+    // Generate PDF — page numbers only, no running headers
+    // (Puppeteer can't conditionally suppress headers on title/chapter pages,
+    //  so we use footer-only for a clean professional look)
     await page.pdf({
       path: outputPath,
-      width: "5.5in",
-      height: "8.5in",
+      preferCSSPageSize: true,      // Respect @page { size: 5.5in 8.5in }
       margin: {
         top: "0.75in",
         bottom: "0.75in",
-        left: "0.875in",   // inside/gutter (assumes recto first)
-        right: "0.625in",  // outside
+        left: "0.875in",            // gutter side
+        right: "0.625in",           // outside
       },
       displayHeaderFooter: true,
-      headerTemplate: `
-        <div style="font-family: 'EB Garamond', Georgia, serif; font-size: 8pt;
-                    font-style: italic; color: #999; letter-spacing: 0.05em;
-                    width: 100%; padding: 0 0.625in; box-sizing: border-box;">
-          <span style="float: left;">Kidd James</span>
-          <span style="float: right;">The 2,500 Donkeys</span>
-        </div>
-      `,
+      headerTemplate: '<div style="font-size: 1px;"></div>',
       footerTemplate: `
-        <div style="font-family: 'EB Garamond', Georgia, serif; font-size: 9pt;
-                    color: #666; width: 100%; text-align: center;">
+        <div style="font-family: Georgia, 'Times New Roman', serif;
+                    font-size: 9px; color: #888;
+                    width: 100%; text-align: center;
+                    padding-top: 0.2in;">
           <span class="pageNumber"></span>
         </div>
       `,
       printBackground: true,
-      preferCSSPageSize: false,
     });
 
     const stats = fs.statSync(outputPath);

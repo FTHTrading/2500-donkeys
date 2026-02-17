@@ -1,23 +1,20 @@
+::: {.front-matter}
+
+::: {.half-title}
 # The 2,500 Donkeys
+:::
 
-\
-
+::: {.title-page}
 # The 2,500 Donkeys
 
 ### A Novel
 
-\
-
 **Kidd James**
 
-\
-
 *Genesis Publishing Protocol*
+:::
 
----
-
-\newpage
-
+::: {.copyright-page}
 **The 2,500 Donkeys**
 
 Copyright © 2026 Kidd James. All rights reserved.
@@ -32,42 +29,34 @@ Published by Genesis Publishing Protocol
 
 Book design and typesetting by the author.
 
-\
-
 This manuscript was cryptographically anchored to the Polygon blockchain before publication.
 
+::: {.crypto-anchor}
 Genesis CID: `QmVQ79NM3qxAsBpftTG4YhD4KV9sUEmM3WwFrc5vs5g8vK`
 
 Contract: `0x97f456300817eaE3B40E235857b856dfFE8bba90`
 
 The chain does not forget.
+:::
+:::
 
----
-
-\newpage
-
+::: {.dedication}
 *For everyone who ever forwarded a deal they couldn't explain, to someone who couldn't verify it, for a commission that didn't exist.*
 
 *You know who you are.*
 
 *You sent* 👍
+:::
 
----
-
-\newpage
-
+::: {.epigraph-page}
 > *"The deal expanded in inverse proportion to its certainty."*
-
-\
 
 > *"Belief travels faster than verification."*
 >
 > — First Law of the Parking Lot
+:::
 
----
-
-\newpage
-
+::: {.preface}
 ## A Note on What You Are About to Read
 
 This novel was born in WhatsApp groups.
@@ -83,11 +72,9 @@ The gold, usually, does not arrive.
 The answer, as you will discover, is that it does not recognize fiction. It absorbs it. It monetizes it. It adds it to the commission waterfall.
 
 This is a novel about commodity brokerage, narrative contagion, and the distance between a deal and reality. It is also about donkeys. They deserve better than what happens to them in these pages. They usually do.
+:::
 
----
-
-\newpage
-
+::: {.structure-guide}
 ## How This Book Is Structured
 
 *The 2,500 Donkeys* is organized into eight arcs across thirty-one blocks, following the lifecycle of a deal that never closes.
@@ -109,7 +96,6 @@ This is a novel about commodity brokerage, narrative contagion, and the distance
 **Arc VIII — The Silence** | The deal dies — not with an announcement, but with an absence. The phones stop buzzing. The groups go quiet. And then a new group appears, with a new animal, and a new corridor, and the cycle begins again.
 
 Interspersed throughout the narrative are **Exhibits** — reconstructed documents including IMFPA contracts, commission waterfalls, ESG deck excerpts, WhatsApp message chains, and carbon registry summaries. These artifacts are fictional but structurally faithful to the real documents that circulate in these ecosystems.
+:::
 
----
-
-\newpage
+:::

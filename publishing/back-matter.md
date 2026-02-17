@@ -1,7 +1,6 @@
----
+::: {.back-matter}
 
-\newpage
-
+::: {.glossary}
 ## Glossary of Terms
 
 The world of commodity brokerage has its own language. Some of these terms are real, used daily across thousands of WhatsApp groups and deal rooms. Some have been adapted for this novel. All of them function the same way in fiction as they do in practice: as architecture for belief.
@@ -35,10 +34,7 @@ The world of commodity brokerage has its own language. Some of these terms are r
 **The Storyteller** — Not a broker. Not a buyer. Not a seller. Someone who listened to the grammar long enough to understand it, and then tested it. A figure who exists at the edge of the ecosystem, observing its mechanics without participating in its rewards.
 
 **URDG 758** — Uniform Rules for Demand Guarantees, published by the International Chamber of Commerce. Referenced in every IMFPA for gravitas. Understood by few. Read by fewer.
-
----
-
-\newpage
+:::
 
 ## A Note on the Blockchain Anchor
 
@@ -52,19 +48,21 @@ The same systems that enable the fictional commission waterfalls and phantom dea
 
 The text you hold cannot be retroactively altered without the alteration being detectable. The chain does not forget, and neither does the hash.
 
+::: {.verification-block}
 **Verification:**
 
-- Genesis CID: `QmVQ79NM3qxAsBpftTG4YhD4KV9sUEmM3WwFrc5vs5g8vK`
-- Edition 2 CID: `QmPXtEsRwiWuaKmKNA569XAqFNVySN8pwTdGQrvcdpgtMa`
-- SHA-256: `9d062421b52d35aa23b73bfc8f66574db78bad9726e45c43a12d0109cdd57d84`
-- Contract: `0x97f456300817eaE3B40E235857b856dfFE8bba90`
-- Network: Polygon PoS (Block 83,004,469)
+Genesis CID: `QmVQ79NM3qxAsBpftTG4YhD4KV9sUEmM3WwFrc5vs5g8vK`
+
+Edition 2 CID: `QmPXtEsRwiWuaKmKNA569XAqFNVySN8pwTdGQrvcdpgtMa`
+
+SHA-256: `9d062421b52d35aa23b73bfc8f66574db78bad9726e45c43a12d0109cdd57d84`
+
+Contract: `0x97f456300817eaE3B40E235857b856dfFE8bba90`
+
+Network: Polygon PoS (Block 83,004,469)
 
 Anyone with internet access can verify these records. The structure is exact.
-
----
-
-\newpage
+:::
 
 ## Acknowledgments
 
@@ -78,10 +76,6 @@ Thanks to everyone who ever added me to a WhatsApp group I did not ask to join, 
 
 Thanks to the donkeys, who carried the metaphor with more dignity than it deserved. They always do.
 
----
-
-\newpage
-
 ## About the Author
 
 **Kidd James** is a writer and builder.
@@ -92,14 +86,9 @@ He has never personally brokered a gold deal, signed an IMFPA, or purchased a do
 
 He has, however, been added to many WhatsApp groups.
 
-\
-
 **xxxiii.io**
 
----
-
-\newpage
-
+::: {.colophon}
 ## Colophon
 
 *The 2,500 Donkeys* — First Edition, 2026.
@@ -111,3 +100,6 @@ Interior dimensions: 5.5″ × 8.5″ (digest trim).
 The canonical source exists as an IPFS archive, permanently accessible and cryptographically verifiable. The text was anchored to the Polygon blockchain at block 83,004,469 before the first copy was distributed.
 
 The structure is exact. The structure is always exact.
+:::
+
+:::

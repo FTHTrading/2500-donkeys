@@ -210,6 +210,79 @@ pre {
 strong {
   font-weight: bold;
 }
+
+/* Front matter sections */
+.front-matter .half-title {
+  text-align: center;
+  margin-top: 5em;
+  page-break-after: always;
+}
+
+.front-matter .title-page {
+  text-align: center;
+  page-break-after: always;
+}
+
+.front-matter .title-page h1 {
+  page-break-before: auto;
+}
+
+.front-matter .copyright-page {
+  font-size: 0.9em;
+  page-break-after: always;
+}
+
+.front-matter .copyright-page p {
+  text-indent: 0;
+  text-align: left;
+}
+
+.front-matter .dedication {
+  text-align: center;
+  font-style: italic;
+  margin-top: 5em;
+  page-break-after: always;
+}
+
+.front-matter .epigraph-page {
+  margin-top: 4em;
+  page-break-after: always;
+}
+
+.front-matter .preface {
+  page-break-before: always;
+}
+
+.front-matter .structure-guide {
+  page-break-before: always;
+}
+
+/* Back matter */
+.back-matter {
+  page-break-before: always;
+}
+
+.back-matter h2 {
+  page-break-before: always;
+}
+
+.back-matter p {
+  text-indent: 1.5em;
+}
+
+.back-matter h2 + p {
+  text-indent: 0;
+}
+
+.back-matter .glossary p {
+  text-indent: 0;
+  margin-bottom: 0.8em;
+}
+
+.back-matter .colophon p {
+  text-indent: 0;
+  text-align: center;
+}
 `;
   const cssPath = path.join(DIST_DIR, "kdp-style.css");
   fs.writeFileSync(cssPath, epubCSS, "utf-8");
@@ -226,7 +299,7 @@ strong {
     "pandoc",
     `"${combinedPath}"`,
     "-o", `"${epubPath}"`,
-    "--from", "markdown+smart",
+    "--from", "markdown+smart+fenced_divs",
     "--to", "epub3",
     `--metadata=title:"${metadata.title}"`,
     `--metadata=author:"${metadata.author}"`,
@@ -257,7 +330,7 @@ strong {
     "pandoc",
     `"${combinedPath}"`,
     "-o", `"${docxPath}"`,
-    "--from", "markdown+smart",
+    "--from", "markdown+smart+fenced_divs",
     "--to", "docx",
     `--metadata=title:"${metadata.title}"`,
     `--metadata=author:"${metadata.author}"`,
