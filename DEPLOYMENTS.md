@@ -299,6 +299,92 @@ Edition 2 was anchored three times (indices 1, 2, 3) due to a nonce gap during d
 
 ---
 
+## Smart Contract — EditionNFT
+
+| Field | Value |
+|-------|-------|
+| **Contract** | [`0x9e9Cc1486bf440Bd9eAaaD947958524Aaed3f8b0`](https://polygonscan.com/address/0x9e9Cc1486bf440Bd9eAaaD947958524Aaed3f8b0) |
+| **Source Verified** | [Yes — Polygonscan](https://polygonscan.com/address/0x9e9Cc1486bf440Bd9eAaaD947958524Aaed3f8b0#code) |
+| **Name / Symbol** | The 2,500 Donkeys / DONKEY |
+| **Standard** | ERC-721 + ERC-721Enumerable + ERC-2981 |
+| **Royalty** | 7.5% (750 bps) |
+| **Author (immutable)** | [`0xC91668184736BF75C4ecE37473D694efb2A43978`](https://polygonscan.com/address/0xC91668184736BF75C4ecE37473D694efb2A43978) |
+| **Tx Hash** | [`0x9f637be61147901ddcc33c26bfd7b24c5679cb03be0c56f289469319f5108a78`](https://polygonscan.com/tx/0x9f637be61147901ddcc33c26bfd7b24c5679cb03be0c56f289469319f5108a78) |
+| **Block** | [83,110,065](https://polygonscan.com/block/83110065) |
+| **Gas Used** | 2,526,271 |
+
+### Tier Configuration
+
+| Tier | Max Supply | Price | Edition Link |
+|------|-----------|-------|:------------:|
+| Genesis | 1 | Author-only | Edition #0 |
+| Founder | 33 | 5 POL | Edition #1 |
+| Public | 2,500 | 1 POL | Edition #1 |
+
+### Post-Deploy Transactions
+
+| Action | Tx |
+|--------|-----|
+| Link Genesis → Ed #0 | On-chain |
+| Link Founder → Ed #1 | On-chain |
+| Link Public → Ed #1 | On-chain |
+| Set Founder price (5 POL) | On-chain |
+| Set Public price (1 POL) | On-chain |
+
+---
+
+## Smart Contract — StoryNFT
+
+| Field | Value |
+|-------|-------|
+| **Contract** | [`0xD67e537Dba1236f802432cbDD30Fec3f6D38e7E3`](https://polygonscan.com/address/0xD67e537Dba1236f802432cbDD30Fec3f6D38e7E3) |
+| **Source Verified** | [Yes — Polygonscan](https://polygonscan.com/address/0xD67e537Dba1236f802432cbDD30Fec3f6D38e7E3#code) |
+| **Name / Symbol** | Private Placement Puppetry / STORY |
+| **Standard** | ERC-721 + ERC-721Enumerable + ERC-2981 |
+| **Royalty** | 7.5% (750 bps) |
+| **Edition Link** | LiteraryAnchor Edition #2 (PPP) |
+| **Author (immutable)** | [`0xC91668184736BF75C4ecE37473D694efb2A43978`](https://polygonscan.com/address/0xC91668184736BF75C4ecE37473D694efb2A43978) |
+| **Tx Hash** | [`0x1f84b1b2ae5f55a97d5a0829f0d2b2ac69dd86653c89fd87a7e29bada45cb2b5`](https://polygonscan.com/tx/0x1f84b1b2ae5f55a97d5a0829f0d2b2ac69dd86653c89fd87a7e29bada45cb2b5) |
+| **Block** | [83,110,129](https://polygonscan.com/block/83110129) |
+| **Gas Used** | 3,059,578 |
+
+### Story Registry
+
+| ID | Title | Max Supply | Price | Content Hash |
+|:--:|-------|-----------|-------|:-------------|
+| 0 | MT799 Is Not Money | 100 | 1 POL | `9f476fb8...66d6` |
+| 1 | The Bank That Didn't Exist | 100 | 1 POL | `dde54150...a6c6` |
+| 2 | Commission Above Supply Depth | 100 | 1 POL | `34186aee...9244` |
+| 3 | The Ghost Monetizer | 100 | 1 POL | `316914c9...d190` |
+| 4 | The Mandate That Couldn't Sign | 100 | 1 POL | `c36c9535...1c63` |
+| 5 | Vault Without Address | 100 | 1 POL | `15d24d44...c6bd` |
+| 6 | The Compliance Wall | 100 | 1 POL | `18303c37...a9e3` |
+| 7 | Bonded but Never Seen | 100 | 1 POL | `6a02cff9...a900` |
+| 8 | The Sovereign Whisper | 100 | 1 POL | `9bdb50a7...ec97` |
+| 9 | The Tokenized Mirage | 100 | 1 POL | `52c09235...d412` |
+| 10 | The Initiator Awakening | 100 | 1 POL | `b112bf5c...ced7` |
+| 11 | The Financial Alchemist's Punch List | 100 | 1 POL | `96c86a19...ea9a` |
+| 12 | The Exclusivity Trap | 100 | 1 POL | `9b2188bf...1743` |
+| 13 | The Off-Ledger Revelation | 100 | 1 POL | `153c8f89...08c8` |
+
+### Token ID Encoding
+
+```
+Token ID = storyId × 10000 + mintNumber
+Example: Story 5, Mint 1 → tokenId 50001
+```
+
+### Post-Deploy Transactions
+
+| Action | Tx |
+|--------|-----|
+| Batch register 14 stories | [`0xe3a3d7d6...387f`](https://polygonscan.com/tx/0xe3a3d7d6e79f76d6edd046bc1a6ee340d84110e446343ea99b5e2674db71387f) |
+| Set all prices (1 POL) | On-chain |
+| Open minting (all 14) | On-chain |
+
+---
+
 *Registry updated: February 2026*
 *Protocol: The 2,500 Donkeys + Private Placement Puppetry*
+*VII contracts deployed · CCXCIII tests passing*
 *Author: Kidd James*

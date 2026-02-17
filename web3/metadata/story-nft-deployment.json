@@ -1,0 +1,104 @@
+{
+  "contract": "StoryNFT",
+  "address": "0xD67e537Dba1236f802432cbDD30Fec3f6D38e7E3",
+  "network": "polygon",
+  "chainId": 137,
+  "deployTx": "0x1f84b1b2ae5f55a97d5a0829f0d2b2ac69dd86653c89fd87a7e29bada45cb2b5",
+  "deployBlock": 83110129,
+  "gasUsed": "3059578",
+  "deployer": "0xC91668184736BF75C4ecE37473D694efb2A43978",
+  "config": {
+    "genesisAnchor": "0x97f456300817eaE3B40E235857b856dfFE8bba90",
+    "editionIndex": 2,
+    "royaltyBps": 750,
+    "maxSupplyPerStory": 100,
+    "mintPrice": "1.0 POL"
+  },
+  "stories": [
+    {
+      "storyId": 0,
+      "title": "MT799 Is Not Money",
+      "contentHash": "0x9f476fb84c89854a84399d330c0e73971d0d34a2c0089340f9728bb71df166d6",
+      "maxSupply": 100
+    },
+    {
+      "storyId": 1,
+      "title": "The Bank That Didn't Exist",
+      "contentHash": "0xdde5415039e56fa9e77fc522cc2f620b9594b1bb513c33625884d03781a4a6c6",
+      "maxSupply": 100
+    },
+    {
+      "storyId": 2,
+      "title": "Commission Above Supply Depth",
+      "contentHash": "0x34186aeea4ce62d24bf38d2e8128b655f1746ef260deecc1c09cf2639eb39244",
+      "maxSupply": 100
+    },
+    {
+      "storyId": 3,
+      "title": "The Ghost Monetizer",
+      "contentHash": "0x316914c91661e574f65d29c346a46f47d92967e145acaaab1274ca7fa9c9d190",
+      "maxSupply": 100
+    },
+    {
+      "storyId": 4,
+      "title": "The Mandate That Couldn't Sign",
+      "contentHash": "0xc36c9535836133c800e1a21a72dc9ac90ec095f6ae42d452e52c455886fe1c63",
+      "maxSupply": 100
+    },
+    {
+      "storyId": 5,
+      "title": "Vault Without Address",
+      "contentHash": "0x15d24d44f61fabb675a6af7d6ab50cdff85d12be4f438325e14f7a0fa85ac6bd",
+      "maxSupply": 100
+    },
+    {
+      "storyId": 6,
+      "title": "The Compliance Wall",
+      "contentHash": "0x18303c379330fdf34b85d5643377684d84e8ecf47e790f6155eaba76f411a9e3",
+      "maxSupply": 100
+    },
+    {
+      "storyId": 7,
+      "title": "Bonded but Never Seen",
+      "contentHash": "0x6a02cff91c626a927e13ff52c6f1030788a204bf6d307f92bebbaf83c69fa900",
+      "maxSupply": 100
+    },
+    {
+      "storyId": 8,
+      "title": "The Sovereign Whisper",
+      "contentHash": "0x9bdb50a764726a0d188616e37127baf7e2bf842d5a53af5289a5c20b9dd5ec97",
+      "maxSupply": 100
+    },
+    {
+      "storyId": 9,
+      "title": "The Tokenized Mirage",
+      "contentHash": "0x52c09235ef03e0a23e41b8b57712bda475bdd1987b453f043bcd6d096d82d412",
+      "maxSupply": 100
+    },
+    {
+      "storyId": 10,
+      "title": "The Initiator Awakening",
+      "contentHash": "0xb112bf5c021eab22bf0eaec088db65cf96c277a91202fddcea21d8a13a7dced7",
+      "maxSupply": 100
+    },
+    {
+      "storyId": 11,
+      "title": "The Financial Alchemist's Punch List",
+      "contentHash": "0x96c86a194864c624e688d4c2a67eba8787f7190c541d4c8f7d3fc2a3e6b8ea9a",
+      "maxSupply": 100
+    },
+    {
+      "storyId": 12,
+      "title": "The Exclusivity Trap",
+      "contentHash": "0x9b2188bf7f9ed05151e3cce66114c6b9658b758edda7460c4b5107634c1f1743",
+      "maxSupply": 100
+    },
+    {
+      "storyId": 13,
+      "title": "The Off-Ledger Revelation",
+      "contentHash": "0x153c8f895f19a26decda199f75c7e54795ed94612521053787dbc679b47f08c8",
+      "maxSupply": 100
+    }
+  ],
+  "deployedAt": "2026-02-17T14:58:19.844Z"
+}
