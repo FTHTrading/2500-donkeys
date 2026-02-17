@@ -80,6 +80,41 @@
     </div>
   </header>
 
+  <!-- ━━━ Metrics Bar ━━━ -->
+  <div class="metrics-bar" id="metricsBar">
+    <div class="metrics-inner">
+      <div class="metric">
+        <span class="metric-value">293</span>
+        <span class="metric-label">Tests Passing</span>
+      </div>
+      <div class="metric-sep"></div>
+      <div class="metric">
+        <span class="metric-value">VII</span>
+        <span class="metric-label">Contracts Deployed</span>
+      </div>
+      <div class="metric-sep"></div>
+      <div class="metric">
+        <span class="metric-value">VI</span>
+        <span class="metric-label">Merkle Trees</span>
+      </div>
+      <div class="metric-sep"></div>
+      <div class="metric">
+        <span class="metric-value">LI</span>
+        <span class="metric-label">Verification Checks</span>
+      </div>
+      <div class="metric-sep"></div>
+      <div class="metric">
+        <span class="metric-value" id="metricBlocks">—</span>
+        <span class="metric-label">Blocks Since Genesis</span>
+      </div>
+      <div class="metric-sep"></div>
+      <div class="metric">
+        <span class="metric-value">$2.50</span>
+        <span class="metric-label">Total Deploy Cost</span>
+      </div>
+    </div>
+  </div>
+
   <!-- ━━━ Ⅱ Declaration ━━━ -->
   <section class="sect" id="declaration">
     <div class="sect-inner sect-centered">
@@ -1048,6 +1083,12 @@ https://doi.org/10.5281/zenodo.18646886</code></pre>
           // Block
           var blockNum = v(0);
           if (blockNum && $('chainBlock')) $('chainBlock').textContent = 'Block ' + Number(blockNum).toLocaleString();
+          // Metrics bar — blocks since genesis (block 83,002,198)
+          if (blockNum) {
+            var delta = Number(blockNum) - 83002198;
+            var el = document.getElementById('metricBlocks');
+            if (el && delta > 0) el.textContent = delta.toLocaleString();
+          }
 
           // Literary Anchor
           var laCount = v(1);
