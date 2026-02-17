@@ -88,6 +88,8 @@ function generateHash() {
         audioEditionRoot: existing.roots.audioEditionRoot
       } : {})
     } : existing?.roots || null,
+    // Original roots frozen on-chain — preserved across builds
+    anchoredRoots: existing?.anchoredRoots || null,
     ipfs: {
       cid: existing?.ipfs?.cid || null,
       edition2CID: existing?.ipfs?.edition2CID || null,

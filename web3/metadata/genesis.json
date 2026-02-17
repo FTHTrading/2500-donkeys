@@ -5,20 +5,30 @@
   "schema": "literary-protocol-standard",
   "schemaVersion": "1.0.0",
   "build": {
-    "timestamp": "2026-02-17T03:58:10.129Z",
-    "sha256": "2535976853a6f23687043162b949d067dbb7f297ebaf5c382dd82bd3e30c1179",
-    "md5": "4252a6a51b30b3c43d1769a3a50e8892",
+    "timestamp": "2026-02-17T14:23:52.108Z",
+    "sha256": "098f7d83350ab0ab028fc92bf923513130180d9ec1f96bd2442b1076ec7499f0",
+    "md5": "81fefddb917f63212e36d240f02eac5f",
     "sizeBytes": 293861,
     "source": "dist/final-manuscript.md"
   },
   "roots": {
-    "editionRoot": "6719ed7f9e142a39a4a7db533895562bdf5379cf7f9816ed7cbe045ca359594e",
+    "editionRoot": "ddefd91ef415a5ac2d7d981320f4cfea97b2bbcda74a60cd8872c81309bc9130",
+    "manuscriptRoot": "dd95d1216b8e2cb8008c8993dffc54d66b550018a47401dd5df001ff487467d3",
+    "artifactRoot": "9c653a2e453e895f294375818bb872d47d4c90b15859587ba2c5238024202c56",
+    "imageRoot": "72faba21232d52a4799a56fe559a86bb39f51484d4dc41db1c563539e7c090ca",
+    "promptRoot": "ce1b82105ca556ab1f4f8cddb491ebd8e36b61ee8d891a294c69e04c6e3e3674",
+    "audioRoot": "e57bb9474d10f3b2ac70d11c602a32cd3b0fd84ebb5946cfbdd5a93680f430fa",
+    "audioEditionRoot": "514c2db5b9cd914b96a0a8b50d9dd6981a454c74cab7d717dc38f5fe9fa0501e"
+  },
+  "anchoredRoots": {
+    "_comment": "Original roots frozen on-chain in KernelV2 Edition 0. Immutable.",
     "manuscriptRoot": "dd95d1216b8e2cb8008c8993dffc54d66b550018a47401dd5df001ff487467d3",
     "artifactRoot": "9c653a2e453e895f294375818bb872d47d4c90b15859587ba2c5238024202c56",
     "imageRoot": "0e45331c0b80738ff3f491e63b47a5454f162cfe5a1d367e90b709c96c56c638",
     "promptRoot": "32bed9e54ed6dc5f4ee8082dce928bd86fb76c36b92d9f949ba12c046674f32c",
-    "audioRoot": "e57bb9474d10f3b2ac70d11c602a32cd3b0fd84ebb5946cfbdd5a93680f430fa",
-    "audioEditionRoot": "514c2db5b9cd914b96a0a8b50d9dd6981a454c74cab7d717dc38f5fe9fa0501e"
+    "editionRoot": "6719ed7f9e142a39a4a7db533895562bdf5379cf7f9816ed7cbe045ca359594e",
+    "frozenAt": "KernelV2 Edition 0",
+    "divergenceNote": "imageRoot and promptRoot evolved post-anchoring (site v5 image updates). manuscriptRoot and artifactRoot remain identical — core literary content is unchanged."
   },
   "ipfs": {
     "cid": "QmVQ79NM3qxAsBpftTG4YhD4KV9sUEmM3WwFrc5vs5g8vK",
