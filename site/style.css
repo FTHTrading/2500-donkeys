@@ -1387,6 +1387,35 @@ img { max-width: 100%; display: block; }
   color: var(--text-tertiary);
   margin-top: 0.15rem;
 }
+.compliance-level.cl-active {
+  background: linear-gradient(135deg, rgba(212,175,55,0.06), rgba(212,175,55,0.02));
+  border-left: 2px solid var(--gold);
+  padding-left: calc(1rem - 2px);
+  margin-left: -1px;
+}
+.compliance-level.cl-active .cl-name {
+  color: var(--gold);
+}
+.compliance-cert {
+  max-width: 580px; margin: 2rem auto 0;
+  padding: 1.5rem;
+  border: 1px solid var(--gold);
+  text-align: center;
+}
+.cert-badge {
+  display: inline-block;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.85rem; font-weight: 500;
+  color: var(--gold);
+  letter-spacing: 0.06em;
+  border: 1px solid var(--gold);
+  padding: 0.4rem 1.2rem;
+}
+.cert-detail {
+  font-size: 0.72rem; line-height: 1.7;
+  color: var(--text-tertiary);
+  margin-top: 1rem;
+}
 
 /* ── Related Work ── */
 .related-grid {

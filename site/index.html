@@ -856,14 +856,19 @@ node verifier/cli.js --path example-work</code></pre>
 
       <div class="compliance-grid">
         <div class="compliance-level">
+          <span class="cl-num">0</span>
+          <span class="cl-name">Anchor Only</span>
+          <span class="cl-req">SHA-256 hash stored on any public blockchain</span>
+        </div>
+        <div class="compliance-level">
           <span class="cl-num">1</span>
           <span class="cl-name">Deterministic Build</span>
-          <span class="cl-req">SHA-256 canonical hash + CRLF normalization</span>
+          <span class="cl-req">CRLF normalisation + reproducible canonical hash</span>
         </div>
         <div class="compliance-level">
           <span class="cl-num">2</span>
-          <span class="cl-name">Merkle Commitments</span>
-          <span class="cl-req">Per-content-type Merkle roots + combined edition root</span>
+          <span class="cl-name">Merkle Provenance</span>
+          <span class="cl-req">Per-content-type Merkle trees + combined edition root</span>
         </div>
         <div class="compliance-level">
           <span class="cl-num">3</span>
@@ -872,14 +877,20 @@ node verifier/cli.js --path example-work</code></pre>
         </div>
         <div class="compliance-level">
           <span class="cl-num">4</span>
-          <span class="cl-name">ECDSA Identity Binding</span>
-          <span class="cl-req">Signed canonical edition with on-chain author identity</span>
+          <span class="cl-name">Signed Canonical Root</span>
+          <span class="cl-req">ECDSA identity binding + on-chain author registry</span>
         </div>
-        <div class="compliance-level">
+        <div class="compliance-level cl-active">
           <span class="cl-num">5</span>
-          <span class="cl-name">Cross-Chain Timestamping</span>
-          <span class="cl-req">Multi-chain anchor for independent temporal verification</span>
+          <span class="cl-name">Fully Observable</span>
+          <span class="cl-req">Cross-chain timestamp + client-side verification</span>
         </div>
+      </div>
+
+      <div class="compliance-cert">
+        <span class="cert-badge">LPS-1 Level 5 &mdash; Fully Observable</span>
+        <p class="cert-detail">XXXIII reference implementation. VII verified contracts. Cross-chain anchoring via Polygon + Bitcoin (OpenTimestamps). Client-side on-chain state verification. 293 tests passing.</p>
+        <a href="https://github.com/FTHTrading/2500-donkeys/blob/master/docs/spec/COMPLIANCE.md" target="_blank" rel="noopener" class="btn btn-sm" style="margin-top:1rem">View Compliance Matrix</a>
       </div>
     </div>
   </section>
@@ -984,12 +995,14 @@ node verifier/cli.js --path example-work</code></pre>
         <div class="impl-row"><span class="impl-key">Reference Implementation</span><span class="impl-val"><a href="https://github.com/FTHTrading/LPS-1-Reference-Implementation" target="_blank" rel="noopener" style="color:var(--gold);border-bottom:1px solid transparent">Production — GitHub</a></span></div>
         <div class="impl-row"><span class="impl-key">LPS-1 Specification</span><span class="impl-val"><a href="https://github.com/FTHTrading/LPS-1-Reference-Implementation/blob/main/spec/LPS-1.md" target="_blank" rel="noopener" style="color:var(--gold);border-bottom:1px solid transparent">Literary Protocol Standard (RFC-style)</a></span></div>
         <div class="impl-row"><span class="impl-key">IAPL-1 Specification</span><span class="impl-val"><a href="https://github.com/FTHTrading/LPS-1-Reference-Implementation/blob/main/spec/IAPL-1.md" target="_blank" rel="noopener" style="color:var(--gold);border-bottom:1px solid transparent">Immutable Audio Publishing Layer</a></span></div>
+        <div class="impl-row"><span class="impl-key">Compliance Matrix</span><span class="impl-val"><a href="https://github.com/FTHTrading/2500-donkeys/blob/master/docs/spec/COMPLIANCE.md" target="_blank" rel="noopener" style="color:var(--gold);border-bottom:1px solid transparent">Level 0–5 Definitions + Evidence</a></span></div>
+        <div class="impl-row"><span class="impl-key">Governance</span><span class="impl-val"><a href="https://github.com/FTHTrading/2500-donkeys/blob/master/docs/spec/GOVERNANCE.md" target="_blank" rel="noopener" style="color:var(--gold);border-bottom:1px solid transparent">Author-Led → Working Group Model</a></span></div>
         <div class="impl-row"><span class="impl-key">Network</span><span class="impl-val">Polygon Mainnet (Chain ID 137)</span></div>
         <div class="impl-row"><span class="impl-key">Contracts Verified</span><span class="impl-val">Yes — VII / VII</span></div>
         <div class="impl-row"><span class="impl-key">Upgradeability</span><span class="impl-val">None</span></div>
         <div class="impl-row"><span class="impl-key">Test Coverage</span><span class="impl-val">293 tests across VII suites</span></div>
         <div class="impl-row"><span class="impl-key">Ref. Impl. Tests</span><span class="impl-val">58 tests (37 contract + 21 pipeline)</span></div>
-        <div class="impl-row"><span class="impl-key">Conformance Level</span><span class="impl-val">Level 3 — Extended (IAPL-1 + Identity + Royalties)</span></div>
+        <div class="impl-row"><span class="impl-key">Conformance Level</span><span class="impl-val">Level 5 &mdash; Fully Observable</span></div>
         <div class="impl-row"><span class="impl-key">License</span><span class="impl-val">MIT (infrastructure) · CC BY 4.0 (paper)</span></div>
       </div>
     </div>
