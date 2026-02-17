@@ -31,17 +31,17 @@
     <a href="#" class="nav-brand">XXXIII</a>
     <div class="nav-links" id="navLinks">
       <a href="#abstract">Abstract</a>
-      <a href="#guarantees">Guarantees</a>
-      <a href="#protocol">Protocol</a>
-      <a href="#statemachine">States</a>
+      <a href="#lpsstack">Stack</a>
       <a href="#contracts">Contracts</a>
       <a href="#chainstatus">Observe</a>
       <a href="#verify">Verify</a>
+      <a href="#compliance">Compliance</a>
+      <a href="#implstatus">Status</a>
+      <a href="#roadmap">Roadmap</a>
       <a href="#citation">Citation</a>
     </div>
     <div class="nav-actions">
-      <a href="read.html" class="nav-link-btn">Read · Donkeys</a>
-      <a href="read-ppp.html" class="nav-link-btn">Read · Stories</a>
+      <a href="read.html" class="nav-link-btn">Read</a>
       <a href="listen.html" class="nav-link-btn">Listen</a>
       <a href="mint.html" class="nav-link-btn">Mint</a>
       <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
@@ -65,14 +65,19 @@
         <p>Verifiable forever.</p>
       </div>
       <div class="hero-actions">
-        <a href="#abstract" class="btn btn-primary">Read Specification</a>
-        <a href="read.html" class="btn">Read · The 2,500 Donkeys</a>
-        <a href="read-ppp.html" class="btn">Read · Private Placement Programs</a>
+        <a href="#verify" class="btn btn-primary">Verify Now</a>
+        <a href="#abstract" class="btn">Read Specification</a>
+        <a href="https://github.com/FTHTrading/2500-donkeys/blob/master/docs/ANNOUNCEMENT_LPS1_v1.0.md" target="_blank" rel="noopener" class="btn">LPS-1 Announcement</a>
       </div>
       <p class="hero-chain">MMXXVI · Polygon Mainnet · Chain ID CXXXVII</p>
       <div class="hero-role-badges">
         <span class="hero-role-badge role-spec">SPECIFICATION</span>
         <span class="hero-role-badge role-impl">REFERENCE IMPLEMENTATION</span>
+      </div>
+      <div class="hero-read-links">
+        <a href="read.html" class="hero-read-link">Read · The 2,500 Donkeys</a>
+        <a href="read-ppp.html" class="hero-read-link">Read · Private Placement Programs</a>
+        <a href="listen.html" class="hero-read-link">Listen</a>
       </div>
       <div class="proto-badges">
         <span class="proto-badge">Solidity 0.8.19</span>
@@ -88,13 +93,13 @@
   <div class="metrics-bar" id="metricsBar">
     <div class="metrics-inner">
       <div class="metric">
-        <span class="metric-value">293</span>
-        <span class="metric-label">Tests Passing</span>
+        <span class="metric-value" id="metricEditions">—</span>
+        <span class="metric-label">Editions Anchored</span>
       </div>
       <div class="metric-sep"></div>
       <div class="metric">
         <span class="metric-value">VII</span>
-        <span class="metric-label">Contracts Deployed</span>
+        <span class="metric-label">Contracts Verified</span>
       </div>
       <div class="metric-sep"></div>
       <div class="metric">
@@ -103,8 +108,13 @@
       </div>
       <div class="metric-sep"></div>
       <div class="metric">
+        <span class="metric-value">293</span>
+        <span class="metric-label">Tests Passing</span>
+      </div>
+      <div class="metric-sep"></div>
+      <div class="metric">
         <span class="metric-value">LI</span>
-        <span class="metric-label">Verification Checks</span>
+        <span class="metric-label">Verify Checks</span>
       </div>
       <div class="metric-sep"></div>
       <div class="metric">
@@ -113,9 +123,33 @@
       </div>
       <div class="metric-sep"></div>
       <div class="metric">
-        <span class="metric-value">$2.50</span>
-        <span class="metric-label">Total Deploy Cost</span>
+        <span class="metric-value metric-compliance">L5</span>
+        <span class="metric-label">Compliance Level</span>
       </div>
+    </div>
+  </div>
+
+  <!-- ━━━ Protocol Resources Bar ━━━ -->
+  <div class="resources-bar">
+    <div class="resources-inner">
+      <a href="https://github.com/FTHTrading/2500-donkeys/blob/master/docs/spec/LPS-1.md" target="_blank" rel="noopener" class="resource-link">
+        <span class="resource-icon">📄</span><span>LPS-1 Spec</span>
+      </a>
+      <a href="https://github.com/FTHTrading/2500-donkeys/blob/master/docs/spec/COMPLIANCE.md" target="_blank" rel="noopener" class="resource-link">
+        <span class="resource-icon">✓</span><span>Compliance L0–L5</span>
+      </a>
+      <a href="https://github.com/FTHTrading/2500-donkeys/blob/master/docs/spec/GOVERNANCE.md" target="_blank" rel="noopener" class="resource-link">
+        <span class="resource-icon">⚖</span><span>Governance</span>
+      </a>
+      <a href="https://github.com/FTHTrading/2500-donkeys/blob/master/docs/ROADMAP.md" target="_blank" rel="noopener" class="resource-link">
+        <span class="resource-icon">🗺</span><span>Roadmap</span>
+      </a>
+      <a href="https://github.com/FTHTrading/2500-donkeys/blob/master/docs/ANNOUNCEMENT_LPS1_v1.0.md" target="_blank" rel="noopener" class="resource-link">
+        <span class="resource-icon">📢</span><span>Announcement</span>
+      </a>
+      <a href="https://github.com/FTHTrading/2500-donkeys/blob/master/docs/FUNDING_BRIEF.md" target="_blank" rel="noopener" class="resource-link">
+        <span class="resource-icon">🏛</span><span>Funding Brief</span>
+      </a>
     </div>
   </div>
 
@@ -1420,6 +1454,11 @@ https://doi.org/10.5281/zenodo.18646886</code></pre>
           var laCount = v(1);
           var laLatest = v(2);
           if (laCount != null && $('laEditionCount')) $('laEditionCount').textContent = String(laCount);
+          // Metrics bar — editions anchored (live from chain)
+          if (laCount != null) {
+            var edEl = document.getElementById('metricEditions');
+            if (edEl) edEl.textContent = String(laCount);
+          }
           if (laLatest) {
             if ($('laLatestHash')) $('laLatestHash').textContent = truncHash(laLatest.sha256Hash);
             if ($('laLatestCID'))  $('laLatestCID').textContent  = truncCID(laLatest.ipfsCID);

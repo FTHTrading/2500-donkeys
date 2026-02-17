@@ -1564,10 +1564,78 @@ img { max-width: 100%; display: block; }
   background: var(--border);
   flex-shrink: 0;
 }
+.metric-compliance {
+  color: #00c853 !important;
+  font-weight: 700;
+}
+
+/* ── Protocol Resources Bar ── */
+.resources-bar {
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  padding: 0.75rem 0;
+}
+.resources-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0 1.5rem;
+  flex-wrap: wrap;
+}
+.resource-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0.7rem;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.04em;
+  color: var(--text-secondary);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  text-decoration: none;
+  transition: border-color 0.2s, color 0.2s;
+  white-space: nowrap;
+}
+.resource-link:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+.resource-icon {
+  font-size: 0.75rem;
+  line-height: 1;
+}
+
+/* ── Hero Read Links ── */
+.hero-read-links {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 0.75rem;
+}
+.hero-read-link {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
+}
+.hero-read-link:hover {
+  color: var(--gold);
+  border-bottom-color: var(--gold);
+}
 
 @media (max-width: 900px) {
   .metrics-inner { gap: 1rem; }
   .metric-value { font-size: 0.95rem; }
+  .resources-inner { gap: 0.3rem; }
+  .resource-link { font-size: 0.58rem; padding: 0.28rem 0.5rem; }
   .merkle-leaves { grid-template-columns: repeat(2, 1fr); }
   .xchain-grid { grid-template-columns: 1fr; max-width: 280px; }
   .inv-grid { grid-template-columns: 1fr; }
@@ -1581,8 +1649,10 @@ img { max-width: 100%; display: block; }
 
 @media (max-width: 700px) {
   .metrics-inner { gap: 0.7rem; flex-wrap: wrap; justify-content: center; }
-  .metric-sep:nth-child(6) { display: none; }
+  .metric-sep:nth-child(8), .metric-sep:nth-child(12) { display: none; }
   .metric-value { font-size: 0.85rem; }
+  .resources-inner { gap: 0.25rem; }
+  .resource-link { font-size: 0.55rem; padding: 0.25rem 0.45rem; }
   .sm-flow { flex-direction: column; align-items: center; }
   .sm-arrow { transform: rotate(90deg); padding: 0.1rem 0; }
   .sm-terminals { flex-direction: column; gap: 1.5rem; }
