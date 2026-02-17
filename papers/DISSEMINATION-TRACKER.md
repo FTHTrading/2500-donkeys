@@ -13,7 +13,7 @@
 | SSRN | ✅ Submitted | Pending review (24–72h) |
 | GitHub | ✅ Release v1.1-paper | [PDF attached](https://github.com/FTHTrading/2500-donkeys/releases/tag/v1.1-paper) |
 | On-chain | ✅ 5 contracts verified | [Polygonscan](https://polygonscan.com/address/0xca9F6604A9b498DB31d113836E2957c0a9aAE037#code) |
-| IPFS | ✅ Pinned | `QmVQ79NM3qxAsBpftTG4YhD4KV9sUEmM3WwFrc5vs5g8vK` |
+| IPFS | ✅ Pinned | Novel: `QmVQ79...` / Stories: `QmahPE...` / Audio: `QmbT7L...` |
 | Bitcoin OTS | ✅ Submitted | Pending calendar confirmation |
 
 ---

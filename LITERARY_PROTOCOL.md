@@ -111,10 +111,22 @@ struct Edition {
 
 ### 4.3 Edition History
 
+#### LiteraryAnchor (`0x97f4...b890`)
+
 | Index | Edition | CID | Status |
 |:-----:|---------|-----|:------:|
-| 0 | Genesis | `QmVQ79NM3qxAsBpftTG4YhD4KV9sUEmM3WwFrc5vs5g8vK` | Immutable |
-| 1–3 | Edition 2 (nonce recovery duplicates) | `QmPXtEsRwiWuaKmKNA569XAqFNVySN8pwTdGQrvcdpgtMa` | Immutable |
+| 0 | Genesis (novel) | `QmVQ79NM3qxAsBpftTG4YhD4KV9sUEmM3WwFrc5vs5g8vK` | Immutable |
+| 1–3 | Edition 2 — novel (nonce recovery duplicates) | `QmPXtEsRwiWuaKmKNA569XAqFNVySN8pwTdGQrvcdpgtMa` | Immutable |
+| 4 | Edition 3 — placeholder (pending-ipfs-pin) | `pending-ipfs-pin` | Immutable (superseded) |
+| 5 | Edition 4 — Private Placement Puppetry | `QmahPEAZuWz3dFa55BsNgBEkjBzvWm5M3xbGaRYwm581LV` | Immutable |
+
+#### PublishingKernelV2 (`0xca9F...C037`)
+
+| ID | Edition | Manuscript Root | Status |
+|:--:|---------|----------------|:------:|
+| 0 | Novel (canonical) | `dd95d121...` | Canonical |
+| 1 | Placeholder (pending-ipfs-pin) | `pending-ipfs-pin` | Superseded |
+| 2 | Private Placement Puppetry | `a73efc2a...` | Frozen |
 
 ---
 

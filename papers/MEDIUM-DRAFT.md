@@ -20,7 +20,9 @@ I wrote a 75,000-word novel called *The 2,500 Donkeys*. It's a deadpan anthropol
 
 I hashed every chapter. Built a Merkle tree. Anchored the root on-chain. Pinned the content to IPFS. Then I wrote a research paper describing the architecture.
 
-Not because I thought somebody would steal my novel. Because I wanted to know if the infrastructure was *possible* — whether a single author, with no institutional backing, could construct a multi-layer provenance chain that a third party could independently verify.
+Then I did it again with a completely different literary format — a 13-story short fiction collection called *Private Placement Puppetry* — using a different TTS engine, a different tree topology, and the same protocol. Two works, one verification framework.
+
+Not because I thought somebody would steal my novel. Because I wanted to know if the infrastructure was *possible* — whether a single author, with no institutional backing, could construct a multi-layer provenance chain that a third party could independently verify. And then whether that protocol could *generalize* beyond a single manuscript format.
 
 The answer is yes. And the cost was under $2.
 
@@ -106,9 +108,9 @@ The hash matches. The timestamp is immutable. The manuscript predates the public
 
 ## What's Next
 
-The novel itself publishes soon — EPUB and PDF, generated deterministically from the same source files. The infrastructure paper is available now via the DOI above. The full source — contracts, tests, build scripts, Merkle construction — is open on [GitHub](https://github.com/FTHTrading/2500-donkeys).
+The novel itself publishes soon — EPUB and PDF, generated deterministically from the same source files. The stories collection (*Private Placement Puppetry*) is already anchored and frozen on-chain. The infrastructure paper is available now via the DOI above. The full source — contracts, tests, build scripts, Merkle construction — is open on [GitHub](https://github.com/FTHTrading/2500-donkeys).
 
-If you work on digital provenance, document authentication, or scholarly publishing infrastructure, the paper may be directly relevant to your work. If you just want to read a strange novel about phantom gold, that's coming too.
+If you work on digital provenance, document authentication, or scholarly publishing infrastructure, the paper may be directly relevant to your work. If you just want to read a strange novel about phantom gold — or 13 short stories about the same dysfunctional industry — those are coming too.
 
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: "Deterministic Literary Publishing: A Multi-Layer Provenance Model for Verifiable Manuscripts"
-version: "1.0"
+version: "1.1"
 date: "February 15, 2026"
 doi: "10.5281/zenodo.18646886"
 license: "CC-BY-4.0"
@@ -14,7 +14,7 @@ FTH Trading, Norcross, GA
 kevan.burns@fthtrading.com
 ORCID: [0009-0008-8425-939X](https://orcid.org/0009-0008-8425-939X)
 
-**Version:** 1.0 — February 15, 2026
+**Version:** 1.1 — February 15, 2026
 **DOI:** [10.5281/zenodo.18646886](https://doi.org/10.5281/zenodo.18646886)
 **ORCID:** [0009-0008-8425-939X](https://orcid.org/0009-0008-8425-939X)
 **Repository:** https://github.com/FTHTrading/2500-donkeys
@@ -24,7 +24,7 @@ ORCID: [0009-0008-8425-939X](https://orcid.org/0009-0008-8425-939X)
 
 ## Abstract
 
-Traditional publishing relies on institutional trust to establish authorship, version integrity, and distribution provenance. This trust model is opaque, non-auditable, and structurally dependent on intermediaries whose incentives may diverge from those of creators. We present a multi-layer provenance architecture that replaces trust with cryptographic verification, enabling any party to independently confirm a manuscript's authenticity, authorship, version history, and compositional integrity without relying on a central authority. The system combines Merkle tree hashing across four content categories, content-addressed storage, deterministic build pipelines, and append-only on-chain records to produce a five-layer verification stack. We formalize this approach as the Literary Protocol Standard (LPS-1) and validate it through a complete deployment accompanying a 75,000-word literary work. The reference implementation anchors 31 manuscript blocks, 5 embedded artifacts, 10 visual assets, and 10 AI-generation prompts across five smart contracts on a production blockchain, with cross-chain timestamping on Bitcoin. All claims in this paper are independently verifiable against public on-chain state and content-addressed storage.
+Traditional publishing relies on institutional trust to establish authorship, version integrity, and distribution provenance. This trust model is opaque, non-auditable, and structurally dependent on intermediaries whose incentives may diverge from those of creators. We present a multi-layer provenance architecture that replaces trust with cryptographic verification, enabling any party to independently confirm a manuscript's authenticity, authorship, version history, and compositional integrity without relying on a central authority. The system combines Merkle tree hashing across multiple content categories, content-addressed storage, deterministic build pipelines, and append-only on-chain records to produce a five-layer verification stack. We formalize this approach as the Literary Protocol Standard (LPS-1) and validate it through two complete deployments: a 75,000-word novel anchored via four Merkle trees (31 manuscript blocks, 5 embedded artifacts, 10 visual assets, 10 AI-generation prompts) and a 13-story short fiction collection anchored via two Merkle trees (16 manuscript files, 13 audio narrations) — demonstrating protocol generalization across literary formats, TTS engines, and tree topologies. Both works are anchored across five smart contracts on a production blockchain, with cross-chain timestamping on Bitcoin. All claims in this paper are independently verifiable against public on-chain state and content-addressed storage.
 
 **Keywords:** digital provenance, deterministic publishing, Merkle trees, content integrity, reproducible pipelines, literary technology, on-chain anchoring
 
@@ -44,7 +44,7 @@ This paper makes three contributions:
 
 2. **A five-layer verification architecture** that chains filesystem state, version control history, content hashing, content-addressed storage, and on-chain records into a unified provenance stack where any layer can be independently audited.
 
-3. **A complete reference implementation** validated against a production literary work, demonstrating that the model is practical, gas-efficient, and compatible with existing publishing workflows.
+3. **A complete reference implementation** validated against two production literary works — a novel and a short story collection — demonstrating that the model is practical, gas-efficient, format-independent, and compatible with existing publishing workflows.
 
 The system is designed to be protocol-level infrastructure — a substrate on which traditional publishing, self-publishing, licensed distribution, and institutional archiving can operate without modification to their existing processes.
 
@@ -499,9 +499,11 @@ The inclusion of a dedicated prompt tree addresses a gap in current AI disclosur
 
 ## 11. Conclusion
 
-We have presented a multi-layer provenance architecture for literary publishing that replaces institutional trust with cryptographic verification. The system anchors 56 content components across four Merkle trees into a single on-chain commitment, supported by a deterministic build pipeline, 14 formally defined invariants, and 146 automated tests. The complete infrastructure — five smart contracts, cross-chain anchoring, revenue distribution, and author identity — was deployed and validated on a production network accompanying a 75,000-word literary work, at a total cost of approximately $2.50 USD.
+We have presented a multi-layer provenance architecture for literary publishing that replaces institutional trust with cryptographic verification. The system anchors 56 content components (novel) and 29 content components (stories) across six Merkle trees into on-chain commitments, supported by deterministic build pipelines, 14 formally defined invariants, and 146 automated tests. The complete infrastructure — five smart contracts, cross-chain anchoring, revenue distribution, and author identity — was deployed and validated on a production network.
 
-Every claim in this paper is independently verifiable. The smart contracts are source-verified on a public block explorer. The content is retrievable from content-addressed storage. The build pipeline is open-source and deterministic. The Merkle proofs are computable by anyone with access to the source files and a SHA-256 implementation.
+Critically, the protocol's generalizability is demonstrated through two structurally distinct literary works: a 75,000-word novel (4 Merkle trees, ElevenLabs TTS, 31 blocks) and a 13-story short fiction collection titled *Private Placement Puppetry* (2 Merkle trees, Kokoro TTS, 16 files). The stories collection uses a different tree topology (manuscript + audio vs. manuscript + artifact + image + prompt), a different TTS engine (local Kokoro vs. cloud ElevenLabs), and a different content structure (independent stories vs. layered narrative blocks) — yet anchors through the same LiteraryAnchor and PublishingKernelV2 contracts using identical verification patterns. This validates LPS-1 as a format-independent protocol rather than a pipeline specific to one manuscript structure.
+
+Every claim in this paper is independently verifiable. The smart contracts are source-verified on a public block explorer. The content is retrievable from content-addressed storage. The build pipelines are open-source and deterministic. The Merkle proofs are computable by anyone with access to the source files and a SHA-256 implementation.
 
 The model demonstrates that verifiable provenance for creative works is not only technically feasible but economically accessible, requiring no specialized infrastructure, no institutional partnerships, and no ongoing operational costs beyond initial deployment. It provides a foundation for reproducible publishing — a paradigm in which the authenticity of a work is not asserted by an authority but computed from first principles.
 
@@ -551,9 +553,12 @@ All artifacts referenced in this paper can be verified using the following publi
 
 ### A.2 Content Identifiers
 
+#### Novel (The 2,500 Donkeys)
+
 | Identifier | Value |
 |------------|-------|
 | IPFS Genesis CID | `QmVQ79NM3qxAsBpftTG4YhD4KV9sUEmM3WwFrc5vs5g8vK` |
+| IPFS Latest CID | `QmPXtEsRwiWuaKmKNA569XAqFNVySN8pwTdGQrvcdpgtMa` |
 | SHA-256 (compiled) | `d1b9a57f618f0445dc7a5d30d5bf4e707bb4d0cd8d83ceb277f9628d5f68363c` |
 | Edition Root | `6719ed7f9e142a39a4a7db533895562bdf5379cf7f9816ed7cbe045ca359594e` |
 | Manuscript Root | `dd95d1216b8e2cb8008c8993dffc54d66b550018a47401dd5df001ff487467d3` |
@@ -561,7 +566,23 @@ All artifacts referenced in this paper can be verified using the following publi
 | Image Root | `0e45331c0b80738ff3f491e63b47a5454f162cfe5a1d367e90b709c96c56c638` |
 | Prompt Root | `32bed9e54ed6dc5f4ee8082dce928bd86fb76c36b92d9f949ba12c046674f32c` |
 
+#### Stories (Private Placement Puppetry)
+
+| Identifier | Value |
+|------------|-------|
+| IPFS Manuscript CID | `QmahPEAZuWz3dFa55BsNgBEkjBzvWm5M3xbGaRYwm581LV` |
+| IPFS Audio CID | `QmbT7L6zcEvXceYkR362zBJkq75A3Qb2y7wVKcCtKyVhYa` |
+| Manuscript Root | `a73efc2af74e71d59daac1f050a1976e786ebc6fb2ace1e826f41517342173d3` |
+| Edition Root | `a73efc2af74e71d59daac1f050a1976e786ebc6fb2ace1e826f41517342173d3` |
+| Audio Root | `c0049f05391cd72d7738042efd4bc35b3102db82d8ba205e4f66a84afee995aa` |
+| Audio Edition Root | `90daad5f90d4617a6fa245fff381049a2a15cd4a1b5dcffee8548e5804d0e6df` |
+| Combined Hash | `77bb9f5e3f3a6908f96f2519e6b20b7ee15351b08ba962792da4306bfb3a123a` |
+| File Count | 16 |
+| Total Size | 117,109 bytes |
+
 ### A.3 Key Transactions
+
+#### Novel Transactions
 
 | Operation | Tx Hash |
 |-----------|---------|
@@ -572,6 +593,14 @@ All artifacts referenced in this paper can be verified using the following publi
 | Revenue test | `0x4d0d1e04c589a56b7f70f377802b79d8903d559c5bbd53a352bf54d87bf98662` |
 | License #0 grant | `0xf1ae786994e1a60cdbafa64cc280d3de9535c34a629b54aba6c2f53dd7bce2fe` |
 | V2 kernel deployment | `0x89c34617867efa8592cca2cb17abc20e958f9fe5257a008e3c4e51ef872b661a` |
+
+#### Stories Transactions
+
+| Operation | Tx Hash |
+|-----------|---------|
+| LiteraryAnchor anchor | `0xd2c9c49d02d31594c5963775973f0646c11382cbba1301e4ef756261491abad3` (Block 83,103,627) |
+| KernelV2 register (Ed. 2) | `0x57caeffe39e26352bc83af72fe6aa2ebc0a02284448aaa9026a8aa7661d53245` (Block 83,103,652) |
+| KernelV2 freeze (Ed. 2) | `0x70b65cdd4146fd24f6649d9143fc12df3751b35db5affecfb3e6f8096b35e4f8` (Block 83,103,655) |
 
 ### A.4 Author Wallet
 
@@ -610,30 +639,31 @@ All artifacts referenced in this paper can be verified using the following publi
   author    = {Burns, Kevan},
   year      = {2026},
   month     = {February},
-  version   = {1.0},
+  version   = {1.1},
   doi       = {10.5281/zenodo.18646886},
   url       = {https://doi.org/10.5281/zenodo.18646886},
   note      = {Independent research. Reference implementation deployed on
-               Polygon mainnet. All claims verifiable against public
-               on-chain state.}
+               Polygon mainnet. Protocol validated through two literary works:
+               a 75,000-word novel and a 13-story short fiction collection.
+               All claims verifiable against public on-chain state.}
 }
 ```
 
 ### APA (7th Edition)
 
-Burns, K. (2026). *Deterministic literary publishing: A multi-layer provenance model for verifiable manuscripts* (Version 1.0). Independent research. https://doi.org/10.5281/zenodo.18646886
+Burns, K. (2026). *Deterministic literary publishing: A multi-layer provenance model for verifiable manuscripts* (Version 1.1). Independent research. https://doi.org/10.5281/zenodo.18646886
 
 ### Chicago
 
-Burns, Kevan. "Deterministic Literary Publishing: A Multi-Layer Provenance Model for Verifiable Manuscripts." Version 1.0. Independent research, February 2026. https://doi.org/10.5281/zenodo.18646886.
+Burns, Kevan. "Deterministic Literary Publishing: A Multi-Layer Provenance Model for Verifiable Manuscripts." Version 1.1. Independent research, February 2026. https://doi.org/10.5281/zenodo.18646886.
 
 ### IEEE
 
-K. Burns, "Deterministic Literary Publishing: A Multi-Layer Provenance Model for Verifiable Manuscripts," Independent research, v1.0, Feb. 2026. DOI: 10.5281/zenodo.18646886. [Online]. Available: https://doi.org/10.5281/zenodo.18646886
+K. Burns, "Deterministic Literary Publishing: A Multi-Layer Provenance Model for Verifiable Manuscripts," Independent research, v1.1, Feb. 2026. DOI: 10.5281/zenodo.18646886. [Online]. Available: https://doi.org/10.5281/zenodo.18646886
 
 ---
 
-*Version 1.0 — February 15, 2026*
+*Version 1.1 — February 15, 2026*
 *Kevan Burns — Independent Researcher — FTH Trading, Norcross, GA*
 *ORCID: [0009-0008-8425-939X](https://orcid.org/0009-0008-8425-939X)*
 *All on-chain artifacts verified on Polygonscan. Source code: github.com/FTHTrading/2500-donkeys*

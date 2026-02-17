@@ -28,9 +28,9 @@
 
 This paper presents a cryptographic provenance architecture for literary publishing. The system replaces institutional trust with a five-layer verification stack — filesystem, version control, content hashing (SHA-256), content-addressed storage (IPFS), and append-only blockchain records — enabling any party to independently verify a manuscript's authenticity and integrity.
 
-The architecture decomposes a literary work into four Merkle trees (text blocks, embedded artifacts, visual assets, AI-generation prompts), producing a single 256-bit edition root that is anchored on-chain. A deterministic build pipeline ensures identical inputs always produce identical outputs. Fourteen formally defined invariants govern system correctness.
+The architecture decomposes literary works into independent Merkle trees producing edition roots anchored on-chain. A deterministic build pipeline ensures identical inputs always produce identical outputs. Fourteen formally defined invariants govern system correctness.
 
-The reference implementation accompanies a 75,000-word literary work with 56 anchored content components, five deployed and source-verified smart contracts, cross-chain timestamping, and a validated revenue distribution mechanism — all deployed at a total cost of ~$2.50 USD.
+The protocol is validated through two structurally distinct literary works: a 75,000-word novel (4 Merkle trees, 56 content components, ElevenLabs TTS) and a 13-story short fiction collection titled *Private Placement Puppetry* (2 Merkle trees, 29 content components, Kokoro TTS) — demonstrating format-independence across tree topologies, TTS engines, and content structures. Five deployed and source-verified smart contracts, cross-chain timestamping, and a validated revenue distribution mechanism are deployed at a total cost of ~$2.50 USD.
 
 Full paper, source code, and smart contract verification links available in the repository.
 

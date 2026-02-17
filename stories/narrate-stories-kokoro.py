@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-narrate-stories-kokoro.py — Kokoro TTS Narration for PPE Puppetry
+narrate-stories-kokoro.py — Kokoro TTS Narration for Private Placement Puppetry
 =================================================================
 
 Renders all 13 manuscript files to MP3 using Kokoro neural TTS.
@@ -62,7 +62,10 @@ FILES = [
     "09-the-sovereign-whisper.md",
     "10-the-tokenized-mirage.md",
     "11-the-initiator-awakening.md",
-    "12-back-matter.md",
+    "13-the-financial-alchemists-punch-list.md",
+    "14-the-exclusivity-trap.md",
+    "15-the-off-ledger-revelation.md",
+    "16-back-matter.md",
 ]
 
 # ── CLI flags ────────────────────────────────────────────────
@@ -85,7 +88,7 @@ SAMPLE_RATE = 24000             # Kokoro native sample rate
 # Files that get the document voice (back matter)
 DOCUMENT_FILES = {
     "00-front-matter.md",
-    "12-back-matter.md",
+    "16-back-matter.md",
 }
 
 
@@ -216,7 +219,7 @@ def render_chapter(pipeline_b, index: int, filename: str, total: int) -> str:
 def main():
     print()
     print("╔══════════════════════════════════════════════════╗")
-    print("║   KOKORO TTS — PPE Puppetry Narrator             ║")
+    print("║   KOKORO TTS — Private Placement Puppetry          ║")
     print("╚══════════════════════════════════════════════════╝")
     print()
     print(f"  Engine:     Kokoro 82M (hexgrad/Kokoro-82M)")

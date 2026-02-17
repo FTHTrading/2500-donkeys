@@ -3,874 +3,597 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The 2,500 Donkeys — by Kidd James</title>
-  <meta name="description" content="A deterministic literary publishing protocol. Five verified smart contracts on Polygon. Two anchored works. Merkle trees. IPFS-pinned. DOI-archived. The first novel whose proof-of-origin is part of the narrative.">
-  <meta property="og:title" content="The 2,500 Donkeys">
-  <meta property="og:description" content="A literary protocol by Kidd James. Cryptographically anchored. Narratively inevitable.">
-  <meta property="og:type" content="book">
+  <title>XXXIII — Deterministic Literary Infrastructure</title>
+  <meta name="description" content="A deterministic publishing protocol. SHA-256 hashed manuscripts. Merkle-rooted editions. IPFS-pinned. Polygon-anchored. Verifiable forever.">
+  <meta property="og:title" content="XXXIII — Deterministic Literary Infrastructure">
+  <meta property="og:description" content="Proof-of-origin for authored works. V verified contracts on Polygon. II frozen editions. VI Merkle trees.">
+  <meta property="og:type" content="website">
   <meta property="og:url" content="https://xxxiii.io">
-  <meta name="twitter:card" content="summary_large_image">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🫏</text></svg>">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.88em' font-size='72' font-family='serif' fill='%23111'>X</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Inter:wght@300;400;500&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <script>/* Apply saved theme before first paint */(function(){var t=localStorage.getItem('xxxiii-theme');if(t)document.documentElement.setAttribute('data-theme',t)})()</script>
+  <script defer data-domain="xxxiii.io" src="https://plausible.io/js/script.js"></script>
 </head>
 <body>
 
-  <!-- ═══════ FIXED NAV ═══════ -->
-  <nav class="topnav" id="topnav">
-    <a href="#" class="topnav-brand">XXXIII</a>
-    <div class="topnav-links" id="navLinks">
+  <!-- ━━━ Nav ━━━ -->
+  <nav class="nav" id="nav">
+    <a href="#" class="nav-brand">XXXIII</a>
+    <div class="nav-links" id="navLinks">
+      <a href="#declaration">Declaration</a>
+      <a href="#pillars">Pillars</a>
+      <a href="#pipeline">Pipeline</a>
       <a href="#works">Works</a>
       <a href="#contracts">Contracts</a>
-      <a href="#genesis">Genesis</a>
-      <a href="#transactions">Transactions</a>
       <a href="#verify">Verify</a>
-      <a href="#cite">Cite</a>
-      <a href="read.html">Read</a>
-      <a href="listen.html">Listen</a>
+      <a href="#citation">Citation</a>
     </div>
-    <button class="topnav-toggle" id="navToggle" aria-label="Menu">&#9776;</button>
+    <div class="nav-actions">
+      <a href="read.html" class="nav-link-btn">Read · Donkeys</a>
+      <a href="read-ppe.html" class="nav-link-btn">Read · PPE</a>
+      <a href="listen.html" class="nav-link-btn">Listen</a>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      </button>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span></button>
   </nav>
 
-  <!-- ═══════ HERO ═══════ -->
-  <header class="hero">
+  <!-- ━━━ Ⅰ Hero ━━━ -->
+  <header class="hero" id="hero">
+    <div class="hero-watermark" aria-hidden="true">XXXIII</div>
     <div class="hero-inner">
-      <p class="hero-pre">A Literary Protocol by</p>
-      <h1>The 2,500 Donkeys</h1>
-      <p class="hero-author">Kidd James</p>
-      <p class="hero-sub">Five contracts on Polygon. Six Merkle trees. Two anchored works. 146 tests. 51 independent verification checks. DOI-archived. Pinned to IPFS. Editions frozen on-chain.</p>
-      <div class="hero-actions">
-        <a href="read.html" class="btn btn-primary">Read Book 1</a>
-        <a href="listen.html" class="btn btn-ghost">Listen</a>
-        <a href="#genesis" class="btn btn-ghost">Explore Proofs</a>
+      <h1 class="hero-title">XXXIII</h1>
+      <p class="hero-subtitle">Deterministic Literary Infrastructure</p>
+      <div class="hero-verse">
+        <p>Every word hashed.</p>
+        <p>Every chapter Merkle-rooted.</p>
+        <p>Anchored on-chain.</p>
+        <p>Verifiable forever.</p>
       </div>
+      <div class="hero-actions">
+        <a href="#pillars" class="btn btn-primary">Open Protocol</a>
+        <a href="read.html" class="btn">Read · The 2,500 Donkeys</a>
+        <a href="read-ppe.html" class="btn">Read · Private Placement Puppetry</a>
+      </div>
+      <p class="hero-chain">MMXXVI · Polygon Mainnet · Chain ID CXXXVII</p>
     </div>
   </header>
 
-  <!-- ═══════ LIVE STATS BAR ═══════ -->
-  <section class="stats-bar">
-    <div class="container">
-      <div class="stats-row">
-        <div class="stat-pill"><span class="stat-num">2</span><span class="stat-label">Works Anchored</span></div>
-        <div class="stat-pill"><span class="stat-num">5</span><span class="stat-label">Smart Contracts</span></div>
-        <div class="stat-pill"><span class="stat-num">6</span><span class="stat-label">Merkle Trees</span></div>
-        <div class="stat-pill"><span class="stat-num">146</span><span class="stat-label">Tests Passing</span></div>
-        <div class="stat-pill"><span class="stat-num">51</span><span class="stat-label">Verify Checks</span></div>
-        <div class="stat-pill"><span class="stat-num">44</span><span class="stat-label">Chapters Total</span></div>
+  <!-- ━━━ Ⅱ Declaration ━━━ -->
+  <section class="sect" id="declaration">
+    <div class="sect-inner sect-centered">
+      <span class="sect-numeral">II</span>
+      <h2 class="sect-heading">Not DRM.</h2>
+      <div class="declaration-text">
+        <p>This system does not restrict access.<br>It proves origin.</p>
+        <p>Anyone may read.<br>Anyone may verify.</p>
+        <p class="declaration-axiom">No intermediary. No trust required. Just math.</p>
       </div>
     </div>
   </section>
 
-  <!-- ═══════ WORKS — Tabbed ═══════ -->
-  <section id="works" class="section">
-    <div class="container narrow">
-      <h2>Published Works</h2>
-      <p>Two works anchored on Polygon. Each with independent Merkle trees, audio editions, and frozen on-chain provenance.</p>
+  <!-- ━━━ Ⅲ The Three Pillars ━━━ -->
+  <section class="sect sect-stone" id="pillars">
+    <div class="sect-inner sect-centered">
+      <span class="sect-numeral">III</span>
+      <h2 class="sect-heading">The Three Pillars</h2>
 
-      <div class="tabs" id="worksTabs">
-        <button class="tab active" data-tab="book1">Book 1 — The 2,500 Donkeys</button>
-        <button class="tab" data-tab="stories">PPE Puppetry</button>
-      </div>
-
-      <!-- Book 1 Panel -->
-      <div class="tab-panel active" id="panel-book1">
-        <div class="work-header">
-          <h3>The 2,500 Donkeys</h3>
-          <span class="badge badge-active">Edition 2 — Frozen</span>
-        </div>
-        <p class="work-desc">31 chapters. 75,000+ words. The first novel whose proof-of-origin is part of the narrative. Four independent Merkle trees combine into a single Edition Root anchored on Polygon and pinned to IPFS.</p>
-
-        <div class="merkle-grid">
-          <div class="merkle-card">
-            <div class="merkle-label">Edition Root</div>
-            <code class="merkle-hash" data-copy="6719ed7f9e142a39a4a7db533895562bdf5379cf7f9816ed7cbe045ca359594e">6719ed7f9e142a39a4a7db533895562bdf5379cf7f9816ed7cbe045ca359594e</code>
-            <button class="btn-copy-inline" title="Copy hash">&#x2398;</button>
-          </div>
-          <div class="merkle-card">
-            <div class="merkle-label">Manuscript Root</div>
-            <code class="merkle-hash" data-copy="dd95d1216b8e2cb8008c8993dffc54d66b550018a47401dd5df001ff487467d3">dd95d1216b8e2cb8008c8993dffc54d66b550018a47401dd5df001ff487467d3</code>
-            <button class="btn-copy-inline" title="Copy hash">&#x2398;</button>
-          </div>
-          <div class="merkle-card">
-            <div class="merkle-label">Artifact Root</div>
-            <code class="merkle-hash" data-copy="9c653a2e453e895f294375818bb872d47d4c90b15859587ba2c5238024202c56">9c653a2e453e895f294375818bb872d47d4c90b15859587ba2c5238024202c56</code>
-            <button class="btn-copy-inline" title="Copy hash">&#x2398;</button>
-          </div>
-          <div class="merkle-card">
-            <div class="merkle-label">Image Root</div>
-            <code class="merkle-hash" data-copy="0e45331c0b80738ff3f491e63b47a5454f162cfe5a1d367e90b709c96c56c638">0e45331c0b80738ff3f491e63b47a5454f162cfe5a1d367e90b709c96c56c638</code>
-            <button class="btn-copy-inline" title="Copy hash">&#x2398;</button>
-          </div>
-          <div class="merkle-card">
-            <div class="merkle-label">Prompt Root</div>
-            <code class="merkle-hash" data-copy="32bed9e54ed6dc5f4ee8082dce928bd86fb76c36b92d9f949ba12c046674f32c">32bed9e54ed6dc5f4ee8082dce928bd86fb76c36b92d9f949ba12c046674f32c</code>
-            <button class="btn-copy-inline" title="Copy hash">&#x2398;</button>
-          </div>
-          <div class="merkle-card">
-            <div class="merkle-label">Audio Root</div>
-            <code class="merkle-hash" data-copy="e57bb9474d10f3b2ac70d11c602a32cd3b0fd84ebb5946cfbdd5a93680f430fa">e57bb9474d10f3b2ac70d11c602a32cd3b0fd84ebb5946cfbdd5a93680f430fa</code>
-            <button class="btn-copy-inline" title="Copy hash">&#x2398;</button>
-          </div>
-          <div class="merkle-card">
-            <div class="merkle-label">Audio Edition Root</div>
-            <code class="merkle-hash" data-copy="514c2db5b9cd914b96a0a8b50d9dd6981a454c74cab7d717dc38f5fe9fa0501e">514c2db5b9cd914b96a0a8b50d9dd6981a454c74cab7d717dc38f5fe9fa0501e</code>
-            <button class="btn-copy-inline" title="Copy hash">&#x2398;</button>
+      <div class="pillars">
+        <!-- Origin -->
+        <div class="pillar">
+          <span class="pillar-numeral">I</span>
+          <h3 class="pillar-name">Origin</h3>
+          <p class="pillar-text">SHA-256 canonical hash establishes authorship at byte-level precision.</p>
+          <div class="pillar-hash">
+            <span class="pillar-label">Canonical</span>
+            <code data-copy="9d062421b52d35aa23b73bfc8f66574db78bad9726e45c43a12d0109cdd57d84">9d062421b52d35aa23b73bfc8f66574db78bad9726e45c43a12d0109cdd57d84</code>
+            <button class="copy-icon" aria-label="Copy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button>
           </div>
         </div>
 
-        <div class="work-meta-grid">
-          <div class="meta-row"><span class="meta-label">IPFS CID (Genesis)</span><a href="https://ipfs.io/ipfs/QmVQ79NM3qxAsBpftTG4YhD4KV9sUEmM3WwFrc5vs5g8vK" target="_blank" rel="noopener" class="meta-value link">QmVQ79NM3qxAsBpftTG4YhD4KV9sUEmM3WwFrc5vs5g8vK</a></div>
-          <div class="meta-row"><span class="meta-label">IPFS CID (Ed. 2)</span><a href="https://ipfs.io/ipfs/QmPXtEsRwiWuaKmKNA569XAqFNVySN8pwTdGQrvcdpgtMa" target="_blank" rel="noopener" class="meta-value link">QmPXtEsRwiWuaKmKNA569XAqFNVySN8pwTdGQrvcdpgtMa</a></div>
-          <div class="meta-row"><span class="meta-label">Compiled SHA-256</span><code class="meta-value">9d062421b52d35aa23b73bfc8f66574db78bad9726e45c43a12d0109cdd57d84</code></div>
-          <div class="meta-row"><span class="meta-label">File Size</span><code class="meta-value">293,861 bytes</code></div>
-          <div class="meta-row"><span class="meta-label">Chapters</span><code class="meta-value">31</code></div>
-          <div class="meta-row"><span class="meta-label">Audio Chapters</span><code class="meta-value">36 narrated by George (Kokoro TTS)</code></div>
-          <div class="meta-row"><span class="meta-label">PKv2 Edition</span><code class="meta-value">Edition #0 — FROZEN</code></div>
-        </div>
-
-        <div class="work-actions">
-          <a href="read.html" class="btn btn-primary btn-sm">Read Full Book</a>
-          <a href="listen.html" class="btn btn-ghost btn-sm">Listen to Audio</a>
-          <a href="https://ipfs.io/ipfs/QmPXtEsRwiWuaKmKNA569XAqFNVySN8pwTdGQrvcdpgtMa" target="_blank" rel="noopener" class="btn btn-ghost btn-sm">View on IPFS</a>
-        </div>
-      </div>
-
-      <!-- PPE Puppetry Panel -->
-      <div class="tab-panel" id="panel-stories">
-        <div class="work-header">
-          <h3>PPE Puppetry</h3>
-          <span class="badge badge-active">Edition 1 — Frozen</span>
-        </div>
-        <p class="work-desc">Ten Stories from the War Room. 13 chapters. 80,420 characters. Every story hashed, Merkle-treed, narrated by George via Kokoro TTS, then anchored on Polygon in 3 transactions.</p>
-
-        <div class="merkle-grid">
-          <div class="merkle-card">
-            <div class="merkle-label">Manuscript Root</div>
-            <code class="merkle-hash" data-copy="43c24c2998d070ab7a5068fb67bbea5bc4d3ea1db652b82e79901694cadf90c6">43c24c2998d070ab7a5068fb67bbea5bc4d3ea1db652b82e79901694cadf90c6</code>
-            <button class="btn-copy-inline" title="Copy hash">&#x2398;</button>
+        <!-- Integrity -->
+        <div class="pillar">
+          <span class="pillar-numeral">II</span>
+          <h3 class="pillar-name">Integrity</h3>
+          <p class="pillar-text">IV independent Merkle trees combine into a single Edition Root.</p>
+          <div class="pillar-hash">
+            <span class="pillar-label">Edition Root</span>
+            <code data-copy="6719ed7f9e142a39a4a7db533895562bdf5379cf7f9816ed7cbe045ca359594e">6719ed7f9e142a39a4a7db533895562bdf5379cf7f9816ed7cbe045ca359594e</code>
+            <button class="copy-icon" aria-label="Copy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button>
           </div>
-          <div class="merkle-card">
-            <div class="merkle-label">Audio Root</div>
-            <code class="merkle-hash" data-copy="b57afe2af664824bd77b1a33241f70b332f60a421d87e37182325db5d31a0151">b57afe2af664824bd77b1a33241f70b332f60a421d87e37182325db5d31a0151</code>
-            <button class="btn-copy-inline" title="Copy hash">&#x2398;</button>
-          </div>
-          <div class="merkle-card">
-            <div class="merkle-label">Audio Edition Root</div>
-            <code class="merkle-hash" data-copy="a6c597fc21d65a907466ed99ed1be8f1b606b7478ca7f0e1c537ad18bd79ab62">a6c597fc21d65a907466ed99ed1be8f1b606b7478ca7f0e1c537ad18bd79ab62</code>
-            <button class="btn-copy-inline" title="Copy hash">&#x2398;</button>
-          </div>
-          <div class="merkle-card">
-            <div class="merkle-label">Combined Hash</div>
-            <code class="merkle-hash" data-copy="f5f0358b5623d3768fc4ddc152e0468124142cf15bb09b1a49a4990ce6d7df0f">f5f0358b5623d3768fc4ddc152e0468124142cf15bb09b1a49a4990ce6d7df0f</code>
-            <button class="btn-copy-inline" title="Copy hash">&#x2398;</button>
+          <div class="pillar-hash">
+            <span class="pillar-label">Audio Root</span>
+            <code data-copy="514c2db5b9cd914b96a0a8b50d9dd6981a454c74cab7d717dc38f5fe9fa0501e">514c2db5b9cd914b96a0a8b50d9dd6981a454c74cab7d717dc38f5fe9fa0501e</code>
+            <button class="copy-icon" aria-label="Copy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button>
           </div>
         </div>
 
-        <div class="work-meta-grid">
-          <div class="meta-row"><span class="meta-label">Files</span><code class="meta-value">13 manuscripts</code></div>
-          <div class="meta-row"><span class="meta-label">Total Size</span><code class="meta-value">83,435 bytes</code></div>
-          <div class="meta-row"><span class="meta-label">Audio Files</span><code class="meta-value">13 MP3s (118.87 MB)</code></div>
-          <div class="meta-row"><span class="meta-label">Narrator</span><code class="meta-value">George (Kokoro TTS, speed 0.92)</code></div>
-          <div class="meta-row"><span class="meta-label">PKv2 Edition</span><code class="meta-value">Edition #1 — FROZEN</code></div>
-          <div class="meta-row"><span class="meta-label">Anchored</span><code class="meta-value">2026-02-17T07:08:02Z</code></div>
-        </div>
-
-        <!-- Expandable Chapter List -->
-        <details class="expand-block">
-          <summary class="expand-summary">View All 13 Chapter Hashes</summary>
-          <div class="chapter-list">
-            <div class="chapter-row"><span class="ch-name">00-front-matter.md</span><code class="ch-hash">34e7a4c175378cea81e8f030eff2907367b4e2104f05cf2c1464e8155eff7f0c</code><span class="ch-size">3,146 B</span></div>
-            <div class="chapter-row"><span class="ch-name">01-mt799-is-not-money.md</span><code class="ch-hash">9f476fb84c89854a84399d330c0e73971d0d34a2c0089340f9728bb71df166d6</code><span class="ch-size">5,309 B</span></div>
-            <div class="chapter-row"><span class="ch-name">02-the-bank-that-didnt-exist.md</span><code class="ch-hash">dde5415039e56fa9e77fc522cc2f620b9594b1bb513c33625884d03781a4a6c6</code><span class="ch-size">5,247 B</span></div>
-            <div class="chapter-row"><span class="ch-name">03-commission-above-supply-depth.md</span><code class="ch-hash">34186aeea4ce62d24bf38d2e8128b655f1746ef260deecc1c09cf2639eb39244</code><span class="ch-size">6,793 B</span></div>
-            <div class="chapter-row"><span class="ch-name">04-the-ghost-monetizer.md</span><code class="ch-hash">316914c91661e574f65d29c346a46f47d92967e145acaaab1274ca7fa9c9d190</code><span class="ch-size">6,277 B</span></div>
-            <div class="chapter-row"><span class="ch-name">05-the-mandate-that-couldnt-sign.md</span><code class="ch-hash">c36c9535836133c800e1a21a72dc9ac90ec095f6ae42d452e52c455886fe1c63</code><span class="ch-size">7,432 B</span></div>
-            <div class="chapter-row"><span class="ch-name">06-vault-without-address.md</span><code class="ch-hash">15d24d44f61fabb675a6af7d6ab50cdff85d12be4f438325e14f7a0fa85ac6bd</code><span class="ch-size">6,799 B</span></div>
-            <div class="chapter-row"><span class="ch-name">07-the-compliance-wall.md</span><code class="ch-hash">18303c379330fdf34b85d5643377684d84e8ecf47e790f6155eaba76f411a9e3</code><span class="ch-size">6,980 B</span></div>
-            <div class="chapter-row"><span class="ch-name">08-bonded-but-never-seen.md</span><code class="ch-hash">6a02cff91c626a927e13ff52c6f1030788a204bf6d307f92bebbaf83c69fa900</code><span class="ch-size">6,992 B</span></div>
-            <div class="chapter-row"><span class="ch-name">09-the-sovereign-whisper.md</span><code class="ch-hash">9bdb50a764726a0d188616e37127baf7e2bf842d5a53af5289a5c20b9dd5ec97</code><span class="ch-size">7,960 B</span></div>
-            <div class="chapter-row"><span class="ch-name">10-the-tokenized-mirage.md</span><code class="ch-hash">52c09235ef03e0a23e41b8b57712bda475bdd1987b453f043bcd6d096d82d412</code><span class="ch-size">7,247 B</span></div>
-            <div class="chapter-row"><span class="ch-name">11-the-initiator-awakening.md</span><code class="ch-hash">b112bf5c021eab22bf0eaec088db65cf96c277a91202fddcea21d8a13a7dced7</code><span class="ch-size">7,764 B</span></div>
-            <div class="chapter-row"><span class="ch-name">12-back-matter.md</span><code class="ch-hash">a3b65b9525dcbedb0fceb6082cd2916546920c370017c23995902ad52310c4cd</code><span class="ch-size">5,489 B</span></div>
+        <!-- Permanence -->
+        <div class="pillar">
+          <span class="pillar-numeral">III</span>
+          <h3 class="pillar-name">Permanence</h3>
+          <p class="pillar-text">IPFS content addressing + Polygon on-chain anchor. Immutable by design.</p>
+          <div class="pillar-hash">
+            <span class="pillar-label">Edition II CID</span>
+            <code data-copy="QmPXtEsRwiWuaKmKNA569XAqFNVySN8pwTdGQrvcdpgtMa">QmPXtEsRwiWuaKmKNA569XAqFNVySN8pwTdGQrvcdpgtMa</code>
+            <button class="copy-icon" aria-label="Copy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button>
           </div>
-        </details>
-
-        <div class="work-actions">
-          <a href="https://polygonscan.com/tx/0xe932f79746419cde7077b8f50b813ec73d6abb900f6512465a4cd3110313031e" target="_blank" rel="noopener" class="btn btn-primary btn-sm">View Anchor TX</a>
-          <a href="https://polygonscan.com/tx/0xb3072bb4757125a5a4caa852988c485f6ac1fff443e9557f0102ec76e132d774" target="_blank" rel="noopener" class="btn btn-ghost btn-sm">View Freeze TX</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════ SMART CONTRACTS ═══════ -->
-  <section id="contracts" class="section section-dark">
-    <div class="container narrow">
-      <h2>Smart Contract Architecture</h2>
-      <p>Five contracts deployed and source-verified on Polygon Mainnet. Every contract is readable by anyone on Polygonscan. Total deployment cost: ~$1.80.</p>
-
-      <div class="contracts-grid">
-        <div class="contract-card">
-          <div class="contract-card-header">
-            <h4>LiteraryAnchor</h4>
-            <span class="contract-status">Verified</span>
-          </div>
-          <p class="contract-desc">Proof-of-origin anchor. Stores edition CIDs and SHA-256 hashes. Genesis is immutable.</p>
-          <div class="contract-detail"><span class="detail-label">Address</span><a href="https://polygonscan.com/address/0x97f456300817eaE3B40E235857b856dfFE8bba90#code" target="_blank" rel="noopener" class="detail-value link">0x97f456300817eaE3B40E235857b856dfFE8bba90</a></div>
-          <div class="contract-detail"><span class="detail-label">Deploy Block</span><a href="https://polygonscan.com/block/83002198" target="_blank" rel="noopener" class="detail-value link">83,002,198</a></div>
-          <div class="contract-detail"><span class="detail-label">Gas Used</span><code class="detail-value">1,116,006</code></div>
-          <div class="contract-actions">
-            <a href="https://polygonscan.com/address/0x97f456300817eaE3B40E235857b856dfFE8bba90#readContract" target="_blank" rel="noopener" class="btn btn-ghost btn-xs">Read Contract</a>
-            <a href="https://polygonscan.com/address/0x97f456300817eaE3B40E235857b856dfFE8bba90#code" target="_blank" rel="noopener" class="btn btn-ghost btn-xs">Source Code</a>
-          </div>
-        </div>
-
-        <div class="contract-card">
-          <div class="contract-card-header">
-            <h4>PublishingKernelV2</h4>
-            <span class="contract-status">Verified</span>
-          </div>
-          <p class="contract-desc">Merkle-verified editions. Registers edition roots and verifies leaf proofs on-chain. Two editions frozen.</p>
-          <div class="contract-detail"><span class="detail-label">Address</span><a href="https://polygonscan.com/address/0xca9F6604A9b498DB31d113836E2957c0a9aAE037#code" target="_blank" rel="noopener" class="detail-value link">0xca9F6604A9b498DB31d113836E2957c0a9aAE037</a></div>
-          <div class="contract-detail"><span class="detail-label">Deploy Block</span><a href="https://polygonscan.com/block/83010944" target="_blank" rel="noopener" class="detail-value link">83,010,944</a></div>
-          <div class="contract-detail"><span class="detail-label">Gas Used</span><code class="detail-value">4,804,013</code></div>
-          <div class="contract-detail"><span class="detail-label">Editions</span><code class="detail-value">Ed#0 (Book 1) FROZEN &middot; Ed#1 (PPE) FROZEN</code></div>
-          <div class="contract-actions">
-            <a href="https://polygonscan.com/address/0xca9F6604A9b498DB31d113836E2957c0a9aAE037#readContract" target="_blank" rel="noopener" class="btn btn-ghost btn-xs">Read Contract</a>
-            <a href="https://polygonscan.com/address/0xca9F6604A9b498DB31d113836E2957c0a9aAE037#code" target="_blank" rel="noopener" class="btn btn-ghost btn-xs">Source Code</a>
-          </div>
-        </div>
-
-        <div class="contract-card">
-          <div class="contract-card-header">
-            <h4>PublishingKernel</h4>
-            <span class="contract-status">Verified</span>
-          </div>
-          <p class="contract-desc">Licensing engine. Grant, revoke, and query publishing licenses with territory and term controls.</p>
-          <div class="contract-detail"><span class="detail-label">Address</span><a href="https://polygonscan.com/address/0x511c653fC0F450ba41C42A89A3125CcBf2eFE8ae#code" target="_blank" rel="noopener" class="detail-value link">0x511c653fC0F450ba41C42A89A3125CcBf2eFE8ae</a></div>
-          <div class="contract-detail"><span class="detail-label">Deploy Block</span><a href="https://polygonscan.com/block/83008833" target="_blank" rel="noopener" class="detail-value link">83,008,833</a></div>
-          <div class="contract-actions">
-            <a href="https://polygonscan.com/address/0x511c653fC0F450ba41C42A89A3125CcBf2eFE8ae#readContract" target="_blank" rel="noopener" class="btn btn-ghost btn-xs">Read Contract</a>
-          </div>
-        </div>
-
-        <div class="contract-card">
-          <div class="contract-card-header">
-            <h4>RoyaltyRouter</h4>
-            <span class="contract-status">Verified</span>
-          </div>
-          <p class="contract-desc">Revenue distribution. Configurable splits across multiple recipients with on-chain execution.</p>
-          <div class="contract-detail"><span class="detail-label">Address</span><a href="https://polygonscan.com/address/0x44169829489d70aaecbf845870652871C65fC461#code" target="_blank" rel="noopener" class="detail-value link">0x44169829489d70aaecbf845870652871C65fC461</a></div>
-          <div class="contract-detail"><span class="detail-label">Revenue Test</span><code class="detail-value">PASS — 0 wei dust (0.01 POL)</code></div>
-          <div class="contract-actions">
-            <a href="https://polygonscan.com/address/0x44169829489d70aaecbf845870652871C65fC461#readContract" target="_blank" rel="noopener" class="btn btn-ghost btn-xs">Read Contract</a>
-          </div>
-        </div>
-
-        <div class="contract-card">
-          <div class="contract-card-header">
-            <h4>AuthorIdentity</h4>
-            <span class="contract-status">Verified</span>
-          </div>
-          <p class="contract-desc">ECDSA identity binding. Wallet &harr; pen name verification via recoverable signatures.</p>
-          <div class="contract-detail"><span class="detail-label">Address</span><a href="https://polygonscan.com/address/0xB9ffa688A8Bb332221030BbBE46bE5bF03323170#code" target="_blank" rel="noopener" class="detail-value link">0xB9ffa688A8Bb332221030BbBE46bE5bF03323170</a></div>
-          <div class="contract-detail"><span class="detail-label">Pseudonym</span><code class="detail-value">Kidd James</code></div>
-          <div class="contract-detail"><span class="detail-label">Organization</span><code class="detail-value">FTH Trading</code></div>
-          <div class="contract-actions">
-            <a href="https://polygonscan.com/address/0xB9ffa688A8Bb332221030BbBE46bE5bF03323170#readContract" target="_blank" rel="noopener" class="btn btn-ghost btn-xs">Read Contract</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="contract-meta">
-        <div class="contract-meta-row"><span>Network</span><span>Polygon Mainnet (Chain ID: 137)</span></div>
-        <div class="contract-meta-row"><span>Solidity</span><span>0.8.19 &middot; viaIR &middot; 200 runs</span></div>
-        <div class="contract-meta-row"><span>Framework</span><span>Hardhat 2.28.6 &middot; Ethers 6.16.0 &middot; OZ 4.9.6</span></div>
-        <div class="contract-meta-row"><span>Test Suite</span><span>146 tests passing across 5 suites</span></div>
-        <div class="contract-meta-row">
-          <span>Author Wallet</span>
-          <span><a href="https://polygonscan.com/address/0xC91668184736BF75C4ecE37473D694efb2A43978" target="_blank" rel="noopener" style="color:var(--accent)">0xC91668184736BF75C4ecE37473D694efb2A43978</a></span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════ GENESIS PROVENANCE CHAIN ═══════ -->
-  <section id="genesis" class="section">
-    <div class="container narrow">
-      <h2>Genesis Provenance Chain</h2>
-      <p>Every word is hashed. Every hash is Merkle-treed. Every tree is pinned. Every pin is anchored on-chain. This is not DRM. This is proof-of-origin.</p>
-
-      <div class="proof-chain">
-        <div class="proof-step animate-in">
-          <div class="proof-icon">1</div>
-          <div class="proof-content">
-            <h4>Compiled</h4>
-            <p>31 blocks compiled into a single canonical manuscript.</p>
-            <code class="proof-value">293,368 bytes &rarr; SHA-256</code>
-          </div>
-        </div>
-        <div class="proof-connector"></div>
-        <div class="proof-step animate-in">
-          <div class="proof-icon">2</div>
-          <div class="proof-content">
-            <h4>Hashed</h4>
-            <p>SHA-256 fingerprint of the compiled output — change one byte and it changes completely.</p>
-            <div class="hash-display">
-              <code class="proof-value" data-copy="9d062421b52d35aa23b73bfc8f66574db78bad9726e45c43a12d0109cdd57d84">9d062421b52d35aa23b73bfc8f66574db78bad9726e45c43a12d0109cdd57d84</code>
-              <button class="btn-copy-inline" title="Copy">&#x2398;</button>
-            </div>
-          </div>
-        </div>
-        <div class="proof-connector"></div>
-        <div class="proof-step animate-in">
-          <div class="proof-icon">3</div>
-          <div class="proof-content">
-            <h4>Merkle Trees</h4>
-            <p>Four independent trees (manuscript, artifact, image, prompt) combine into a single Edition Root.</p>
-            <code class="proof-value">H(manuscriptRoot &#x2016; artifactRoot &#x2016; imageRoot &#x2016; promptRoot)</code>
-          </div>
-        </div>
-        <div class="proof-connector"></div>
-        <div class="proof-step animate-in">
-          <div class="proof-icon">4</div>
-          <div class="proof-content">
-            <h4>Audio Merkle Trees</h4>
-            <p>36 narrated chapters hashed into an Audio Root, then combined with the Edition Root into an Audio Edition Root.</p>
-            <div class="hash-display">
-              <code class="proof-value" data-copy="514c2db5b9cd914b96a0a8b50d9dd6981a454c74cab7d717dc38f5fe9fa0501e">audioEditionRoot: 514c2db5...9fa0501e</code>
-              <button class="btn-copy-inline" title="Copy">&#x2398;</button>
-            </div>
-          </div>
-        </div>
-        <div class="proof-connector"></div>
-        <div class="proof-step animate-in">
-          <div class="proof-icon">5</div>
-          <div class="proof-content">
-            <h4>Pinned to IPFS</h4>
-            <p>Content-addressed and distributed. The CID <em>is</em> the content.</p>
-            <div class="ipfs-links">
-              <a href="https://ipfs.io/ipfs/QmPXtEsRwiWuaKmKNA569XAqFNVySN8pwTdGQrvcdpgtMa" target="_blank" rel="noopener" class="btn btn-ghost btn-xs">ipfs.io</a>
-              <a href="https://gateway.pinata.cloud/ipfs/QmPXtEsRwiWuaKmKNA569XAqFNVySN8pwTdGQrvcdpgtMa" target="_blank" rel="noopener" class="btn btn-ghost btn-xs">pinata</a>
-              <a href="https://dweb.link/ipfs/QmPXtEsRwiWuaKmKNA569XAqFNVySN8pwTdGQrvcdpgtMa" target="_blank" rel="noopener" class="btn btn-ghost btn-xs">dweb.link</a>
-            </div>
-          </div>
-        </div>
-        <div class="proof-connector"></div>
-        <div class="proof-step animate-in">
-          <div class="proof-icon">6</div>
-          <div class="proof-content">
-            <h4>Anchored on Polygon</h4>
-            <p>Five verified contracts. Edition roots, licensing, royalties, and identity — all on-chain. Two editions frozen.</p>
-            <code class="proof-value"><a href="https://polygonscan.com/address/0xca9F6604A9b498DB31d113836E2957c0a9aAE037" target="_blank" rel="noopener">5 contracts &middot; 2 editions &middot; both FROZEN</a></code>
-          </div>
-        </div>
-        <div class="proof-connector"></div>
-        <div class="proof-step animate-in">
-          <div class="proof-icon">7</div>
-          <div class="proof-content">
-            <h4>Bitcoin Timestamp</h4>
-            <p>OpenTimestamps cross-chains the temporal anchor to Bitcoin&rsquo;s proof-of-work.</p>
-            <code class="proof-value">dist/edition.ots</code>
+          <div class="pillar-hash">
+            <span class="pillar-label">Genesis CID</span>
+            <code data-copy="QmVQ79NM3qxAsBpftTG4YhD4KV9sUEmM3WwFrc5vs5g8vK">QmVQ79NM3qxAsBpftTG4YhD4KV9sUEmM3WwFrc5vs5g8vK</code>
+            <button class="copy-icon" aria-label="Copy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ═══════ TRANSACTION EXPLORER ═══════ -->
-  <section id="transactions" class="section section-dark">
-    <div class="container narrow">
-      <h2>On-Chain Transaction Log</h2>
-      <p>Every deployment and anchor transaction, chronologically. Click any TX hash to view on Polygonscan.</p>
+  <!-- ━━━ Ⅳ The Pipeline ━━━ -->
+  <section class="sect" id="pipeline">
+    <div class="sect-inner sect-centered">
+      <span class="sect-numeral">IV</span>
+      <h2 class="sect-heading">The Pipeline</h2>
+      <p class="sect-lead">A deterministic sequence from manuscript to chain.</p>
 
-      <div class="tx-timeline">
-        <div class="tx-group">
-          <h4 class="tx-group-title">Book 1 — The 2,500 Donkeys</h4>
+      <div class="pipeline">
+        <div class="pipe-stage" data-reveal="stage-manuscript">
+          <span class="pipe-numeral">I</span>
+          <span class="pipe-name">Manuscript</span>
+          <span class="pipe-meta">293,368 bytes</span>
+        </div>
+        <span class="pipe-sep">&rarr;</span>
+        <div class="pipe-stage" data-reveal="stage-sha">
+          <span class="pipe-numeral">II</span>
+          <span class="pipe-name">SHA-256</span>
+          <span class="pipe-meta">Deterministic hash</span>
+        </div>
+        <span class="pipe-sep">&rarr;</span>
+        <div class="pipe-stage" data-reveal="stage-merkle">
+          <span class="pipe-numeral">III</span>
+          <span class="pipe-name">Merkle IV</span>
+          <span class="pipe-meta">Independent roots</span>
+        </div>
+        <span class="pipe-sep">&rarr;</span>
+        <div class="pipe-stage" data-reveal="stage-edition">
+          <span class="pipe-numeral">IV</span>
+          <span class="pipe-name">Edition Root</span>
+          <span class="pipe-meta">Combined root hash</span>
+        </div>
+        <span class="pipe-sep">&rarr;</span>
+        <div class="pipe-stage" data-reveal="stage-ipfs">
+          <span class="pipe-numeral">V</span>
+          <span class="pipe-name">IPFS</span>
+          <span class="pipe-meta">Content-addressed</span>
+        </div>
+        <span class="pipe-sep">&rarr;</span>
+        <div class="pipe-stage pipe-stage-final" data-reveal="stage-polygon">
+          <span class="pipe-numeral">VI</span>
+          <span class="pipe-name">Polygon</span>
+          <span class="pipe-meta">On-chain anchor</span>
+        </div>
+      </div>
 
-          <div class="tx-item">
-            <div class="tx-dot"></div>
-            <div class="tx-body">
-              <div class="tx-row"><span class="tx-action">Deploy LiteraryAnchor</span><span class="tx-block">Block 83,002,198</span></div>
-              <a href="https://polygonscan.com/tx/0x9c036d1d8e946e0d9c8c520d4818e3d211c137478f7a704b733fbea500f28ec6" target="_blank" rel="noopener" class="tx-hash">0x9c036d1d8e946e0d9c8c520d4818e3d211c137478f7a704b733fbea500f28ec6</a>
-              <span class="tx-gas">Gas: 1,116,006 &middot; Cost: 0.887 POL</span>
+      <!-- Reveal panels -->
+      <div class="stage-panel" id="stage-manuscript">
+        <div class="sp-row"><span>File</span><code>compiled-manuscript.md</code></div>
+        <div class="sp-row"><span>Size</span><code>293,368 bytes</code></div>
+      </div>
+      <div class="stage-panel" id="stage-sha">
+        <div class="sp-row"><span>Algorithm</span><code>SHA-256</code></div>
+        <div class="sp-row"><span>Hash</span><code data-copy="9d062421b52d35aa23b73bfc8f66574db78bad9726e45c43a12d0109cdd57d84">9d062421...cdd57d84</code><button class="copy-icon" aria-label="Copy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button></div>
+      </div>
+      <div class="stage-panel" id="stage-merkle">
+        <div class="sp-row"><span>Manuscript</span><code data-copy="dd95d1216b8e2cb8008c8993dffc54d66b550018a47401dd5df001ff487467d3">dd95d121...487467d3</code><button class="copy-icon" aria-label="Copy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button></div>
+        <div class="sp-row"><span>Artifact</span><code data-copy="9c653a2e453e895f294375818bb872d47d4c90b15859587ba2c5238024202c56">9c653a2e...24202c56</code><button class="copy-icon" aria-label="Copy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button></div>
+        <div class="sp-row"><span>Image</span><code data-copy="0e45331c0b80738ff3f491e63b47a5454f162cfe5a1d367e90b709c96c56c638">0e45331c...c56c638</code><button class="copy-icon" aria-label="Copy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button></div>
+        <div class="sp-row"><span>Prompt</span><code data-copy="32bed9e54ed6dc5f4ee8082dce928bd86fb76c36b92d9f949ba12c046674f32c">32bed9e5...6674f32c</code><button class="copy-icon" aria-label="Copy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button></div>
+      </div>
+      <div class="stage-panel" id="stage-edition">
+        <div class="sp-row"><span>Edition Root</span><code data-copy="6719ed7f9e142a39a4a7db533895562bdf5379cf7f9816ed7cbe045ca359594e">6719ed7f...ca359594e</code><button class="copy-icon" aria-label="Copy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button></div>
+        <div class="sp-row"><span>Audio Edition</span><code data-copy="514c2db5b9cd914b96a0a8b50d9dd6981a454c74cab7d717dc38f5fe9fa0501e">514c2db5...9fa0501e</code><button class="copy-icon" aria-label="Copy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button></div>
+      </div>
+      <div class="stage-panel" id="stage-ipfs">
+        <div class="sp-row"><span>Ed. II</span><a href="https://ipfs.io/ipfs/QmPXtEsRwiWuaKmKNA569XAqFNVySN8pwTdGQrvcdpgtMa" target="_blank" rel="noopener"><code>QmPXtEsR...cdpgtMa</code></a></div>
+        <div class="sp-row"><span>Genesis</span><a href="https://ipfs.io/ipfs/QmVQ79NM3qxAsBpftTG4YhD4KV9sUEmM3WwFrc5vs5g8vK" target="_blank" rel="noopener"><code>QmVQ79NM...vs5g8vK</code></a></div>
+      </div>
+      <div class="stage-panel" id="stage-polygon">
+        <div class="sp-row"><span>Network</span><code>Polygon Mainnet — Chain ID 137</code></div>
+        <div class="sp-row"><span>Anchor</span><a href="https://polygonscan.com/address/0x97f456300817eaE3B40E235857b856dfFE8bba90" target="_blank" rel="noopener"><code>0x97f4...b890</code></a></div>
+        <div class="sp-row"><span>Block</span><a href="https://polygonscan.com/block/83002198" target="_blank" rel="noopener"><code>83,002,198</code></a></div>
+      </div>
+
+      <p class="pipeline-axiom">No randomness. No mutable state. Reproducible by anyone.</p>
+    </div>
+  </section>
+
+  <!-- ━━━ Ⅴ The Works ━━━ -->
+  <section class="sect sect-stone" id="works">
+    <div class="sect-inner sect-centered">
+      <span class="sect-numeral">V</span>
+      <h2 class="sect-heading">The Works</h2>
+
+      <div class="works">
+        <div class="monolith">
+          <h3 class="monolith-title">The 2,500 Donkeys</h3>
+          <span class="monolith-edition">Edition II</span>
+          <span class="badge-frozen">FROZEN</span>
+          <div class="monolith-stats">
+            <span>31 chapters</span>
+            <span>75,000+ words</span>
+            <span>36 audio files</span>
+            <span>6 Merkle trees</span>
+            <span>146 tests</span>
+            <span>51 checks</span>
+          </div>
+          <div class="monolith-roots">
+            <button class="roots-toggle" data-target="roots-ed2">Merkle Roots</button>
+            <div class="roots-panel" id="roots-ed2">
+              <div class="rp-row"><span>Edition</span><code data-copy="6719ed7f9e142a39a4a7db533895562bdf5379cf7f9816ed7cbe045ca359594e">6719ed7f...594e</code><button class="copy-icon" aria-label="Copy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button></div>
+              <div class="rp-row"><span>Manuscript</span><code data-copy="dd95d1216b8e2cb8008c8993dffc54d66b550018a47401dd5df001ff487467d3">dd95d121...67d3</code><button class="copy-icon" aria-label="Copy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button></div>
+              <div class="rp-row"><span>Artifact</span><code data-copy="9c653a2e453e895f294375818bb872d47d4c90b15859587ba2c5238024202c56">9c653a2e...2c56</code><button class="copy-icon" aria-label="Copy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button></div>
+              <div class="rp-row"><span>Image</span><code data-copy="0e45331c0b80738ff3f491e63b47a5454f162cfe5a1d367e90b709c96c56c638">0e45331c...c638</code><button class="copy-icon" aria-label="Copy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button></div>
+              <div class="rp-row"><span>Prompt</span><code data-copy="32bed9e54ed6dc5f4ee8082dce928bd86fb76c36b92d9f949ba12c046674f32c">32bed9e5...f32c</code><button class="copy-icon" aria-label="Copy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button></div>
+              <div class="rp-row"><span>Audio</span><code data-copy="e57bb9474d10f3b2ac70d11c602a32cd3b0fd84ebb5946cfbdd5a93680f430fa">e57bb947...30fa</code><button class="copy-icon" aria-label="Copy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button></div>
+              <div class="rp-row"><span>Audio Ed.</span><code data-copy="514c2db5b9cd914b96a0a8b50d9dd6981a454c74cab7d717dc38f5fe9fa0501e">514c2db5...501e</code><button class="copy-icon" aria-label="Copy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button></div>
             </div>
           </div>
-
-          <div class="tx-item">
-            <div class="tx-dot"></div>
-            <div class="tx-body">
-              <div class="tx-row"><span class="tx-action">Deploy PublishingKernel</span><span class="tx-block">Block 83,008,833</span></div>
-              <a href="https://polygonscan.com/tx/0xfdd3854c4ca2ae46b61ef64df3edce60d423b1cf64e9df57c6cc7c05dd89a6d2" target="_blank" rel="noopener" class="tx-hash">0xfdd3854c4ca2ae46b61ef64df3edce60d423b1cf64e9df57c6cc7c05dd89a6d2</a>
-            </div>
-          </div>
-
-          <div class="tx-item">
-            <div class="tx-dot"></div>
-            <div class="tx-body">
-              <div class="tx-row"><span class="tx-action">Revenue Test (RoyaltyRouter)</span><span class="tx-block">Block 83,009,932</span></div>
-              <a href="https://polygonscan.com/tx/0x4d0d1e04c589a56b7f70f377802b79d8903d559c5bbd53a352bf54d87bf98662" target="_blank" rel="noopener" class="tx-hash">0x4d0d1e04c589a56b7f70f377802b79d8903d559c5bbd53a352bf54d87bf98662</a>
-              <span class="tx-gas">0.01 POL — PASS (0 wei dust)</span>
-            </div>
-          </div>
-
-          <div class="tx-item">
-            <div class="tx-dot"></div>
-            <div class="tx-body">
-              <div class="tx-row"><span class="tx-action">Grant License #0</span><span class="tx-block">Block 83,010,027</span></div>
-              <a href="https://polygonscan.com/tx/0xf1ae786994e1a60cdbafa64cc280d3de9535c34a629b54aba6c2f53dd7bce2fe" target="_blank" rel="noopener" class="tx-hash">0xf1ae786994e1a60cdbafa64cc280d3de9535c34a629b54aba6c2f53dd7bce2fe</a>
-              <span class="tx-gas">LPS1-SOVEREIGN</span>
-            </div>
-          </div>
-
-          <div class="tx-item">
-            <div class="tx-dot"></div>
-            <div class="tx-body">
-              <div class="tx-row"><span class="tx-action">Deploy PublishingKernelV2</span><span class="tx-block">Block 83,010,944</span></div>
-              <a href="https://polygonscan.com/tx/0x89c34617867efa8592cca2cb17abc20e958f9fe5257a008e3c4e51ef872b661a" target="_blank" rel="noopener" class="tx-hash">0x89c34617867efa8592cca2cb17abc20e958f9fe5257a008e3c4e51ef872b661a</a>
-              <span class="tx-gas">Gas: 4,804,013</span>
-            </div>
-          </div>
-
-          <div class="tx-item">
-            <div class="tx-dot"></div>
-            <div class="tx-body">
-              <div class="tx-row"><span class="tx-action">Deploy AuthorIdentity</span><span class="tx-block">Block 83,011,553</span></div>
-              <a href="https://polygonscan.com/tx/0x5bc9da8b1c3a6dc6f3f6e91bc7b2d7c35e8a3f81e4f23b9f73a16ff8d08a0d42" target="_blank" rel="noopener" class="tx-hash">0x5bc9da8b1c3a6dc6f3f6e91bc7b2d7c35e8a3f81e4f23b9f73a16ff8d08a0d42</a>
-            </div>
+          <div class="monolith-links">
+            <a href="read.html">Read</a>
+            <a href="listen.html">Listen</a>
+            <a href="https://ipfs.io/ipfs/QmPXtEsRwiWuaKmKNA569XAqFNVySN8pwTdGQrvcdpgtMa" target="_blank" rel="noopener">IPFS</a>
+            <a href="gallery.html">Gallery</a>
           </div>
         </div>
 
-        <div class="tx-group">
-          <h4 class="tx-group-title">PPE Puppetry — Ten Stories from the War Room</h4>
-
-          <div class="tx-item">
-            <div class="tx-dot dot-gold"></div>
-            <div class="tx-body">
-              <div class="tx-row"><span class="tx-action">Anchor on LiteraryAnchor</span><span class="tx-block">Block 83,096,018</span></div>
-              <a href="https://polygonscan.com/tx/0xe932f79746419cde7077b8f50b813ec73d6abb900f6512465a4cd3110313031e" target="_blank" rel="noopener" class="tx-hash">0xe932f79746419cde7077b8f50b813ec73d6abb900f6512465a4cd3110313031e</a>
-              <span class="tx-gas">Gas: 261,026</span>
+        <div class="monolith">
+          <h3 class="monolith-title">Private Placement Puppetry</h3>
+          <span class="monolith-edition">Edition I</span>
+          <span class="badge-frozen">FROZEN</span>
+          <div class="monolith-stats">
+            <span>13 chapters</span>
+            <span>13 audio files</span>
+            <span>3 transactions</span>
+            <span>3 Merkle roots</span>
+          </div>
+          <div class="monolith-roots">
+            <button class="roots-toggle" data-target="roots-ed1">Merkle Roots</button>
+            <div class="roots-panel" id="roots-ed1">
+              <div class="rp-row"><span>Manuscript</span><code data-copy="43c24c2998d070ab7a5068fb67bbea5bc4d3ea1db652b82e79901694cadf90c6">43c24c29...90c6</code><button class="copy-icon" aria-label="Copy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button></div>
+              <div class="rp-row"><span>Audio</span><code data-copy="b57afe2af664824bd77b1a33241f70b332f60a421d87e37182325db5d31a0151">b57afe2a...0151</code><button class="copy-icon" aria-label="Copy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button></div>
+              <div class="rp-row"><span>Audio Ed.</span><code data-copy="a6c597fc21d65a907466ed99ed1be8f1b606b7478ca7f0e1c537ad18bd79ab62">a6c597fc...ab62</code><button class="copy-icon" aria-label="Copy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button></div>
+              <div class="rp-row"><span>Combined</span><code data-copy="f5f0358b5623d3768fc4ddc152e0468124142cf15bb09b1a49a4990ce6d7df0f">f5f0358b...df0f</code><button class="copy-icon" aria-label="Copy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button></div>
             </div>
           </div>
-
-          <div class="tx-item">
-            <div class="tx-dot dot-gold"></div>
-            <div class="tx-body">
-              <div class="tx-row"><span class="tx-action">Register Edition #1 on PKv2</span><span class="tx-block">Block 83,096,023</span></div>
-              <a href="https://polygonscan.com/tx/0xb2fc00d00c18bcc1c7edff388eba89d95595d3a3ef593ddeca89f5b09f0bfe57" target="_blank" rel="noopener" class="tx-hash">0xb2fc00d00c18bcc1c7edff388eba89d95595d3a3ef593ddeca89f5b09f0bfe57</a>
-              <span class="tx-gas">Gas: 498,163 &middot; Edition ID: 1</span>
-            </div>
-          </div>
-
-          <div class="tx-item">
-            <div class="tx-dot dot-frozen"></div>
-            <div class="tx-body">
-              <div class="tx-row"><span class="tx-action">Freeze Edition #1</span><span class="tx-block">Block 83,096,027</span></div>
-              <a href="https://polygonscan.com/tx/0xb3072bb4757125a5a4caa852988c485f6ac1fff443e9557f0102ec76e132d774" target="_blank" rel="noopener" class="tx-hash">0xb3072bb4757125a5a4caa852988c485f6ac1fff443e9557f0102ec76e132d774</a>
-              <span class="tx-gas">FROZEN — Immutable</span>
-            </div>
+          <div class="monolith-links">
+            <a href="read-ppe.html">Read</a>
+            <a href="https://polygonscan.com/tx/0xe932f79746419cde7077b8f50b813ec73d6abb900f6512465a4cd3110313031e" target="_blank" rel="noopener">Anchor TX</a>
+            <a href="https://polygonscan.com/tx/0xb3072bb4757125a5a4caa852988c485f6ac1fff443e9557f0102ec76e132d774" target="_blank" rel="noopener">Freeze TX</a>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ═══════ VERIFY ═══════ -->
-  <section id="verify" class="section">
-    <div class="container narrow">
-      <h2>Verify It Yourself</h2>
-      <p>This novel is the first literary work whose authenticity can be independently verified by anyone. No trust required. No intermediary. Just math.</p>
+  <!-- ━━━ Ⅵ The Contract Architecture ━━━ -->
+  <section class="sect" id="contracts">
+    <div class="sect-inner sect-centered">
+      <span class="sect-numeral">VI</span>
+      <h2 class="sect-heading">The Contract Architecture</h2>
+      <p class="sect-lead">V contracts deployed. Source verified.</p>
 
-      <!-- Verify: Hash Check -->
-      <div class="verify-card">
-        <div class="verify-header">
-          <span class="verify-num">01</span>
-          <h4>Hash the Manuscript</h4>
-        </div>
-        <p class="verify-desc">Drop the compiled manuscript file below or paste its contents. Your browser computes a SHA-256 hash locally — nothing is uploaded anywhere.</p>
-        <div class="verify-dropzone" id="dropzone">
-          <div class="dropzone-content">
-            <svg class="dropzone-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
-            <span>Drop <code>compiled-manuscript.md</code> here</span>
-            <span class="dropzone-or">or</span>
-            <label class="btn btn-ghost btn-sm" for="fileInput">Choose File</label>
-            <input type="file" id="fileInput" style="display:none" accept=".md,.txt">
+      <div class="inscriptions">
+        <div class="inscription" data-reveal="ins-anchor">
+          <h4 class="inscription-name">Literary Anchor</h4>
+          <div class="inscription-detail" id="ins-anchor">
+            <div class="id-row"><span>Address</span><a href="https://polygonscan.com/address/0x97f456300817eaE3B40E235857b856dfFE8bba90#code" target="_blank" rel="noopener">0x97f456300817eaE3B40E235857b856dfFE8bba90</a></div>
+            <div class="id-row"><span>Block</span><code>83,002,198</code></div>
+            <div class="id-row"><span>Gas</span><code>1,116,006</code></div>
+            <div class="id-row"><span>Status</span><span class="status-verified">Verified</span></div>
           </div>
         </div>
-        <div class="verify-result" id="hashResult" style="display:none">
-          <div class="verify-status" id="hashStatus">
-            <span class="status-icon" id="hashIcon"></span>
-            <span class="status-text" id="hashText"></span>
+
+        <div class="inscription" data-reveal="ins-pkv2">
+          <h4 class="inscription-name">Publishing Kernel V2</h4>
+          <div class="inscription-detail" id="ins-pkv2">
+            <div class="id-row"><span>Address</span><a href="https://polygonscan.com/address/0xca9F6604A9b498DB31d113836E2957c0a9aAE037#code" target="_blank" rel="noopener">0xca9F6604A9b498DB31d113836E2957c0a9aAE037</a></div>
+            <div class="id-row"><span>Block</span><code>83,010,944</code></div>
+            <div class="id-row"><span>Gas</span><code>4,804,013</code></div>
+            <div class="id-row"><span>Status</span><span class="status-verified">Verified · Ed#0 FROZEN · Ed#1 FROZEN</span></div>
           </div>
-          <div class="hash-compare">
-            <div class="hash-row">
-              <span class="hash-label">Your file</span>
-              <code class="hash-value" id="userHash">—</code>
-            </div>
-            <div class="hash-row">
-              <span class="hash-label">Canonical</span>
-              <code class="hash-value canonical">9d062421b52d35aa23b73bfc8f66574db78bad9726e45c43a12d0109cdd57d84</code>
-            </div>
+        </div>
+
+        <div class="inscription" data-reveal="ins-pk">
+          <h4 class="inscription-name">Publishing Kernel</h4>
+          <div class="inscription-detail" id="ins-pk">
+            <div class="id-row"><span>Address</span><a href="https://polygonscan.com/address/0x511c653fC0F450ba41C42A89A3125CcBf2eFE8ae#code" target="_blank" rel="noopener">0x511c653fC0F450ba41C42A89A3125CcBf2eFE8ae</a></div>
+            <div class="id-row"><span>Block</span><code>83,008,833</code></div>
+            <div class="id-row"><span>Status</span><span class="status-verified">Verified</span></div>
+          </div>
+        </div>
+
+        <div class="inscription" data-reveal="ins-royalty">
+          <h4 class="inscription-name">Royalty Router</h4>
+          <div class="inscription-detail" id="ins-royalty">
+            <div class="id-row"><span>Address</span><a href="https://polygonscan.com/address/0x44169829489d70aaecbf845870652871C65fC461#code" target="_blank" rel="noopener">0x44169829489d70aaecbf845870652871C65fC461</a></div>
+            <div class="id-row"><span>Status</span><span class="status-verified">Verified · Revenue Test PASS</span></div>
+          </div>
+        </div>
+
+        <div class="inscription" data-reveal="ins-author">
+          <h4 class="inscription-name">Author Identity</h4>
+          <div class="inscription-detail" id="ins-author">
+            <div class="id-row"><span>Address</span><a href="https://polygonscan.com/address/0xB9ffa688A8Bb332221030BbBE46bE5bF03323170#code" target="_blank" rel="noopener">0xB9ffa688A8Bb332221030BbBE46bE5bF03323170</a></div>
+            <div class="id-row"><span>Block</span><code>83,011,553</code></div>
+            <div class="id-row"><span>Status</span><span class="status-verified">Verified · Kidd James · FTH Trading</span></div>
           </div>
         </div>
       </div>
 
-      <!-- Verify: IPFS -->
-      <div class="verify-card">
-        <div class="verify-header">
-          <span class="verify-num">02</span>
-          <h4>Retrieve from IPFS</h4>
-        </div>
-        <p class="verify-desc">The manuscript is pinned to IPFS. The CID <em>is</em> the content — if even one byte changes, the CID changes.</p>
-        <div class="verify-links">
-          <a href="https://ipfs.io/ipfs/QmPXtEsRwiWuaKmKNA569XAqFNVySN8pwTdGQrvcdpgtMa" target="_blank" rel="noopener" class="verify-link"><span class="link-gateway">ipfs.io</span><span class="link-arrow">&rarr;</span></a>
-          <a href="https://gateway.pinata.cloud/ipfs/QmPXtEsRwiWuaKmKNA569XAqFNVySN8pwTdGQrvcdpgtMa" target="_blank" rel="noopener" class="verify-link"><span class="link-gateway">pinata.cloud</span><span class="link-arrow">&rarr;</span></a>
-          <a href="https://cloudflare-ipfs.com/ipfs/QmPXtEsRwiWuaKmKNA569XAqFNVySN8pwTdGQrvcdpgtMa" target="_blank" rel="noopener" class="verify-link"><span class="link-gateway">cloudflare</span><span class="link-arrow">&rarr;</span></a>
-          <a href="https://dweb.link/ipfs/QmPXtEsRwiWuaKmKNA569XAqFNVySN8pwTdGQrvcdpgtMa" target="_blank" rel="noopener" class="verify-link"><span class="link-gateway">dweb.link</span><span class="link-arrow">&rarr;</span></a>
-        </div>
-        <div class="verify-cid">
-          <span class="cid-label">Edition 2 CID</span>
-          <code class="cid-value" id="cidValue">QmPXtEsRwiWuaKmKNA569XAqFNVySN8pwTdGQrvcdpgtMa</code>
-          <button class="btn-copy" id="copyCid" title="Copy CID">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="16" height="16"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-          </button>
-        </div>
-      </div>
-
-      <!-- Verify: On-Chain -->
-      <div class="verify-card">
-        <div class="verify-header">
-          <span class="verify-num">03</span>
-          <h4>Read the Smart Contracts</h4>
-        </div>
-        <p class="verify-desc">Five verified contracts on Polygon. Two editions frozen. Read them directly on Polygonscan — no API keys, no trust.</p>
-        <div class="verify-actions">
-          <a href="https://polygonscan.com/address/0x97f456300817eaE3B40E235857b856dfFE8bba90#readContract" target="_blank" rel="noopener" class="btn btn-primary btn-sm">Read LiteraryAnchor</a>
-          <a href="https://polygonscan.com/address/0xca9F6604A9b498DB31d113836E2957c0a9aAE037#readContract" target="_blank" rel="noopener" class="btn btn-primary btn-sm">Read KernelV2</a>
-          <a href="https://polygonscan.com/address/0xB9ffa688A8Bb332221030BbBE46bE5bF03323170#readContract" target="_blank" rel="noopener" class="btn btn-primary btn-sm">Read AuthorIdentity</a>
-          <a href="https://github.com/FTHTrading/2500-donkeys/tree/master/web3/contracts" target="_blank" rel="noopener" class="btn btn-ghost btn-sm">View All Source Code</a>
-        </div>
-      </div>
-
-      <!-- Verify: DIY -->
-      <div class="verify-card verify-card-terminal">
-        <div class="verify-header">
-          <span class="verify-num">04</span>
-          <h4>Full Provenance Verification</h4>
-        </div>
-        <p class="verify-desc">Don&rsquo;t trust this page. Clone the repo and run one command. The verifier checks 51 points across 5 phases. No API keys required.</p>
-        <div class="terminal-block">
-          <div class="terminal-bar">
-            <span class="terminal-dot"></span><span class="terminal-dot"></span><span class="terminal-dot"></span>
-            <span class="terminal-title">terminal</span>
-          </div>
-          <pre class="terminal-code"><code><span class="t-comment"># Clone and install</span>
-<span class="t-cmd">git clone</span> https://github.com/FTHTrading/2500-donkeys.git
-<span class="t-cmd">cd</span> 2500-donkeys
-<span class="t-cmd">npm install</span>
-
-<span class="t-comment"># Run the independent provenance verifier (51 checks)</span>
-<span class="t-cmd">npm run</span> lps:verify
-<span class="t-output"># → Phase 1: Local File Integrity .............. 6/6 ✓</span>
-<span class="t-output"># → Phase 2: Deterministic Compilation ......... 3/3 ✓</span>
-<span class="t-output"># → Phase 3: Merkle Tree Reconstruction ........ 11/11 ✓</span>
-<span class="t-output"># → Phase 4: On-Chain Verification ............. 24/24 ✓</span>
-<span class="t-output"># → Phase 5: Cross-Layer Consistency ........... 7/7 ✓</span>
-<span class="t-output"># → ✓ ALL CHECKS PASSED</span>
-
-<span class="t-comment"># Verify PPE Puppetry Merkle trees</span>
-<span class="t-cmd">node</span> stories/stories-merkle.js
-<span class="t-output"># → 13/13 Merkle proofs verified ✓</span>
-
-<span class="t-comment"># Verify PPE Puppetry audio hashes</span>
-<span class="t-cmd">node</span> stories/hash-stories-audio.js --verify
-<span class="t-output"># → 15 PASS 0 FAIL ✓</span>
-
-<span class="t-comment"># Run the full test suite (146 tests)</span>
-<span class="t-cmd">npm run</span> hh:test
-<span class="t-output"># → 146 passing</span></code></pre>
-        </div>
+      <div class="contract-footer">
+        <p>Network: Polygon Mainnet · Solidity 0.8.19 · Hardhat · OpenZeppelin</p>
+        <p>CXLVI tests passing across V suites</p>
+        <p class="cf-wallet">Author Wallet: <a href="https://polygonscan.com/address/0xC91668184736BF75C4ecE37473D694efb2A43978" target="_blank" rel="noopener">0xC91668184736BF75C4ecE37473D694efb2A43978</a></p>
       </div>
     </div>
   </section>
 
-  <!-- ═══════ STRUCTURE ═══════ -->
-  <section id="structure" class="section section-dark">
-    <div class="container narrow">
-      <h2>Architecture</h2>
-      <p>The novel is built in four narrative layers, each expanding the world of phantom finance and real consequences.</p>
-      <div class="layers">
-        <div class="layer"><h4>Layer A — Character Depth</h4><p>Raymond's first deal. Gerald's parking lot. Marcus's connection. The Storyteller's vault. Philippe's Geneva WeWork. The Seven Families who control everything and nothing.</p></div>
-        <div class="layer"><h4>Layer B — WhatsApp Mutations</h4><p>Lagos, Dubai, Zurich, NGO aid-washing, carbon conference. The same deal, forwarded through five ecosystems, each adding a layer of plausibility.</p></div>
-        <div class="layer"><h4>Layer C — The Procession</h4><p>2,500 donkeys. 34 days across the Sahel. Ibrahim walks. Adama shares water. 653 donkeys don't arrive. The certificate says they all did.</p></div>
-        <div class="layer"><h4>Layer D — Aftermath</h4><p>Raymond goes home. The WhatsApp groups die. The Storyteller speaks at a London summit. And somewhere, a yak-backed lithium corridor is born.</p></div>
+  <!-- ━━━ Ⅶ The Verifier ━━━ -->
+  <section class="sect sect-stone" id="verify">
+    <div class="sect-inner sect-centered">
+      <span class="sect-numeral">VII</span>
+      <h2 class="sect-heading">Verify It Yourself</h2>
+
+      <div class="verifier">
+        <div class="verifier-drop" id="dropzone">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" width="32" height="32"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+          <p>Drop compiled-manuscript.md</p>
+          <p class="verifier-hint">SHA-256 computed locally. Nothing leaves your machine.</p>
+          <label class="btn btn-sm" for="fileInput">Choose File</label>
+          <input type="file" id="fileInput" style="display:none" accept=".md,.txt">
+        </div>
+        <div class="verifier-result" id="hashResult" style="display:none">
+          <div class="vr-status" id="hashStatus"><span id="hashIcon"></span><span id="hashText"></span></div>
+          <div class="vr-compare">
+            <div class="vr-row"><span>Your file</span><code id="userHash"></code></div>
+            <div class="vr-row"><span>Canonical</span><code>9d062421...cdd57d84</code></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="verifier-cli">
+        <p class="verifier-lead">Clone. Run. Confirm.</p>
+        <div class="terminal">
+          <pre><code>git clone https://github.com/FTHTrading/2500-donkeys.git
+cd 2500-donkeys &amp;&amp; npm install
+npm run lps:verify</code></pre>
+        </div>
+        <p class="verifier-checks">LI checks across V phases. All must pass.</p>
+        <p class="verifier-axiom">This is not trust. This is reproducibility.</p>
+      </div>
+
+      <div class="verifier-links">
+        <a href="https://polygonscan.com/address/0x97f456300817eaE3B40E235857b856dfFE8bba90#readContract" target="_blank" rel="noopener" class="btn btn-sm">Read LiteraryAnchor</a>
+        <a href="https://polygonscan.com/address/0xca9F6604A9b498DB31d113836E2957c0a9aAE037#readContract" target="_blank" rel="noopener" class="btn btn-sm">Read KernelV2</a>
+        <a href="https://github.com/FTHTrading/2500-donkeys" target="_blank" rel="noopener" class="btn btn-sm">Source Code</a>
       </div>
     </div>
   </section>
 
-  <!-- ═══════ CITE THIS WORK ═══════ -->
-  <section id="cite" class="section">
-    <div class="container narrow">
-      <h2>Cite This Work</h2>
-      <p>This project has been archived with Zenodo and assigned a Digital Object Identifier.</p>
+  <!-- ━━━ Ⅷ Citation ━━━ -->
+  <section class="sect" id="citation">
+    <div class="sect-inner sect-centered">
+      <span class="sect-numeral">VIII</span>
+      <h2 class="sect-heading">Citation</h2>
+      <p class="cite-title">Deterministic Literary Publishing:<br>A Multi-Layer Provenance Model for Verifiable Manuscripts</p>
+      <p class="cite-pub-status">Working Paper &middot; Published February 15, 2026 &middot; Version 1.0 &middot; Open Access</p>
 
-      <div class="cite-download">
-        <a href="https://github.com/FTHTrading/2500-donkeys/releases/download/v1.1-paper/deterministic-literary-publishing.pdf" class="btn btn-primary" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18" style="vertical-align: middle; margin-right: 6px;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          Download Research Paper (PDF)
-        </a>
-      </div>
-
-      <div class="cite-card">
-        <div class="cite-header"><span class="cite-label">DOI</span></div>
-        <div class="cite-doi">
-          <a href="https://doi.org/10.5281/zenodo.18646886" target="_blank" rel="noopener">10.5281/zenodo.18646886</a>
-          <button class="btn-copy" id="copyDoi" title="Copy DOI">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="16" height="16"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-          </button>
+      <div class="cite-row">
+        <div class="cite-block">
+          <span class="cite-label">DOI</span>
+          <a href="https://doi.org/10.5281/zenodo.18646886" target="_blank" rel="noopener" class="cite-value">10.5281/zenodo.18646886</a>
+        </div>
+        <div class="cite-block">
+          <span class="cite-label">ORCID</span>
+          <a href="https://orcid.org/0009-0008-8425-939X" target="_blank" rel="noopener" class="cite-value">0009-0008-8425-939X</a>
+        </div>
+        <div class="cite-block">
+          <span class="cite-label">Paper</span>
+          <a href="https://github.com/FTHTrading/2500-donkeys/releases/download/v1.1-paper/deterministic-literary-publishing.pdf" target="_blank" rel="noopener" class="cite-value">Download PDF</a>
+        </div>
+        <div class="cite-block">
+          <span class="cite-label">License</span>
+          <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener" class="cite-value">CC BY 4.0</a>
         </div>
       </div>
 
-      <div class="cite-card">
-        <div class="cite-header">
-          <span class="cite-label">BibTeX</span>
-          <button class="btn-copy cite-copy" id="copyBibtex" title="Copy BibTeX">Copy</button>
-        </div>
-        <pre class="cite-code" id="bibtexBlock"><code>@techreport{burns2026deterministic,
+      <details class="cite-expand" open>
+        <summary>APA</summary>
+        <pre class="cite-code"><code>Burns, K. (2026). Deterministic Literary Publishing:
+A Multi-Layer Provenance Model for Verifiable
+Manuscripts (1.0). Zenodo.
+https://doi.org/10.5281/zenodo.18646886</code></pre>
+      </details>
+
+      <details class="cite-expand">
+        <summary>BibTeX</summary>
+        <pre class="cite-code"><code>@techreport{burns2026deterministic,
   title     = {Deterministic Literary Publishing: A Multi-Layer
                Provenance Model for Verifiable Manuscripts},
   author    = {Burns, Kevan},
   year      = {2026},
-  month     = {February},
+  month     = feb,
+  publisher = {Zenodo},
   version   = {1.0},
   doi       = {10.5281/zenodo.18646886},
   url       = {https://doi.org/10.5281/zenodo.18646886},
-  note      = {Independent research. Reference implementation
+  license   = {CC-BY-4.0},
+  note      = {Working paper. Reference implementation
                deployed on Polygon mainnet.}
 }</code></pre>
-      </div>
+      </details>
 
-      <div class="cite-card">
-        <div class="cite-header">
-          <span class="cite-label">APA (7th Edition)</span>
-          <button class="btn-copy cite-copy" id="copyApa" title="Copy APA">Copy</button>
-        </div>
-        <p class="cite-text" id="apaBlock">Burns, K. (2026). <em>Deterministic literary publishing: A multi-layer provenance model for verifiable manuscripts</em> (Version 1.0). Independent research. https://doi.org/10.5281/zenodo.18646886</p>
-      </div>
+      <p class="cite-note">Independent research. Indexed in <a href="https://explore.openaire.eu" target="_blank" rel="noopener" style="color:var(--gold);border-bottom:1px solid transparent;text-decoration:none;">OpenAIRE</a>. Reference implementation deployed on Polygon mainnet.</p>
+      <p class="cite-note cite-keywords">digital provenance &middot; deterministic publishing &middot; Merkle trees &middot; content integrity &middot; reproducible pipelines &middot; literary technology &middot; on-chain anchoring &middot; IPFS &middot; smart contracts &middot; cryptographic verification</p>
 
-      <div class="cite-card cite-card-links">
-        <div class="cite-header"><span class="cite-label">Verification &amp; Source</span></div>
-        <div class="cite-links">
-          <div class="cite-link-row"><span class="cite-link-label">Paper (Zenodo)</span><a href="https://doi.org/10.5281/zenodo.18646886" target="_blank" rel="noopener">doi.org/10.5281/zenodo.18646886</a></div>
-          <div class="cite-link-row"><span class="cite-link-label">ORCID</span><a href="https://orcid.org/0009-0008-8425-939X" target="_blank" rel="noopener">0009-0008-8425-939X</a></div>
-          <div class="cite-link-row"><span class="cite-link-label">ResearchGate</span><a href="https://www.researchgate.net/profile/Kevan-Burns" target="_blank" rel="noopener">researchgate.net/profile/Kevan-Burns</a></div>
-          <div class="cite-link-row"><span class="cite-link-label">Medium</span><a href="https://medium.com/@kevanbtc/a-deterministic-publishing-experiment-and-the-infrastructure-paper-it-produced-8a4d7b6e9288" target="_blank" rel="noopener">Deep Dive Article</a></div>
-          <div class="cite-link-row"><span class="cite-link-label">Source Code</span><a href="https://github.com/FTHTrading/2500-donkeys" target="_blank" rel="noopener">github.com/FTHTrading/2500-donkeys</a></div>
-          <div class="cite-link-row"><span class="cite-link-label">LiteraryAnchor</span><a href="https://polygonscan.com/address/0x97f456300817eaE3B40E235857b856dfFE8bba90#code" target="_blank" rel="noopener">0x97f4...b890</a></div>
-          <div class="cite-link-row"><span class="cite-link-label">PublishingKernelV2</span><a href="https://polygonscan.com/address/0xca9F6604A9b498DB31d113836E2957c0a9aAE037#code" target="_blank" rel="noopener">0xca9F...C037</a></div>
-          <div class="cite-link-row"><span class="cite-link-label">AuthorIdentity</span><a href="https://polygonscan.com/address/0xB9ffa688A8Bb332221030BbBE46bE5bF03323170#code" target="_blank" rel="noopener">0xB9ff...3170</a></div>
-          <div class="cite-link-row"><span class="cite-link-label">IPFS (Genesis)</span><a href="https://ipfs.io/ipfs/QmVQ79NM3qxAsBpftTG4YhD4KV9sUEmM3WwFrc5vs5g8vK" target="_blank" rel="noopener">QmVQ79...g8vK</a></div>
-          <div class="cite-link-row"><span class="cite-link-label">IPFS (Ed.2)</span><a href="https://ipfs.io/ipfs/QmPXtEsRwiWuaKmKNA569XAqFNVySN8pwTdGQrvcdpgtMa" target="_blank" rel="noopener">QmPXtE...pgtMa</a></div>
-        </div>
+      <div class="cite-links">
+        <a href="https://doi.org/10.5281/zenodo.18646886" target="_blank" rel="noopener">Zenodo</a>
+        <a href="https://www.researchgate.net/profile/Kevan-Burns" target="_blank" rel="noopener">ResearchGate</a>
+        <a href="https://medium.com/@kevanbtc/a-deterministic-publishing-experiment-and-the-infrastructure-paper-it-produced-8a4d7b6e9288" target="_blank" rel="noopener">Medium</a>
+        <a href="https://github.com/FTHTrading/2500-donkeys" target="_blank" rel="noopener">GitHub</a>
       </div>
     </div>
   </section>
 
-  <!-- ═══════ CLOSING ═══════ -->
-  <section class="section section-dark">
-    <div class="container narrow">
-      <div class="manuscript">
-        <p>What you have read is not an accusation. It is not a confession. It is not a manifesto, a complaint, a warning, or a disclosure.</p>
-        <p>It is a recording.</p>
-        <p>A recording of how stories become structures, and structures become deals, and deals become commissions, and commissions become the only real thing in a system where the product itself is optional.</p>
-        <p class="ms-closing">The gold was optional. The donkeys were optional. The carbon credits were optional. The humanitarian corridor was optional.</p>
-        <p class="ms-closing"><strong>The only non-optional element was the narrative.</strong></p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════ FOOTER ═══════ -->
+  <!-- ━━━ Ⅸ Footer ━━━ -->
   <footer class="footer">
-    <div class="container narrow">
-      <p class="footer-title">The 2,500 Donkeys</p>
-      <p class="footer-sub">A Literary Protocol by Kidd James</p>
-      <div class="footer-links">
-        <a href="read.html">Read</a>
+    <div class="footer-inner">
+      <p class="footer-brand">XXXIII</p>
+      <p class="footer-line">Deterministic Literary Publishing</p>
+      <p class="footer-year">MMXXVI</p>
+      <p class="footer-hashes">Canonical · Edition Root · On-Chain Anchor</p>
+      <div class="footer-nav">
+        <a href="library.html">Read</a>
         <a href="listen.html">Listen</a>
         <a href="gallery.html">Gallery</a>
         <a href="https://doi.org/10.5281/zenodo.18646886" target="_blank" rel="noopener">DOI</a>
         <a href="https://orcid.org/0009-0008-8425-939X" target="_blank" rel="noopener">ORCID</a>
-        <a href="https://www.researchgate.net/profile/Kevan-Burns" target="_blank" rel="noopener">ResearchGate</a>
-        <a href="https://medium.com/@kevanbtc/a-deterministic-publishing-experiment-and-the-infrastructure-paper-it-produced-8a4d7b6e9288" target="_blank" rel="noopener">Medium</a>
         <a href="https://github.com/FTHTrading/2500-donkeys" target="_blank" rel="noopener">GitHub</a>
         <a href="https://polygonscan.com/address/0xca9F6604A9b498DB31d113836E2957c0a9aAE037" target="_blank" rel="noopener">Polygonscan</a>
-        <a href="https://ipfs.io/ipfs/QmPXtEsRwiWuaKmKNA569XAqFNVySN8pwTdGQrvcdpgtMa" target="_blank" rel="noopener">IPFS</a>
-        <a href="#cite">Cite This Work</a>
       </div>
-      <p class="footer-copy">&copy; 2026 Kidd James. All literary content rights reserved. Infrastructure MIT licensed.</p>
-      <p class="footer-hash">Canonical Hash: <code>9d0624...7d84</code> &middot; Stories Hash: <code>f5f035...df0f</code></p>
+      <p class="footer-copy">&copy; MMXXVI Kevan Burns. Literary rights reserved. Infrastructure MIT licensed.</p>
     </div>
   </footer>
 
-  <!-- ═══════ INTERACTIVE SCRIPT ═══════ -->
   <script>
   (function() {
     'use strict';
 
-    var CANONICAL_HASH = '9d062421b52d35aa23b73bfc8f66574db78bad9726e45c43a12d0109cdd57d84';
+    var CANONICAL = '9d062421b52d35aa23b73bfc8f66574db78bad9726e45c43a12d0109cdd57d84';
 
-    // ── SHA-256 Hash ──────────────────────────────────────────
-    async function sha256(buffer) {
-      var hashBuffer = await crypto.subtle.digest('SHA-256', buffer);
-      return Array.from(new Uint8Array(hashBuffer)).map(function(b) { return b.toString(16).padStart(2, '0'); }).join('');
+    async function sha256(buf) {
+      var h = await crypto.subtle.digest('SHA-256', buf);
+      return Array.from(new Uint8Array(h)).map(function(b){return b.toString(16).padStart(2,'0')}).join('');
     }
 
     function showResult(hash) {
-      var result = document.getElementById('hashResult');
-      var userHash = document.getElementById('userHash');
-      var hashIcon = document.getElementById('hashIcon');
-      var hashText = document.getElementById('hashText');
-      var status = document.getElementById('hashStatus');
-      result.style.display = 'block';
-      userHash.textContent = hash;
-      if (hash === CANONICAL_HASH) {
-        status.className = 'verify-status status-pass';
-        hashIcon.textContent = '\u2713';
-        hashText.textContent = 'HASH MATCH \u2014 This manuscript is authentic.';
+      var r = document.getElementById('hashResult');
+      var u = document.getElementById('userHash');
+      var i = document.getElementById('hashIcon');
+      var t = document.getElementById('hashText');
+      var s = document.getElementById('hashStatus');
+      r.style.display = 'block';
+      u.textContent = hash;
+      if (hash === CANONICAL) {
+        s.className = 'vr-status pass';
+        i.textContent = '\u2713';
+        t.textContent = 'MATCH \u2014 Authentic manuscript.';
       } else {
-        status.className = 'verify-status status-fail';
-        hashIcon.textContent = '\u2717';
-        hashText.textContent = 'HASH MISMATCH \u2014 This file does not match the canonical manuscript.';
+        s.className = 'vr-status fail';
+        i.textContent = '\u2717';
+        t.textContent = 'MISMATCH \u2014 File does not match canonical manuscript.';
       }
     }
 
-    // ── File Drop Zone ────────────────────────────────────────
-    var dropzone = document.getElementById('dropzone');
-    var fileInput = document.getElementById('fileInput');
-    if (dropzone) {
-      dropzone.addEventListener('dragover', function(e) { e.preventDefault(); dropzone.classList.add('dragover'); });
-      dropzone.addEventListener('dragleave', function() { dropzone.classList.remove('dragover'); });
-      dropzone.addEventListener('drop', async function(e) {
-        e.preventDefault(); dropzone.classList.remove('dragover'); dropzone.classList.add('processing');
-        var file = e.dataTransfer.files[0];
-        if (file) { var hash = await sha256(await file.arrayBuffer()); dropzone.classList.remove('processing'); showResult(hash); }
+    var dz = document.getElementById('dropzone');
+    var fi = document.getElementById('fileInput');
+    if (dz) {
+      dz.addEventListener('dragover', function(e){e.preventDefault();dz.classList.add('dragover')});
+      dz.addEventListener('dragleave', function(){dz.classList.remove('dragover')});
+      dz.addEventListener('drop', async function(e){
+        e.preventDefault(); dz.classList.remove('dragover');
+        var f = e.dataTransfer.files[0];
+        if (f) showResult(await sha256(await f.arrayBuffer()));
       });
-      fileInput.addEventListener('change', async function() {
-        var file = this.files[0];
-        if (file) { dropzone.classList.add('processing'); var hash = await sha256(await file.arrayBuffer()); dropzone.classList.remove('processing'); showResult(hash); }
+      fi.addEventListener('change', async function(){
+        var f = this.files[0];
+        if (f) showResult(await sha256(await f.arrayBuffer()));
       });
     }
 
-    // ── Tabs ──────────────────────────────────────────────────
-    document.querySelectorAll('.tabs').forEach(function(tabGroup) {
-      tabGroup.querySelectorAll('.tab').forEach(function(tab) {
-        tab.addEventListener('click', function() {
-          tabGroup.querySelectorAll('.tab').forEach(function(t) { t.classList.remove('active'); });
-          tab.classList.add('active');
-          var target = tab.dataset.tab;
-          var section = tabGroup.parentElement;
-          section.querySelectorAll('.tab-panel').forEach(function(p) { p.classList.remove('active'); });
-          var panel = section.querySelector('#panel-' + target);
-          if (panel) panel.classList.add('active');
+    // Copy icons
+    document.querySelectorAll('.copy-icon').forEach(function(btn){
+      btn.addEventListener('click', function(e){
+        e.stopPropagation();
+        var code = btn.previousElementSibling;
+        if (!code) return;
+        var text = code.dataset.copy || code.textContent;
+        navigator.clipboard.writeText(text).then(function(){
+          btn.classList.add('copied');
+          setTimeout(function(){btn.classList.remove('copied')}, 1200);
         });
       });
     });
 
-    // ── Copy to Clipboard ─────────────────────────────────────
-    function copyText(text, btn) {
-      navigator.clipboard.writeText(text).then(function() {
-        btn.classList.add('copied');
-        var orig = btn.textContent;
-        if (orig === 'Copy') btn.textContent = 'Copied!';
-        setTimeout(function() { btn.classList.remove('copied'); if (btn.textContent === 'Copied!') btn.textContent = orig; }, 2000);
-      });
-    }
-
-    document.querySelectorAll('.btn-copy-inline').forEach(function(btn) {
-      btn.addEventListener('click', function() {
-        var code = btn.previousElementSibling;
-        var text = code.dataset.copy || code.textContent;
-        copyText(text, btn);
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(function(a){
+      a.addEventListener('click', function(e){
+        var el = document.querySelector(this.getAttribute('href'));
+        if (el) { e.preventDefault(); el.scrollIntoView({behavior:'smooth',block:'start'}); }
+        document.getElementById('nav').classList.remove('open');
       });
     });
 
-    var copyCid = document.getElementById('copyCid');
-    if (copyCid) copyCid.addEventListener('click', function() { copyText('QmPXtEsRwiWuaKmKNA569XAqFNVySN8pwTdGQrvcdpgtMa', copyCid); });
-
-    var copyDoi = document.getElementById('copyDoi');
-    if (copyDoi) copyDoi.addEventListener('click', function() { copyText('10.5281/zenodo.18646886', copyDoi); });
-
-    var copyBibtex = document.getElementById('copyBibtex');
-    if (copyBibtex) copyBibtex.addEventListener('click', function() { copyText(document.getElementById('bibtexBlock').textContent, copyBibtex); });
-
-    var copyApa = document.getElementById('copyApa');
-    if (copyApa) copyApa.addEventListener('click', function() { copyText(document.getElementById('apaBlock').textContent, copyApa); });
-
-    // ── Smooth Scroll ─────────────────────────────────────────
-    document.querySelectorAll('a[href^="#"]').forEach(function(link) {
-      link.addEventListener('click', function(e) {
-        var target = document.querySelector(this.getAttribute('href'));
-        if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
-        // Close mobile nav
-        var nav = document.getElementById('topnav');
-        if (nav) nav.classList.remove('open');
+    // Roots toggle
+    document.querySelectorAll('.roots-toggle').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        var p = document.getElementById(btn.dataset.target);
+        if (p) { p.classList.toggle('open'); btn.classList.toggle('open'); }
       });
     });
 
-    // ── Scroll Animation ──────────────────────────────────────
-    var observer = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry) {
-        if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); }
+    // Inscription reveal
+    document.querySelectorAll('.inscription').forEach(function(ins){
+      ins.addEventListener('click', function(){
+        var id = ins.dataset.reveal;
+        var el = document.getElementById(id);
+        if (el) { el.classList.toggle('open'); ins.classList.toggle('open'); }
       });
-    }, { threshold: 0.1 });
-    document.querySelectorAll('.animate-in, .contract-card, .tx-item, .merkle-card').forEach(function(el) {
-      observer.observe(el);
     });
 
-    // ── Fixed Nav ─────────────────────────────────────────────
-    var nav = document.getElementById('topnav');
-    window.addEventListener('scroll', function() {
-      if (window.scrollY > 80) nav.classList.add('scrolled');
-      else nav.classList.remove('scrolled');
+    // Pipeline stage reveal
+    document.querySelectorAll('.pipe-stage').forEach(function(stage){
+      stage.addEventListener('click', function(){
+        var id = stage.dataset.reveal;
+        document.querySelectorAll('.stage-panel').forEach(function(p){
+          if (p.id !== id) p.classList.remove('open');
+        });
+        document.querySelectorAll('.pipe-stage').forEach(function(s){
+          if (s !== stage) s.classList.remove('active');
+        });
+        var el = document.getElementById(id);
+        if (el) { el.classList.toggle('open'); stage.classList.toggle('active'); }
+      });
     });
 
-    // ── Mobile Nav Toggle ─────────────────────────────────────
+    // Nav
+    var nav = document.getElementById('nav');
+    window.addEventListener('scroll', function(){nav.classList.toggle('scrolled', window.scrollY > 40)});
     var toggle = document.getElementById('navToggle');
-    if (toggle) {
-      toggle.addEventListener('click', function() { nav.classList.toggle('open'); });
-    }
+    if (toggle) toggle.addEventListener('click', function(){nav.classList.toggle('open')});
 
-    // ── Counter Animation ─────────────────────────────────────
-    var counted = false;
-    function animateCounters() {
-      if (counted) return;
-      var pills = document.querySelectorAll('.stat-num');
-      if (!pills.length) return;
-      counted = true;
-      pills.forEach(function(el) {
-        var target = parseInt(el.textContent, 10);
-        if (isNaN(target)) return;
-        var start = 0;
-        var duration = 1200;
-        var startTime = null;
-        function step(ts) {
-          if (!startTime) startTime = ts;
-          var progress = Math.min((ts - startTime) / duration, 1);
-          var eased = 1 - Math.pow(1 - progress, 3);
-          el.textContent = Math.floor(eased * target);
-          if (progress < 1) requestAnimationFrame(step);
-          else el.textContent = target;
+    // Theme toggle (persisted in localStorage)
+    (function(){
+      var stored = localStorage.getItem('xxxiii-theme');
+      if (stored) document.documentElement.setAttribute('data-theme', stored);
+      var btn = document.getElementById('themeToggle');
+      if (btn) btn.addEventListener('click', function(){
+        var current = document.documentElement.getAttribute('data-theme');
+        var next = current === 'dark' ? 'light' : 'dark';
+        if (next === 'light') {
+          document.documentElement.removeAttribute('data-theme');
+          localStorage.removeItem('xxxiii-theme');
+        } else {
+          document.documentElement.setAttribute('data-theme', next);
+          localStorage.setItem('xxxiii-theme', next);
         }
-        requestAnimationFrame(step);
       });
-    }
-    var statsObs = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry) {
-        if (entry.isIntersecting) { animateCounters(); statsObs.unobserve(entry.target); }
-      });
-    }, { threshold: 0.3 });
-    var statsBar = document.querySelector('.stats-bar');
-    if (statsBar) statsObs.observe(statsBar);
-
+    })();
   })();
   </script>
 

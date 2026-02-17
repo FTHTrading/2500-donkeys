@@ -1,13 +1,13 @@
 ::: {.front-matter}
 
 ::: {.half-title}
-# PPE Puppetry
+# Private Placement Puppetry
 :::
 
 ::: {.title-page}
-# PPE Puppetry
+# Private Placement Puppetry
 
-### Ten Stories from the War Room
+### Thirteen Stories from the War Room
 
 Kidd James
 
@@ -49,7 +49,7 @@ and meant it
 ::: {.preface}
 ## A Note on What You Are About to Read
 
-These ten stories take place in the War Room.
+These thirteen stories take place in the War Room.
 
 The War Room is not a room. It is a WhatsApp group, a Zoom call, a Telegram channel, an email thread with seventeen CCs and no subject line. It is anywhere that urgency substitutes for verification and excitement replaces arithmetic.
 

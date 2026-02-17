@@ -1,9 +1,9 @@
 # Protocol Invariants
 
 **The 2,500 Donkeys — System Guarantees**
-**Version:** 1.0
+**Version:** 1.1
 
-These are the invariants that must hold at all times. If any invariant is violated, the protocol is in an inconsistent state and must be corrected before further operations.
+These are the invariants that must hold at all times across both works (novel and stories collection). If any invariant is violated, the protocol is in an inconsistent state and must be corrected before further operations.
 
 ---
 
@@ -55,6 +55,17 @@ Every file listed in `build/order.json` must exist in `manuscript/` or `artifact
 for entry in order.blocks:
     exists(manuscript/{entry.file}) OR exists(artifacts/{entry.artifact})
 ```
+
+### INV-C6: Stories Merkle Integrity
+The stories collection maintains two independent Merkle trees (manuscript + audio). The combined hash on-chain must equal `H(manuscriptRoot ‖ audioRoot)` where both roots are computed from the current source files.
+
+```
+stories_manuscriptRoot = merkle(stories/manuscript/*.md)
+stories_audioRoot = merkle(stories/audio/*.mp3)
+on_chain.combinedHash == sha256(stories_manuscriptRoot ‖ stories_audioRoot)
+```
+
+**Verification:** Run `node stories/stories-merkle.js` and `node stories/hash-stories-audio.js`; compare roots against KernelV2 Edition 2 on-chain.
 
 ---
 
@@ -181,10 +192,12 @@ NFT editions must reference an already-anchored on-chain edition. You cannot min
 
 | Check | Command | Frequency |
 |-------|---------|-----------|
-| Build determinism | `npm run build` + compare hash | Every commit |
+| Build determinism (novel) | `npm run build` + compare hash | Every commit |
+| Build determinism (stories) | `node stories/stories-merkle.js` + compare hash | Every commit |
 | On-chain audit | `node web3/scripts/audit.js` | After each anchor |
 | Manifest integrity | `node build/manifest.js` + diff | Every commit |
-| Edition count | `editionCount()` on-chain query | Weekly |
+| Edition count (LiteraryAnchor) | `editionCount()` on-chain query | Weekly |
+| Edition count (KernelV2) | `editionCount()` on-chain query | Weekly |
 
 ### Manual Checks
 
@@ -209,5 +222,5 @@ If an invariant is violated:
 ---
 
 *Invariants formalized: February 2026*
-*Protocol: The 2,500 Donkeys*
+*Protocol: The 2,500 Donkeys + Private Placement Puppetry*
 *Author: Kidd James*

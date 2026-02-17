@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
  * ══════════════════════════════════════════════════════════════
- *  PPE Puppetry — Audio Hash + Merkle Tree Builder
+ *  Private Placement Puppetry — Audio Hash + Merkle Tree Builder
  * ──────────────────────────────────────────────────────────────
  *  Hashes all rendered story audio files, builds a Merkle tree,
  *  computes audioEditionRoot = H(editionRoot || audioRoot),
@@ -42,7 +42,10 @@ const FILES = [
   "09-the-sovereign-whisper.mp3",
   "10-the-tokenized-mirage.mp3",
   "11-the-initiator-awakening.mp3",
-  "12-back-matter.mp3",
+  "13-the-financial-alchemists-punch-list.mp3",
+  "14-the-exclusivity-trap.mp3",
+  "15-the-off-ledger-revelation.mp3",
+  "16-back-matter.mp3",
 ];
 
 // ── Crypto helpers ───────────────────────────────────────────
@@ -78,7 +81,7 @@ function buildMerkleTree(leaves) {
 function main() {
   console.log("");
   console.log("══════════════════════════════════════════════════");
-  console.log("  PPE PUPPETRY — Audio Hash + Merkle Tree");
+  console.log("  PRIVATE PLACEMENT PUPPETRY — Audio Hash + Merkle Tree");
   console.log("══════════════════════════════════════════════════\n");
 
   if (!fs.existsSync(AUDIO_DIR)) {
@@ -144,7 +147,7 @@ function main() {
   // ── Assemble manifest ─────────────────────────────────────
   const manifest = {
     version: "IAPL-1",
-    title: "PPE Puppetry",
+    title: "Private Placement Puppetry",
     generatedAt: new Date().toISOString(),
 
     voice: {
@@ -217,7 +220,7 @@ function main() {
 function verify() {
   console.log("");
   console.log("══════════════════════════════════════════════════");
-  console.log("  PPE PUPPETRY — Audio Verification");
+  console.log("  PRIVATE PLACEMENT PUPPETRY — Audio Verification");
   console.log("══════════════════════════════════════════════════\n");
 
   if (!fs.existsSync(MANIFEST_FILE)) {

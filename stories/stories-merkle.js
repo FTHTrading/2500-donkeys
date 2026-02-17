@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * stories-merkle.js — Merkle Tree Builder for PPE Puppetry
+ * stories-merkle.js — Merkle Tree Builder for Private Placement Puppetry
  * ═══════════════════════════════════════════════════════════
  *
  * Produces per-leaf SHA-256 hashes and Merkle roots for:
@@ -41,7 +41,10 @@ const FILES = [
   "09-the-sovereign-whisper.md",
   "10-the-tokenized-mirage.md",
   "11-the-initiator-awakening.md",
-  "12-back-matter.md",
+  "13-the-financial-alchemists-punch-list.md",
+  "14-the-exclusivity-trap.md",
+  "15-the-off-ledger-revelation.md",
+  "16-back-matter.md",
 ];
 
 // ── Crypto helpers ───────────────────────────────────────────────
@@ -112,7 +115,7 @@ function getMerkleProof(layers, leafIndex) {
 function main() {
   console.log("");
   console.log("══════════════════════════════════════════════════");
-  console.log("  PPE PUPPETRY — Merkle Tree Builder");
+  console.log("  PRIVATE PLACEMENT PUPPETRY — Merkle Tree Builder");
   console.log("══════════════════════════════════════════════════\n");
 
   if (!fs.existsSync(DIST_DIR)) fs.mkdirSync(DIST_DIR, { recursive: true });

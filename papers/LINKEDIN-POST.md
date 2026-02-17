@@ -8,6 +8,8 @@
 
 I wrote a 75,000-word novel, then built a multi-layer provenance system to prove — cryptographically — when the manuscript was completed.
 
+Then I validated it with a second literary work — a 13-story short fiction collection — using a different TTS engine, a different tree topology, and the same protocol framework. Two works. One verification standard.
+
 Then I wrote the research paper documenting how it works.
 
 **"Deterministic Literary Publishing: A Multi-Layer Provenance Model for Verifiable Manuscripts"**

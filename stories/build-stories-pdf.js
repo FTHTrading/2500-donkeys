@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * build-stories-pdf.js — Print-ready PDF for "PPE Puppetry"
+ * build-stories-pdf.js — Print-ready PDF for "Private Placement Puppetry"
  *
  * Concatenates manuscript files in order → Pandoc → HTML → Puppeteer → PDF
  * Reuses the existing print-style.css for 5.5" × 8.5" digest trim.
@@ -30,7 +30,10 @@ const FILES = [
   "09-the-sovereign-whisper.md",
   "10-the-tokenized-mirage.md",
   "11-the-initiator-awakening.md",
-  "12-back-matter.md",
+  "13-the-financial-alchemists-punch-list.md",
+  "14-the-exclusivity-trap.md",
+  "15-the-off-ledger-revelation.md",
+  "16-back-matter.md",
 ];
 
 function buildBookHTML() {

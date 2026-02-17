@@ -19,13 +19,15 @@ url: https://xxxiii.io
 abstract: >-
   A multi-layer provenance architecture for literary publishing
   that replaces institutional trust with cryptographic verification.
-  The system combines Merkle tree hashing across four content
+  The system combines Merkle tree hashing across multiple content
   categories, content-addressed storage (IPFS), deterministic build
   pipelines, and append-only blockchain records to produce a
   five-layer verification stack. Formalized as the Literary Protocol
-  Standard (LPS-1) and validated through a complete deployment
-  accompanying a 75,000-word literary work across five smart
-  contracts on Polygon mainnet.
+  Standard (LPS-1) and validated through two literary works — a
+  75,000-word novel and a 13-story short fiction collection —
+  demonstrating protocol generalization across formats, TTS engines,
+  and tree topologies. Deployed across five smart contracts on
+  Polygon mainnet.
 keywords:
   - digital provenance
   - deterministic publishing
@@ -34,11 +36,13 @@ keywords:
   - reproducible pipelines
   - literary technology
   - on-chain anchoring
+  - short fiction
+  - audio provenance
 license: CC-BY-4.0
-version: "1.0"
+version: "1.1"
 date-released: "2026-02-15"
 doi: 10.5281/zenodo.18646886
 identifiers:
   - type: doi
     value: 10.5281/zenodo.18646886
-    description: Zenodo archive of v1.0 release
+    description: Zenodo archive of v1.1 release

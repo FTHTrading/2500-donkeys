@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * build-stories-epub.js — KDP-ready EPUB + DOCX for "PPE Puppetry"
+ * build-stories-epub.js — KDP-ready EPUB + DOCX for "Private Placement Puppetry"
  *
  * Concatenates stories manuscript → Pandoc → EPUB3 + DOCX backup.
  * Text-only (no images), fenced_divs for front/back matter styling.
@@ -31,7 +31,10 @@ const FILES = [
   "09-the-sovereign-whisper.md",
   "10-the-tokenized-mirage.md",
   "11-the-initiator-awakening.md",
-  "12-back-matter.md",
+  "13-the-financial-alchemists-punch-list.md",
+  "14-the-exclusivity-trap.md",
+  "15-the-off-ledger-revelation.md",
+  "16-back-matter.md",
 ];
 
 function buildKdpEpub() {
@@ -257,10 +260,13 @@ strong {
   fs.writeFileSync(cssPath, epubCSS, "utf-8");
   console.log(`  ✅ KDP stylesheet: stories-kdp-style.css`);
 
-  // 3. Cover image (use stories cover if available, fall back to main)
+  // 3. Cover image (use stories cover if available, fall back to dist or main)
   const storiesCover = path.join(IMAGES_DIR, "cover", "stories-cover-front.png");
+  const distCover = path.join(DIST_DIR, "stories-cover-front.png");
   const mainCover = path.join(IMAGES_DIR, "cover", "cover-front.png");
-  const coverPng = fs.existsSync(storiesCover) ? storiesCover : (fs.existsSync(mainCover) ? mainCover : null);
+  const coverPng = fs.existsSync(storiesCover) ? storiesCover
+    : fs.existsSync(distCover) ? distCover
+    : (fs.existsSync(mainCover) ? mainCover : null);
   const hasCover = coverPng !== null;
 
   // 4. Build EPUB

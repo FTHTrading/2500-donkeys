@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /**
- * anchor-stories.js — Anchor PPE Puppetry on Polygon
- * ═══════════════════════════════════════════════════
+ * anchor-stories.js — Anchor Private Placement Puppetry on Polygon
+ * ═════════════════════════════════════════════════
  *
- * Anchors the PPE Puppetry stories collection on the existing
+ * Anchors the Private Placement Puppetry stories collection on the existing
  * LiteraryAnchor contract (0x97f4...b890) on Polygon Mainnet.
  *
  * This creates a new edition entry with:
@@ -92,7 +92,7 @@ async function getProvider() {
 
 async function main() {
   console.log("\n══════════════════════════════════════════════════");
-  console.log("  PPE PUPPETRY — Polygon Anchor");
+  console.log("  PRIVATE PLACEMENT PUPPETRY — Polygon Anchor");
   console.log("══════════════════════════════════════════════════\n");
 
   // ── Load Merkle data ───────────────────────────────────────
@@ -129,7 +129,7 @@ async function main() {
   console.log();
 
   // ── Edition note ───────────────────────────────────────────
-  const note = `PPE Puppetry — ${merkle.fileCount} files, ${merkle.totalSizeBytes} bytes. Stories collection.${audioRoot ? " Audio rendered via Kokoro TTS." : ""}`;
+  const note = `Private Placement Puppetry — ${merkle.fileCount} files, ${merkle.totalSizeBytes} bytes. Stories collection.${audioRoot ? " Audio rendered via Kokoro TTS." : ""}`;
 
   if (!EXECUTE) {
     console.log("  [DRY RUN] Would anchor:");
@@ -229,8 +229,8 @@ async function main() {
 
   // ── 4. Save deployment receipt ─────────────────────────────
   const deployment = {
-    title: "PPE Puppetry",
-    subtitle: "Ten Stories from the War Room",
+    title: "Private Placement Puppetry",
+    subtitle: "Thirteen Stories from the War Room",
     author: "Kidd James",
     anchoredAt: new Date().toISOString(),
 
@@ -285,7 +285,7 @@ async function main() {
 
   // ── Summary ────────────────────────────────────────────────
   console.log("\n══════════════════════════════════════════════════");
-  console.log("  PPE PUPPETRY — Anchored on Polygon ✓");
+  console.log("  PRIVATE PLACEMENT PUPPETRY — Anchored on Polygon ✓");
   console.log("══════════════════════════════════════════════════");
   console.log(`  LiteraryAnchor TX:  ${tx1.hash}`);
   console.log(`  KernelV2 TX:        ${tx2.hash}`);

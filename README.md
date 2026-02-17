@@ -29,19 +29,20 @@
 | **I** | [Overview](#i-overview) | What this is and why it exists |
 | **II** | [System Architecture](#ii-system-architecture) | Five-layer provenance model |
 | **III** | [Smart Contract Architecture](#iii-smart-contract-architecture) | Five verified contracts on Polygon |
-| **IV** | [Merkle Tree System](#iv-merkle-tree-system) | Four-tree content integrity |
+| **IV** | [Merkle Tree System](#iv-merkle-tree-system) | Six-tree content integrity (4 novel + 2 stories) |
 | **V** | [Project Structure](#v-project-structure) | Repository layout and file map |
 | **VI** | [The Novel](#vi-the-novel) | 31 narrative blocks and 5 artifact exhibits |
-| **VII** | [Build Pipeline](#vii-build-pipeline) | Deterministic compilation system |
-| **VIII** | [Publishing Pipeline](#viii-publishing-pipeline) | EPUB, PDF, and cover generation |
-| **IX** | [Deployment Registry](#ix-deployment-registry) | All five contract deployments |
-| **X** | [Test Suite](#x-test-suite) | 146 tests across 5 contracts |
-| **XI** | [Academic Infrastructure](#xi-academic-infrastructure) | DOI, ORCID, research paper, citations |
-| **XII** | [Protocol Specification (LPS-1)](#xii-protocol-specification-lps-1) | Literary Protocol Standard v1 |
-| **XIII** | [Developer Quick Start](#xiii-developer-quick-start) | Setup, build, test, deploy |
-| **XIV** | [Audio Provenance (IAPL-1)](#xiv-audio-provenance-iapl-1) | Immutable Audio Provenance Layer |
-| **XV** | [Intellectual Property](#xv-intellectual-property) | Ownership, rights, legal clarity |
-| **XVI** | [License](#xvi-license) | Dual license structure |
+| **VII** | [The Stories Collection](#vii-the-stories-collection) | Protocol validation node — 13 satirical stories |
+| **VIII** | [Build Pipeline](#viii-build-pipeline) | Deterministic compilation system |
+| **IX** | [Publishing Pipeline](#ix-publishing-pipeline) | EPUB, PDF, and cover generation |
+| **X** | [Deployment Registry](#x-deployment-registry) | All five contract deployments |
+| **XI** | [Test Suite](#xi-test-suite) | 146 tests across 5 contracts |
+| **XII** | [Academic Infrastructure](#xii-academic-infrastructure) | DOI, ORCID, research paper, citations |
+| **XIII** | [Protocol Specification (LPS-1)](#xiii-protocol-specification-lps-1) | Literary Protocol Standard v1 |
+| **XIV** | [Developer Quick Start](#xiv-developer-quick-start) | Setup, build, test, deploy |
+| **XV** | [Audio Provenance (IAPL-1)](#xv-audio-provenance-iapl-1) | Immutable Audio Provenance Layer |
+| **XVI** | [Intellectual Property](#xvi-intellectual-property) | Ownership, rights, legal clarity |
+| **XVII** | [License](#xvii-license) | Dual license structure |
 
 ---
 
@@ -59,6 +60,7 @@ The story dissects how **narrative outpaces verification in opaque financial eco
 | Layer | Purpose | Status |
 |:------|:--------|:------:|
 | **The Novel** | Literary satire. 31 chapters + 5 artifacts. Observational, not preachy. | ✅ Complete |
+| **The Stories** | Short fiction collection. 13 satirical stories + audio narration. Protocol validation node. | ✅ Anchored |
 | **The Protocol** | Five-contract on-chain architecture. Merkle trees. IPFS. Bitcoin timestamp. | ✅ Deployed |
 | **The Paper** | Peer-verifiable research paper. DOI-archived. 14 system invariants. | ✅ Published |
 
@@ -66,12 +68,13 @@ The story dissects how **narrative outpaces verification in opaque financial eco
 
 | Metric | Value |
 |--------|-------|
-| **Words** | ~75,000 |
-| **Chapters** | 31 blocks + 5 artifacts |
+| **Works** | 2 — *The 2,500 Donkeys* (novel) + *Private Placement Puppetry* (stories) |
+| **Words** | ~75,000 (novel) + ~30,000 (stories) |
+| **Chapters** | 31 blocks + 5 artifacts (novel) · 13 stories + front/back matter (stories) |
 | **Smart Contracts** | 5 (all verified on Polygonscan) |
 | **Tests** | 146 passing |
-| **Merkle Trees** | 4 (manuscript, artifact, image, prompt) |
-| **IPFS CIDs** | 2 editions pinned |
+| **Merkle Trees** | 4 (novel: manuscript, artifact, image, prompt) + 2 (stories: manuscript, audio) |
+| **IPFS CIDs** | 3 editions pinned |
 | **Deployment Cost** | ~$2.50 total |
 | **DOI** | [10.5281/zenodo.18646886](https://doi.org/10.5281/zenodo.18646886) |
 | **ORCID** | [0009-0008-8425-939X](https://orcid.org/0009-0008-8425-939X) |
@@ -245,7 +248,9 @@ classDiagram
 
 ## IV. Merkle Tree System
 
-Four independent Merkle trees hash every content type. Their roots are combined into a single **Edition Root** — the cryptographic fingerprint of the entire literary work.
+Six independent Merkle trees hash every content type across both works. Their roots are combined into **Edition Roots** — the cryptographic fingerprints of each literary work.
+
+### Novel — 4 Trees → Edition Root
 
 ```
 ┌─────────────────────────────────────────────────────────┐
@@ -271,13 +276,33 @@ Four independent Merkle trees hash every content type. Their roots are combined 
 | Image | 10 | Cover + 9 chapter illustrations |
 | Prompt | 10 | AI generation prompts for all images |
 
-**Verification:**
-```bash
-node build/merkle.js          # Rebuild all 4 trees + edition root
-cat dist/merkle.json          # Inspect roots, leaves, and proofs
+### Stories — 2 Trees → Combined Hash
+
+```
+┌───────────────────────────────────────────────┐
+│               COMBINED HASH                    │
+│     H(manuscriptRoot ‖ audioRoot)              │
+├──────────────────────┬────────────────────────┤
+│ manuscript Root      │ audio Root             │
+├──────────────────────┼────────────────────────┤
+│ 00-front-matter  ██  │ 01-the-deal.mp3    ██  │
+│ 01-the-deal      ██  │ 02-the-due...      ██  │
+│ ...              ██  │ ...                ██  │
+│ 16-back-matter   ██  │ 13-the-final...    ██  │
+└──────────────────────┴────────────────────────┘
 ```
 
-Any single-byte change to any chapter, artifact, or image invalidates the corresponding Merkle root and, by extension, the Edition Root.
+| Tree | Leaves | What It Hashes |
+|------|:------:|----------------|
+| Manuscript | 16 | 13 stories + front/back matter (SHA-256) |
+| Audio | 13 | Kokoro TTS narrations (SHA-256) |
+
+### Verification
+
+```bash
+node build/merkle.js          # Rebuild novel trees (4) + edition root
+node stories/stories-merkle.js # Rebuild stories trees (2) + combined hash
+```
 
 ---
 
@@ -367,7 +392,22 @@ Any single-byte change to any chapter, artifact, or image invalidates the corres
 │       ├── audio-config.json          Voice + model configuration
 │       └── rendered/                  31 MP3 files (gitignored)
 │
-├── 📋 PROTOCOL SPECIFICATION
+├── � STORIES COLLECTION (Private Placement Puppetry)
+│   └── stories/
+│       ├── manuscript/                13 stories + front/back matter (16 files)
+│       │   ├── 00-front-matter.md     Half-title, title page, ToC
+│       │   ├── 01-the-deal.md → 13-the-final-placement.md
+│       │   └── 16-back-matter.md      Colophon + provenance certificate
+│       ├── book-metadata.json         Stories metadata
+│       ├── stories-merkle.js          2 Merkle trees (manuscript + audio)
+│       ├── narrate-stories-kokoro.py  Kokoro TTS (local, offline)
+│       ├── hash-stories-audio.js      Stories audio Merkle tree
+│       ├── anchor-stories.js          On-chain anchor (LiteraryAnchor + KernelV2)
+│       ├── build-stories-epub.js      EPUB3 generator
+│       ├── build-stories-pdf.js       Print PDF via Puppeteer
+│       └── build-stories-cover.js     Cover PDF generator
+│
+├── �📋 PROTOCOL SPECIFICATION
 │   ├── LPS-1.md                       Literary Protocol Standard v1
 │   ├── IAPL-1.md                      Immutable Audio Provenance Layer v1
 │   ├── LITERARY_PROTOCOL.md           State machine + roles
@@ -424,7 +464,56 @@ Any single-byte change to any chapter, artifact, or image invalidates the corres
 
 ---
 
-## VII. Build Pipeline
+## VII. The Stories Collection
+
+*Private Placement Puppetry: Thirteen Stories from the War Room* is the second protocol node — a short fiction collection that validates the LPS-1 pipeline generalizes beyond long-form manuscript to short fiction with independent audio provenance.
+
+### Protocol Significance
+
+The stories collection proves the protocol is not a one-off artifact but a reproducible system. A different manuscript format (13 independent stories vs. 31 sequential blocks), a different TTS engine (Kokoro CPU vs. ElevenLabs API), and a different Merkle tree topology (2 trees vs. 4 trees) all pass through the same state machine: `DRAFT → COMPILED → HASHED → PINNED → ANCHORED → PUBLISHED`.
+
+### Stories
+
+| # | File | Title |
+|:-:|------|-------|
+| 1 | `01-mt799-is-not-money.md` | MT799 Is Not Money |
+| 2 | `02-the-bank-that-didnt-exist.md` | The Bank That Didn't Exist |
+| 3 | `03-commission-above-supply-depth.md` | Commission Above Supply Depth |
+| 4 | `04-the-ghost-monetizer.md` | The Ghost Monetizer |
+| 5 | `05-the-mandate-that-couldnt-sign.md` | The Mandate That Couldn't Sign |
+| 6 | `06-vault-without-address.md` | Vault Without Address |
+| 7 | `07-the-compliance-wall.md` | The Compliance Wall |
+| 8 | `08-bonded-but-never-seen.md` | Bonded But Never Seen |
+| 9 | `09-the-sovereign-whisper.md` | The Sovereign Whisper |
+| 10 | `10-the-tokenized-mirage.md` | The Tokenized Mirage |
+| 11 | `11-the-initiator-awakening.md` | The Initiator Awakening |
+| 12 | `13-the-financial-alchemists-punch-list.md` | The Financial Alchemist's Punch List |
+| 13 | `14-the-exclusivity-trap.md` | The Exclusivity Trap |
+
+### On-Chain Anchor
+
+| Field | Value |
+|-------|-------|
+| **LiteraryAnchor** | Edition index 5 — [`0xd2c9c49d...`](https://polygonscan.com/tx/0xd2c9c49d02d31594c5963775973f0646c11382cbba1301e4ef756261491abad3) |
+| **KernelV2** | Edition index 2 — Frozen + ECDSA signed |
+| **IPFS CID** | [`QmahPEAZuWz3dFa55BsNgBEkjBzvWm5M3xbGaRYwm581LV`](https://ipfs.io/ipfs/QmahPEAZuWz3dFa55BsNgBEkjBzvWm5M3xbGaRYwm581LV) |
+| **SHA-256** | `77bb9f5e3f3a6908f96f2519e6b20b7ee15351b08ba962792da4306bfb3a123a` |
+| **Merkle Root** | `a73efc2af74e71d59daac1f050a1976e786ebc6fb2ace1e826f41517342173d3` |
+| **Audio** | 13 MP3s via Kokoro TTS (CPU, free, unlimited) |
+| **Audio Root** | `c0049f05391cd72d7738042efd4bc35b3102db82d8ba205e4f66a84afee995aa` |
+
+### Build Commands (Stories)
+
+```bash
+node stories/stories-merkle.js         # Merkle tree → dist/stories-merkle.json
+python stories/narrate-stories-kokoro.py  # TTS → audio/rendered-stories/*.mp3
+node stories/hash-stories-audio.js     # Audio Merkle → dist/stories-audio-manifest.json
+node stories/anchor-stories.js --execute  # Anchor on LiteraryAnchor + KernelV2
+```
+
+---
+
+## VIII. Build Pipeline
 
 ### Deterministic Compilation
 
@@ -545,7 +634,7 @@ Output: `dist/verification-report.json` (machine-readable)
 
 ---
 
-## VIII. Publishing Pipeline
+## IX. Publishing Pipeline
 
 Full book generation from manuscript source to distributable formats:
 
@@ -582,7 +671,7 @@ Prompts are defined in `images/image-prompts.json`. Generated images are tracked
 
 ---
 
-## IX. Deployment Registry
+## X. Deployment Registry
 
 ### Genesis — LiteraryAnchor
 
@@ -606,17 +695,31 @@ Prompts are defined in `images/image-prompts.json`. Generated images are tracked
 
 ### On-Chain State
 
+#### LiteraryAnchor (`0x97f4...b890`)
+
 | Field | Value |
 |-------|-------|
-| **editionCount()** | 4 (Genesis + triplicate Ed. 2) |
+| **editionCount()** | 6 (Genesis + triplicate Ed. 2 + placeholder Ed. 3 + Stories Ed. 4) |
 | **genesis().ipfsCID** | `QmVQ79NM3qxAsBpftTG4YhD4KV9sUEmM3WwFrc5vs5g8vK` |
-| **latest().ipfsCID** | `QmPXtEsRwiWuaKmKNA569XAqFNVySN8pwTdGQrvcdpgtMa` |
-| **AuthorIdentity.penName** | "Kidd James" |
-| **AuthorIdentity.author** | `0xC91668184736BF75C4ecE37473D694efb2A43978` |
+| **latest().ipfsCID** | `QmahPEAZuWz3dFa55BsNgBEkjBzvWm5M3xbGaRYwm581LV` |
+
+#### PublishingKernelV2 (`0xca9F...C037`)
+
+| Field | Value |
+|-------|-------|
+| **editionCount()** | 3 (Novel canonical + placeholder + Stories Ed. 2) |
+| **Edition 2 (Stories)** | manuscriptRoot: `a73efc2a...`, frozen, canonical |
+
+#### AuthorIdentity (`0xB9ff...3170`)
+
+| Field | Value |
+|-------|-------|
+| **penName** | "Kidd James" |
+| **author** | `0xC91668184736BF75C4ecE37473D694efb2A43978` |
 
 ---
 
-## X. Test Suite
+## XI. Test Suite
 
 **146 tests** across 5 contract test suites. All passing.
 
@@ -645,7 +748,7 @@ npx hardhat test           # Same thing
 
 ---
 
-## XI. Academic Infrastructure
+## XII. Academic Infrastructure
 
 ### Research Paper
 
@@ -691,7 +794,7 @@ npx hardhat test           # Same thing
 
 ---
 
-## XII. Protocol Specification (LPS-1)
+## XIII. Protocol Specification (LPS-1)
 
 The protocol is formalized as **Literary Protocol Standard v1 (LPS-1)** — a reproducible pattern for any author.
 
@@ -726,7 +829,7 @@ Full specification: [`VPS-1.md`](VPS-1.md) (Unified Standard) · [`LPS-1.md`](LP
 
 ---
 
-## XIII. Developer Quick Start
+## XIV. Developer Quick Start
 
 ### Prerequisites
 
@@ -793,7 +896,7 @@ npm run audit:chain
 
 ---
 
-## XIV. Audio Provenance (IAPL-1)
+## XV. Audio Provenance (IAPL-1)
 
 The **Immutable Audio Provenance Layer** extends the protocol to spoken-word narration. Each of the 31 manuscript blocks maps to one MP3 file, rendered via ElevenLabs TTS. Audio gets its own Merkle tree and provenance chain, running **parallel** to the text layer.
 
@@ -846,11 +949,11 @@ Full specification: [`IAPL-1.md`](IAPL-1.md)
 
 ---
 
-## XV. Intellectual Property
+## XVI. Intellectual Property
 
 ### Ownership Statement
 
-> **The 2,500 Donkeys** and all associated narrative content, characters, artifacts, universe lore, and publishing frameworks are intellectual property of the author, **Kidd James** (Kevan Burns). Blockchain anchoring provides cryptographic proof of authorship and timestamping. The on-chain identity binding is verified via ECDSA signature against the author wallet.
+> **The 2,500 Donkeys** and **Private Placement Puppetry** and all associated narrative content, characters, artifacts, universe lore, and publishing frameworks are intellectual property of the author, **Kidd James** (Kevan Burns). Blockchain anchoring provides cryptographic proof of authorship and timestamping. The on-chain identity binding is verified via ECDSA signature against the author wallet.
 
 ### Provenance Evidence Chain
 
@@ -880,7 +983,7 @@ Full specification: [`IAPL-1.md`](IAPL-1.md)
 
 ---
 
-## XVI. License
+## XVII. License
 
 ### Dual License Structure
 

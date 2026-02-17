@@ -303,5 +303,81 @@ creating a verifiable link between the physical book and the on-chain record.
 
 ---
 
-*Publishing pipeline built for The 2,500 Donkeys literary protocol.*
-*All formats generated from a single Markdown source of truth.*
+## XII. Stories Collection — Private Placement Puppetry
+
+The stories collection validates that the publishing protocol generalizes beyond a single novel. Where the novel uses 4 Merkle trees and ElevenLabs TTS, the stories use 2 Merkle trees and Kokoro TTS — proving format-independence.
+
+### Architecture
+
+```
+stories/
+  manuscript/              → 16 files (13 stories + front/back matter)
+  book-metadata.json       → Title, author, trim spec
+  stories-merkle.js        → 2 Merkle trees (manuscript + audio)
+  narrate-stories-kokoro.py → Kokoro TTS (local, offline)
+  hash-stories-audio.js    → Audio Merkle tree builder
+  anchor-stories.js        → On-chain anchor (LiteraryAnchor + KernelV2)
+  build-stories-epub.js    → EPUB3 generator
+  build-stories-pdf.js     → Print PDF via Puppeteer
+  build-stories-cover.js   → Cover PDF generator
+```
+
+### Build Commands
+
+```bash
+# Full stories pipeline
+node stories/stories-merkle.js       # Build 2 Merkle trees
+python stories/narrate-stories-kokoro.py  # TTS narration (13 stories)
+node stories/hash-stories-audio.js   # Audio Merkle tree
+node stories/anchor-stories.js       # Anchor to Polygon
+
+# Publishing
+node stories/build-stories-epub.js   # → dist/private-placement-puppetry.epub
+node stories/build-stories-pdf.js    # → dist/private-placement-puppetry-print.pdf
+node stories/build-stories-cover.js  # → dist/stories-cover.pdf
+```
+
+### Stories Manifest
+
+| # | Story | File |
+|:-:|-------|------|
+| 1 | The Deal | `01-the-deal.md` |
+| 2 | The Due Diligence | `02-the-due-diligence.md` |
+| 3 | The Compliance Officer | `03-the-compliance-officer.md` |
+| 4 | The Wire Transfer | `04-the-wire-transfer.md` |
+| 5 | The Pitch Deck | `05-the-pitch-deck.md` |
+| 6 | The Conference Call | `06-the-conference-call.md` |
+| 7 | The Warehouse Receipt | `07-the-warehouse-receipt.md` |
+| 8 | The Exit Strategy | `08-the-exit-strategy.md` |
+| 9 | The Board Meeting | `09-the-board-meeting.md` |
+| 10 | The Audit Trail | `10-the-audit-trail.md` |
+| 11 | The Settlement | `11-the-settlement.md` |
+| 12 | The Prospectus | `12-the-prospectus.md` |
+| 13 | The Final Placement | `13-the-final-placement.md` |
+
+### Merkle Trees (Stories)
+
+| Tree | Leaves | What It Hashes |
+|------|:------:|----------------|
+| Manuscript | 16 | 13 stories + front/back matter (SHA-256) |
+| Audio | 13 | Kokoro TTS narrations (SHA-256) |
+
+Combined hash: `H(manuscriptRoot ‖ audioRoot)` — anchored on-chain.
+
+### Protocol Differentiation
+
+| Dimension | Novel | Stories |
+|-----------|-------|--------|
+| **Merkle trees** | 4 (manuscript, artifact, image, prompt) | 2 (manuscript, audio) |
+| **TTS engine** | ElevenLabs (cloud API) | Kokoro (local, offline) |
+| **Content blocks** | 31 narrative blocks | 16 files (13 stories + matter) |
+| **Audio files** | 31 MP3s | 13 MP3s |
+| **Anchor contract** | LiteraryAnchor only | LiteraryAnchor + KernelV2 |
+| **IPFS CID** | `QmPXtE...gtMa` | `QmahPE...581LV` |
+
+This differentiation proves LPS-1 is a **generalizable protocol**, not a one-off pipeline for a specific book format.
+
+---
+
+*Publishing pipeline built for the 2,500 Donkeys literary protocol.*
+*Two works — one novel, one story collection — validated through a single deterministic framework.*
