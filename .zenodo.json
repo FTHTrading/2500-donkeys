@@ -1,8 +1,8 @@
 {
   "title": "Deterministic Literary Publishing: A Multi-Layer Provenance Model for Verifiable Manuscripts",
-  "description": "A multi-layer provenance architecture for literary publishing that replaces institutional trust with cryptographic verification. Combines Merkle tree hashing, content-addressed storage, deterministic build pipelines, and append-only blockchain records into a five-layer verification stack. Formalized as the Literary Protocol Standard (LPS-1) and validated through two literary works \u2014 a 75,000-word novel and a 13-story short fiction collection \u2014 demonstrating protocol generalization across formats, TTS engines, and tree topologies.",
+  "description": "A multi-layer provenance architecture for literary publishing that replaces institutional trust with cryptographic verification. Combines Merkle tree hashing, content-addressed storage, deterministic build pipelines, and append-only blockchain records into a six-layer verification stack. Formalized as the Literary Protocol Standard (LPS-1) and validated through two literary works \u2014 a 75,000-word novel and a 13-story short fiction collection \u2014 demonstrating protocol generalization across formats, TTS engines, and tree topologies. Deployed across seven smart contracts on Polygon mainnet.",
   "upload_type": "publication",
-  "publication_type": "workingpaper",
+  "publication_type": "report",
   "creators": [
     {
       "name": "Burns, Kevan",

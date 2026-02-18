@@ -140,14 +140,17 @@ The reference implementation demonstrates:
 
 ## Budget Categories
 
-| Category | Scope |
-|----------|-------|
-| **Protocol Development** | Specification authorship, security review, cryptographic analysis |
-| **Reference Implementation** | Smart contract development, test coverage, CI/CD infrastructure |
-| **Interoperability** | Test suite development, alternative implementation support |
-| **Documentation** | Specification maintenance, integration guides, academic publication |
-| **Infrastructure** | IPFS pinning, RPC endpoint provisioning, monitoring |
-| **Community** | Contributor onboarding, reviewer engagement, governance facilitation |
+| Category | Estimated Cost | Scope |
+|----------|---------------|-------|
+| **Protocol Development** | $15,000 – $25,000 | Multi-author contracts, zk-proof system, specification amendments |
+| **Security Audit** | $20,000 – $35,000 | Third-party audit of 7 deployed contracts, formal verification of critical state transitions |
+| **Reference Implementation** | $10,000 – $15,000 | SDK development, API endpoints, test coverage expansion |
+| **Documentation** | $5,000 – $8,000 | Integration guides, OpenAPI specification, npm packaging |
+| **Infrastructure** | $3,000 – $5,000 | IPFS pinning (annual), RPC endpoint provisioning, monitoring |
+| **Community** | $5,000 – $8,000 | Contributor onboarding, conference presentation, governance facilitation |
+| **Total** | **$58,000 – $96,000** | |
+
+Budget is structured for phased accountability. Each phase has discrete deliverables with on-chain verification. Contract deployments are publicly verifiable. All code is MIT-licensed and pushed to the public repository.
 
 ---
 

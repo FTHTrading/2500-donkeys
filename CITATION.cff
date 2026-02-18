@@ -22,11 +22,11 @@ abstract: >-
   The system combines Merkle tree hashing across multiple content
   categories, content-addressed storage (IPFS), deterministic build
   pipelines, and append-only blockchain records to produce a
-  five-layer verification stack. Formalized as the Literary Protocol
+  six-layer verification stack. Formalized as the Literary Protocol
   Standard (LPS-1) and validated through two literary works — a
   75,000-word novel and a 13-story short fiction collection —
   demonstrating protocol generalization across formats, TTS engines,
-  and tree topologies. Deployed across five smart contracts on
+  and tree topologies. Deployed across seven smart contracts on
   Polygon mainnet.
 keywords:
   - digital provenance

@@ -1,0 +1,9 @@
+# Cloudflare Pages Security Headers
+# Applied to all pages served from this deployment
+
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://plausible.io; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://polygon-rpc.com https://rpc.ankr.com https://polygon.llamarpc.com https://plausible.io; frame-ancestors 'none'
