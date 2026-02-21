@@ -3,16 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>XXXIII — LPS-1 Open Provenance Standard</title>
-  <meta name="description" content="LPS-1: an open standard for deterministic digital provenance. 7 verified contracts on Polygon Mainnet. MIT licensed. Level 5 compliant.">
-  <meta property="og:title" content="XXXIII — LPS-1 Open Provenance Standard">
-  <meta property="og:description" content="An open standard for deterministic digital provenance. 7 verified contracts on Polygon. 293 tests. Level 5 compliant. MIT licensed.">
+  <title>XXXIII — The 2,500 Donkeys | Stories Anchored On-Chain</title>
+  <meta name="description" content="Two literary works anchored immutably on-chain. 31 chapters, 75,000 words, every paragraph hashed. Read, listen, and verify — built on the LPS-1 open provenance standard.">
+  <meta property="og:title" content="XXXIII — The 2,500 Donkeys | Stories Anchored On-Chain">
+  <meta property="og:description" content="A literary investigation into how belief becomes infrastructure. 31 chapters, 75,000 words, anchored on Polygon Mainnet. Read the story. Verify every word.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://xxxiii.io">
   <meta property="og:image" content="https://xxxiii.io/images/cover/cover-front.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="XXXIII — LPS-1 Open Provenance Standard">
-  <meta name="twitter:description" content="An open standard for deterministic digital provenance. 7 verified contracts on Polygon. 293 tests. Level 5 compliant. MIT licensed.">
+  <meta name="twitter:title" content="XXXIII — The 2,500 Donkeys | Stories Anchored On-Chain">
+  <meta name="twitter:description" content="A literary investigation into how belief becomes infrastructure. 31 chapters, 75,000 words, anchored on Polygon Mainnet. Read the story. Verify every word.">
   <meta name="twitter:image" content="https://xxxiii.io/images/cover/cover-front.png">
   <meta name="author" content="Kidd James">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.88em' font-size='72' font-family='serif' fill='%23111'>X</text></svg>">
@@ -34,8 +34,19 @@
         "@type": "WebSite",
         "name": "XXXIII",
         "url": "https://xxxiii.io",
-        "description": "LPS-1: an open standard for deterministic digital provenance. 7 verified contracts on Polygon Mainnet.",
+        "description": "Two literary works anchored immutably on-chain. The 2,500 Donkeys and Private Placement Programs — read, listen, and verify every word via the LPS-1 open provenance standard.",
         "author": { "@type": "Person", "name": "Kidd James", "url": "https://orcid.org/0009-0008-8425-939X" }
+      },
+      {
+        "@type": "Book",
+        "name": "The 2,500 Donkeys",
+        "author": { "@type": "Person", "name": "Kidd James" },
+        "url": "https://xxxiii.io/read.html",
+        "numberOfPages": 31,
+        "inLanguage": "en",
+        "genre": "Literary Fiction",
+        "description": "A literary investigation into how belief becomes infrastructure. 31 chapters, 75,000 words, anchored on Polygon Mainnet.",
+        "datePublished": "2026-02-15"
       },
       {
         "@type": "SoftwareApplication",
@@ -66,14 +77,13 @@
   <nav class="nav" id="nav">
     <a href="#" class="nav-brand">XXXIII</a>
     <div class="nav-links" id="navLinks">
-      <a href="#abstract">Declaration</a>
-      <a href="#lpsstack">Stack</a>
+      <a href="#stories">Stories</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="#works">Works</a>
       <a href="#chainstatus">Live</a>
       <a href="#verify">Verify</a>
-      <a href="#compliance">Compliance</a>
-      <a href="#roadmap">Roadmap</a>
-      <a href="#implement">Implement</a>
-      <a href="#works">Works</a>
+      <a href="#lpsstack">Protocol</a>
+      <a href="#deepprotocol">Specification</a>
       <a href="https://github.com/FTHTrading/LPS-1-Reference-Implementation" target="_blank" rel="noopener">GitHub</a>
     </div>
     <div class="nav-actions">
@@ -91,39 +101,115 @@
   <!-- ━━━ Ⅰ Hero ━━━ -->
   <header class="hero" id="hero">
     <div class="hero-watermark" aria-hidden="true">XXXIII</div>
-    <div class="hero-inner">
-      <h1 class="hero-title">XXXIII</h1>
-      <p class="hero-subtitle">Open Standard for Deterministic Digital Provenance</p>
-      <p class="hero-subline">Deployed live on Polygon Mainnet. Independently verifiable. MIT licensed.</p>
-      <div class="hero-verse">
-        <p>SHA-256 content hashing at word, paragraph, and chapter level.</p>
-        <p>Merkle tree commitments per edition with on-chain root anchoring.</p>
-        <p>Forward-only lifecycle. Zero upgradeability. Client-side verification.</p>
-      </div>
+    <div class="hero-inner hero-inner-story">
+      <p class="hero-kicker">A novel by Kidd James</p>
+      <h1 class="hero-title">The 2,500<br>Donkeys</h1>
+      <p class="hero-subtitle">A literary investigation into how belief becomes infrastructure</p>
+      <blockquote class="hero-quote">
+        <p>&ldquo;This manuscript was minted before the deal closed.&rdquo;</p>
+      </blockquote>
       <div class="hero-actions">
-        <a href="#verify" class="btn btn-primary">Verify in 90 Seconds</a>
-        <a href="#chainstatus" class="btn">View Live Contracts</a>
-        <a href="#abstract" class="btn">Read Specification</a>
+        <a href="read.html" class="btn btn-primary">Read The Story</a>
+        <a href="listen.html" class="btn">Listen</a>
+        <a href="gallery.html" class="btn">Gallery</a>
       </div>
-      <p class="hero-chain">2026 · Polygon Mainnet · Chain ID 137</p>
-      <div class="hero-role-badges">
-        <span class="hero-role-badge role-spec">SPECIFICATION</span>
-        <span class="hero-role-badge role-impl">REFERENCE IMPLEMENTATION</span>
-      </div>
+      <p class="hero-stats">31 chapters &middot; 75,000 words &middot; 36 audio files &middot; Every paragraph hashed</p>
+      <p class="hero-chain">Anchored on Polygon Mainnet &middot; Every edition frozen on-chain &middot; Independently verifiable</p>
       <div class="hero-read-links">
-        <a href="read.html" class="hero-read-link">Read · The 2,500 Donkeys</a>
-        <a href="read-ppp.html" class="hero-read-link">Read · Private Placement Programs</a>
-        <a href="listen.html" class="hero-read-link">Listen</a>
-      </div>
-      <div class="proto-badges">
-        <span class="proto-badge">Solidity 0.8.19</span>
-        <span class="proto-badge">Hardhat</span>
-        <span class="proto-badge">OpenZeppelin</span>
-        <span class="proto-badge">Deterministic Build</span>
-        <span class="proto-badge">MIT</span>
+        <a href="read.html" class="hero-read-link">Read &middot; The 2,500 Donkeys</a>
+        <a href="read-ppp.html" class="hero-read-link">Read &middot; Private Placement Programs</a>
+        <a href="#stories" class="hero-read-link">Explore both works &darr;</a>
       </div>
     </div>
   </header>
+
+  <!-- ━━━ The Stories ━━━ -->
+  <section class="sect" id="stories">
+    <div class="sect-inner-wide sect-centered">
+      <span class="sect-numeral">THE WORKS</span>
+      <h2 class="sect-heading">The Stories</h2>
+      <p class="sect-lead">Two complete literary works. Anchored immutably on-chain. Read them. Listen to them. Verify every word.</p>
+
+      <div class="story-showcase">
+        <div class="story-card story-card-primary">
+          <div class="story-card-cover">
+            <img src="images/cover/cover-front.webp" alt="The 2,500 Donkeys — Cover" class="story-cover-img" loading="lazy" width="300" height="420">
+          </div>
+          <div class="story-card-content">
+            <span class="story-edition">Edition II &middot; Frozen on-chain</span>
+            <h3 class="story-card-title">The 2,500 Donkeys</h3>
+            <p class="story-card-desc">A novel about how stories become deals, deals become commissions, and commissions become the only real thing in a system where the product itself is optional. Gold, donkeys, carbon credits, humanitarian corridors &mdash; and the brokers who believe in all of it.</p>
+            <blockquote class="story-card-quote">
+              <p>&ldquo;If you believe all of this, why would you not believe anything?&rdquo;</p>
+            </blockquote>
+            <div class="story-card-stats">
+              <span>31 chapters</span>
+              <span>75,000+ words</span>
+              <span>36 audio files</span>
+              <span>6 Merkle trees</span>
+              <span>293 tests</span>
+            </div>
+            <div class="story-card-actions">
+              <a href="read.html" class="btn btn-primary btn-sm">Read</a>
+              <a href="listen.html" class="btn btn-sm">Listen</a>
+              <a href="gallery.html" class="btn btn-sm">Gallery</a>
+              <a href="https://ipfs.io/ipfs/QmPXtEsRwiWuaKmKNA569XAqFNVySN8pwTdGQrvcdpgtMa" target="_blank" rel="noopener" class="btn btn-sm">IPFS</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="story-card">
+          <div class="story-card-cover">
+            <img src="images/chapters/cover-donkeys.webp" alt="Private Placement Programs" class="story-cover-img" loading="lazy" width="300" height="420">
+          </div>
+          <div class="story-card-content">
+            <span class="story-edition">Edition I &middot; Frozen on-chain</span>
+            <h3 class="story-card-title">Private Placement Programs</h3>
+            <p class="story-card-desc">Fourteen interconnected stories exploring the architecture of financial belief &mdash; from SWIFT codes to settlement layers, humanitarian corridors to carbon credit pipelines. The companion work that preceded the novel.</p>
+            <blockquote class="story-card-quote">
+              <p>&ldquo;The deal did not close. The hash remains.&rdquo;</p>
+            </blockquote>
+            <div class="story-card-stats">
+              <span>14 stories</span>
+              <span>17 audio files</span>
+              <span>3 transactions</span>
+              <span>3 Merkle roots</span>
+            </div>
+            <div class="story-card-actions">
+              <a href="read-ppp.html" class="btn btn-primary btn-sm">Read</a>
+              <a href="https://polygonscan.com/tx/0xe932f79746419cde7077b8f50b813ec73d6abb900f6512465a4cd3110313031e" target="_blank" rel="noopener" class="btn btn-sm">Anchor TX</a>
+              <a href="https://polygonscan.com/tx/0xb3072bb4757125a5a4caa852988c485f6ac1fff443e9557f0102ec76e132d774" target="_blank" rel="noopener" class="btn btn-sm">Freeze TX</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="story-excerpt">
+        <h4 class="excerpt-heading">From Block 0 &mdash; Genesis Hash</h4>
+        <div class="excerpt-text">
+          <p>There is a moment &mdash; and every broker knows it, even if none would name it &mdash; when the deal stops being real and starts being inevitable.</p>
+          <p>Not inevitable because the gold exists. Not because the refinery has confirmed throughput. Not because the assay is validated, the shipping corridor secured, or the vault inspection completed.</p>
+          <p>Inevitable because enough people have said it is.</p>
+        </div>
+        <a href="read.html" class="btn btn-sm" style="margin-top: 1.5rem;">Continue Reading &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ━━━ Chapter Gallery Strip ━━━ -->
+  <div class="chapter-gallery-strip">
+    <div class="chapter-gallery-scroll">
+      <img src="images/chapters/ch-00-genesis.png" alt="Genesis" class="chapter-thumb" loading="lazy">
+      <img src="images/chapters/ch-01-parking-lot.png" alt="Parking Lots" class="chapter-thumb" loading="lazy">
+      <img src="images/chapters/ch-02-paper.png" alt="Paper" class="chapter-thumb" loading="lazy">
+      <img src="images/chapters/ch-03-whatsapp.png" alt="WhatsApp" class="chapter-thumb" loading="lazy">
+      <img src="images/chapters/ch-04-donkeys.png" alt="Donkeys" class="chapter-thumb" loading="lazy">
+      <img src="images/chapters/ch-05-procession.png" alt="Procession" class="chapter-thumb" loading="lazy">
+      <img src="images/chapters/ch-06-humanitarian.png" alt="Humanitarian" class="chapter-thumb" loading="lazy">
+      <img src="images/chapters/ch-07-silence.png" alt="Silence" class="chapter-thumb" loading="lazy">
+      <img src="images/chapters/ch-ep-genesis-remains.png" alt="Epilogue" class="chapter-thumb" loading="lazy">
+    </div>
+  </div>
 
   <!-- ━━━ Metrics Bar ━━━ -->
   <div class="metrics-bar" id="metricsBar">
@@ -1347,9 +1433,9 @@ https://doi.org/10.5281/zenodo.18646886</code></pre>
   <footer class="footer">
     <div class="footer-inner">
       <p class="footer-brand">XXXIII</p>
-      <p class="footer-line">LPS-1 Open Provenance Standard</p>
+      <p class="footer-line">Stories Anchored On-Chain</p>
       <p class="footer-year">2026</p>
-      <p class="footer-hashes">Canonical · Edition Root · On-Chain Anchor</p>
+      <p class="footer-hashes">31 Chapters &middot; 75,000 Words &middot; Every Edition Frozen</p>
       <div class="footer-nav">
         <a href="library.html">Read</a>
         <a href="listen.html">Listen</a>
