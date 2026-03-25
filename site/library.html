@@ -1,803 +1,309 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>XXXIII — Library</title>
-  <meta name="description" content="Read the works of Kidd James. Three volumes anchored on Polygon, verified on IPFS, readable here.">
-  <meta property="og:title" content="XXXIII — Library">
-  <meta property="og:description" content="Three volumes by Kidd James. SHA-256 verified, Merkle-rooted, IPFS-pinned, Polygon-anchored. Read, listen, verify.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://xxxiii.io/library.html">
-  <meta property="og:image" content="https://xxxiii.io/images/cover/cover-front.png">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="XXXIII — Library">
-  <meta name="twitter:description" content="LPS-1 open provenance standard. Three volumes anchored on Polygon. Kidd James.">
-  <meta name="twitter:image" content="https://xxxiii.io/images/cover/cover-front.png">
-  <meta name="author" content="Kidd James">
+  <meta name="description" content="Three literary works by Kidd James. Every word hashed, every edition frozen on Polygon Mainnet. Read, listen, verify.">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.88em' font-size='72' font-family='serif' fill='%23111'>X</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Inter:wght@300;400;500&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <link rel="canonical" href="https://xxxiii.io/library.html">
-  <meta property="og:locale" content="en_US">
-  <meta property="og:site_name" content="XXXIII">
-  <script>/* Apply saved theme before first paint */(function(){var t=localStorage.getItem('xxxiii-theme');if(t)document.documentElement.setAttribute('data-theme',t)})()</script>
+  <link rel="canonical" href="https://donkeys.xxxiii.io/library.html">
+  <script>(function(){var t=localStorage.getItem('xxxiii-theme');if(t)document.documentElement.setAttribute('data-theme',t)})()</script>
   <script defer data-domain="xxxiii.io" src="https://plausible.io/js/script.js"></script>
-  <style>
-    .library-hero {
-      min-height: 35vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 100px 24px 40px;
-    }
-
-    .library-hero .sect-numeral {
-      font-family: 'Cinzel', serif;
-      font-size: 1rem;
-      color: var(--gold);
-      letter-spacing: 0.2em;
-      margin-bottom: 12px;
-    }
-
-    .library-hero h1 {
-      font-family: 'Cinzel', serif;
-      font-size: clamp(1.6rem, 4vw, 2.4rem);
-      color: var(--text);
-      letter-spacing: 0.05em;
-      margin-bottom: 8px;
-    }
-
-    .library-hero .lead {
-      color: var(--text-secondary);
-      font-family: 'Inter', sans-serif;
-      font-size: 0.95rem;
-      max-width: 480px;
-    }
-
-    .library-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 28px;
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 24px 80px;
-    }
-
-    @media (max-width: 900px) {
-      .library-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 24px;
-      }
-    }
-
-    @media (max-width: 580px) {
-      .library-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-      }
-    }
-
-    .book-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      padding: 0;
-      overflow: hidden;
-      transition: border-color 0.3s, box-shadow 0.3s;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .book-card:hover {
-      border-color: var(--gold);
-      box-shadow: 0 8px 40px rgba(0,0,0,0.08);
-    }
-
-    .book-cover {
-      width: 100%;
-      aspect-ratio: 3 / 4;
-      object-fit: cover;
-      display: block;
-      border-bottom: 1px solid var(--border);
-    }
-
-    /* ━━━ PPP Puppet Theatre ━━━ */
-    .puppet-scene {
-      width: 100%;
-      aspect-ratio: 3 / 4;
-      position: relative;
-      overflow: hidden;
-      border-bottom: 1px solid var(--border);
-      background: linear-gradient(180deg,
-        #0a0a12 0%,
-        #0e0e18 30%,
-        #12121e 60%,
-        #181828 100%
-      );
-    }
-
-    /* Stage curtains */
-    .puppet-scene .curtain-left,
-    .puppet-scene .curtain-right {
-      position: absolute;
-      top: 0;
-      width: 18%;
-      height: 100%;
-      z-index: 3;
-    }
-
-    .puppet-scene .curtain-left {
-      left: 0;
-      background: linear-gradient(90deg,
-        #8b1a1a 0%, #6b1515 30%, #4a0e0e 70%, rgba(74,14,14,0.0) 100%
-      );
-    }
-
-    .puppet-scene .curtain-right {
-      right: 0;
-      background: linear-gradient(-90deg,
-        #8b1a1a 0%, #6b1515 30%, #4a0e0e 70%, rgba(74,14,14,0.0) 100%
-      );
-    }
-
-    /* Curtain drape folds */
-    .puppet-scene .curtain-left::before,
-    .puppet-scene .curtain-right::before {
-      content: '';
-      position: absolute;
-      top: 0; bottom: 0;
-      width: 100%;
-      background: repeating-linear-gradient(180deg,
-        transparent 0px,
-        rgba(0,0,0,0.15) 8px,
-        transparent 16px,
-        rgba(139,26,26,0.2) 24px
-      );
-    }
-
-    /* Pelmet / valance */
-    .puppet-scene .pelmet {
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 14%;
-      background: linear-gradient(180deg, #7a1818 0%, #5a1010 60%, #3a0808 100%);
-      z-index: 4;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .puppet-scene .pelmet::after {
-      content: '';
-      position: absolute;
-      bottom: -8px; left: 0; right: 0;
-      height: 16px;
-      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 16'%3E%3Cpath d='M0 0 Q15 16 30 0 Q45 16 60 0' fill='%235a1010' stroke='%23c9a84c' stroke-width='0.5'/%3E%3C/svg%3E") repeat-x;
-      background-size: 60px 16px;
-    }
-
-    .puppet-scene .pelmet-text {
-      font-family: 'Cinzel', serif;
-      color: #c9a84c;
-      font-size: 0.6rem;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      text-shadow: 0 1px 4px rgba(0,0,0,0.5);
-      z-index: 5;
-    }
-
-    /* Stage floor */
-    .puppet-scene .stage-floor {
-      position: absolute;
-      bottom: 0; left: 12%; right: 12%;
-      height: 22%;
-      background: linear-gradient(180deg,
-        #3d2b1a 0%,
-        #4a3420 30%,
-        #2e1f12 100%
-      );
-      border-top: 2px solid #5a4025;
-      z-index: 2;
-    }
-
-    .puppet-scene .stage-floor::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 100%;
-      background: repeating-linear-gradient(90deg,
-        transparent 0px,
-        rgba(0,0,0,0.1) 1px,
-        transparent 2px,
-        transparent 40px
-      );
-    }
-
-    /* Spotlight */
-    .puppet-scene .spotlight {
-      position: absolute;
-      top: 14%;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 70%;
-      height: 70%;
-      background: radial-gradient(ellipse at 50% 30%,
-        rgba(201,168,76,0.12) 0%,
-        rgba(201,168,76,0.05) 40%,
-        transparent 70%
-      );
-      z-index: 1;
-      pointer-events: none;
-    }
-
-    /* Marionette strings container */
-    .puppet-scene .strings-container {
-      position: absolute;
-      top: 14%;
-      left: 20%;
-      right: 20%;
-      height: 60%;
-      z-index: 2;
-    }
-
-    /* Crossbar at top */
-    .puppet-scene .crossbar {
-      position: absolute;
-      top: 14%;
-      left: 25%;
-      right: 25%;
-      height: 3px;
-      background: linear-gradient(90deg, #8b6914, #c9a84c, #8b6914);
-      z-index: 5;
-      border-radius: 2px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.4);
-    }
-
-    /* Title on puppet scene */
-    .puppet-scene .scene-title {
-      position: absolute;
-      bottom: 6%;
-      left: 0; right: 0;
-      text-align: center;
-      z-index: 5;
-    }
-
-    .puppet-scene .scene-title h3 {
-      font-family: 'Cinzel', serif;
-      color: #c9a84c;
-      font-size: 1.2rem;
-      letter-spacing: 0.06em;
-      text-shadow: 0 2px 16px rgba(0,0,0,0.8), 0 0 30px rgba(201,168,76,0.25);
-      margin: 0;
-    }
-
-    .puppet-scene .scene-title .cover-sub {
-      font-family: 'Inter', sans-serif;
-      color: #a1a1aa;
-      font-size: 0.7rem;
-      font-style: italic;
-      text-shadow: 0 1px 6px rgba(0,0,0,0.6);
-      display: block;
-      margin-top: 3px;
-    }
-
-    .book-info {
-      padding: 24px;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .book-info h3 {
-      font-family: 'Cinzel', serif;
-      font-size: 1.1rem;
-      color: var(--text);
-      letter-spacing: 0.03em;
-    }
-
-    .book-info .book-meta {
-      font-family: 'Inter', sans-serif;
-      color: var(--text-tertiary);
-      font-size: 0.78rem;
-      line-height: 1.6;
-    }
-
-    .book-info .book-desc {
-      font-family: 'Inter', sans-serif;
-      color: var(--text-secondary);
-      font-size: 0.82rem;
-      line-height: 1.65;
-      flex: 1;
-    }
-
-    .book-actions {
-      display: flex;
-      gap: 10px;
-      margin-top: 8px;
-    }
-
-    .book-actions a {
-      flex: 1;
-      text-align: center;
-      padding: 14px 20px;
-      border: 1px solid var(--gold);
-      color: var(--gold);
-      text-decoration: none;
-      font-family: 'Cinzel', serif;
-      font-size: 0.9rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      border-radius: 3px;
-      transition: all 0.2s;
-      font-weight: 600;
-    }
-
-    .book-actions a:hover {
-      background: var(--gold);
-      color: var(--bg);
-    }
-
-    .book-actions a.primary {
-      background: var(--gold);
-      color: var(--bg);
-    }
-
-    .book-actions a.primary:hover {
-      background: transparent;
-      color: var(--gold);
-    }
-
-    .library-footer {
-      text-align: center;
-      padding: 40px 24px;
-      border-top: 1px solid var(--border);
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    .library-footer a {
-      color: var(--gold);
-      text-decoration: none;
-      font-family: 'Inter', sans-serif;
-      font-size: 0.8rem;
-      letter-spacing: 0.08em;
-      border-bottom: 1px solid transparent;
-      transition: border-color 0.2s;
-    }
-
-    .library-footer a:hover {
-      border-bottom-color: var(--gold);
-    }
-
-    /* ─── Crypto War Room Chain Cover ─── */
-    .chain-scene {
-      width: 100%;
-      aspect-ratio: 3 / 4;
-      position: relative;
-      overflow: hidden;
-      border-bottom: 1px solid var(--border);
-      background: linear-gradient(180deg,
-        #060612 0%,
-        #080818 35%,
-        #0a0a1a 70%,
-        #0d0d20 100%
-      );
-    }
-
-    .chain-glow {
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(ellipse at 50% 50%,
-        rgba(34,197,94,0.07) 0%,
-        transparent 65%
-      );
-      pointer-events: none;
-    }
-
-    .chain-grid {
-      position: absolute;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(34,197,94,0.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(34,197,94,0.04) 1px, transparent 1px);
-      background-size: 30px 30px;
-    }
-
-    .chain-svg {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-    }
-
-    .chain-title {
-      position: absolute;
-      bottom: 7%;
-      left: 0; right: 0;
-      text-align: center;
-      z-index: 5;
-    }
-
-    .chain-title h3 {
-      font-family: 'Cinzel', serif;
-      color: #22c55e;
-      font-size: 1.1rem;
-      letter-spacing: 0.06em;
-      text-shadow: 0 0 20px rgba(34,197,94,0.4), 0 2px 12px rgba(0,0,0,0.8);
-      margin: 0;
-    }
-
-    .chain-title .cover-sub {
-      font-family: 'IBM Plex Mono', monospace;
-      color: #4ade80;
-      font-size: 0.6rem;
-      letter-spacing: 0.12em;
-      text-shadow: 0 1px 6px rgba(0,0,0,0.6);
-      display: block;
-      margin-top: 4px;
-      opacity: 0.7;
-    }
-  </style>
 </head>
 <body>
 
-  <!-- ━━━ Nav ━━━ -->
+  <div class="page-bg"></div>
+
+  <!-- Nav -->
   <nav class="nav" id="nav">
     <a href="/" class="nav-brand">XXXIII</a>
-    <div class="nav-links">
-      <a href="library.html" class="nav-link-btn" style="border-color: var(--gold); color: var(--gold);">Library</a>
-      <a href="/#works" class="nav-link">Works</a>
-      <a href="/#contracts" class="nav-link">Contracts</a>
-      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
-        <svg class="theme-icon sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-        <svg class="theme-icon moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    <div class="nav-links" id="navLinks">
+      <a href="library.html" class="active">Library</a>
+      <a href="protocol.html">Protocol</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="https://github.com/FTHTrading/LPS-1-Reference-Implementation" target="_blank" rel="noopener">GitHub</a>
+    </div>
+    <div class="nav-actions">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
       </button>
     </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span></button>
   </nav>
 
-  <!-- ━━━ Library Hero ━━━ -->
-  <div class="library-hero">
-    <span class="sect-numeral">LIBRARY</span>
-    <h1>Choose a Book</h1>
-    <p class="lead">Three volumes. Pick one and start reading.</p>
+  <!-- Chain ticker -->
+  <div class="chain-ticker" aria-hidden="true">
+    <div class="chain-ticker-inner" id="tickerInner">
+      <span class="chain-ticker-item"><span class="dot"></span>Polygon Mainnet &middot; Chain ID 137</span>
+      <span class="chain-ticker-item"><span class="dot"></span>3 Books &middot; 60 Stories &middot; 75,000+ Words</span>
+      <span class="chain-ticker-item"><span class="dot"></span>6 Merkle Trees &middot; 293 Tests Passing</span>
+      <span class="chain-ticker-item"><span class="dot"></span>LPS-1 Open Provenance Standard</span>
+      <span class="chain-ticker-item"><span class="dot"></span>IPFS Pinned &middot; Bitcoin Timestamped</span>
+      <span class="chain-ticker-item"><span class="dot"></span>Edition Frozen &middot; Non-Upgradeable Contracts</span>
+      <span class="chain-ticker-item"><span class="dot"></span>7 Verified Contracts &middot; L5 Compliance</span>
+      <span class="chain-ticker-item"><span class="dot"></span>Polygon Mainnet &middot; Chain ID 137</span>
+      <span class="chain-ticker-item"><span class="dot"></span>3 Books &middot; 60 Stories &middot; 75,000+ Words</span>
+      <span class="chain-ticker-item"><span class="dot"></span>6 Merkle Trees &middot; 293 Tests Passing</span>
+      <span class="chain-ticker-item"><span class="dot"></span>LPS-1 Open Provenance Standard</span>
+      <span class="chain-ticker-item"><span class="dot"></span>IPFS Pinned &middot; Bitcoin Timestamped</span>
+      <span class="chain-ticker-item"><span class="dot"></span>Edition Frozen &middot; Non-Upgradeable Contracts</span>
+      <span class="chain-ticker-item"><span class="dot"></span>7 Verified Contracts &middot; L5 Compliance</span>
+    </div>
   </div>
 
-  <!-- ━━━ Book Grid ━━━ -->
-  <div class="library-grid">
+  <!-- Hero -->
+  <header class="lib-hero">
+    <p class="lib-hero-sub">The XXXIII Library</p>
+    <h1>Three Works by Kidd James</h1>
+    <p>Every word hashed. Every edition frozen on Polygon Mainnet.<br>Read, listen, and verify &mdash; no trust required.</p>
+  </header>
 
-    <!-- 2,500 Donkeys -->
-    <div class="book-card">
-      <picture>
-        <source srcset="images/chapters/cover-donkeys.webp" type="image/webp">
-        <img src="images/chapters/cover-donkeys.png" alt="The 2,500 Donkeys — hyper-realistic donkeys on a green grass path with gold satchels" class="book-cover" loading="lazy">
-      </picture>
+  <!-- Book Grid -->
+  <section class="book-grid-section">
+    <div class="book-grid">
 
-      <div class="book-info">
-        <h3>The 2,500 Donkeys</h3>
-        <p class="book-meta">31 chapters &middot; 75,000+ words &middot; 36 audio files</p>
-        <p class="book-desc">A novel about phantom gold deals, WhatsApp broker chains, and the financial architecture that connects them. Edition II, frozen on Polygon.</p>
-        <div class="book-actions">
-          <a href="read.html" class="primary">Read</a>
-          <a href="listen.html">Listen</a>
+      <!-- ── Book 1: The 2,500 Donkeys ── -->
+      <article class="book-card glass-card">
+        <div class="book-card-cover">
+          <picture>
+            <source srcset="images/cover/cover-front.webp" type="image/webp">
+            <img src="images/cover/cover-front.png" alt="The 2,500 Donkeys — hyper-realistic donkeys on a green grass path with gold satchels" loading="lazy">
+          </picture>
+          <div class="book-card-cover-shine"></div>
+          <span class="book-card-badge">Edition II &middot; On-chain</span>
+        </div>
+        <div class="book-card-body">
+          <span class="book-card-edition">31 chapters &middot; 75,000+ words</span>
+          <h2 class="book-card-title">The 2,500 Donkeys</h2>
+          <p class="book-card-author">by Kidd James</p>
+          <p class="book-card-desc">A novel about phantom gold deals, WhatsApp broker chains, and the financial architecture that connects them. How stories become deals, deals become commissions, and commissions become the only real thing in a system where the product itself is optional.</p>
+          <div class="book-card-tags">
+            <span class="book-card-tag">Novel</span>
+            <span class="book-card-tag">36 audio files</span>
+            <span class="book-card-tag">6 Merkle trees</span>
+            <span class="book-card-tag">293 tests</span>
+          </div>
+          <div class="book-card-actions">
+            <a href="read.html" class="btn btn-primary btn-sm">Read Now</a>
+            <a href="listen.html" class="btn btn-sm">Listen</a>
+            <a href="gallery.html" class="btn btn-sm">Gallery</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- ── Book 2: Private Placement Programs ── -->
+      <article class="book-card glass-card">
+        <div class="book-card-cover">
+          <div class="book-cover-svg-lg" style="background:linear-gradient(180deg,#0a0a12,#12121e,#181828);position:absolute;inset:0;overflow:hidden;">
+            <div style="position:absolute;top:0;left:0;right:0;height:14%;background:linear-gradient(180deg,#7a1818,#5a1010,#3a0808);z-index:4;display:flex;align-items:center;justify-content:center;">
+              <span style="font-family:'Cinzel',serif;color:#c9a84c;font-size:0.6rem;letter-spacing:0.3em;text-transform:uppercase;">Private Placement Programs</span>
+            </div>
+            <div style="position:absolute;top:14%;left:50%;transform:translateX(-50%);width:70%;height:70%;background:radial-gradient(ellipse at 50% 30%,rgba(201,168,76,0.15),transparent 70%);"></div>
+            <div style="position:absolute;left:0;top:0;width:18%;height:100%;background:linear-gradient(90deg,#8b1a1a,#6b1515,rgba(74,14,14,0));z-index:3;"></div>
+            <div style="position:absolute;right:0;top:0;width:18%;height:100%;background:linear-gradient(-90deg,#8b1a1a,#6b1515,rgba(74,14,14,0));z-index:3;"></div>
+            <div style="position:absolute;bottom:0;left:12%;right:12%;height:22%;background:linear-gradient(180deg,#3d2b1a,#4a3420,#2e1f12);border-top:2px solid #5a4025;z-index:2;"></div>
+            <svg viewBox="0 0 300 220" style="position:absolute;top:14%;left:10%;width:80%;height:70%;z-index:2;" xmlns="http://www.w3.org/2000/svg">
+              <line x1="80" y1="0" x2="60" y2="120" stroke="#c9a84c" stroke-width="0.8" opacity="0.7"><animate attributeName="x2" values="58;62;58" dur="5s" repeatCount="indefinite"/></line>
+              <line x1="145" y1="0" x2="135" y2="100" stroke="#c9a84c" stroke-width="0.9" opacity="0.8"><animate attributeName="x2" values="133;137;133" dur="4s" repeatCount="indefinite"/></line>
+              <line x1="155" y1="0" x2="165" y2="100" stroke="#c9a84c" stroke-width="0.9" opacity="0.8"><animate attributeName="x2" values="163;167;163" dur="4.2s" repeatCount="indefinite"/></line>
+              <line x1="220" y1="0" x2="240" y2="110" stroke="#c9a84c" stroke-width="0.8" opacity="0.7"><animate attributeName="x2" values="238;242;238" dur="5.2s" repeatCount="indefinite"/></line>
+              <g transform="translate(45,95)">
+                <circle cx="23" cy="8" r="10" fill="#d4a87a"/><rect x="8" y="18" width="30" height="40" rx="4" fill="#2a2a42"/>
+                <rect x="21" y="20" width="4" height="18" rx="1" fill="#c9a84c"/><polygon points="21,38 25,38 23,44" fill="#b8942e"/>
+                <rect x="0" y="22" width="8" height="28" rx="3" fill="#2a2a42" transform="rotate(-8,4,22)"/>
+                <rect x="38" y="22" width="8" height="28" rx="3" fill="#2a2a42" transform="rotate(8,42,22)"/>
+              </g>
+              <g transform="translate(120,80)">
+                <circle cx="30" cy="8" r="12" fill="#c9956a"/><rect x="10" y="20" width="40" height="50" rx="5" fill="#1e1e36"/>
+                <rect x="28" y="22" width="4" height="22" rx="1" fill="#8b1a1a"/><polygon points="28,44 32,44 30,52" fill="#6b1515"/>
+                <rect x="2" y="24" width="10" height="34" rx="4" fill="#1e1e36" transform="rotate(-12,7,24)"/>
+                <rect x="48" y="24" width="10" height="34" rx="4" fill="#1e1e36" transform="rotate(5,53,24)"/>
+              </g>
+              <g transform="translate(205,95)">
+                <circle cx="23" cy="5" r="10" fill="#b8886a"/><rect x="6" y="15" width="34" height="45" rx="4" fill="#3a2a1a"/>
+                <line x1="6" y1="15" x2="6" y2="60" stroke="#c9a84c" stroke-width="1.5"/><line x1="40" y1="15" x2="40" y2="60" stroke="#c9a84c" stroke-width="1.5"/>
+                <rect x="0" y="20" width="8" height="28" rx="3" fill="#3a2a1a" transform="rotate(10,4,20)"/>
+                <rect x="38" y="20" width="8" height="28" rx="3" fill="#3a2a1a" transform="rotate(-6,42,20)"/>
+              </g>
+            </svg>
+            <div style="position:absolute;bottom:6%;left:0;right:0;text-align:center;z-index:5;">
+              <span style="font-family:'Cinzel',serif;color:#c9a84c;font-size:1.4rem;text-shadow:0 2px 16px rgba(0,0,0,0.9);">PPP</span>
+              <span style="display:block;font-family:'Inter',sans-serif;color:#a1a1aa;font-size:0.75rem;font-style:italic;margin-top:4px;">Fourteen Stories from the War Room</span>
+            </div>
+          </div>
+          <div class="book-card-cover-shine"></div>
+          <span class="book-card-badge">Edition I &middot; On-chain</span>
+        </div>
+        <div class="book-card-body">
+          <span class="book-card-edition">14 stories &middot; Frozen</span>
+          <h2 class="book-card-title">Private Placement Programs</h2>
+          <p class="book-card-author">by Kidd James</p>
+          <p class="book-card-desc">Fourteen interconnected stories exploring the architecture of financial belief &mdash; SWIFT codes, settlement layers, humanitarian corridors, carbon credit pipelines. Satirical short fiction about phantom deals, ghost monetizers, and the puppet masters who pull the strings.</p>
+          <div class="book-card-tags">
+            <span class="book-card-tag">14 stories</span>
+            <span class="book-card-tag">17 audio files</span>
+            <span class="book-card-tag">3 Merkle roots</span>
+            <span class="book-card-tag">Anchor TX</span>
+          </div>
+          <div class="book-card-actions">
+            <a href="read-ppp.html" class="btn btn-primary btn-sm">Read Now</a>
+            <a href="https://polygonscan.com/tx/0xe932f79746419cde7077b8f50b813ec73d6abb900f6512465a4cd3110313031e" target="_blank" rel="noopener" class="btn btn-sm">On-Chain</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- ── Book 3: Crypto War Room ── -->
+      <article class="book-card glass-card">
+        <div class="book-card-cover">
+          <div class="book-cover-svg-lg" style="background:linear-gradient(180deg,#060612,#080818,#0d0d20);position:absolute;inset:0;overflow:hidden;">
+            <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 50% 40%,rgba(34,197,94,0.12),transparent 60%);"></div>
+            <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(34,197,94,0.05) 1px,transparent 1px),linear-gradient(90deg,rgba(34,197,94,0.05) 1px,transparent 1px);background-size:32px 32px;"></div>
+            <svg viewBox="0 0 300 400" style="position:absolute;inset:0;width:100%;height:100%;" xmlns="http://www.w3.org/2000/svg">
+              <rect x="20" y="60" width="80" height="52" rx="5" fill="none" stroke="#22c55e" stroke-width="1.5" opacity="0.8"/>
+              <text x="60" y="82" text-anchor="middle" font-family="monospace" font-size="8" fill="#22c55e" opacity="0.9">BLOCK 01</text>
+              <text x="60" y="95" text-anchor="middle" font-family="monospace" font-size="6" fill="#16a34a" opacity="0.6">0xDe3A8f...</text>
+              <line x1="100" y1="86" x2="120" y2="86" stroke="#22c55e" stroke-width="1.5" opacity="0.5" stroke-dasharray="4,3"/>
+              <rect x="120" y="60" width="80" height="52" rx="5" fill="none" stroke="#22c55e" stroke-width="1.5" opacity="0.8"/>
+              <text x="160" y="82" text-anchor="middle" font-family="monospace" font-size="8" fill="#22c55e" opacity="0.9">BLOCK 07</text>
+              <text x="160" y="95" text-anchor="middle" font-family="monospace" font-size="6" fill="#16a34a" opacity="0.6">0x8F1bCa...</text>
+              <line x1="200" y1="86" x2="220" y2="86" stroke="#22c55e" stroke-width="1.5" opacity="0.5" stroke-dasharray="4,3"/>
+              <rect x="220" y="60" width="68" height="52" rx="5" fill="none" stroke="#22c55e" stroke-width="1.5" opacity="0.8"/>
+              <text x="254" y="82" text-anchor="middle" font-family="monospace" font-size="8" fill="#22c55e" opacity="0.9">BLOCK 15</text>
+              <text x="254" y="95" text-anchor="middle" font-family="monospace" font-size="6" fill="#16a34a" opacity="0.6">0xC4aF2b...</text>
+              <rect x="80" y="160" width="140" height="52" rx="5" fill="none" stroke="#22c55e" stroke-width="1" opacity="0.4"/>
+              <text x="150" y="182" text-anchor="middle" font-family="monospace" font-size="7" fill="#22c55e" opacity="0.5">GENESIS HASH</text>
+              <text x="150" y="198" text-anchor="middle" font-family="monospace" font-size="5.5" fill="#16a34a" opacity="0.4">0x3a9...frozen</text>
+              <text x="30" y="250" font-family="monospace" font-size="6" fill="#16a34a" opacity="0.35">gas: 21000</text>
+              <text x="130" y="270" font-family="monospace" font-size="6" fill="#16a34a" opacity="0.3">nonce: 1337</text>
+              <text x="200" y="255" font-family="monospace" font-size="6" fill="#16a34a" opacity="0.35">CONFIRMED</text>
+              <text x="150" y="330" text-anchor="middle" font-family="monospace" font-size="7" fill="#22c55e" opacity="0.3" letter-spacing="4">POLYGON · 137</text>
+            </svg>
+            <div style="position:absolute;bottom:7%;left:0;right:0;text-align:center;z-index:5;">
+              <span style="font-family:'Cinzel',serif;color:#22c55e;font-size:1.3rem;letter-spacing:0.06em;text-shadow:0 0 24px rgba(34,197,94,0.5),0 2px 12px rgba(0,0,0,0.9);">Crypto War Room</span>
+              <span style="display:block;font-family:'IBM Plex Mono',monospace;color:#4ade80;font-size:0.65rem;letter-spacing:0.12em;margin-top:5px;opacity:0.8;">15 Chain Blocks &middot; Volume III</span>
+            </div>
+          </div>
+          <div class="book-card-cover-shine"></div>
+          <span class="book-card-badge" style="color:#22c55e;">Volume III &middot; AI Audio</span>
+        </div>
+        <div class="book-card-body">
+          <span class="book-card-edition">15 stories &middot; AI-narrated</span>
+          <h2 class="book-card-title">Crypto War Room</h2>
+          <p class="book-card-author">by Kidd James</p>
+          <p class="book-card-desc">Fifteen stories from inside the crypto scam ecosystem. From fake USDT screenshots to multi-protocol exploits, each story maps the architecture of belief at the intersection of technology and fraud. Every word hashed, every story anchored.</p>
+          <div class="book-card-tags">
+            <span class="book-card-tag">15 stories</span>
+            <span class="book-card-tag">AI audio</span>
+            <span class="book-card-tag">Polygon anchored</span>
+          </div>
+          <div class="book-card-actions">
+            <a href="read-crypto.html" class="btn btn-primary btn-sm">Read &amp; Listen</a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- Chapter strip -->
+  <div class="chapter-strip" style="margin-bottom:0;">
+    <img src="images/chapters/ch-00-genesis.png" alt="Genesis" loading="lazy">
+    <img src="images/chapters/ch-01-parking-lot.png" alt="Parking Lots" loading="lazy">
+    <img src="images/chapters/ch-02-paper.png" alt="Paper" loading="lazy">
+    <img src="images/chapters/ch-03-whatsapp.png" alt="WhatsApp" loading="lazy">
+    <img src="images/chapters/ch-04-donkeys.png" alt="Donkeys" loading="lazy">
+    <img src="images/chapters/ch-05-procession.png" alt="Procession" loading="lazy">
+    <img src="images/chapters/ch-06-humanitarian.png" alt="Humanitarian" loading="lazy">
+    <img src="images/chapters/ch-07-silence.png" alt="Silence" loading="lazy">
+    <img src="images/chapters/ch-ep-genesis-remains.png" alt="Epilogue" loading="lazy">
+    <img src="images/photo/deal-handoff.webp" alt="Deal" loading="lazy">
+    <img src="images/photo/gold-bars-desk.webp" alt="Gold" loading="lazy">
+    <img src="images/photo/procession-caravan.webp" alt="Procession" loading="lazy">
+  </div>
+
+  <!-- Author Platform -->
+  <section class="author-platform">
+    <div class="author-platform-inner">
+      <div class="author-platform-text">
+        <span class="sect-numeral">FOR AUTHORS</span>
+        <h2>An Open Publishing Protocol</h2>
+        <p>XXXIII is built on LPS-1 &mdash; an open standard any author can use to anchor their work with full cryptographic provenance. MIT-licensed, non-upgradeable, no intermediaries.</p>
+        <p>From a single SHA-256 hash to full multi-chain anchoring with Merkle trees, IPFS, and Bitcoin timestamps. Five compliance levels, one open standard.</p>
+        <div style="margin-top:1.5rem;">
+          <a href="protocol.html" class="btn btn-primary btn-sm" style="margin-right:0.75rem;">Read the Protocol</a>
+          <a href="https://github.com/FTHTrading/LPS-1-Reference-Implementation" target="_blank" rel="noopener" class="btn btn-sm">GitHub</a>
+        </div>
+      </div>
+      <div class="lps-levels">
+        <div class="lps-level">
+          <span class="lps-level-num">L0</span>
+          <div class="lps-level-text">
+            <strong>Hash Anchor</strong>
+            <span>SHA-256 of the full manuscript, stored on-chain. One transaction, one hash, permanent timestamp.</span>
+          </div>
+        </div>
+        <div class="lps-level">
+          <span class="lps-level-num">L1</span>
+          <div class="lps-level-text">
+            <strong>Structured Anchor</strong>
+            <span>Merkle tree over chapters. Prove any paragraph without revealing the full text.</span>
+          </div>
+        </div>
+        <div class="lps-level">
+          <span class="lps-level-num">L3</span>
+          <div class="lps-level-text">
+            <strong>Edition Freeze</strong>
+            <span>Edition frozen with a non-upgradeable contract. No admin keys. No one can alter the provenance chain &mdash; including the author.</span>
+          </div>
+        </div>
+        <div class="lps-level">
+          <span class="lps-level-num">L5</span>
+          <div class="lps-level-text">
+            <strong>Full Stack</strong>
+            <span>Polygon anchoring + IPFS content addressing + Bitcoin timestamps via OpenTimestamps. 293 tests, 58 verify checks, DOI registered.</span>
+          </div>
         </div>
       </div>
     </div>
+  </section>
 
-    <!-- Private Placement Programs -->
-    <div class="book-card">
-      <div class="puppet-scene">
-        <!-- Pelmet / top valance -->
-        <div class="pelmet">
-          <span class="pelmet-text">Private Placement Programs</span>
-        </div>
-
-        <!-- Crossbar -->
-        <div class="crossbar"></div>
-
-        <!-- Spotlight -->
-        <div class="spotlight"></div>
-
-        <!-- Curtains -->
-        <div class="curtain-left"></div>
-        <div class="curtain-right"></div>
-
-        <!-- Stage floor -->
-        <div class="stage-floor"></div>
-
-        <!-- Puppet figures with strings SVG -->
-        <div class="strings-container">
-          <svg viewBox="0 0 300 220" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;">
-
-            <!-- Golden strings from crossbar to puppets -->
-            <!-- Left puppet strings -->
-            <line x1="80" y1="0" x2="60" y2="120" stroke="#c9a84c" stroke-width="0.6" opacity="0.7">
-              <animate attributeName="x2" values="58;62;58" dur="5s" repeatCount="indefinite"/>
-            </line>
-            <line x1="90" y1="0" x2="75" y2="110" stroke="#c9a84c" stroke-width="0.6" opacity="0.7">
-              <animate attributeName="x2" values="73;77;73" dur="4.5s" repeatCount="indefinite"/>
-            </line>
-            <line x1="85" y1="0" x2="68" y2="130" stroke="#c9a84c" stroke-width="0.6" opacity="0.5">
-              <animate attributeName="x2" values="66;70;66" dur="5.5s" repeatCount="indefinite"/>
-            </line>
-
-            <!-- Center puppet strings -->
-            <line x1="145" y1="0" x2="135" y2="100" stroke="#c9a84c" stroke-width="0.8" opacity="0.8">
-              <animate attributeName="x2" values="133;137;133" dur="4s" repeatCount="indefinite"/>
-            </line>
-            <line x1="155" y1="0" x2="165" y2="100" stroke="#c9a84c" stroke-width="0.8" opacity="0.8">
-              <animate attributeName="x2" values="163;167;163" dur="4.2s" repeatCount="indefinite"/>
-            </line>
-            <line x1="150" y1="0" x2="150" y2="110" stroke="#c9a84c" stroke-width="0.8" opacity="0.6">
-              <animate attributeName="x2" values="148;152;148" dur="5s" repeatCount="indefinite"/>
-            </line>
-            <line x1="140" y1="0" x2="142" y2="130" stroke="#c9a84c" stroke-width="0.6" opacity="0.5"/>
-            <line x1="160" y1="0" x2="158" y2="130" stroke="#c9a84c" stroke-width="0.6" opacity="0.5"/>
-
-            <!-- Right puppet strings -->
-            <line x1="210" y1="0" x2="225" y2="120" stroke="#c9a84c" stroke-width="0.6" opacity="0.7">
-              <animate attributeName="x2" values="223;227;223" dur="4.8s" repeatCount="indefinite"/>
-            </line>
-            <line x1="220" y1="0" x2="240" y2="110" stroke="#c9a84c" stroke-width="0.6" opacity="0.7">
-              <animate attributeName="x2" values="238;242;238" dur="5.2s" repeatCount="indefinite"/>
-            </line>
-            <line x1="215" y1="0" x2="232" y2="130" stroke="#c9a84c" stroke-width="0.6" opacity="0.5">
-              <animate attributeName="x2" values="230;234;230" dur="4.6s" repeatCount="indefinite"/>
-            </line>
-
-            <!-- ═══ Left Puppet: The Broker ═══ -->
-            <g transform="translate(45, 95)">
-              <!-- Shadow on floor -->
-              <ellipse cx="22" cy="95" rx="18" ry="4" fill="rgba(0,0,0,0.3)"/>
-              <!-- Legs -->
-              <rect x="12" y="55" width="8" height="35" rx="2" fill="#2a2a3e"/>
-              <rect x="26" y="55" width="8" height="35" rx="2" fill="#22223a"/>
-              <!-- Shoes -->
-              <rect x="10" y="88" width="12" height="5" rx="2" fill="#1a1a2a"/>
-              <rect x="24" y="88" width="12" height="5" rx="2" fill="#1a1a2a"/>
-              <!-- Torso (suit) -->
-              <rect x="8" y="18" width="30" height="40" rx="4" fill="#2a2a42"/>
-              <!-- Suit lapels -->
-              <path d="M18 18 L23 35 L28 18" fill="#1e1e38" opacity="0.7"/>
-              <!-- Tie -->
-              <rect x="21" y="20" width="4" height="18" rx="1" fill="#c9a84c"/>
-              <polygon points="21,38 25,38 23,44" fill="#b8942e"/>
-              <!-- Shirt collar -->
-              <path d="M16 18 L23 24 L30 18" stroke="#d4d4e0" fill="none" stroke-width="1"/>
-              <!-- Arms -->
-              <rect x="2" y="22" width="8" height="28" rx="3" fill="#2a2a42" transform="rotate(-8, 6, 22)"/>
-              <rect x="36" y="22" width="8" height="28" rx="3" fill="#2a2a42" transform="rotate(8, 40, 22)"/>
-              <!-- Hands -->
-              <circle cx="4" cy="52" r="4" fill="#d4a87a"/>
-              <circle cx="42" cy="52" r="4" fill="#d4a87a"/>
-              <!-- Briefcase in hand -->
-              <rect x="36" y="50" width="14" height="10" rx="2" fill="#8b6914"/>
-              <rect x="36" y="50" width="14" height="3" rx="1" fill="#c9a84c"/>
-              <circle cx="43" cy="56" r="1.5" fill="#c9a84c"/>
-              <!-- Head -->
-              <circle cx="23" cy="8" r="10" fill="#d4a87a"/>
-              <!-- Hair -->
-              <path d="M13 4 Q15 -3 23 -4 Q31 -3 33 4 Q34 6 33 8 L32 5 Q30 0 23 -1 Q16 0 14 5 Z" fill="#2a1a0a"/>
-              <!-- Eyes -->
-              <circle cx="19" cy="7" r="1.5" fill="#1a1510"/>
-              <circle cx="27" cy="7" r="1.5" fill="#1a1510"/>
-              <!-- Mouth -->
-              <path d="M19 12 Q23 15 27 12" stroke="#a07858" fill="none" stroke-width="0.8"/>
-              <!-- Phone in other hand -->
-              <rect x="-2" y="46" width="6" height="10" rx="1" fill="#333" stroke="#555" stroke-width="0.5"/>
-              <rect x="-1" y="48" width="4" height="5" rx="0.5" fill="#4488ff" opacity="0.6"/>
-            </g>
-
-            <!-- ═══ Center Puppet: The Monetizer ═══ -->
-            <g transform="translate(120, 80)">
-              <!-- Shadow on floor -->
-              <ellipse cx="30" cy="115" rx="22" ry="5" fill="rgba(0,0,0,0.35)"/>
-              <!-- Legs -->
-              <rect x="18" y="68" width="10" height="42" rx="3" fill="#1a1a2e"/>
-              <rect x="32" y="68" width="10" height="42" rx="3" fill="#151528"/>
-              <!-- Shoes -->
-              <rect x="16" y="108" width="14" height="6" rx="2" fill="#0e0e1e"/>
-              <rect x="30" y="108" width="14" height="6" rx="2" fill="#0e0e1e"/>
-              <!-- Torso (power suit, wider) -->
-              <rect x="10" y="20" width="40" height="50" rx="5" fill="#1e1e36"/>
-              <!-- Suit pinstripes -->
-              <line x1="18" y1="20" x2="18" y2="70" stroke="rgba(201,168,76,0.08)" stroke-width="0.5"/>
-              <line x1="26" y1="20" x2="26" y2="70" stroke="rgba(201,168,76,0.08)" stroke-width="0.5"/>
-              <line x1="34" y1="20" x2="34" y2="70" stroke="rgba(201,168,76,0.08)" stroke-width="0.5"/>
-              <line x1="42" y1="20" x2="42" y2="70" stroke="rgba(201,168,76,0.08)" stroke-width="0.5"/>
-              <!-- Lapels -->
-              <path d="M22 20 L30 40 L38 20" fill="#16162e" opacity="0.7"/>
-              <!-- Tie -->
-              <rect x="28" y="22" width="4" height="22" rx="1" fill="#8b1a1a"/>
-              <polygon points="28,44 32,44 30,52" fill="#6b1515"/>
-              <!-- Pocket square -->
-              <path d="M40 26 L44 22 L46 28 Z" fill="#c9a84c" opacity="0.7"/>
-              <!-- Arms -->
-              <rect x="2" y="24" width="10" height="34" rx="4" fill="#1e1e36" transform="rotate(-12, 7, 24)"/>
-              <rect x="48" y="24" width="10" height="34" rx="4" fill="#1e1e36" transform="rotate(5, 53, 24)"/>
-              <!-- Hands -->
-              <circle cx="3" cy="60" r="5" fill="#c9956a"/>
-              <circle cx="55" cy="56" r="5" fill="#c9956a"/>
-              <!-- Gold bar in left hand -->
-              <rect x="-4" y="55" width="14" height="6" rx="1" fill="#c9a84c" stroke="#96791c" stroke-width="1" transform="rotate(-15, 3, 58)"/>
-              <text x="3" y="60" text-anchor="middle" font-size="4" fill="#96791c" font-weight="bold" transform="rotate(-15, 3, 58)">AU</text>
-              <!-- Document in right hand -->
-              <rect x="50" y="48" width="10" height="14" rx="1" fill="#e8e0d0" transform="rotate(5, 55, 55)"/>
-              <text x="55" y="55" text-anchor="middle" font-size="3" fill="#666" font-weight="bold" transform="rotate(5, 55, 55)">IMFPA</text>
-              <line x1="52" y1="58" x2="58" y2="58" stroke="#999" stroke-width="0.4" transform="rotate(5, 55, 55)"/>
-              <line x1="52" y1="60" x2="57" y2="60" stroke="#999" stroke-width="0.4" transform="rotate(5, 55, 55)"/>
-              <!-- Head -->
-              <circle cx="30" cy="8" r="12" fill="#c9956a"/>
-              <!-- Hair (slicked back) -->
-              <path d="M18 2 Q20 -6 30 -7 Q40 -6 42 2 Q43 5 42 8 L41 4 Q39 -2 30 -3 Q21 -2 19 4 Z" fill="#1a1a2a"/>
-              <!-- Eyes (determined) -->
-              <ellipse cx="25" cy="6" rx="2" ry="1.8" fill="#1a1510"/>
-              <ellipse cx="35" cy="6" rx="2" ry="1.8" fill="#1a1510"/>
-              <circle cx="25.5" cy="5.8" r="0.6" fill="#3a3028"/>
-              <circle cx="35.5" cy="5.8" r="0.6" fill="#3a3028"/>
-              <!-- Brows -->
-              <line x1="22" y1="2" x2="28" y2="3" stroke="#1a1a2a" stroke-width="1.2"/>
-              <line x1="32" y1="3" x2="38" y2="2" stroke="#1a1a2a" stroke-width="1.2"/>
-              <!-- Mouth (confident smirk) -->
-              <path d="M25 13 Q30 16 35 12" stroke="#8a6848" fill="none" stroke-width="0.8"/>
-              <!-- Watch -->
-              <circle cx="3" cy="55" r="3" fill="#c9a84c" stroke="#96791c" stroke-width="0.8"/>
-            </g>
-
-            <!-- ═══ Right Puppet: The Sovereign ═══ -->
-            <g transform="translate(205, 95)">
-              <!-- Shadow on floor -->
-              <ellipse cx="22" cy="95" rx="18" ry="4" fill="rgba(0,0,0,0.3)"/>
-              <!-- Legs -->
-              <rect x="12" y="55" width="8" height="35" rx="2" fill="#3a2a1a"/>
-              <rect x="26" y="55" width="8" height="35" rx="2" fill="#321f0e"/>
-              <!-- Shoes -->
-              <rect x="10" y="88" width="12" height="5" rx="2" fill="#1a1008"/>
-              <rect x="24" y="88" width="12" height="5" rx="2" fill="#1a1008"/>
-              <!-- Robe / long coat -->
-              <rect x="6" y="15" width="34" height="45" rx="4" fill="#3a2a1a"/>
-              <path d="M6 15 L23 20 L40 15 L40 60 L6 60 Z" fill="#44321e" opacity="0.3"/>
-              <!-- Gold trim on robe -->
-              <line x1="6" y1="15" x2="6" y2="60" stroke="#c9a84c" stroke-width="1.5"/>
-              <line x1="40" y1="15" x2="40" y2="60" stroke="#c9a84c" stroke-width="1.5"/>
-              <line x1="6" y1="60" x2="40" y2="60" stroke="#c9a84c" stroke-width="1"/>
-              <!-- Emblem on chest -->
-              <circle cx="23" cy="32" r="6" fill="none" stroke="#c9a84c" stroke-width="1" opacity="0.6"/>
-              <text x="23" y="35" text-anchor="middle" font-size="6" fill="#c9a84c" opacity="0.6">S</text>
-              <!-- Arms -->
-              <rect x="0" y="20" width="8" height="28" rx="3" fill="#3a2a1a" transform="rotate(10, 4, 20)"/>
-              <rect x="38" y="20" width="8" height="28" rx="3" fill="#3a2a1a" transform="rotate(-6, 42, 20)"/>
-              <!-- Hands -->
-              <circle cx="6" cy="50" r="4" fill="#b8886a"/>
-              <circle cx="42" cy="48" r="4" fill="#b8886a"/>
-              <!-- Scroll in hand -->
-              <rect x="38" y="42" width="12" height="4" rx="2" fill="#e8dcc4"/>
-              <circle cx="39" cy="44" r="2.5" fill="#e8dcc4" stroke="#c4b8a0" stroke-width="0.5"/>
-              <circle cx="49" cy="44" r="2.5" fill="#e8dcc4" stroke="#c4b8a0" stroke-width="0.5"/>
-              <!-- Head -->
-              <circle cx="23" cy="5" r="10" fill="#b8886a"/>
-              <!-- Keffiyeh / headwear -->
-              <path d="M13 0 Q15 -8 23 -9 Q31 -8 33 0 Q35 4 34 8 L32 3 Q30 -4 23 -5 Q16 -4 14 3 Z" fill="#e8e0d0"/>
-              <path d="M13 0 Q12 5 10 8 L8 12" stroke="#e8e0d0" fill="none" stroke-width="3"/>
-              <path d="M33 0 Q34 5 36 8 L38 12" stroke="#e8e0d0" fill="none" stroke-width="3"/>
-              <!-- Agal (cord) -->
-              <ellipse cx="23" cy="-2" rx="12" ry="2" fill="none" stroke="#1a1a2a" stroke-width="1.5"/>
-              <!-- Eyes -->
-              <circle cx="19" cy="4" r="1.5" fill="#1a1510"/>
-              <circle cx="27" cy="4" r="1.5" fill="#1a1510"/>
-              <!-- Beard -->
-              <path d="M16 8 Q18 14 23 16 Q28 14 30 8" fill="#2a1a0a" opacity="0.6"/>
-              <!-- Mouth -->
-              <line x1="20" y1="10" x2="26" y2="10" stroke="#8a6040" stroke-width="0.6"/>
-            </g>
-
-            <!-- Floor glow effect -->
-            <ellipse cx="150" cy="210" rx="120" ry="15" fill="rgba(201,168,76,0.06)"/>
-          </svg>
-        </div>
-
-        <!-- Title on stage -->
-        <div class="scene-title">
-          <h3>Private Placement Programs</h3>
-          <span class="cover-sub">Fourteen Stories from the War Room</span>
-        </div>
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <p class="footer-brand">XXXIII</p>
+      <p class="footer-line">Stories Anchored On-Chain</p>
+      <div class="footer-nav">
+        <a href="/">Home</a>
+        <a href="protocol.html">Protocol</a>
+        <a href="listen.html">Listen</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="https://github.com/FTHTrading/LPS-1-Reference-Implementation" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://polygonscan.com/address/0xca9F6604A9b498DB31d113836E2957c0a9aAE037" target="_blank" rel="noopener">Polygonscan</a>
       </div>
-
-      <div class="book-info">
-        <h3>Private Placement Programs</h3>
-        <p class="book-meta">14 stories &middot; 17 audio files &middot; Edition II frozen</p>
-        <p class="book-desc">Satirical short fiction about private placement programs, phantom deals, ghost monetizers, sovereign whispers, and the puppet masters who pull the strings. Anchored on Polygon.</p>
-        <div class="book-actions">
-          <a href="read-ppp.html" class="primary">Read</a>
-          <a href="read-ppp.html">Listen</a>
-        </div>
-      </div>
+      <p class="footer-copy">&copy; 2026 Kevan Burns. Literary rights reserved. Infrastructure MIT licensed.</p>
     </div>
+  </footer>
 
-
-    <!-- Crypto War Room -->
-    <div class="book-card">
-      <div class="chain-scene">
-        <div class="chain-glow"></div>
-        <div class="chain-grid"></div>
-        <div class="chain-title">
-          <h3>Crypto War Room</h3>
-          <span class="cover-sub">Fifteen Chain Blocks · Volume III</span>
-        </div>
-        <svg class="chain-svg" viewBox="0 0 300 240" xmlns="http://www.w3.org/2000/svg">
-          <!-- Block chain visualization -->
-          <!-- Block 1 -->
-          <rect x="10" y="90" width="60" height="40" rx="4" fill="none" stroke="#22c55e" stroke-width="1.2" opacity="0.7"/>
-          <text x="40" y="115" text-anchor="middle" font-family="monospace" font-size="7" fill="#22c55e" opacity="0.8">BLOCK 01</text>
-          <!-- Chain link -->
-          <line x1="70" y1="110" x2="90" y2="110" stroke="#22c55e" stroke-width="1.5" opacity="0.5" stroke-dasharray="4,2"/>
-          <!-- Block 2 -->
-          <rect x="90" y="90" width="60" height="40" rx="4" fill="none" stroke="#22c55e" stroke-width="1.2" opacity="0.7"/>
-          <text x="120" y="115" text-anchor="middle" font-family="monospace" font-size="7" fill="#22c55e" opacity="0.8">BLOCK 07</text>
-          <!-- Chain link -->
-          <line x1="150" y1="110" x2="170" y2="110" stroke="#22c55e" stroke-width="1.5" opacity="0.5" stroke-dasharray="4,2"/>
-          <!-- Block 3 -->
-          <rect x="170" y="90" width="60" height="40" rx="4" fill="none" stroke="#22c55e" stroke-width="1.2" opacity="0.7"/>
-          <text x="200" y="115" text-anchor="middle" font-family="monospace" font-size="7" fill="#22c55e" opacity="0.8">BLOCK 15</text>
-          <!-- Chain link continues -->
-          <line x1="230" y1="110" x2="250" y2="110" stroke="#22c55e" stroke-width="1.5" opacity="0.3" stroke-dasharray="4,2"/>
-          <rect x="250" y="97" width="40" height="26" rx="4" fill="none" stroke="#22c55e" stroke-width="0.8" opacity="0.3"/>
-          <!-- Hash lines inside blocks -->
-          <line x1="18" y1="102" x2="58" y2="102" stroke="#22c55e" stroke-width="0.5" opacity="0.4"/>
-          <line x1="18" y1="107" x2="52" y2="107" stroke="#22c55e" stroke-width="0.5" opacity="0.3"/>
-          <line x1="98" y1="102" x2="138" y2="102" stroke="#22c55e" stroke-width="0.5" opacity="0.4"/>
-          <line x1="98" y1="107" x2="130" y2="107" stroke="#22c55e" stroke-width="0.5" opacity="0.3"/>
-          <line x1="178" y1="102" x2="218" y2="102" stroke="#22c55e" stroke-width="0.5" opacity="0.4"/>
-          <line x1="178" y1="107" x2="210" y2="107" stroke="#22c55e" stroke-width="0.5" opacity="0.3"/>
-          <!-- Falling addresses / hex values -->
-          <text x="20" y="55" font-family="monospace" font-size="6" fill="#16a34a" opacity="0.5">0xDe3A...</text>
-          <text x="95" y="42" font-family="monospace" font-size="6" fill="#16a34a" opacity="0.4">0x8F1b...</text>
-          <text x="175" y="62" font-family="monospace" font-size="6" fill="#16a34a" opacity="0.5">0xC4aF...</text>
-          <text x="30" y="170" font-family="monospace" font-size="6" fill="#16a34a" opacity="0.35">gas: 21000</text>
-          <text x="110" y="178" font-family="monospace" font-size="6" fill="#16a34a" opacity="0.3">nonce: 1337</text>
-          <text x="175" y="165" font-family="monospace" font-size="6" fill="#16a34a" opacity="0.35">CONFIRM</text>
-          <!-- Animated scan line -->
-          <line x1="0" y1="110" x2="300" y2="110" stroke="#22c55e" stroke-width="0.4" opacity="0.08"/>
-          <!-- Genesis label -->
-          <text x="150" y="210" text-anchor="middle" font-family="monospace" font-size="8" fill="#22c55e" opacity="0.5" letter-spacing="3">GENESIS HASH</text>
-        </svg>
-      </div>
-
-      <div class="book-info">
-        <h3>Crypto War Room</h3>
-        <p class="book-meta">15 chain blocks &middot; Volume III &middot; AI-narrated</p>
-        <p class="book-desc">Fifteen stories from inside the crypto scam ecosystem. From fake USDT screenshots to multi-protocol exploits. The architecture of belief, on-chain. Anchored on Polygon.</p>
-        <div class="book-actions">
-          <a href="read-crypto.html" class="primary">Read</a>
-          <a href="read-crypto.html">Listen</a>
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-  <div class="library-footer">
-    <a href="/">&larr; Back to XXXIII</a>
-  </div>
-
-  <!-- Theme toggle script -->
   <script>
-    (function() {
-      var btn = document.getElementById('theme-toggle');
-      if (!btn) return;
-      btn.addEventListener('click', function() {
-        var html = document.documentElement;
-        var current = html.getAttribute('data-theme');
-        var next = current === 'dark' ? 'light' : 'dark';
-        html.setAttribute('data-theme', next);
-        localStorage.setItem('xxxiii-theme', next);
-      });
-    })();
+  (function() {
+    'use strict';
+    var nav = document.getElementById('nav');
+    window.addEventListener('scroll', function(){ nav.classList.toggle('scrolled', window.scrollY > 40); });
+    var toggle = document.getElementById('navToggle');
+    if (toggle) toggle.addEventListener('click', function(){ nav.classList.toggle('open'); });
+    var btn = document.getElementById('themeToggle');
+    if (btn) btn.addEventListener('click', function(){
+      var current = document.documentElement.getAttribute('data-theme');
+      var next = current === 'dark' ? 'light' : 'dark';
+      if (next === 'light') { document.documentElement.removeAttribute('data-theme'); localStorage.removeItem('xxxiii-theme'); }
+      else { document.documentElement.setAttribute('data-theme', next); localStorage.setItem('xxxiii-theme', next); }
+    });
+  })();
   </script>
 
 </body>
