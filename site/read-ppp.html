@@ -77,6 +77,47 @@ body {
   font-variant-numeric: tabular-nums;
 }
 
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.topbar-listen-btn {
+  background: rgba(201,168,76,0.12);
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 0.68rem;
+  cursor: pointer;
+  font-family: var(--font-ui);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  transition: all 0.2s;
+}
+
+.topbar-listen-btn:hover {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+.audio-narrator-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(201,168,76,0.08);
+  border: 1px solid rgba(201,168,76,0.25);
+  color: var(--accent);
+  font-family: var(--font-ui);
+  font-size: 0.65rem;
+  padding: 4px 10px;
+  border-radius: 20px;
+  margin-bottom: 12px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
 .progress-bar {
   position: fixed;
   top: 48px; left: 0;
@@ -517,7 +558,10 @@ body {
 <div class="topbar">
   <a href="library.html" class="home-btn">&#8962; Library</a>
   <span class="topbar-title">Private Placement Programs</span>
-  <span class="topbar-progress" id="progress-text">Cover</span>
+  <div class="topbar-right">
+    <button id="topbar-listen-btn" class="topbar-listen-btn" onclick="toggleCurrentPageAudio()" title="Play / Pause Audio Narration">&#9654; Listen</button>
+    <span class="topbar-progress" id="progress-text">Cover</span>
+  </div>
 </div>
 <div class="progress-bar" id="progress-bar" style="width: 0%"></div>
 
@@ -527,10 +571,23 @@ body {
   <!-- PAGE 0: Cover -->
   <div class="page cover-page active" data-page="0">
     <div class="cover-icon">🎭</div>
+    <div class="audio-narrator-badge">&#9654; AI Narrated by George &middot; Kokoro TTS &middot; 17 Audio Files</div>
     <h1>Private Placement Programs</h1>
     <p class="subtitle">Fourteen Stories from the War Room</p>
     <p class="author">by Kidd James</p>
-    <button class="start-btn" onclick="goTo(1)">Begin Reading</button>
+    
+    <!-- Cover Audio Player (Front Matter) -->
+    <div class="audio-player" data-src="audio/stories/00-front-matter.mp3" style="max-width: 480px; width: 100%; margin: 16px auto 24px;">
+      <button class="play-btn" onclick="toggleAudio(this)" title="Listen to Front Matter">&#9654;</button>
+      <span class="audio-label">Listen: Front Matter</span>
+      <div class="audio-bar" onclick="seekAudio(event, this)"><div class="audio-bar-fill"></div></div>
+      <span class="audio-time">--:--</span>
+    </div>
+
+    <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+      <button class="start-btn" onclick="goTo(1)">Begin Reading</button>
+      <button class="start-btn" style="background: rgba(201,168,76,0.15);" onclick="goTo(1); setTimeout(function(){ var b = document.querySelector('.page.active .play-btn'); if(b) toggleAudio(b); }, 400);">Listen with Audio</button>
+    </div>
   </div>
 
   <!-- PAGE 1: Front Matter -->
@@ -2084,8 +2141,31 @@ goTo = function(n) {
     currentBtn = null;
   }
   origGoTo(n);
+  // update topbar listen button state
+  var topListenBtn = document.getElementById('topbar-listen-btn');
+  if (topListenBtn) topListenBtn.innerHTML = '&#9654; Listen';
 };
+
+function toggleCurrentPageAudio() {
+  var activePage = document.querySelector('.page.active');
+  if (!activePage) return;
+  var btn = activePage.querySelector('.play-btn');
+  if (btn) {
+    toggleAudio(btn);
+    var topListenBtn = document.getElementById('topbar-listen-btn');
+    if (topListenBtn) {
+      setTimeout(function() {
+        topListenBtn.innerHTML = (currentAudio && !currentAudio.paused) ? '&#9646;&#9646; Pause' : '&#9654; Listen';
+      }, 50);
+    }
+  } else if (window.XXXIIIStoryteller) {
+    window.XXXIIIStoryteller.toggle();
+  }
+}
 </script>
+
+<!-- Universal AI Storyteller Guide -->
+<script src="storyteller.js"></script>
 
 </body>
 </html>

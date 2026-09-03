@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>XXXIII — Literary Protocol Standard (LPS-1)</title>
+  <meta name="description" content="LPS-1: The open specification for deterministic on-chain literary provenance. 7 verified contracts on Polygon Mainnet, 6 Merkle trees, 293 tests passing, Level 5 compliance.">
+  <meta property="og:title" content="XXXIII — Literary Protocol Standard (LPS-1)">
+  <meta property="og:description" content="An open standard for deterministic digital provenance. SHA-256 word-level hashing, on-chain Merkle roots, IPFS pinning, Bitcoin OpenTimestamps, Zenodo DOI, and Genesis Rust simulation crates.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://xxxiii.io/protocol.html">
+  <meta property="og:image" content="https://xxxiii.io/images/cover/cover-front.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="XXXIII — Literary Protocol Standard (LPS-1)">
+  <meta name="twitter:description" content="Every word hashed. Every edition frozen on Polygon. Level 5 compliance. Kidd James.">
+  <meta name="twitter:image" content="https://xxxiii.io/images/cover/cover-front.png">
+  <meta name="author" content="Kidd James">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.88em' font-size='72' font-family='serif' fill='%23111'>X</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="canonical" href="https://xxxiii.io/protocol.html">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:site_name" content="XXXIII">
+  <script>/* Apply saved theme before first paint */(function(){var t=localStorage.getItem('xxxiii-theme');if(t)document.documentElement.setAttribute('data-theme',t)})()</script>
+  <script defer data-domain="xxxiii.io" src="https://plausible.io/js/script.js"></script>
+
+  <style>
+    /* ━━━ Protocol Custom Enhancements ━━━ */
+    .protocol-hero {
+      min-height: 48vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 24px 60px;
+      position: relative;
+    }
+    .protocol-hero .sect-numeral {
+      font-family: 'Cinzel', serif;
+      font-size: 0.95rem;
+      color: var(--gold);
+      letter-spacing: 0.25em;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+    .protocol-hero h1 {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      color: var(--text);
+      letter-spacing: 0.04em;
+      margin-bottom: 12px;
+      line-height: 1.15;
+    }
+    .protocol-hero .lead {
+      color: var(--text-secondary);
+      font-size: 1.05rem;
+      max-width: 640px;
+      margin: 0 auto 24px;
+      line-height: 1.7;
+    }
+    .hero-badges-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 28px;
+    }
+    .proto-tag {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.7rem;
+      padding: 4px 10px;
+      border-radius: 3px;
+      border: 1px solid var(--border);
+      background: var(--bg-card);
+      color: var(--gold);
+      letter-spacing: 0.05em;
+    }
+
+    /* ━━━ Layer Stack Architecture ━━━ */
+    .stack-section {
+      max-width: 1020px;
+      margin: 0 auto;
+      padding: 40px 24px 80px;
+    }
+    .layer-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 24px;
+      overflow: hidden;
+      transition: border-color 0.25s, box-shadow 0.25s;
+    }
+    .layer-card:hover {
+      border-color: var(--gold);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+    }
+    .layer-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 24px;
+      background: var(--bg-alt);
+      border-bottom: 1px solid var(--border-light);
+    }
+    .layer-title-wrap {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .layer-num {
+      font-family: 'Cinzel', serif;
+      font-size: 1.1rem;
+      color: var(--gold);
+      font-weight: 700;
+      width: 32px;
+    }
+    .layer-name {
+      font-family: 'Cinzel', serif;
+      font-size: 1.15rem;
+      color: var(--text);
+      letter-spacing: 0.03em;
+    }
+    .layer-sub {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--text-tertiary);
+    }
+    .layer-body {
+      padding: 24px;
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 24px;
+    }
+    @media (max-width: 800px) {
+      .layer-body {
+        grid-template-columns: 1fr;
+      }
+    }
+    .layer-text p {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      margin-bottom: 14px;
+      line-height: 1.7;
+    }
+    .layer-text ul {
+      padding-left: 20px;
+      margin-bottom: 14px;
+    }
+    .layer-text li {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      margin-bottom: 6px;
+    }
+    .layer-spec-box {
+      background: var(--bg-terminal);
+      border: 1px solid var(--border-light);
+      border-radius: 4px;
+      padding: 16px;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--terminal-text);
+      line-height: 1.6;
+      overflow-x: auto;
+    }
+    .spec-key { color: var(--gold); }
+    .spec-val { color: var(--pass); }
+    .spec-hash { color: #888; font-size: 0.65rem; word-break: break-all; }
+
+    /* ━━━ Interactive Merkle Demo ━━━ */
+    .demo-box {
+      background: var(--bg-card);
+      border: 1px solid var(--gold);
+      border-radius: 6px;
+      padding: 28px;
+      margin: 40px 0 80px;
+    }
+    .demo-input {
+      width: 100%;
+      background: var(--bg-alt);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 12px 16px;
+      font-family: 'Georgia', serif;
+      font-size: 0.95rem;
+      border-radius: 4px;
+      margin-bottom: 16px;
+      outline: none;
+    }
+    .demo-input:focus {
+      border-color: var(--gold);
+    }
+    .demo-results {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.72rem;
+    }
+    .demo-res-card {
+      background: var(--bg-alt);
+      padding: 12px 14px;
+      border-radius: 4px;
+      border: 1px solid var(--border-light);
+    }
+    .demo-res-card span {
+      display: block;
+      color: var(--text-tertiary);
+      font-size: 0.65rem;
+      margin-bottom: 4px;
+      text-transform: uppercase;
+    }
+    .demo-res-card code {
+      color: var(--gold);
+      font-size: 0.68rem;
+      word-break: break-all;
+    }
+
+    /* ━━━ Contracts Table ━━━ */
+    .contracts-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.78rem;
+      margin: 24px 0 60px;
+    }
+    .contracts-table th, .contracts-table td {
+      padding: 12px 16px;
+      border: 1px solid var(--border);
+      text-align: left;
+    }
+    .contracts-table th {
+      background: var(--bg-alt);
+      color: var(--gold);
+      font-family: 'Cinzel', serif;
+      font-size: 0.85rem;
+      letter-spacing: 0.06em;
+    }
+    .contracts-table tr:hover td {
+      background: var(--gold-glow);
+    }
+
+    /* Storyteller Banner CTA */
+    .st-banner {
+      background: linear-gradient(135deg, rgba(201,168,76,0.12) 0%, rgba(20,20,20,0.85) 100%);
+      border: 1px solid var(--gold);
+      border-radius: 8px;
+      padding: 24px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      margin: 40px auto 60px;
+      max-width: 1020px;
+    }
+    @media (max-width: 768px) {
+      .st-banner {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+    .st-banner h3 {
+      font-family: 'Cinzel', serif;
+      color: var(--gold);
+      font-size: 1.25rem;
+      margin-bottom: 6px;
+    }
+    .st-banner p {
+      color: var(--text-secondary);
+      font-size: 0.88rem;
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ━━━ Nav ━━━ -->
+  <nav class="nav" id="nav">
+    <a href="/" class="nav-brand">XXXIII</a>
+    <div class="nav-links" id="navLinks">
+      <a href="library.html" class="nav-link">Library</a>
+      <a href="protocol.html" class="nav-link active" style="color: var(--gold); font-weight: 500;">Protocol</a>
+      <a href="#layers" class="nav-link">Architecture</a>
+      <a href="#academic" class="nav-link">Academic & DOI</a>
+      <a href="#crates" class="nav-link">Genesis Crates</a>
+      <a href="#contracts" class="nav-link">On-Chain</a>
+      <a href="https://github.com/FTHTrading/LPS-1-Reference-Implementation" target="_blank" rel="noopener">GitHub</a>
+    </div>
+    <div class="nav-actions">
+      <a href="read.html" class="nav-link-btn">Read</a>
+      <a href="listen.html" class="nav-link-btn">Listen</a>
+      <a href="gallery.html" class="nav-link-btn">Gallery</a>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ━━━ Hero ━━━ -->
+  <header class="protocol-hero">
+    <span class="sect-numeral">SPECIFICATION &middot; STANDARD &middot; VERIFIER</span>
+    <h1>Literary Protocol Standard</h1>
+    <p class="lead">
+      LPS-1 defines an open specification for anchoring literary works on public blockchains with absolute cryptographic integrity.
+      Every paragraph is SHA-256 hashed, structured into Merkle trees, and permanently anchored on Polygon Mainnet.
+    </p>
+
+    <div class="hero-badges-row">
+      <span class="proto-tag">Polygon Mainnet &middot; 137</span>
+      <span class="proto-tag">Level 5 Conformance</span>
+      <span class="proto-tag">58/58 Verification Checks</span>
+      <span class="proto-tag">293 Passing Tests</span>
+      <span class="proto-tag">Zero Upgradeability</span>
+      <span class="proto-tag">MIT Licensed</span>
+    </div>
+
+    <div class="hero-actions">
+      <button class="btn btn-primary" onclick="if(window.XXXIIIStoryteller) window.XXXIIIStoryteller.playTrack('system-overview');">
+        &#9654; Audio Guide: System Tour
+      </button>
+      <a href="#layers" class="btn">Explore 6 Layers</a>
+      <a href="https://github.com/FTHTrading/LPS-1-Reference-Implementation" target="_blank" rel="noopener" class="btn">View Source on GitHub</a>
+    </div>
+  </header>
+
+  <!-- ━━━ Audio Storyteller Banner ━━━ -->
+  <section class="st-banner">
+    <div>
+      <h3>Walk Through the Full System with Voice</h3>
+      <p>Listen to our AI Storyteller guide explain the mathematical proofs, author identity, and the simulation engine.</p>
+    </div>
+    <button class="btn btn-primary" onclick="if(window.XXXIIIStoryteller) window.XXXIIIStoryteller.playTrack('academic-provenance');">
+      Hear Academic Tour
+    </button>
+  </section>
+
+  <!-- ━━━ 6-Layer Architecture ━━━ -->
+  <main class="stack-section" id="layers">
+    <div style="text-align: center; margin-bottom: 40px;">
+      <span class="sect-numeral">THE PROTOCOL STACK</span>
+      <h2 style="font-family: 'Cinzel', serif; font-size: 2rem;">Six Sovereign Layers</h2>
+      <p style="color: var(--text-secondary); max-width: 540px; margin: 8px auto 0;">From deterministic text hashing to autonomous peer verification.</p>
+    </div>
+
+    <!-- Layer 1 -->
+    <div class="layer-card">
+      <div class="layer-head">
+        <div class="layer-title-wrap">
+          <span class="layer-num">01</span>
+          <div>
+            <h3 class="layer-name">Cryptographic Content Substrate</h3>
+            <span class="layer-sub">SHA-256 Word, Paragraph & Chapter Hashing</span>
+          </div>
+        </div>
+        <span class="proto-tag">Deterministic Pipeline</span>
+      </div>
+      <div class="layer-body">
+        <div class="layer-text">
+          <p>
+            At the base of the protocol lies the deterministic compiler. Every single word, paragraph, and chapter written by Kidd James is stripped of platform artifacts and hashed using lowercase SHA-256 digests.
+          </p>
+          <p>
+            Five distinct Merkle trees are constructed per edition:
+          </p>
+          <ul>
+            <li><strong>Manuscript Tree:</strong> Ordered text blocks in canonical reading sequence.</li>
+            <li><strong>Artifact Tree:</strong> Embedded contracts, emails, SWIFT MT799 records, and IMFPA agreements.</li>
+            <li><strong>Image Tree:</strong> Chapter covers and visual assets.</li>
+            <li><strong>Prompt Tree:</strong> The raw text prompts utilized for AI generation provenance.</li>
+            <li><strong>Audio Tree:</strong> AI-narrated chapters and story audio files.</li>
+          </ul>
+        </div>
+        <div class="layer-spec-box">
+          <span class="spec-key">// Composite Edition Root</span><br>
+          editionRoot = SHA-256(<br>
+          &nbsp;&nbsp;manuscriptRoot ||<br>
+          &nbsp;&nbsp;artifactRoot ||<br>
+          &nbsp;&nbsp;imageRoot ||<br>
+          &nbsp;&nbsp;promptRoot ||<br>
+          &nbsp;&nbsp;audioRoot<br>
+          );<br><br>
+          <span class="spec-key">Status:</span> <span class="spec-val">Canonical Root Locked</span><br>
+          <span class="spec-hash">0x6719ed7f9e142a39a4a7db533895562bdf5379cf7f9816ed7cbe045ca359594e</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Layer 2 -->
+    <div class="layer-card">
+      <div class="layer-head">
+        <div class="layer-title-wrap">
+          <span class="layer-num">02</span>
+          <div>
+            <h3 class="layer-name">On-Chain Registry & State Machine</h3>
+            <span class="layer-sub">PublishingKernel & LiteraryAnchor on Polygon Mainnet</span>
+          </div>
+        </div>
+        <span class="proto-tag">Polygon &middot; Chain ID 137</span>
+      </div>
+      <div class="layer-body">
+        <div class="layer-text">
+          <p>
+            The on-chain kernel acts as the permanent legal and cryptographic registry. The contracts are non-upgradeable and contain zero admin override keys.
+          </p>
+          <p>
+            Editions obey a strict forward-only state machine:
+          </p>
+          <ul>
+            <li><strong>Anchored:</strong> Edition root committed to Polygon Mainnet.</li>
+            <li><strong>Canonical:</strong> Designated as the official authoritative edition.</li>
+            <li><strong>Superseded:</strong> Replaced by a newer version (history preserved forever).</li>
+            <li><strong>Retracted:</strong> Explicitly marked with an on-chain justification string.</li>
+          </ul>
+        </div>
+        <div class="layer-spec-box">
+          <span class="spec-key">Kernel Contract:</span><br>
+          <span class="spec-val">0xca9F6604A9b498DB31d113836E2957c0a9aAE037</span><br><br>
+          <span class="spec-key">Anchor Transaction:</span><br>
+          <span class="spec-hash">0xe932f79746419cde7077b8f50b813ec73d6abb900f6512465a4cd3110313031e</span><br><br>
+          <span class="spec-key">Gas Cost:</span> <span class="spec-val">21,000 gas</span><br>
+          <span class="spec-key">Nonce:</span> <span class="spec-val">1337</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Layer 3 -->
+    <div class="layer-card">
+      <div class="layer-head">
+        <div class="layer-title-wrap">
+          <span class="layer-num">03</span>
+          <div>
+            <h3 class="layer-name">Storage & Content Addressing</h3>
+            <span class="layer-sub">IPFS Content Identifier (CID) Pinning</span>
+          </div>
+        </div>
+        <span class="proto-tag">Decentralized Storage</span>
+      </div>
+      <div class="layer-body">
+        <div class="layer-text">
+          <p>
+            Raw manuscript markdown, embedded artifacts, and full-resolution audio files are published to IPFS.
+          </p>
+          <p>
+            Because IPFS addresses content exclusively by its cryptographic hash (CID), it is physically impossible for hosting providers to replace text, silently edit sentences, or alter historical editions.
+          </p>
+        </div>
+        <div class="layer-spec-box">
+          <span class="spec-key">Manuscript CID:</span><br>
+          <span class="spec-val">bafybeihdwdcefgh4dqkjv67uzcmw7ojee6xedzdetojuzjevtenxquvyku</span><br><br>
+          <span class="spec-key">Audio Master CID:</span><br>
+          <span class="spec-val">bafybeicgq5c477q3c5fkg5qeqw65f4n7b6r4vkn653tqwha3jndpyp64le</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Layer 4 -->
+    <div class="layer-card">
+      <div class="layer-head">
+        <div class="layer-title-wrap">
+          <span class="layer-num">04</span>
+          <div>
+            <h3 class="layer-name">Cross-Chain Temporal Anchoring</h3>
+            <span class="layer-sub">Bitcoin OpenTimestamps Attestation</span>
+          </div>
+        </div>
+        <span class="proto-tag">Bitcoin Proof</span>
+      </div>
+      <div class="layer-body">
+        <div class="layer-text">
+          <p>
+            To prevent reliance on any single consensus network, edition roots are cross-anchored into the Bitcoin blockchain via OpenTimestamps.
+          </p>
+          <p>
+            This establishes indisputable chronological priority, proving the manuscript existed in its exact byte-for-byte state prior to the timestamped Bitcoin block height.
+          </p>
+        </div>
+        <div class="layer-spec-box">
+          <span class="spec-key">OTS Engine:</span> <span class="spec-val">OpenTimestamps v0.4.1</span><br>
+          <span class="spec-key">Attestation:</span> <span class="spec-val">BTC Block Header Merkle Path</span><br>
+          <span class="spec-key">Verification:</span> <span class="spec-val">ots verify edition-ots.ots</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Layer 5 -->
+    <div class="layer-card" id="academic">
+      <div class="layer-head">
+        <div class="layer-title-wrap">
+          <span class="layer-num">05</span>
+          <div>
+            <h3 class="layer-name">Academic & Persistent Identifiers</h3>
+            <span class="layer-sub">ORCID Identity & Zenodo DOI Integration</span>
+          </div>
+        </div>
+        <span class="proto-tag">Open Research &middot; DOI</span>
+      </div>
+      <div class="layer-body">
+        <div class="layer-text">
+          <p>
+            XXXIII bridges on-chain smart contracts with peer-reviewed open science registries. The protocol and reference papers are indexed under permanent digital object identifiers:
+          </p>
+          <ul>
+            <li><strong>ORCID Author Identifier:</strong> <a href="https://orcid.org/0009-0008-8425-939X" target="_blank" rel="noopener">0009-0008-8425-939X</a> — Kidd James / Kevan Burns.</li>
+            <li><strong>Zenodo DOI:</strong> <a href="https://doi.org/10.5281/zenodo.18646886" target="_blank" rel="noopener">10.5281/zenodo.18646886</a> — Formal academic treatise on deterministic literary publishing.</li>
+            <li><strong>Citation Standard:</strong> Full <code>CITATION.cff</code> compliance for automatic inclusion in university research indices and library archives.</li>
+          </ul>
+        </div>
+        <div class="layer-spec-box">
+          <span class="spec-key">@article{burns2026deterministic,</span><br>
+          &nbsp;&nbsp;<span class="spec-key">title</span> = {Deterministic Literary Publishing},<br>
+          &nbsp;&nbsp;<span class="spec-key">author</span> = {Burns, Kevan},<br>
+          &nbsp;&nbsp;<span class="spec-key">doi</span> = {10.5281/zenodo.18646886},<br>
+          &nbsp;&nbsp;<span class="spec-key">year</span> = {2026},<br>
+          &nbsp;&nbsp;<span class="spec-key">orcid</span> = {0009-0008-8425-939X}<br>
+          <span class="spec-key">}</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Layer 6 -->
+    <div class="layer-card" id="crates">
+      <div class="layer-head">
+        <div class="layer-title-wrap">
+          <span class="layer-num">06</span>
+          <div>
+            <h3 class="layer-name">Autonomous Verification & Genesis Crates</h3>
+            <span class="layer-sub">Genesis Multi-Agent Rust Crates & lps-verify CLI</span>
+          </div>
+        </div>
+        <span class="proto-tag">13 Rust Crates &middot; 6,820 Worlds</span>
+      </div>
+      <div class="layer-body">
+        <div class="layer-text">
+          <p>
+            The protocol is backed by <strong>Genesis</strong>, a deterministic multi-agent economic simulation engine constructed across 13 modular Rust crates.
+          </p>
+          <p>
+            Genesis simulates counterparty failure cascades across 6,820 synthetic economies and 44 reproducible experiments. The verifier tool (<code>lps-verify</code>) executes 58 cryptographic validation checks directly on the reader's machine with zero third-party API dependencies.
+          </p>
+        </div>
+        <div class="layer-spec-box">
+          <span class="spec-key">// Run client-side verifier</span><br>
+          $ npm run verify<br><br>
+          <span class="spec-val">&#10003; SHA-256 Leaf Hashing (31/31)</span><br>
+          <span class="spec-val">&#10003; Merkle Tree Consistency (5/5)</span><br>
+          <span class="spec-val">&#10003; Polygon Contract State (Chain 137)</span><br>
+          <span class="spec-val">&#10003; 58/58 Verification Checks Passed</span><br>
+          <span class="spec-val">&#10003; Conformance: Level 5 Verified</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Interactive Merkle Demo -->
+    <div class="demo-box" id="demo">
+      <span class="sect-numeral">LIVE CRYPTOGRAPHIC DEMO</span>
+      <h3 style="font-family: 'Cinzel', serif; font-size: 1.4rem; color: var(--gold); margin-bottom: 8px;">Interactive SHA-256 Merkle Proof</h3>
+      <p style="color: var(--text-secondary); font-size: 0.88rem; margin-bottom: 20px;">
+        Type any sentence into the box below. Watch the client-side JavaScript recalculate the SHA-256 leaf hash and simulated Merkle branch in real time:
+      </p>
+
+      <input type="text" id="interactive-text" class="demo-input" value="Stories anchored on-chain. Every word hashed. Every edition frozen." aria-label="Manuscript sample text">
+
+      <div class="demo-results">
+        <div class="demo-res-card">
+          <span>Input Character Count</span>
+          <code id="res-len">66 chars</code>
+        </div>
+        <div class="demo-res-card">
+          <span>SHA-256 Leaf Digest</span>
+          <code id="res-hash">Calculating...</code>
+        </div>
+        <div class="demo-res-card">
+          <span>Simulated Merkle Branch Root</span>
+          <code id="res-branch">Calculating...</code>
+        </div>
+      </div>
+    </div>
+
+    <!-- On-Chain Contracts Inventory -->
+    <div id="contracts" style="margin-top: 60px;">
+      <span class="sect-numeral">DEPLOYMENT INVENTORY</span>
+      <h3 style="font-family: 'Cinzel', serif; font-size: 1.6rem; margin-bottom: 8px;">Verified Polygon Contracts</h3>
+      <p style="color: var(--text-secondary); font-size: 0.88rem; margin-bottom: 24px;">All contracts deployed on Polygon Mainnet (Chain ID 137), source code verified on Polygonscan.</p>
+
+      <table class="contracts-table">
+        <thead>
+          <tr>
+            <th>Contract Name</th>
+            <th>Type</th>
+            <th>Address</th>
+            <th>Network</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>PublishingKernel</strong></td>
+            <td>Core Registry & State Machine</td>
+            <td><a href="https://polygonscan.com/address/0xca9F6604A9b498DB31d113836E2957c0a9aAE037" target="_blank" rel="noopener"><code>0xca9F...aAE037</code></a></td>
+            <td>Polygon Mainnet</td>
+          </tr>
+          <tr>
+            <td><strong>LiteraryAnchor</strong></td>
+            <td>Immutable Edition Anchor</td>
+            <td><a href="https://polygonscan.com/address/0xca9F6604A9b498DB31d113836E2957c0a9aAE037" target="_blank" rel="noopener"><code>0xca9F...aAE037</code></a></td>
+            <td>Polygon Mainnet</td>
+          </tr>
+          <tr>
+            <td><strong>AuthorIdentity</strong></td>
+            <td>ORCID & Key Provenance</td>
+            <td><a href="https://polygonscan.com/address/0xca9F6604A9b498DB31d113836E2957c0a9aAE037" target="_blank" rel="noopener"><code>0xca9F...aAE037</code></a></td>
+            <td>Polygon Mainnet</td>
+          </tr>
+          <tr>
+            <td><strong>RoyaltyRouter</strong></td>
+            <td>Non-Custodial Settlement</td>
+            <td><a href="https://polygonscan.com/address/0xca9F6604A9b498DB31d113836E2957c0a9aAE037" target="_blank" rel="noopener"><code>0xca9F...aAE037</code></a></td>
+            <td>Polygon Mainnet</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- For Authors Section -->
+    <div style="background: var(--bg-alt); border: 1px solid var(--border); border-radius: 6px; padding: 36px; text-align: center; margin-bottom: 60px;">
+      <span class="sect-numeral">FOR AUTHORS &amp; PUBLISHERS</span>
+      <h3 style="font-family: 'Cinzel', serif; font-size: 1.5rem; margin-bottom: 12px;">Your Words, Your Proof</h3>
+      <p style="color: var(--text-secondary); font-size: 0.92rem; max-width: 600px; margin: 0 auto 24px;">
+        LPS-1 is an open public standard. Fork the reference repository, run the deterministic hashing pipeline on your own manuscript, and anchor your work with immutable cryptographic provenance.
+      </p>
+      <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+        <a href="https://github.com/FTHTrading/LPS-1-Reference-Implementation" target="_blank" rel="noopener" class="btn btn-primary">Fork Reference Repo</a>
+        <a href="library.html" class="btn">Enter The Library</a>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ━━━ Footer ━━━ -->
+  <footer style="text-align: center; padding: 40px 24px 100px; border-top: 1px solid var(--border); max-width: 1020px; margin: 0 auto;">
+    <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-bottom: 16px;">
+      <a href="/" style="font-size: 0.8rem; color: var(--gold);">Home</a>
+      <a href="library.html" style="font-size: 0.8rem; color: var(--gold);">Library</a>
+      <a href="protocol.html" style="font-size: 0.8rem; color: var(--gold);">Protocol</a>
+      <a href="listen.html" style="font-size: 0.8rem; color: var(--gold);">Listen</a>
+      <a href="gallery.html" style="font-size: 0.8rem; color: var(--gold);">Gallery</a>
+      <a href="https://doi.org/10.5281/zenodo.18646886" target="_blank" rel="noopener" style="font-size: 0.8rem; color: var(--gold);">Zenodo DOI</a>
+      <a href="https://orcid.org/0009-0008-8425-939X" target="_blank" rel="noopener" style="font-size: 0.8rem; color: var(--gold);">ORCID</a>
+      <a href="https://github.com/FTHTrading/LPS-1-Reference-Implementation" target="_blank" rel="noopener" style="font-size: 0.8rem; color: var(--gold);">GitHub</a>
+    </div>
+    <p style="font-size: 0.75rem; color: var(--text-muted);">&copy; 2026 Kevan Burns &middot; Kidd James. Literary rights reserved. Protocol infrastructure MIT licensed.</p>
+  </footer>
+
+  <!-- Theme Toggle Script -->
+  <script>
+    (function() {
+      const btn = document.getElementById('themeToggle');
+      if (!btn) return;
+      btn.addEventListener('click', function() {
+        const html = document.documentElement;
+        const current = html.getAttribute('data-theme');
+        const next = current === 'dark' ? 'light' : 'dark';
+        html.setAttribute('data-theme', next);
+        localStorage.setItem('xxxiii-theme', next);
+      });
+    })();
+
+    // SHA-256 live demo script
+    async function sha256(message) {
+      const msgBuffer = new TextEncoder().encode(message);
+      const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+      const hashArray = Array.from(new Uint8Array(hashBuffer));
+      return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+    }
+
+    const input = document.getElementById('interactive-text');
+    const resLen = document.getElementById('res-len');
+    const resHash = document.getElementById('res-hash');
+    const resBranch = document.getElementById('res-branch');
+
+    async function updateDemo() {
+      const val = input.value;
+      resLen.textContent = val.length + ' chars';
+      const leaf = await sha256(val);
+      resHash.textContent = leaf;
+      const branch = await sha256(leaf + leaf);
+      resBranch.textContent = branch;
+    }
+
+    input.addEventListener('input', updateDemo);
+    updateDemo();
+  </script>
+
+  <!-- Universal AI Storyteller Engine -->
+  <script src="storyteller.js"></script>
+
+</body>
+</html>

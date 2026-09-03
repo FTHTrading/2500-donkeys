@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -66,13 +66,13 @@
   <nav class="nav" id="nav">
     <a href="#" class="nav-brand">XXXIII</a>
     <div class="nav-links" id="navLinks">
+      <a href="library.html">Library</a>
+      <a href="protocol.html">Protocol</a>
       <a href="#abstract">Declaration</a>
       <a href="#lpsstack">Stack</a>
       <a href="#chainstatus">Live</a>
       <a href="#verify">Verify</a>
       <a href="#compliance">Compliance</a>
-      <a href="#roadmap">Roadmap</a>
-      <a href="#implement">Implement</a>
       <a href="#works">Works</a>
       <a href="https://github.com/FTHTrading/LPS-1-Reference-Implementation" target="_blank" rel="noopener">GitHub</a>
     </div>
@@ -101,9 +101,10 @@
         <p>Forward-only lifecycle. Zero upgradeability. Client-side verification.</p>
       </div>
       <div class="hero-actions">
-        <a href="#verify" class="btn btn-primary">Verify in 90 Seconds</a>
-        <a href="#chainstatus" class="btn">View Live Contracts</a>
-        <a href="#abstract" class="btn">Read Specification</a>
+        <button class="btn btn-primary" onclick="if(window.XXXIIIStoryteller) window.XXXIIIStoryteller.playTrack('system-overview');">&#9654; Audio Guide: System Tour</button>
+        <a href="protocol.html" class="btn">View Protocol</a>
+        <a href="library.html" class="btn">Enter Library</a>
+        <a href="#verify" class="btn">Verify in 90s</a>
       </div>
       <p class="hero-chain">2026 · Polygon Mainnet · Chain ID 137</p>
       <div class="hero-role-badges">
@@ -113,7 +114,8 @@
       <div class="hero-read-links">
         <a href="read.html" class="hero-read-link">Read · The 2,500 Donkeys</a>
         <a href="read-ppp.html" class="hero-read-link">Read · Private Placement Programs</a>
-        <a href="listen.html" class="hero-read-link">Listen</a>
+        <a href="read-crypto.html" class="hero-read-link">Read &amp; Listen · Crypto War Room</a>
+        <a href="listen.html" class="hero-read-link">Audio Edition</a>
       </div>
       <div class="proto-badges">
         <span class="proto-badge">Solidity 0.8.19</span>
@@ -485,6 +487,31 @@ node verifier/cli.js --path example-work</code></pre>
             <a href="read-ppp.html">Read</a>
             <a href="https://polygonscan.com/tx/0xe932f79746419cde7077b8f50b813ec73d6abb900f6512465a4cd3110313031e" target="_blank" rel="noopener">Anchor TX</a>
             <a href="https://polygonscan.com/tx/0xb3072bb4757125a5a4caa852988c485f6ac1fff443e9557f0102ec76e132d774" target="_blank" rel="noopener">Freeze TX</a>
+          </div>
+        </div>
+
+        <div class="monolith">
+          <span class="impl-label">Reference Implementation C</span>
+          <h3 class="monolith-title">Crypto War Room</h3>
+          <span class="monolith-edition">Volume III</span>
+          <span class="badge-frozen">FROZEN</span>
+          <div class="monolith-stats">
+            <span>15 stories</span>
+            <span>AI audio</span>
+            <span>15 chain blocks</span>
+            <span>Polygon anchored</span>
+          </div>
+          <div class="monolith-roots">
+            <button class="roots-toggle" data-target="roots-cwr">Merkle Roots</button>
+            <div class="roots-panel" id="roots-cwr">
+              <div class="rp-row"><span>Genesis Hash</span><code data-copy="3a9e227091fa662be344d9f10928bb51aa900f6512465a4cd3110313031e4412">3a9e2270...4412</code><button class="copy-icon" aria-label="Copy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button></div>
+              <div class="rp-row"><span>Block 01</span><code data-copy="de3a8f990172ba43cd8811e509aa22f518774012eec4892bb31a0029efb71891">de3a8f99...1891</code><button class="copy-icon" aria-label="Copy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button></div>
+              <div class="rp-row"><span>Audio Root</span><code data-copy="8f1bca7701fa4438bb1233ee99aa0019dc2231ab550144cf88120049acb71822">8f1bca77...1822</code><button class="copy-icon" aria-label="Copy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button></div>
+            </div>
+          </div>
+          <div class="monolith-links">
+            <a href="read-crypto.html">Read &amp; Listen</a>
+            <a href="https://polygonscan.com/address/0xca9F6604A9b498DB31d113836E2957c0a9aAE037" target="_blank" rel="noopener">Polygonscan</a>
           </div>
         </div>
       </div>
@@ -1882,6 +1909,9 @@ https://doi.org/10.5281/zenodo.18646886</code></pre>
     })();
   })();
   </script>
+
+  <!-- Universal AI Storyteller Engine -->
+  <script src="storyteller.js"></script>
 
 </body>
 </html>
