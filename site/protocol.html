@@ -3,16 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>XXXIII — Literary Protocol Standard (LPS-1)</title>
-  <meta name="description" content="LPS-1: The open specification for deterministic on-chain literary provenance. 7 verified contracts on Polygon Mainnet, 6 Merkle trees, 293 tests passing, Level 5 compliance.">
-  <meta property="og:title" content="XXXIII — Literary Protocol Standard (LPS-1)">
-  <meta property="og:description" content="An open standard for deterministic digital provenance. SHA-256 word-level hashing, on-chain Merkle roots, IPFS pinning, Bitcoin OpenTimestamps, Zenodo DOI, and Genesis Rust simulation crates.">
+  <title>XXXIII — LPS Protocol Stack (LPS-1 &middot; IAPL-1)</title>
+  <meta name="description" content="LPS Protocol Stack: The complete normative specification for deterministic literary publishing. 6 layers, 7 verified contracts on Polygon Mainnet, Level 5 compliance.">
+  <meta property="og:title" content="XXXIII — LPS Protocol Stack">
+  <meta property="og:description" content="The 6-layer protocol stack for deterministic digital provenance: Infrastructure, Core Protocol (LPS-1), Audio Layer (IAPL-1), Distribution (LPS-NFT), Compliance, and Observability.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://xxxiii.io/protocol.html">
   <meta property="og:image" content="https://xxxiii.io/images/cover/cover-front.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="XXXIII — Literary Protocol Standard (LPS-1)">
-  <meta name="twitter:description" content="Every word hashed. Every edition frozen on Polygon. Level 5 compliance. Kidd James.">
+  <meta name="twitter:title" content="XXXIII — LPS Protocol Stack">
+  <meta name="twitter:description" content="6-layer architecture, verified Polygon smart contracts, Level 5 conformance. Kidd James.">
   <meta name="twitter:image" content="https://xxxiii.io/images/cover/cover-front.png">
   <meta name="author" content="Kidd James">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.88em' font-size='72' font-family='serif' fill='%23111'>X</text></svg>">
@@ -35,7 +35,7 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 120px 24px 60px;
+      padding: 120px 24px 50px;
       position: relative;
     }
     .protocol-hero .sect-numeral {
@@ -57,7 +57,7 @@
     .protocol-hero .lead {
       color: var(--text-secondary);
       font-size: 1.05rem;
-      max-width: 640px;
+      max-width: 680px;
       margin: 0 auto 24px;
       line-height: 1.7;
     }
@@ -79,17 +79,38 @@
       letter-spacing: 0.05em;
     }
 
+    /* ━━━ Stack ASCII Diagram ━━━ */
+    .ascii-stack-box {
+      background: var(--bg-terminal);
+      border: 1px solid var(--border-light);
+      border-left: 3px solid var(--gold);
+      border-radius: 6px;
+      padding: 24px;
+      margin: 30px auto 50px;
+      max-width: 860px;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.75rem;
+      line-height: 1.5;
+      color: var(--terminal-text);
+      overflow-x: auto;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+    }
+    .ascii-stack-box pre {
+      margin: 0;
+      color: var(--gold);
+    }
+
     /* ━━━ Layer Stack Architecture ━━━ */
     .stack-section {
-      max-width: 1020px;
+      max-width: 1040px;
       margin: 0 auto;
-      padding: 40px 24px 80px;
+      padding: 30px 24px 80px;
     }
     .layer-card {
       background: var(--bg-card);
       border: 1px solid var(--border);
       border-radius: 6px;
-      margin-bottom: 24px;
+      margin-bottom: 28px;
       overflow: hidden;
       transition: border-color 0.25s, box-shadow 0.25s;
     }
@@ -175,7 +196,7 @@
       border: 1px solid var(--gold);
       border-radius: 6px;
       padding: 28px;
-      margin: 40px 0 80px;
+      margin: 40px 0 60px;
     }
     .demo-input {
       width: 100%;
@@ -218,27 +239,27 @@
       word-break: break-all;
     }
 
-    /* ━━━ Contracts Table ━━━ */
-    .contracts-table {
+    /* ━━━ Data Tables ━━━ */
+    .proto-table {
       width: 100%;
       border-collapse: collapse;
       font-family: 'IBM Plex Mono', monospace;
       font-size: 0.78rem;
-      margin: 24px 0 60px;
+      margin: 20px 0 50px;
     }
-    .contracts-table th, .contracts-table td {
+    .proto-table th, .proto-table td {
       padding: 12px 16px;
       border: 1px solid var(--border);
       text-align: left;
     }
-    .contracts-table th {
+    .proto-table th {
       background: var(--bg-alt);
       color: var(--gold);
       font-family: 'Cinzel', serif;
       font-size: 0.85rem;
       letter-spacing: 0.06em;
     }
-    .contracts-table tr:hover td {
+    .proto-table tr:hover td {
       background: var(--gold-glow);
     }
 
@@ -252,8 +273,8 @@
       align-items: center;
       justify-content: space-between;
       gap: 20px;
-      margin: 40px auto 60px;
-      max-width: 1020px;
+      margin: 30px auto 50px;
+      max-width: 1040px;
     }
     @media (max-width: 768px) {
       .st-banner {
@@ -282,11 +303,12 @@
     <div class="nav-links" id="navLinks">
       <a href="library.html" class="nav-link">Library</a>
       <a href="protocol.html" class="nav-link active" style="color: var(--gold); font-weight: 500;">Protocol</a>
-      <a href="#layers" class="nav-link">Architecture</a>
-      <a href="#academic" class="nav-link">Academic & DOI</a>
+      <a href="#layers" class="nav-link">Stack Layers</a>
+      <a href="#proposals" class="nav-link">Proposals</a>
+      <a href="#academic" class="nav-link">Academic &amp; DOI</a>
       <a href="#crates" class="nav-link">Genesis Crates</a>
-      <a href="#contracts" class="nav-link">On-Chain</a>
-      <a href="https://github.com/FTHTrading/LPS-1-Reference-Implementation" target="_blank" rel="noopener">GitHub</a>
+      <a href="#contracts" class="nav-link">Contracts</a>
+      <a href="https://github.com/FTHTrading/2500-donkeys" target="_blank" rel="noopener">GitHub</a>
     </div>
     <div class="nav-actions">
       <a href="read.html" class="nav-link-btn">Read</a>
@@ -301,76 +323,142 @@
 
   <!-- ━━━ Hero ━━━ -->
   <header class="protocol-hero">
-    <span class="sect-numeral">SPECIFICATION &middot; STANDARD &middot; VERIFIER</span>
-    <h1>Literary Protocol Standard</h1>
+    <span class="sect-numeral">CANONICAL SPECIFICATION &middot; LPS PROTOCOL STACK</span>
+    <h1>LPS Protocol Stack</h1>
     <p class="lead">
-      LPS-1 defines an open specification for anchoring literary works on public blockchains with absolute cryptographic integrity.
-      Every paragraph is SHA-256 hashed, structured into Merkle trees, and permanently anchored on Polygon Mainnet.
+      The complete normative architecture for the Deterministic Literary Publishing Standard (LPS-1 &middot; IAPL-1 &middot; LPS-NFT).
+      Six independently specified, implementable, and verifiable layers deployed live on Polygon Mainnet.
     </p>
 
     <div class="hero-badges-row">
       <span class="proto-tag">Polygon Mainnet &middot; 137</span>
-      <span class="proto-tag">Level 5 Conformance</span>
+      <span class="proto-tag">Level 5 Conformance (Fully Observable)</span>
       <span class="proto-tag">58/58 Verification Checks</span>
       <span class="proto-tag">293 Passing Tests</span>
-      <span class="proto-tag">Zero Upgradeability</span>
+      <span class="proto-tag">7 Verified Contracts</span>
       <span class="proto-tag">MIT Licensed</span>
     </div>
 
     <div class="hero-actions">
       <button class="btn btn-primary" onclick="if(window.XXXIIIStoryteller) window.XXXIIIStoryteller.playTrack('system-overview');">
-        &#9654; Audio Guide: System Tour
+        &#9654; Audio Guide: Full System Tour
       </button>
-      <a href="#layers" class="btn">Explore 6 Layers</a>
-      <a href="https://github.com/FTHTrading/LPS-1-Reference-Implementation" target="_blank" rel="noopener" class="btn">View Source on GitHub</a>
+      <a href="#layers" class="btn">Explore The 6 Layers</a>
+      <a href="https://github.com/FTHTrading/2500-donkeys/blob/master/docs/spec/LPS-STACK.md" target="_blank" rel="noopener" class="btn">View LPS-STACK.md</a>
     </div>
   </header>
 
   <!-- ━━━ Audio Storyteller Banner ━━━ -->
   <section class="st-banner">
     <div>
-      <h3>Walk Through the Full System with Voice</h3>
-      <p>Listen to our AI Storyteller guide explain the mathematical proofs, author identity, and the simulation engine.</p>
+      <h3>Interactive Audio Guide: The Full Protocol Tour</h3>
+      <p>Listen to the sovereign storyteller walk you through every layer: from raw text to Merkle roots, non-upgradeable contracts, and the Genesis simulation engine.</p>
     </div>
     <button class="btn btn-primary" onclick="if(window.XXXIIIStoryteller) window.XXXIIIStoryteller.playTrack('academic-provenance');">
-      Hear Academic Tour
+      Hear Academic &amp; Crates Tour
     </button>
   </section>
 
-  <!-- ━━━ 6-Layer Architecture ━━━ -->
+  <!-- ━━━ Stack Architecture ASCII Box ━━━ -->
+  <div class="ascii-stack-box">
+    <div style="font-size: 0.65rem; color: var(--text-dim); margin-bottom: 8px; text-transform: uppercase;">FIG 1.0 &middot; LPS ARCHITECTURAL STACK &middot; NORMATIVE LAYERS</div>
+<pre>
+┌─────────────────────────────────────────────────────────┐
+│              LAYER 6 &middot; OBSERVABILITY                    │
+│    Client-side chain reads · Event timeline · Ethers v6 │
+│    5 Prioritized RPC endpoints · Client hash verifier   │
+├─────────────────────────────────────────────────────────┤
+│              LAYER 5 &middot; COMPLIANCE                       │
+│    Level 0–5 conformance matrix · Formal verification   │
+│    Level 5: Fully Observable &amp; Cryptographically Frozen │
+├─────────────────────────────────────────────────────────┤
+│              LAYER 4 &middot; DISTRIBUTION                     │
+│    LPS-NFT · ERC-721 + ERC-2981 royalty standards       │
+│    EditionNFT · StoryNFT · RoyaltyRouter &middot; Recovery     │
+├─────────────────────────────────────────────────────────┤
+│              LAYER 3 &middot; AUDIO LAYER                      │
+│    IAPL-1 · Immutable Audio Publishing Layer            │
+│    Kokoro TTS · Audio Merkle tree · Per-file SHA-256    │
+├─────────────────────────────────────────────────────────┤
+│              LAYER 2 &middot; CORE PROTOCOL                    │
+│    LPS-1 · Literary Publishing Standard                 │
+│    SHA-256 CRLF normalization · 4 Merkle trees · Anchor │
+├─────────────────────────────────────────────────────────┤
+│              LAYER 1 &middot; INFRASTRUCTURE                   │
+│    Polygon Mainnet (137) · IPFS · OpenTimestamps (BTC)  │
+│    Non-upgradeable contracts · Git commit provenance    │
+└─────────────────────────────────────────────────────────┘
+</pre>
+  </div>
+
+  <!-- ━━━ 6-Layer Architecture Stack (LPS-STACK.md) ━━━ -->
   <main class="stack-section" id="layers">
     <div style="text-align: center; margin-bottom: 40px;">
-      <span class="sect-numeral">THE PROTOCOL STACK</span>
-      <h2 style="font-family: 'Cinzel', serif; font-size: 2rem;">Six Sovereign Layers</h2>
-      <p style="color: var(--text-secondary); max-width: 540px; margin: 8px auto 0;">From deterministic text hashing to autonomous peer verification.</p>
+      <span class="sect-numeral">THE NORMATIVE SPECIFICATION</span>
+      <h2 style="font-family: 'Cinzel', serif; font-size: 2rem;">Layer Definitions &amp; Components</h2>
+      <p style="color: var(--text-secondary); max-width: 600px; margin: 8px auto 0;">As formalized in <code>docs/spec/LPS-STACK.md</code> of the reference implementation.</p>
     </div>
 
-    <!-- Layer 1 -->
+    <!-- Layer 1: Infrastructure -->
     <div class="layer-card">
       <div class="layer-head">
         <div class="layer-title-wrap">
           <span class="layer-num">01</span>
           <div>
-            <h3 class="layer-name">Cryptographic Content Substrate</h3>
-            <span class="layer-sub">SHA-256 Word, Paragraph & Chapter Hashing</span>
+            <h3 class="layer-name">Infrastructure Layer</h3>
+            <span class="layer-sub">Settlement &middot; Persistence &middot; Temporal Anchoring</span>
           </div>
         </div>
-        <span class="proto-tag">Deterministic Pipeline</span>
+        <span class="proto-tag">Polygon &middot; IPFS &middot; Bitcoin</span>
       </div>
       <div class="layer-body">
         <div class="layer-text">
           <p>
-            At the base of the protocol lies the deterministic compiler. Every single word, paragraph, and chapter written by Kidd James is stripped of platform artifacts and hashed using lowercase SHA-256 digests.
-          </p>
-          <p>
-            Five distinct Merkle trees are constructed per edition:
+            The foundational layer providing settlement, content-addressed storage, and immutable cross-chain temporal anchoring:
           </p>
           <ul>
-            <li><strong>Manuscript Tree:</strong> Ordered text blocks in canonical reading sequence.</li>
-            <li><strong>Artifact Tree:</strong> Embedded contracts, emails, SWIFT MT799 records, and IMFPA agreements.</li>
-            <li><strong>Image Tree:</strong> Chapter covers and visual assets.</li>
-            <li><strong>Prompt Tree:</strong> The raw text prompts utilized for AI generation provenance.</li>
-            <li><strong>Audio Tree:</strong> AI-narrated chapters and story audio files.</li>
+            <li><strong>Settlement:</strong> Polygon Mainnet (Chain ID 137) provides immutable on-chain state anchoring and block-level timestamps.</li>
+            <li><strong>Storage:</strong> IPFS decentralized persistence addressed purely by cryptographic Content Identifier (CID).</li>
+            <li><strong>Cross-Chain Timestamps:</strong> OpenTimestamps anchored into Bitcoin block headers for multi-chain temporal priority.</li>
+            <li><strong>Version Control:</strong> Git commit-level authorship history and signed releases.</li>
+            <li><strong>Contracts:</strong> Non-upgradeable Solidity implementations (<code>LiteraryAnchor</code>, <code>PublishingKernelV2</code>, <code>AuthorIdentity</code>).</li>
+          </ul>
+        </div>
+        <div class="layer-spec-box">
+          <span class="spec-key">// Layer 1 Specification</span><br>
+          Settlement: <span class="spec-val">Polygon Mainnet (Chain ID 137)</span><br>
+          Storage: <span class="spec-val">IPFS Content Addressing (CID)</span><br>
+          Cross-Chain: <span class="spec-val">OpenTimestamps &rarr; Bitcoin</span><br>
+          Version Control: <span class="spec-val">Git SHA-1/SHA-256 Tree</span><br>
+          Contract Archetype: <span class="spec-val">Non-upgradeable &middot; Zero Admin Keys</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Layer 2: Core Protocol (LPS-1) -->
+    <div class="layer-card">
+      <div class="layer-head">
+        <div class="layer-title-wrap">
+          <span class="layer-num">02</span>
+          <div>
+            <h3 class="layer-name">Core Protocol (LPS-1)</h3>
+            <span class="layer-sub">Deterministic Hashing &middot; Merkle Trees &middot; Lifecycle State Machine</span>
+          </div>
+        </div>
+        <span class="proto-tag">Normative Spec &middot; LPS-1.md</span>
+      </div>
+      <div class="layer-body">
+        <div class="layer-text">
+          <p>
+            The normative specification for deterministic literary publishing:
+          </p>
+          <ul>
+            <li><strong>Content Hashing:</strong> SHA-256 with CRLF normalization (FIPS 180-4) ensuring bitwise reproducibility across all operating systems.</li>
+            <li><strong>Merkle Architecture:</strong> Four independent Merkle trees: manuscript, embedded artifacts, visual images, and AI generation prompts.</li>
+            <li><strong>Edition Root:</strong> Composite hash: <code>SHA-256(manuscriptRoot ‖ artifactRoot ‖ imageRoot ‖ promptRoot)</code>.</li>
+            <li><strong>Edition Lifecycle:</strong> Forward-only state transitions: <code>DRAFT &rarr; ANCHORED &rarr; FROZEN &rarr; CANONICAL / SUPERSEDED / RETRACTED</code>.</li>
+            <li><strong>Identity:</strong> ECDSA author binding via the <code>AuthorIdentity</code> contract.</li>
+            <li><strong>Freeze Mechanism:</strong> Permanent, irreversible on-chain seal preventing any future alteration.</li>
           </ul>
         </div>
         <div class="layer-spec-box">
@@ -379,186 +467,273 @@
           &nbsp;&nbsp;manuscriptRoot ||<br>
           &nbsp;&nbsp;artifactRoot ||<br>
           &nbsp;&nbsp;imageRoot ||<br>
-          &nbsp;&nbsp;promptRoot ||<br>
-          &nbsp;&nbsp;audioRoot<br>
+          &nbsp;&nbsp;promptRoot<br>
           );<br><br>
-          <span class="spec-key">Status:</span> <span class="spec-val">Canonical Root Locked</span><br>
+          <span class="spec-key">Edition Lifecycle:</span> <span class="spec-val">FROZEN &middot; CANONICAL</span><br>
           <span class="spec-hash">0x6719ed7f9e142a39a4a7db533895562bdf5379cf7f9816ed7cbe045ca359594e</span>
         </div>
       </div>
     </div>
 
-    <!-- Layer 2 -->
-    <div class="layer-card">
-      <div class="layer-head">
-        <div class="layer-title-wrap">
-          <span class="layer-num">02</span>
-          <div>
-            <h3 class="layer-name">On-Chain Registry & State Machine</h3>
-            <span class="layer-sub">PublishingKernel & LiteraryAnchor on Polygon Mainnet</span>
-          </div>
-        </div>
-        <span class="proto-tag">Polygon &middot; Chain ID 137</span>
-      </div>
-      <div class="layer-body">
-        <div class="layer-text">
-          <p>
-            The on-chain kernel acts as the permanent legal and cryptographic registry. The contracts are non-upgradeable and contain zero admin override keys.
-          </p>
-          <p>
-            Editions obey a strict forward-only state machine:
-          </p>
-          <ul>
-            <li><strong>Anchored:</strong> Edition root committed to Polygon Mainnet.</li>
-            <li><strong>Canonical:</strong> Designated as the official authoritative edition.</li>
-            <li><strong>Superseded:</strong> Replaced by a newer version (history preserved forever).</li>
-            <li><strong>Retracted:</strong> Explicitly marked with an on-chain justification string.</li>
-          </ul>
-        </div>
-        <div class="layer-spec-box">
-          <span class="spec-key">Kernel Contract:</span><br>
-          <span class="spec-val">0xca9F6604A9b498DB31d113836E2957c0a9aAE037</span><br><br>
-          <span class="spec-key">Anchor Transaction:</span><br>
-          <span class="spec-hash">0xe932f79746419cde7077b8f50b813ec73d6abb900f6512465a4cd3110313031e</span><br><br>
-          <span class="spec-key">Gas Cost:</span> <span class="spec-val">21,000 gas</span><br>
-          <span class="spec-key">Nonce:</span> <span class="spec-val">1337</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- Layer 3 -->
+    <!-- Layer 3: Audio Layer (IAPL-1) -->
     <div class="layer-card">
       <div class="layer-head">
         <div class="layer-title-wrap">
           <span class="layer-num">03</span>
           <div>
-            <h3 class="layer-name">Storage & Content Addressing</h3>
-            <span class="layer-sub">IPFS Content Identifier (CID) Pinning</span>
+            <h3 class="layer-name">Audio Layer (IAPL-1)</h3>
+            <span class="layer-sub">Immutable Audio Publishing &middot; Kokoro TTS &middot; Audio Merkle Root</span>
           </div>
         </div>
-        <span class="proto-tag">Decentralized Storage</span>
+        <span class="proto-tag">IAPL-1 Spec &middot; 36 Audio Files</span>
       </div>
       <div class="layer-body">
         <div class="layer-text">
           <p>
-            Raw manuscript markdown, embedded artifacts, and full-resolution audio files are published to IPFS.
+            Extension layer for immutable audio provenance across the entire literary collection:
           </p>
-          <p>
-            Because IPFS addresses content exclusively by its cryptographic hash (CID), it is physically impossible for hosting providers to replace text, silently edit sentences, or alter historical editions.
-          </p>
+          <ul>
+            <li><strong>Audio Generation:</strong> Kokoro TTS v0.9.4 (hexgrad/Kokoro-82M, narrator George) with deterministic narrator configuration.</li>
+            <li><strong>Audio Hashing:</strong> Per-file SHA-256 cryptographic fingerprints.</li>
+            <li><strong>Audio Merkle Tree:</strong> Independent Merkle tree for all audio chapters and stories.</li>
+            <li><strong>Audio Edition Root:</strong> Anchored alongside the literary edition root directly on Polygon.</li>
+            <li><strong>Master Provenance:</strong> Audio edition root: <code>6daf95a029668335c53b192425d47ab4b776946bcdff3e92db37c28fc13bd519</code>.</li>
+          </ul>
         </div>
         <div class="layer-spec-box">
-          <span class="spec-key">Manuscript CID:</span><br>
-          <span class="spec-val">bafybeihdwdcefgh4dqkjv67uzcmw7ojee6xedzdetojuzjevtenxquvyku</span><br><br>
-          <span class="spec-key">Audio Master CID:</span><br>
-          <span class="spec-val">bafybeicgq5c477q3c5fkg5qeqw65f4n7b6r4vkn653tqwha3jndpyp64le</span>
+          <span class="spec-key">// IAPL-1 Audio Edition Root</span><br>
+          Narrator: <span class="spec-val">George (Kokoro TTS v0.9.4)</span><br>
+          Format: <span class="spec-val">mp3_24000_192</span><br>
+          Audio Root: <span class="spec-hash">3295ee6c54447cac8062fc8ac822a677b061f9d7aa88a24e0267efdad9b4bca0</span><br>
+          Audio Edition Root: <span class="spec-hash">6daf95a029668335c53b192425d47ab4b776946bcdff3e92db37c28fc13bd519</span>
         </div>
       </div>
     </div>
 
-    <!-- Layer 4 -->
+    <!-- Layer 4: Distribution (LPS-NFT) -->
     <div class="layer-card">
       <div class="layer-head">
         <div class="layer-title-wrap">
           <span class="layer-num">04</span>
           <div>
-            <h3 class="layer-name">Cross-Chain Temporal Anchoring</h3>
-            <span class="layer-sub">Bitcoin OpenTimestamps Attestation</span>
+            <h3 class="layer-name">Distribution Layer (LPS-NFT)</h3>
+            <span class="layer-sub">ERC-721 + ERC-2981 Royalties &middot; Non-Custodial Distribution</span>
           </div>
         </div>
-        <span class="proto-tag">Bitcoin Proof</span>
+        <span class="proto-tag">ERC-721 &middot; ERC-2981 &middot; 4 Contracts</span>
       </div>
       <div class="layer-body">
         <div class="layer-text">
           <p>
-            To prevent reliance on any single consensus network, edition roots are cross-anchored into the Bitcoin blockchain via OpenTimestamps.
+            Token-based distribution layer for sovereign literary editions and individual stories:
           </p>
-          <p>
-            This establishes indisputable chronological priority, proving the manuscript existed in its exact byte-for-byte state prior to the timestamped Bitcoin block height.
-          </p>
+          <ul>
+            <li><strong>EditionNFT (<code>0x9e9C...f8b0</code>):</strong> ERC-721 full edition token bound directly to the edition root.</li>
+            <li><strong>StoryNFT (<code>0xD67e...e7E3</code>):</strong> ERC-721 story tokens for individual chapters and short stories.</li>
+            <li><strong>RoyaltyRouter (<code>0x4416...C461</code>):</strong> Non-custodial, pull-based royalty router supporting multi-payee splits.</li>
+            <li><strong>RecoveryToolkit (<code>0xedE0...89cB</code>):</strong> Rigorous asset recovery framework (69 tests passing).</li>
+          </ul>
         </div>
         <div class="layer-spec-box">
-          <span class="spec-key">OTS Engine:</span> <span class="spec-val">OpenTimestamps v0.4.1</span><br>
-          <span class="spec-key">Attestation:</span> <span class="spec-val">BTC Block Header Merkle Path</span><br>
-          <span class="spec-key">Verification:</span> <span class="spec-val">ots verify edition-ots.ots</span>
+          <span class="spec-key">// Deployed Distribution Contracts</span><br>
+          EditionNFT: <span class="spec-val">0x9e9Cc1486bf440Bd9eAaaD947958524Aaed3f8b0</span><br>
+          StoryNFT: <span class="spec-val">0xD67e537Dba1236f802432cbDD30Fec3f6D38e7E3</span><br>
+          RoyaltyRouter: <span class="spec-val">0x44169829489d70aaecbf845870652871C65fC461</span><br>
+          RecoveryToolkit: <span class="spec-val">0xedE0Ec0C1BdCFBa4FE6AE0a4C53290a1e83e89cB</span>
         </div>
       </div>
     </div>
 
-    <!-- Layer 5 -->
-    <div class="layer-card" id="academic">
+    <!-- Layer 5: Compliance -->
+    <div class="layer-card">
       <div class="layer-head">
         <div class="layer-title-wrap">
           <span class="layer-num">05</span>
           <div>
-            <h3 class="layer-name">Academic & Persistent Identifiers</h3>
-            <span class="layer-sub">ORCID Identity & Zenodo DOI Integration</span>
+            <h3 class="layer-name">Compliance Framework</h3>
+            <span class="layer-sub">Levels 0 through 5 Conformance Matrix</span>
           </div>
         </div>
-        <span class="proto-tag">Open Research &middot; DOI</span>
+        <span class="proto-tag">Level 5 &middot; Fully Observable</span>
       </div>
       <div class="layer-body">
         <div class="layer-text">
           <p>
-            XXXIII bridges on-chain smart contracts with peer-reviewed open science registries. The protocol and reference papers are indexed under permanent digital object identifiers:
+            Conformance measurement and certification framework for literary provenance:
           </p>
           <ul>
-            <li><strong>ORCID Author Identifier:</strong> <a href="https://orcid.org/0009-0008-8425-939X" target="_blank" rel="noopener">0009-0008-8425-939X</a> — Kidd James / Kevan Burns.</li>
-            <li><strong>Zenodo DOI:</strong> <a href="https://doi.org/10.5281/zenodo.18646886" target="_blank" rel="noopener">10.5281/zenodo.18646886</a> — Formal academic treatise on deterministic literary publishing.</li>
-            <li><strong>Citation Standard:</strong> Full <code>CITATION.cff</code> compliance for automatic inclusion in university research indices and library archives.</li>
+            <li><strong>Level 0 (Anchor Only):</strong> SHA-256 hash on any public blockchain.</li>
+            <li><strong>Level 1 (Deterministic Build):</strong> CRLF normalization and bit-exact reproducible hashing.</li>
+            <li><strong>Level 2 (Merkle Provenance):</strong> Per-content-type trees and combined edition root.</li>
+            <li><strong>Level 3 (On-Chain Anchoring):</strong> Immutable smart contract binding edition root to block.</li>
+            <li><strong>Level 4 (Signed Canonical Root):</strong> ECDSA author identity and on-chain registry.</li>
+            <li><strong>Level 5 (Fully Observable):</strong> Cross-chain timestamps, client-side verifier, live events. <strong>(XXXIII Achievement Level)</strong></li>
           </ul>
         </div>
         <div class="layer-spec-box">
-          <span class="spec-key">@article{burns2026deterministic,</span><br>
-          &nbsp;&nbsp;<span class="spec-key">title</span> = {Deterministic Literary Publishing},<br>
-          &nbsp;&nbsp;<span class="spec-key">author</span> = {Burns, Kevan},<br>
-          &nbsp;&nbsp;<span class="spec-key">doi</span> = {10.5281/zenodo.18646886},<br>
-          &nbsp;&nbsp;<span class="spec-key">year</span> = {2026},<br>
-          &nbsp;&nbsp;<span class="spec-key">orcid</span> = {0009-0008-8425-939X}<br>
-          <span class="spec-key">}</span>
+          <span class="spec-key">// Compliance Matrix Evidence</span><br>
+          Conformance Status: <span class="spec-val">Level 5 &middot; FULLY OBSERVABLE</span><br>
+          Evidence A: <span class="spec-val">58/58 Automated Tests Passing</span><br>
+          Evidence B: <span class="spec-val">293 Contract &amp; Pipeline Unit Tests</span><br>
+          Evidence C: <span class="spec-val">Bitcoin OTS Block Proof Attested</span>
         </div>
       </div>
     </div>
 
-    <!-- Layer 6 -->
-    <div class="layer-card" id="crates">
+    <!-- Layer 6: Observability -->
+    <div class="layer-card">
       <div class="layer-head">
         <div class="layer-title-wrap">
           <span class="layer-num">06</span>
           <div>
-            <h3 class="layer-name">Autonomous Verification & Genesis Crates</h3>
-            <span class="layer-sub">Genesis Multi-Agent Rust Crates & lps-verify CLI</span>
+            <h3 class="layer-name">Observability Layer</h3>
+            <span class="layer-sub">Client-Side Chain Reads &middot; Event Decoding &middot; Drag-and-Drop Verifier</span>
           </div>
         </div>
-        <span class="proto-tag">13 Rust Crates &middot; 6,820 Worlds</span>
+        <span class="proto-tag">Ethers.js v6 &middot; 5 Fallback RPCs</span>
       </div>
       <div class="layer-body">
         <div class="layer-text">
           <p>
-            The protocol is backed by <strong>Genesis</strong>, a deterministic multi-agent economic simulation engine constructed across 13 modular Rust crates.
+            Client-side verification and real-time chain state monitoring without proprietary backend dependencies:
           </p>
-          <p>
-            Genesis simulates counterparty failure cascades across 6,820 synthetic economies and 44 reproducible experiments. The verifier tool (<code>lps-verify</code>) executes 58 cryptographic validation checks directly on the reader's machine with zero third-party API dependencies.
-          </p>
+          <ul>
+            <li><strong>11 Parallel Contract Reads:</strong> Real-time queries via Ethers.js v6 directly from the reader's browser.</li>
+            <li><strong>Event Timeline:</strong> Live decoding of <code>EditionAnchored</code> and <code>EditionFrozen</code> smart contract events.</li>
+            <li><strong>Autonomous Verification:</strong> Drag-and-drop client SHA-256 file verification against on-chain roots.</li>
+            <li><strong>5 Prioritized RPC Endpoints:</strong> Automatic failover across Polygon public and private gateways.</li>
+          </ul>
         </div>
         <div class="layer-spec-box">
-          <span class="spec-key">// Run client-side verifier</span><br>
-          $ npm run verify<br><br>
-          <span class="spec-val">&#10003; SHA-256 Leaf Hashing (31/31)</span><br>
-          <span class="spec-val">&#10003; Merkle Tree Consistency (5/5)</span><br>
-          <span class="spec-val">&#10003; Polygon Contract State (Chain 137)</span><br>
-          <span class="spec-val">&#10003; 58/58 Verification Checks Passed</span><br>
-          <span class="spec-val">&#10003; Conformance: Level 5 Verified</span>
+          <span class="spec-key">// Observability Architecture</span><br>
+          Ethers.js Version: <span class="spec-val">v6.13.4 UMD</span><br>
+          Contract Reads: <span class="spec-val">11 Parallel Queries</span><br>
+          Event Decoding: <span class="spec-val">EditionAnchored, EditionFrozen</span><br>
+          Failover Strategy: <span class="spec-val">5 Tiered Polygon RPCs</span>
         </div>
       </div>
     </div>
 
-    <!-- Interactive Merkle Demo -->
+    <!-- ━━━ Stack Interaction Model Diagram ━━━ -->
+    <div class="ascii-stack-box" style="margin-top: 50px;">
+      <div style="font-size: 0.65rem; color: var(--text-dim); margin-bottom: 8px; text-transform: uppercase;">FIG 2.0 &middot; STACK INTERACTION MODEL</div>
+<pre>
+User ─── Observability (L6) ─── reads ──▶ Infrastructure (L1)
+  │                                              │
+  ▼                                              ▼
+Verify ─── Compliance (L5) ─── measures ─▶ Core Protocol (L2)
+  │                                              │
+  ▼                                              ▼
+Collect ── Distribution (L4) ── mints ───▶ Edition Root
+  │                                              │
+  ▼                                              ▼
+Listen ─── Audio Layer (L3) ── extends ──▶ Merkle Architecture
+</pre>
+    </div>
+
+    <!-- ━━━ Proposals Table (LPS-2 through LPS-5) ━━━ -->
+    <div id="proposals" style="margin-top: 60px;">
+      <span class="sect-numeral">DEVELOPMENT TRAJECTORY</span>
+      <h3 style="font-family: 'Cinzel', serif; font-size: 1.6rem; margin-bottom: 8px;">Improvement Proposals</h3>
+      <p style="color: var(--text-secondary); font-size: 0.88rem; margin-bottom: 24px;">Active and proposed standard extensions governing the future of on-chain literary publishing.</p>
+
+      <table class="proto-table">
+        <thead>
+          <tr>
+            <th>Proposal</th>
+            <th>Layer</th>
+            <th>Title</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>LPS-2</strong></td>
+            <td>L1 (Infrastructure)</td>
+            <td>Cross-chain anchor standard (Ethereum, Arbitrum, Solana)</td>
+            <td><span class="proto-tag">Draft</span></td>
+          </tr>
+          <tr>
+            <td><strong>LPS-3</strong></td>
+            <td>L2 (Core Protocol)</td>
+            <td>Zero-knowledge proof of origin &amp; anonymous authorship</td>
+            <td><span class="proto-tag">Research</span></td>
+          </tr>
+          <tr>
+            <td><strong>LPS-4</strong></td>
+            <td>L2 (Core Protocol)</td>
+            <td>Multi-author edition support &amp; cooperative consensus</td>
+            <td><span class="proto-tag">Proposed</span></td>
+          </tr>
+          <tr>
+            <td><strong>LPS-5</strong></td>
+            <td>L3 (Audio Layer)</td>
+            <td>Audio edition Merkle standard &amp; stem-level verification</td>
+            <td><span class="proto-tag" style="color: var(--pass); border-color: var(--pass);">Active</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ━━━ Academic & Research Section (Zenodo DOI & ORCID) ━━━ -->
+    <div id="academic" style="margin-top: 60px;">
+      <span class="sect-numeral">ACADEMIC PROVENANCE &amp; OPEN SCIENCE</span>
+      <h3 style="font-family: 'Cinzel', serif; font-size: 1.6rem; margin-bottom: 8px;">Persistent Identifiers &amp; Citations</h3>
+      <p style="color: var(--text-secondary); font-size: 0.88rem; margin-bottom: 24px;">
+        Bridging on-chain blockchain immutability with global academic repositories and peer-reviewed citation standards.
+      </p>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-bottom: 30px;">
+        <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 6px; padding: 20px;">
+          <span style="color: var(--gold); font-family: 'Cinzel', serif; font-weight: 600; font-size: 0.95rem; display: block; margin-bottom: 6px;">Zenodo DOI Record</span>
+          <p style="font-size: 0.84rem; color: var(--text-secondary); margin-bottom: 12px;">Archived under DOI <code>10.5281/zenodo.18646886</code>. Permanent open-access scholarly repository operated by CERN.</p>
+          <a href="https://doi.org/10.5281/zenodo.18646886" target="_blank" rel="noopener" class="proto-tag" style="text-decoration: none;">View on Zenodo &rarr;</a>
+        </div>
+
+        <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 6px; padding: 20px;">
+          <span style="color: var(--gold); font-family: 'Cinzel', serif; font-weight: 600; font-size: 0.95rem; display: block; margin-bottom: 6px;">ORCID Author Registry</span>
+          <p style="font-size: 0.84rem; color: var(--text-secondary); margin-bottom: 12px;">Author identity verified under ORCID <code>0009-0008-8425-939X</code>, binding cryptographic key pairs to academic authority.</p>
+          <a href="https://orcid.org/0009-0008-8425-939X" target="_blank" rel="noopener" class="proto-tag" style="text-decoration: none;">View ORCID Record &rarr;</a>
+        </div>
+      </div>
+
+      <div class="layer-spec-box">
+        <span class="spec-key">// Citation File Format (CITATION.cff)</span><br>
+        cff-version: 1.2.0<br>
+        title: "Deterministic Literary Publishing: A Multi-Layer Provenance Model for Verifiable Manuscripts"<br>
+        authors:<br>
+        &nbsp;&nbsp;- family-names: Burns<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;given-names: Kevan<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;orcid: "https://orcid.org/0009-0008-8425-939X"<br>
+        doi: 10.5281/zenodo.18646886<br>
+        date-released: 2026-02-15
+      </div>
+    </div>
+
+    <!-- ━━━ Genesis Rust Simulation Crates Section ━━━ -->
+    <div id="crates" style="margin-top: 60px;">
+      <span class="sect-numeral">MULTI-AGENT SIMULATION ENGINE</span>
+      <h3 style="font-family: 'Cinzel', serif; font-size: 1.6rem; margin-bottom: 8px;">13 Genesis Rust Simulation Crates</h3>
+      <p style="color: var(--text-secondary); font-size: 0.88rem; margin-bottom: 24px;">
+        Behind the narrative sits <strong>Genesis</strong>: a high-performance multi-agent economic simulation engine constructed across 13 modular Rust crates executing 6,820 synthetic worlds and 44 empirical experiments.
+      </p>
+
+      <div class="layer-spec-box">
+        <span class="spec-key">// Genesis Simulation Crates Architecture</span><br>
+        Crates: <span class="spec-val">13 modular Rust crates</span><br>
+        Synthetic Economies: <span class="spec-val">6,820 independent worlds</span><br>
+        Replication Experiments: <span class="spec-val">44 empirical tests</span><br>
+        Mathematical Models: <span class="spec-val">Counterparty trust decay, broker cascade failure, liquidity spirals</span><br>
+        Protocol Alignment: <span class="spec-val">The same invariants governing Genesis Rust crates govern LPS-1 on-chain smart contracts</span>
+      </div>
+    </div>
+
+    <!-- ━━━ Interactive Merkle Demo ━━━ -->
     <div class="demo-box" id="demo">
       <span class="sect-numeral">LIVE CRYPTOGRAPHIC DEMO</span>
       <h3 style="font-family: 'Cinzel', serif; font-size: 1.4rem; color: var(--gold); margin-bottom: 8px;">Interactive SHA-256 Merkle Proof</h3>
       <p style="color: var(--text-secondary); font-size: 0.88rem; margin-bottom: 20px;">
-        Type any sentence into the box below. Watch the client-side JavaScript recalculate the SHA-256 leaf hash and simulated Merkle branch in real time:
+        Type any sentence into the box below. Watch client-side JavaScript recalculate the SHA-256 leaf hash and simulated Merkle branch in real time:
       </p>
 
       <input type="text" id="interactive-text" class="demo-input" value="Stories anchored on-chain. Every word hashed. Every edition frozen." aria-label="Manuscript sample text">
@@ -579,25 +754,25 @@
       </div>
     </div>
 
-    <!-- On-Chain Contracts Inventory -->
+    <!-- ━━━ On-Chain Contracts Inventory ━━━ -->
     <div id="contracts" style="margin-top: 60px;">
-      <span class="sect-numeral">DEPLOYMENT INVENTORY</span>
+      <span class="sect-numeral">DEPLOYMENT INVENTORY &middot; 7 VERIFIED CONTRACTS</span>
       <h3 style="font-family: 'Cinzel', serif; font-size: 1.6rem; margin-bottom: 8px;">Verified Polygon Contracts</h3>
       <p style="color: var(--text-secondary); font-size: 0.88rem; margin-bottom: 24px;">All contracts deployed on Polygon Mainnet (Chain ID 137), source code verified on Polygonscan.</p>
 
-      <table class="contracts-table">
+      <table class="proto-table">
         <thead>
           <tr>
             <th>Contract Name</th>
-            <th>Type</th>
-            <th>Address</th>
+            <th>Role &amp; Standard</th>
+            <th>Polygon Address</th>
             <th>Network</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td><strong>PublishingKernel</strong></td>
-            <td>Core Registry & State Machine</td>
+            <td><strong>PublishingKernelV2</strong></td>
+            <td>Core Registry &amp; State Machine</td>
             <td><a href="https://polygonscan.com/address/0xca9F6604A9b498DB31d113836E2957c0a9aAE037" target="_blank" rel="noopener"><code>0xca9F...aAE037</code></a></td>
             <td>Polygon Mainnet</td>
           </tr>
@@ -609,29 +784,47 @@
           </tr>
           <tr>
             <td><strong>AuthorIdentity</strong></td>
-            <td>ORCID & Key Provenance</td>
+            <td>ORCID &amp; Key Provenance</td>
             <td><a href="https://polygonscan.com/address/0xca9F6604A9b498DB31d113836E2957c0a9aAE037" target="_blank" rel="noopener"><code>0xca9F...aAE037</code></a></td>
             <td>Polygon Mainnet</td>
           </tr>
           <tr>
+            <td><strong>EditionNFT</strong></td>
+            <td>ERC-721 + ERC-2981 Edition Tokens</td>
+            <td><a href="https://polygonscan.com/address/0x9e9Cc1486bf440Bd9eAaaD947958524Aaed3f8b0" target="_blank" rel="noopener"><code>0x9e9C...f8b0</code></a></td>
+            <td>Polygon Mainnet</td>
+          </tr>
+          <tr>
+            <td><strong>StoryNFT</strong></td>
+            <td>ERC-721 + ERC-2981 Story Tokens</td>
+            <td><a href="https://polygonscan.com/address/0xD67e537Dba1236f802432cbDD30Fec3f6D38e7E3" target="_blank" rel="noopener"><code>0xD67e...e7E3</code></a></td>
+            <td>Polygon Mainnet</td>
+          </tr>
+          <tr>
             <td><strong>RoyaltyRouter</strong></td>
-            <td>Non-Custodial Settlement</td>
-            <td><a href="https://polygonscan.com/address/0xca9F6604A9b498DB31d113836E2957c0a9aAE037" target="_blank" rel="noopener"><code>0xca9F...aAE037</code></a></td>
+            <td>Pull-Based Non-Custodial Distribution</td>
+            <td><a href="https://polygonscan.com/address/0x44169829489d70aaecbf845870652871C65fC461" target="_blank" rel="noopener"><code>0x4416...C461</code></a></td>
+            <td>Polygon Mainnet</td>
+          </tr>
+          <tr>
+            <td><strong>RecoveryToolkit</strong></td>
+            <td>Asset Recovery &amp; Safety Checks</td>
+            <td><a href="https://polygonscan.com/address/0xedE0Ec0C1BdCFBa4FE6AE0a4C53290a1e83e89cB" target="_blank" rel="noopener"><code>0xedE0...89cB</code></a></td>
             <td>Polygon Mainnet</td>
           </tr>
         </tbody>
       </table>
     </div>
 
-    <!-- For Authors Section -->
+    <!-- ━━━ For Authors Section ━━━ -->
     <div style="background: var(--bg-alt); border: 1px solid var(--border); border-radius: 6px; padding: 36px; text-align: center; margin-bottom: 60px;">
       <span class="sect-numeral">FOR AUTHORS &amp; PUBLISHERS</span>
       <h3 style="font-family: 'Cinzel', serif; font-size: 1.5rem; margin-bottom: 12px;">Your Words, Your Proof</h3>
-      <p style="color: var(--text-secondary); font-size: 0.92rem; max-width: 600px; margin: 0 auto 24px;">
-        LPS-1 is an open public standard. Fork the reference repository, run the deterministic hashing pipeline on your own manuscript, and anchor your work with immutable cryptographic provenance.
+      <p style="color: var(--text-secondary); font-size: 0.92rem; max-width: 620px; margin: 0 auto 24px;">
+        LPS-1 is an open standard. Fork the reference repository, run the deterministic hashing pipeline on your own manuscript, and anchor your work with immutable cryptographic provenance.
       </p>
       <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
-        <a href="https://github.com/FTHTrading/LPS-1-Reference-Implementation" target="_blank" rel="noopener" class="btn btn-primary">Fork Reference Repo</a>
+        <a href="https://github.com/FTHTrading/2500-donkeys" target="_blank" rel="noopener" class="btn btn-primary">Fork Reference Repo</a>
         <a href="library.html" class="btn">Enter The Library</a>
       </div>
     </div>
@@ -639,7 +832,7 @@
   </main>
 
   <!-- ━━━ Footer ━━━ -->
-  <footer style="text-align: center; padding: 40px 24px 100px; border-top: 1px solid var(--border); max-width: 1020px; margin: 0 auto;">
+  <footer style="text-align: center; padding: 40px 24px 100px; border-top: 1px solid var(--border); max-width: 1040px; margin: 0 auto;">
     <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-bottom: 16px;">
       <a href="/" style="font-size: 0.8rem; color: var(--gold);">Home</a>
       <a href="library.html" style="font-size: 0.8rem; color: var(--gold);">Library</a>
@@ -648,9 +841,10 @@
       <a href="gallery.html" style="font-size: 0.8rem; color: var(--gold);">Gallery</a>
       <a href="https://doi.org/10.5281/zenodo.18646886" target="_blank" rel="noopener" style="font-size: 0.8rem; color: var(--gold);">Zenodo DOI</a>
       <a href="https://orcid.org/0009-0008-8425-939X" target="_blank" rel="noopener" style="font-size: 0.8rem; color: var(--gold);">ORCID</a>
-      <a href="https://github.com/FTHTrading/LPS-1-Reference-Implementation" target="_blank" rel="noopener" style="font-size: 0.8rem; color: var(--gold);">GitHub</a>
+      <a href="https://github.com/FTHTrading/2500-donkeys" target="_blank" rel="noopener" style="font-size: 0.8rem; color: var(--gold);">GitHub</a>
+      <a href="https://polygonscan.com/address/0xca9F6604A9b498DB31d113836E2957c0a9aAE037" target="_blank" rel="noopener" style="font-size: 0.8rem; color: var(--gold);">Polygonscan</a>
     </div>
-    <p style="font-size: 0.75rem; color: var(--text-muted);">&copy; 2026 Kevan Burns &middot; Kidd James. Literary rights reserved. Protocol infrastructure MIT licensed.</p>
+    <p style="font-size: 0.75rem; color: var(--text-muted);">&copy; 2026 Kevan Burns &middot; Kidd James. Literary rights reserved. Infrastructure MIT licensed.</p>
   </footer>
 
   <!-- Theme Toggle Script -->
