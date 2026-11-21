@@ -447,7 +447,7 @@
         <p><a href="https://polygonscan.com/address/0x44169829489d70aaecbf845870652871C65fC461#code" target="_blank" rel="noopener">0x441698...fC461</a><br>Programmable revenue splits. Recoupment waterfall.</p>
       </div>
     </div>
-    <p class="arch-note">All contracts are verified on Polygonscan. 293 tests passing across 7 suites. Network: Polygon Mainnet, Chain ID 137, Solidity 0.8.19.</p>
+    <p class="arch-note">Every minted token, its owner and mint transaction: <a href="/mints">Mints &amp; Proof</a>. All contracts are verified on Polygonscan. 293 tests passing across 7 suites. Network: Polygon Mainnet, Chain ID 137, Solidity 0.8.19.</p>
   </section>
 
   <!-- ━━━ Footer ━━━ -->
@@ -471,15 +471,15 @@ const STORY_NFT_ADDRESS   = '0xD67e537Dba1236f802432cbDD30Fec3f6D38e7E3';
 // Minimal ABIs for minting
 const EDITION_ABI = [
   'function mint(uint8 tier) payable',
-  'function tiers(uint8) view returns (uint256 maxSupply, uint256 minted, uint256 price, bool mintOpen, bool editionLinked)',
+  'function getTier(uint8) view returns (tuple(uint256 maxSupply, uint256 minted, uint256 price, bool mintOpen, uint256 editionIndex, bool editionLinked))',
   'function totalMinted() view returns (uint256)',
   'function name() view returns (string)',
 ];
 
 const STORY_ABI = [
-  'function mint(uint8 storyId) payable',
-  'function stories(uint8) view returns (string title, bytes32 contentHash, uint256 maxSupply, uint256 minted, uint256 price, bool mintOpen, bool registered)',
-  'function registeredCount() view returns (uint8)',
+  'function mint(uint256 storyId) payable',
+  'function stories(uint256) view returns (string title, bytes32 contentHash, uint256 maxSupply, uint256 minted, uint256 price, bool mintOpen, bool registered)',
+  'function registeredCount() view returns (uint256)',
   'function totalMinted() view returns (uint256)',
   'function name() view returns (string)',
 ];
@@ -642,17 +642,17 @@ async function refreshEditionData() {
   if (!editionContract) return;
   try {
     // Founder tier (1)
-    const founder = await editionContract.tiers(1);
+    const founder = await editionContract.getTier(1);
     document.getElementById('founder-minted').textContent = `${founder.minted} / ${founder.maxSupply}`;
     document.getElementById('founder-price').textContent = `${ethers.formatEther(founder.price)} POL`;
 
     // Public tier (2)
-    const pub = await editionContract.tiers(2);
+    const pub = await editionContract.getTier(2);
     document.getElementById('public-minted').textContent = `${pub.minted} / ${pub.maxSupply}`;
     document.getElementById('public-price').textContent = `${ethers.formatEther(pub.price)} POL`;
 
     // Genesis tier (0)
-    const genesis = await editionContract.tiers(0);
+    const genesis = await editionContract.getTier(0);
     document.getElementById('genesis-minted').textContent = `${genesis.minted} / 1`;
   } catch (err) {
     console.error('Failed to refresh edition data:', err);
@@ -690,7 +690,7 @@ async function mintEdition(tier) {
     btn.textContent = 'Minting…';
     btn.disabled = true;
 
-    const tierData = await editionContract.tiers(tier);
+    const tierData = await editionContract.getTier(tier);
     const tx = await editionContract.mint(tier, { value: tierData.price });
     logEntry(`${tierNames[tier]} mint TX submitted: ${tx.hash}`, 'success');
 
